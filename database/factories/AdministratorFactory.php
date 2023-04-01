@@ -1,0 +1,37 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Administrator>
+ */
+class AdministratorFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     * @return array<string, mixed>
+     *
+     * fake()->tipo_de_dato($argumento = valor);
+     * fake es una función que nos ayuda a llenar una base de datos. 
+     * unique() : Es un método que define un valor único.
+     * 
+     * Tipos.
+     * firstNameMale : Retorna un nombre de hombre. 
+     * lastName : Retorna un apellido.
+     * numberBetween($min = 0, $max = Null) : Retorna un número entre $min y $max
+     * safeEmail : Retorna un correo electrónico.
+     * md5 : Retorna una contraseña cifrada con md5.
+     * e164PhoneNumber : Retorna un número de teléfono con el siguiente formato:'+584160140472'.
+     */
+    public function definition(): array
+    {
+        return [
+            'name'      => fake()->firstNameMale(),
+            'lastname'  => fake()->lastName(),
+            'email'     => fake()->unique()->safeEmail(),
+            'password'  => "root",
+        ];
+    }
+}

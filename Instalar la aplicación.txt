@@ -1,0 +1,32 @@
+"""
+	Esta es una guía para poder instalar la aplicación
+	de Laravel. 
+
+	Primero, debo informar que durante la realización de la aplicación
+	se usó Linux Mint, se trabajó con PHP 8.1, 
+	Laravel 10.4 y Postgres 14.6 para la base de datos. 
+"""
+
+-- Paso 1: Instalar la aplicación de Laravel. 
+composer create-project laravel/laravel cenamec
+
+-- Paso 2: Copiamos todas las carpetas de nuestro archivo comprimido. 
+-- Copiamos todo los archivos y le damos a reemplazar. 
+
+-- Paso 3: Configurar el archivo .env.
+-- Debemos ir al archivo .env y configurarlo según nuestras características. 
+-- NOTA: Debemos tener una base de datos creada antes de hacer la conexión.  
+
+-- Paso 5: Ejecutamos las 'Migraciones' y los 'Seeders'. 
+php artisan migrate --seed
+
+-- Paso 6: Ejecutamos el servidor. 
+php artisan serve
+
+
+
+TODAVÍA NOOOOOOO
+-- Paso 7: Logearnos en la aplicación.
+-- Las credenciales para entrar en la aplicación son:
+-- "usernames" 	= "root"
+-- "password" 	= "root" 
