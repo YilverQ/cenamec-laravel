@@ -19,7 +19,7 @@ class Questionnaire extends Model
     **/
     protected $fillable = [ 'ask', 'answer',
                             'bad1', 'bad2',
-                            'bad3'];
+                            'bad3', 'level'];
 
 
     /**

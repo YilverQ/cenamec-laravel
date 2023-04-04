@@ -30,6 +30,7 @@ class QuestionnaireFactory extends Factory
             'bad1'   => fake()->catchPhrase(),
             'bad2'   => fake()->catchPhrase(),
             'bad3'   => fake()->catchPhrase(),
+            'level' => fake()->numberBetween($min = 1, $max = 2),
             'teacher_id'  => "1",
             'module_id'   => fake()->numberBetween($min = 1, $max = 5),
         ];

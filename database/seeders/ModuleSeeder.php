@@ -18,18 +18,21 @@ class ModuleSeeder extends Seeder
             'name' => 'Introducción a la física',
             'level' => 1,
             'teacher_id' => 1,
+            'course_id'  => 1,
         ]);
 
         Module::create([
             'name' => 'Fundamentos elementales de la física',
             'level' => 2,
             'teacher_id' => 1,
+            'course_id'  => 1,
         ]);
 
         Module::create([
             'name' => 'Conceptos avanzados de la física',
             'level' => 3,
             'teacher_id' => 1,
+            'course_id'  => 1,
         ]);
 
 
@@ -38,18 +41,21 @@ class ModuleSeeder extends Seeder
             'name' => 'Introducción a la Química',
             'level' => 1,
             'teacher_id' => 1,
+            'course_id'  => 2,
         ]);
 
         Module::create([
             'name' => 'Fundamentos elementales de la Química',
             'level' => 2,
             'teacher_id' => 1,
+            'course_id'  => 2,
         ]);
 
         Module::create([
             'name' => 'Conceptos avanzados de la Química',
             'level' => 3,
             'teacher_id' => 1,
+            'course_id'  => 2,
         ]);
 
 
@@ -58,18 +64,21 @@ class ModuleSeeder extends Seeder
             'name' => 'Introducción a la Biología',
             'level' => 1,
             'teacher_id' => 1,
+            'course_id'  => 3,
         ]);
 
         Module::create([
             'name' => 'Fundamentos elementales de la Biología',
             'level' => 2,
             'teacher_id' => 1,
+            'course_id'  => 3,
         ]);
 
         Module::create([
             'name' => 'Conceptos avanzados de la Biología',
             'level' => 3,
             'teacher_id' => 1,
+            'course_id'  => 3,
         ]);
 
 
@@ -78,18 +87,21 @@ class ModuleSeeder extends Seeder
             'name' => 'Introducción a la Humanidades',
             'level' => 1,
             'teacher_id' => 2,
+            'course_id'  => 4,
         ]);
 
         Module::create([
             'name' => 'Fundamentos elementales de la Humanidades',
             'level' => 2,
             'teacher_id' => 2,
+            'course_id'  => 4,
         ]);
 
         Module::create([
             'name' => 'Conceptos avanzados de la Humanidades',
             'level' => 3,
             'teacher_id' => 2,
+            'course_id'  => 4,
         ]);
 
 
@@ -98,18 +110,21 @@ class ModuleSeeder extends Seeder
             'name' => 'Introducción a la Psicología',
             'level' => 1,
             'teacher_id' => 2,
+            'course_id'  => 5,
         ]);
 
         Module::create([
             'name' => 'Fundamentos elementales de la Psicología',
             'level' => 2,
             'teacher_id' => 2,
+            'course_id'  => 5,
         ]);
 
         Module::create([
             'name' => 'Conceptos avanzados de la Psicología',
             'level' => 3,
             'teacher_id' => 2,
+            'course_id'  => 5,
         ]);
 
 
@@ -118,18 +133,21 @@ class ModuleSeeder extends Seeder
             'name' => 'Introducción a la Ciencias Sociales',
             'level' => 1,
             'teacher_id' => 2,
+            'course_id'  => 6,
         ]);
 
         Module::create([
             'name' => 'Fundamentos elementales de la Ciencias Sociales',
             'level' => 2,
             'teacher_id' => 2,
+            'course_id'  => 6,
         ]);
 
         Module::create([
             'name' => 'Conceptos avanzados de la Ciencias Sociales',
             'level' => 3,
             'teacher_id' => 2,
+            'course_id'  => 6,
         ]);
     }
 }

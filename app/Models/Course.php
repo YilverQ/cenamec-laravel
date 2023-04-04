@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Certificate;
 use App\Models\Teacher;
 use App\Models\Student;
+use App\Models\Module;
 
 
 class Course extends Model
@@ -27,6 +28,11 @@ class Course extends Model
     public function certificates ()
     {
         return $this->hasMany(Certificate::class);
+    }
+
+    public function modules ()
+    {
+        return $this->hasMany(Module::class);
     }
 
 

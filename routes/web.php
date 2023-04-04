@@ -3,14 +3,15 @@
 use Illuminate\Support\Facades\Route;
 
 /*Importamos los controladores*/
-use App\Http\Controller\AdministratorController;
-use App\Http\Controller\TeacherController;
-use App\Http\Controller\StudentController;
-use App\Http\Controller\CourseController;
-use App\Http\Controller\ModuleController;
-use App\Http\Controller\NoteController;
-use App\Http\Controller\QuestionnaireController;
-use App\Http\Controller\CertificateController;
+use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\NoteController;
+use App\Http\Controllers\QuestionnaireController;
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,26 @@ use App\Http\Controller\CertificateController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+/** Login
+ * HTTP     URI              Method         Reponse   Description
+ * -----------------------------------------------------------------------
+ * get   /home               index           View      Retorna la vista principal. 
+ * get   /login              login           View      Formulario para ingresar al sistema. 
+ * get   /signup             signup          View      Formulario para crear un nuevo estudiante. 
+ * post  /login              checkStudent    Action    Combrueba los datos del usuario y redirecciona. 
+ * post  /login              checkTeacher    Action    Combrueba los datos del usuario y redirecciona. 
+ * post  /signup             checkSignup     Action    Comprueba los datos del usuario y redirecciona.
+*/
+Route::controller(LoginController::class)->group(function () {
+    Route::get( '/home', 'home')->name('login.home');
+    Route::get( '/login', 'login')->name('login.login');
+    Route::get( '/signup', 'signup')->name('login.signup');
+    Route::post('/login/student', 'checkStudent')->name('login.checkStudent');
+    Route::post('/login/teacher', 'checkTeacher')->name('login.checkTeacher');
+    Route::post('/signup', 'checkSignup')->name('login.checkSignup');
 });
 
 

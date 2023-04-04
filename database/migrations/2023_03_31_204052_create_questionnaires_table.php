@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string("bad1");
             $table->string("bad2");
             $table->string("bad3");
+            $table->integer("level");
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')
                             ->references('id')

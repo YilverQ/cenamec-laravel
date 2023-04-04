@@ -27,6 +27,7 @@ return new class extends Migration
             $table->id();
             $table->string("img")->unique();
             $table->string("description");
+            $table->integer("level");
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')
                             ->references('id')

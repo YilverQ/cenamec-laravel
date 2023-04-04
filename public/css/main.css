@@ -1,0 +1,67 @@
+/*Estilos para todos los elementos*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a{text-decoration: none;}
+li{list-style: none;}
+/*Fin de los estilos que aplican para todos los elementos*/
+
+
+/*Custom Propities*/
+:root{
+  /*Colores de Google*/
+  --danger:#d93e4c;
+  --success:#28a745;
+  --light:#fff;
+
+  --text:#2d3436;
+  --title: #2e3440;
+  --background: #e5e9f0;
+  
+  --primary:#0ab1aa;
+  --secondary: #49ae4e;
+  --tertiary:#392e6d;
+}
+/*FIN de las Customs Propities*/
+
+
+/*Estilos para los elementos principales*/
+html {
+  scroll-behavior: smooth;
+}
+body{
+  background: var(--background);
+  min-height: 100vh;
+}
+h1, h2, h3, h4, th{
+  font-family: 'Roboto', sans-serif;
+  font-display: fallback;
+  color: var(--title);
+  font-size: 25px;
+}
+h1{
+  font-size: 30px;
+}
+p, li, a, input, select, button, label,td{
+  font-family: 'Quicksand', sans-serif;
+  font-display: fallback;
+  color:var(--text);
+  font-size: 16px;
+}
+/*Fin de los estilos principales*/
+
+
+/*Media queries - Globales*/
+@media (max-width: 500px){
+  h1{
+    font-size: 20px;
+  }
+  h1, h2, h3, h4, th{
+    font-size: 18px;
+  }
+  p, li, a, input, select, button, label,td{
+    font-size: 14px;
+  }
+}

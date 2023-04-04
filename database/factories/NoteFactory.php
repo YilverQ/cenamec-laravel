@@ -30,6 +30,7 @@ class NoteFactory extends Factory
                                                 'cats'),
             'description' => fake()->realText($maxNbChars = 200, $indexSize = 2),
             'teacher_id' => "1",
+            'level' => fake()->numberBetween($min = 1, $max = 2),
             'module_id'  => fake()->numberBetween($min = 1, $max = 2),
         ];
     }

@@ -8,6 +8,7 @@ use App\Models\Teacher;
 use App\Models\Note;
 use App\Models\Questionnaire;
 use App\Models\Student;
+use App\Models\Course;
 
 
 class Module extends Model
@@ -28,6 +29,11 @@ class Module extends Model
     public function teacher ()
     {
         return $this->belongsTo(Teacher::class);
+    }
+
+    public function course ()
+    {
+        return $this->belongsTo(Course::class);
     }
 
 

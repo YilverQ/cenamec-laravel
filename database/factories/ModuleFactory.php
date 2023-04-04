@@ -27,6 +27,7 @@ class ModuleFactory extends Factory
             'name' => fake()->unique()->company(),
             'level' => fake()->numberBetween($min = 1, $max = 4),
             'teacher_id' => fake()->numberBetween($min = 1, $max = 2),
+            'course_id' => fake()->numberBetween($min = 1, $max = 2),
         ];
     }
 }
