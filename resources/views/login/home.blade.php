@@ -3,7 +3,7 @@
 
 @section('title', 'Inicio')
 @section('styles')
-	<link rel="stylesheet" type="text/css" href="./css/login/home.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 @endsection
 
 
@@ -12,18 +12,21 @@
 	<!--Header-->
 	<div class="header__background">
 		<header class="header">
-			<img class="header__img" src="./img/login/header_icon.png" alt="Imagen principal, wallpaper de un laboratorio">
+			<img class="header__img" 
+				src="{{ asset('img/login/header_icon.png') }}" 
+				alt="Imagen principal, wallpaper de un laboratorio">
+			
 			<div class="header__information">
 				<h2 class="header__title">
 					¡Una forma divertida, efectiva y libre de aprender ciencias!
 				</h2>
 				<ul class="header__bottons">
-					<a href="/singup">
+					<a href="{{ route('login.signup') }}">
 						<li class="header__loginItem header__loginItem--contrast">
 							Empieza ahora
 						</li>
 					</a>
-					<a href="/login">
+					<a href="{{ route('login.login') }}">
 						<li class="header__loginItem">Ya tengo una cuenta</li>
 					</a>
 				</ul>
@@ -44,7 +47,10 @@
 		<!--Information-->
 		<article class="article">
 			<section class="tab">
-				<img class="tab__img" src="./img/login/funny.png" alt="Dos jovenes divertidos">
+				<img class="tab__img" 
+					src="{{ asset('img/login/funny.png') }}" 
+					alt="Dos jovenes divertidos">
+				
 				<div class="tab__information">
 					<h2 class="tab__title">Una forma <strong class="color-Text">divertida</strong> de aprender ciencia</h2>
 					<p class="tab__description">¡El aprendizaje puede ser efectivo y divertido a la vez! Nuestra formula se basa en una técnica de aprendizaje que traslada la mécanica de juego al ambito educativo. Mediante niveles entretenidos y cada vez más competitivos, el estudiante podrá ganar recompensas generando experiencias positivas que le motiven a la finalización del curso.</p>
@@ -72,14 +78,20 @@
 					<h3 class="love-middle__title"><i class="fa-solid fa-face-laugh-beam"></i>¡Es súper divertido!</h3>
 					<p class="love-middle__description">El aprendizaje divertido realmente funciona porque consigue motivar a los alumnos, desarrollando un mayor compromiso, e incentiva el ánimo de superación.</p>
 				</section>
-				<img class="love-middle__img" src="./img/login/love.png" alt="Abrazo de una madre">
+				<img class="love-middle__img" 
+					src="{{ asset('img/login/love.png') }}" 
+					alt="Abrazo de una madre">
+					
 			</div>
 		</article>
 
 		<article class="article">
 			<!--Information-->
 			<section class="tab tab--reverse">
-				<img class="tab__img tab__img--reverse" src="./img/login/daily.png" alt="Planeta tierra">
+				<img class="tab__img tab__img--reverse" 
+					src="{{ asset('img/login/daily.png') }}" 
+					alt="Planeta tierra">
+
 				<div class="tab__information">
 					<h2 class="tab__title"><strong class="color-Text">Conocimiento</strong> para el día a día</h2>
 					<p class="tab__description">El conocimiento no aplicado es igual a la falta de conocimiento. Sabemos que para alcanzar el éxito necesitas desarrollar tus habilidades poniendo en práctica todos los estudios adquiridos y que mejor forma que educar con con cosas que puedes ver en la vida real.</p>
@@ -90,7 +102,10 @@
 		<article class="article">
 			<!--Information-->
 			<section class="tab">
-				<img class="tab__img" src="./img/login/time.png" alt="Aprende en cualquier momento">
+				<img class="tab__img" 
+					src="{{ asset('img/login/time.png') }}" 
+					alt="Aprende en cualquier momento">
+				
 				<div class="tab__information">
 					<h2 class="tab__title">Aprende <strong class="color-Text">a cualquier hora, en cualquier lugar.</strong></h2>
 					<ol class="tab__content">
@@ -105,7 +120,10 @@
 		<article class="article">
 			<!--Information-->
 			<section class="tab">
-				<img class="tab__img tab__img--reverse" src="./img/login/certificate.png" alt="Obtén un certificado">
+				<img class="tab__img tab__img--reverse" 
+					src="{{ asset('img/login/certificate.png') }}" 
+					alt="Obtén un certificado">
+				
 				<div class="tab__information">
 					<h2 class="tab__title">Obtén un <strong class="color-Text">certificado</strong></h2>
 					<p class="tab__description">El objetivo del <strong>CENAMEC</strong> es la de proveer educación y grandes oportunidades para todos aquellos interesados, por lo tanto obtener un certificado de finalización es posible y completamente gratuito. Demuestra con orgullo tus certificados de finalización ya que cuentan con validación de parte del <strong>Ministerio de Eduación de Venezuela</strong>.</p>

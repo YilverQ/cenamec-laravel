@@ -1,0 +1,65 @@
+.content-table{
+	width: 90%;
+	margin: 30px auto;
+}
+.table{
+	width: 100%;
+	box-shadow: 0 0 10px rgba(10, 10, 10, .2);
+	border-collapse: collapse;
+}
+.td, th{
+	text-align: center;
+	padding: 10px 0;
+}
+.td--action{
+	column-gap: 20px;
+	display: flex;
+	justify-content: center;
+}
+.tr--colored{
+	background: var(--light);
+}
+
+
+
+/*Iconos de accion*/
+.icon{
+	width: min(100%, 100px);
+	font-size: 16px;
+	padding: 5px;
+	margin-top: 5px;
+	border-radius: 3px;
+}
+.icon--show{
+	border: 1px solid var(--primary);
+	color: var(--primary);
+}
+.icon--edit{
+	border: 1px solid var(--tertiary);
+	color: var(--tertiary);
+}
+.icon--delete{
+	border: 1px solid var(--danger);
+	color: var(--danger);
+	cursor: pointer;
+	background: transparent;
+}
+
+.icon--show:hover{
+	background: var(--primary);
+	border: 1px solid var(--light);
+	color: var(--light);
+	transition: all .5s;
+}
+.icon--edit:hover{
+	background: var(--tertiary);
+	border: 1px solid var(--light);
+	color: var(--light);
+	transition: all .5s;
+}
+.icon--delete:hover{
+	background: var(--danger);
+	border: 1px solid var(--light);
+	color: var(--light);
+	transition: all .5s;
+}

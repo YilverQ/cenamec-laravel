@@ -16,7 +16,7 @@
 	@yield('styles')
 
 	<!--Favicon-->
-	<link rel="icon" href="{{ asset('img/logo.png') }}">
+	<link rel="icon" href="./img/logo.png">
 
 	<!--Fuentes-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,27 +29,40 @@
 <body>
 	<!--Navegación-->
   	<nav class="nav">
-		<a href="{{ route('login.home') }}" class="nav__home">
+		<a href="{{ route('administrator.home') }}" class="nav__home">
 		  <img src="{{ asset('img/logo.png') }}" class="nav__logo">
 		  <h1 class="nav__title">CENAMEC</h1>
 		</a>
 		<ul class="nav__menu">
-			<a href="{{ route('login.home') }}">
+			<a href="{{ route('administrator.home') }}">
 				<li class="nav__item">
 					<i class="fa-solid fa-house"></i>
 					<p>Inicio</p>
 				</li>
 			</a>
-			<a href="{{ route('login.login') }}">
+			<li class="nav__item nav__item--menu">
+				<i class="fa-solid fa-list-check"></i>
+				<p>Gestión</p>
+					
+				<!-- Este es el Submenu/Se puede añadir o eliminar elementos. -->
+				<div class="menuMenu">
+				<ul class="submenu">
+					<a href="{{ route('administrator.index') }}" class="submenu__item">
+						<li>Administradores</li>
+					</a>
+					<a href="{{ route('teacher.index') }}" class="submenu__item">
+						<li>Profesores</li>
+					</a>
+					<a href="{{ route('student.index') }}" class="submenu__item">
+						<li>Estudiantes</li>
+					</a>
+				</ul>
+				</div>
+			</li>
+			<a href="{{ route('login.logout') }}">
 				<li class="nav__item">
-					<i class="fa-solid fa-arrow-right-to-bracket"></i>
-					<p>Ingresar</p>
-				</li>
-			</a>
-			<a href="{{ route('login.signup') }}">
-				<li class="nav__item">
-					<i class="fa-solid fa-user-plus"></i>
-					<p>Registrar</p>
+					<i class="fa-solid fa-door-open"></i>
+					<p>Salir</p>
 				</li>
 			</a>
 		</ul>

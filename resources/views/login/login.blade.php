@@ -3,13 +3,16 @@
 
 @section('title', 'Ingreso')
 @section('styles')
-	<link rel="stylesheet" type="text/css" href="./css/login/logout.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
 @endsection
 
 
 @section('content')
-	<form class="form__content">
-		<h2 class="form__icon"><i class="fa-solid fa-graduation-cap"></i></h2>
+	<form class="form__content" method="POST" action="{{ route('login.auth') }}">
+		@csrf
+		<h2 class="form__icon">
+			<i class="fa-solid fa-graduation-cap"></i>
+		</h2>
 		<h2 class="form__title">¡Bienvenido!</h2>
 		<div class="form__item">
 			<label for="email">Correo Eléctronico:</label>
@@ -50,14 +53,16 @@
 					value="Profesor">
 			</div>
 		</div>
-		<input class="form__send form_send--disabled" type="submit" value="Seguir aprendiendo">
+		<input class="form__send form_send--disabled" 
+			type="submit" 
+			value="Seguir aprendiendo">
 	</form>
 @endsection
 
 
 @section('scripts')
-	<script type="module" src="./js/login/formEye.js"></script>
-	<script type="module" src="./js/login/switchField.js"></script>
-	<script type="module" src="./js/login/checkForm.js"></script>
-	<script type="module" src="./js/login/roleButtonSelect.js"></script>
+	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
+	<script type="module" src="{{ asset('js/login/switchField.js') }}"></script>
+	<script type="module" src="{{ asset('js/login/checkFormLogin.js') }}"></script>
+	<script type="module" src="{{ asset('js/login/roleButtonSelect.js') }}"></script>
 @endsection

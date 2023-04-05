@@ -7,11 +7,21 @@ use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
     /**
+     * Middlewares necesarios para comprobar los permisos
+     * auth.teacher -> Comprueba que el usuario tiene permiso de profesor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth.admin');
+    }
+
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return "Vista del profesor";
     }
 
     /**
@@ -19,7 +29,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return "Formulario para crear un profesor";
     }
 
     /**

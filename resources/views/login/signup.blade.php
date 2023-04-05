@@ -3,13 +3,15 @@
 
 @section('title', 'Registro')
 @section('styles')
-	<link rel="stylesheet" type="text/css" href="./css/login/logout.css">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
 @endsection
 
 
 @section('content')
 	<form class="form__content">
-		<h2 class="form__icon"><i class="fa-solid fa-user-plus"></i></h2>
+		<h2 class="form__icon">
+			<i class="fa-solid fa-user-plus"></i>
+		</h2>
 		<h2 class="form__title">Registrarse</h2>
 		<div class="form__item">
 			<label for="name">Nombre:</label>
@@ -98,7 +100,7 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="./js/login/formEye.js"></script>
-	<script type="module" src="./js/login/switchSignup.js"></script>
-	<script type="module" src="./js/login/checkForm.js"></script>
+	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
+	<script type="module" src="{{ asset('js/login/switchSignup.js') }}"></script>
+	<script type="module" src="{{ asset('js/login/checkFormSignup.js') }}"></script>
 @endsection

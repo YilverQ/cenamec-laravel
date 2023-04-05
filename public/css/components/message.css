@@ -1,0 +1,25 @@
+.message{
+    position: absolute;
+    font-weight: 300;
+    color: var(--light);
+    font-size: 1em;
+    padding: .5em .5em;
+    padding-left: 1em;
+    max-width: min(100%, calc(400px));
+}
+.message--error{
+    background: var(--danger);
+}
+.message--success{
+    background: var(--success);
+}
+.message--warning{
+    background: var(--danger);
+}
+.close-message{
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}

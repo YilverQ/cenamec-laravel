@@ -35,24 +35,33 @@ Route::get('/', function () {
  * get   /home               index           View      Retorna la vista principal. 
  * get   /login              login           View      Formulario para ingresar al sistema. 
  * get   /signup             signup          View      Formulario para crear un nuevo estudiante. 
- * post  /login              checkStudent    Action    Combrueba los datos del usuario y redirecciona. 
- * post  /login              checkTeacher    Action    Combrueba los datos del usuario y redirecciona. 
+ * post  /login              auth            Action    Combrueba los datos del usuario y redirecciona. 
+ * post  /login/student      checkStudent    Action    Combrueba los datos del usuario y redirecciona. 
+ * post  /login/teacher      checkTeacher    Action    Combrueba los datos del usuario y redirecciona. 
  * post  /signup             checkSignup     Action    Comprueba los datos del usuario y redirecciona.
+ * get   /logout             logout          Action    Cerramos la sección. 
+ * get   /admin              admin           view      Formulario para ingresar al sistema como admin. 
+ * post  /admin              checkAdmin      Action    Combrueba los datos del usuario y redirecciona. 
 */
 Route::controller(LoginController::class)->group(function () {
     Route::get( '/home', 'home')->name('login.home');
     Route::get( '/login', 'login')->name('login.login');
     Route::get( '/signup', 'signup')->name('login.signup');
+    Route::post('/login', 'auth')->name('login.auth');
     Route::post('/login/student', 'checkStudent')->name('login.checkStudent');
     Route::post('/login/teacher', 'checkTeacher')->name('login.checkTeacher');
     Route::post('/signup', 'checkSignup')->name('login.checkSignup');
+    Route::get( '/logout', 'logout')->name('login.logout');
+    Route::get( '/admin', 'admin')->name('login.admin');
+    Route::post('/admin', 'checkAdmin')->name('login.checkAdmin');
 });
 
 
 /** Administrador
  * HTTP     URI                      Method     Reponse   Description
  * -----------------------------------------------------------------------
- * get   /administrator              index      View      Retorna todos los elementos. 
+ * get   /administrator              home       View      Retorna la vista principal. 
+ * get   /administrators             index      View      Retorna todos los elementos. 
  * get   /administrator/create       create     View      Formulario para crear un nuevo elemento. 
  * post  /administrator              store      Action    Crea un nuevo elemento. 
  * get   /administrator/{item}/edit  edit       View      Vista para editar un elemento. 
@@ -60,9 +69,11 @@ Route::controller(LoginController::class)->group(function () {
  * get   /administrator/check        delete     Action    Elimina un elemento.
 */
 Route::controller(AdministratorController::class)->group(function () {
-    Route::get( '/administrator', 'index')->name('administrator.index');
+    Route::get( '/administrator', 'home')->name('administrator.home');
+    Route::get( '/administrators', 'index')->name('administrator.index');
     Route::get( '/administrator/create', 'create')->name('administrator.create');
     Route::post('/administrator', 'store')->name('administrator.store');
+    Route::get( '/administrator/{item}', 'show')->name('administrator.show');
     Route::get( '/administrator/{item}/edit', 'edit')->name('administrator.edit');
     Route::put( '/administrator/{item}', 'update')->name('administrator.update');
     Route::delete('/administrator/{item}', 'destroy')->name('administrator.destroy');

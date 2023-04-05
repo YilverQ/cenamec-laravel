@@ -7,11 +7,21 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     /**
+     * Middlewares necessary to work
+     * auth.admin -> check that the user has permissions to admin
+     */
+    public function __construct()
+    {
+        $this->middleware('auth.admin');
+    }
+
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return "Vista del estudiante";
     }
 
     /**
@@ -19,7 +29,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return "Formulario para crear un estudiante";
     }
 
     /**
