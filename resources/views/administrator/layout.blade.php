@@ -16,7 +16,7 @@
 	@yield('styles')
 
 	<!--Favicon-->
-	<link rel="icon" href="./img/logo.png">
+	<link rel="icon" href="{{ asset('img/logo.png') }}">
 
 	<!--Fuentes-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,10 +50,10 @@
 					<a href="{{ route('administrator.index') }}" class="submenu__item">
 						<li>Administradores</li>
 					</a>
-					<a href="{{ route('teacher.index') }}" class="submenu__item">
+					<a href="{{ route('admin.teacher.index') }}" class="submenu__item">
 						<li>Profesores</li>
 					</a>
-					<a href="{{ route('student.index') }}" class="submenu__item">
+					<a href="{{ route('admin.student.index') }}" class="submenu__item">
 						<li>Estudiantes</li>
 					</a>
 				</ul>

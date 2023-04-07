@@ -34,11 +34,6 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        //Eliminamos todas las secciones involucradas con la autenticación.
-        $request->session()->forget('is_teacher_valid');
-        $request->session()->forget('is_student_valid');
-        $request->session()->forget('is_admin_valid');
-        $request->session()->forget('admin_id');
         return view('login.login');
     }
 
@@ -66,13 +61,13 @@ class LoginController extends Controller
      */
     public function auth(Request $request)
     {
-        //Check that kind of auth required.
+        //Comprobamos el tipo de autenticación.
         if ($request->input('role') == "student")
         {
-            //Redirect to checkStudent.
+            //Redirecciona a 'checkStudent'.
             return $this->checkStudent($request);
         }
-        //Redirect to checkTeacher.
+        //Redirecciona a 'checkTeacher'.
         return $this->checkTeacher($request);  
     }
 
@@ -82,13 +77,14 @@ class LoginController extends Controller
      */
     public function checkStudent(Request $request)
     {
+        # $student: Hacemos una busqueda con Eloquent.
         $email    = $request->input("email");
         $password = $request->input("password");
         $student  = Student::where('email', '=', $email)->first();
 
         //Si no se encuentra un estudiante es porque el correo ingresado es incorrecto.
         if (empty($student->password)) {
-            session()->flash('message-error', 'Error, los datos ingresados no son correctos');
+            session()->flash('message-error', 'Error, el correo electrónico no está registrado');
             return to_route('login.login');
         }
 
@@ -98,7 +94,8 @@ class LoginController extends Controller
             return to_route('student.index');
         }
         
-        session()->flash('message-error', 'Error, los datos ingresados no son correctos');
+        //En caso contrario, el usuario ha introducido una contraseña incorrecta.
+        session()->flash('message-error', 'Error, la contraseña no es correcta');
         return to_route('login.login');
     }
 
@@ -108,13 +105,14 @@ class LoginController extends Controller
      */
     public function checkTeacher(Request $request)
     {
+        # $teacher: Hacemos una busqueda con Eloquent.
         $email    = $request->input("email");
         $password = $request->input("password");
         $teacher  = Teacher::where('email', '=', $email)->first();
 
         //Si no se encuentra un estudiante es porque el correo ingresado es incorrecto.
         if (empty($teacher->password)) {
-            session()->flash('message-error', 'Error, los datos ingresados no son correctos');
+            session()->flash('message-error', 'Error, el correo electrónico no está registrado');
             return to_route('login.login');
         }
 
@@ -124,7 +122,8 @@ class LoginController extends Controller
             return to_route('teacher.index');
         }
         
-        session()->flash('message-error', 'Error, los datos ingresados no son correctos');
+        //En caso contrario, el usuario ha introducido una contraseña incorrecta.
+        session()->flash('message-error', 'Error, la contraseña no es correcta');
         return to_route('login.login');
     }
 
@@ -134,13 +133,14 @@ class LoginController extends Controller
      */
     public function checkAdmin(Request $request)
     {
+        # $administrator: Hacemos una busqueda con Eloquent.
         $email    = $request->input("email");
         $password = $request->input("password");
         $administrator = Administrator::where('email', '=', $email)->first();
 
         //Si no se encuentra un estudiante es porque el correo ingresado es incorrecto.
         if (empty($administrator->password)) {
-            session()->flash('message-error', 'Error, los datos ingresados no son correctos');
+            session()->flash('message-error', 'Error, el correo electrónico no está registrado');
             return to_route('login.admin');
         }
 
@@ -151,13 +151,15 @@ class LoginController extends Controller
             return to_route('administrator.home');
         }
         
-        session()->flash('message-error', 'Error, los datos ingresados no son correctos');
+        //En caso contrario, el usuario ha introducido una contraseña incorrecta.
+        session()->flash('message-error', 'Error, la contraseña no es correcta');
         return to_route('login.admin');
     }
 
 
     /**
      * Cerramos la sección.
+     * Nos redirijimos a la vista 'login.login'
      */
     public function logout(Request $request)
     {

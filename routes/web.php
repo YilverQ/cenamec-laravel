@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 /*Importamos los controladores*/
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\AdministratorTeacherController;
+use App\Http\Controllers\AdministratorStudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
@@ -60,13 +62,14 @@ Route::controller(LoginController::class)->group(function () {
 /** Administrador
  * HTTP     URI                      Method     Reponse   Description
  * -----------------------------------------------------------------------
- * get   /administrator              home       View      Retorna la vista principal. 
- * get   /administrators             index      View      Retorna todos los elementos. 
- * get   /administrator/create       create     View      Formulario para crear un nuevo elemento. 
- * post  /administrator              store      Action    Crea un nuevo elemento. 
- * get   /administrator/{item}/edit  edit       View      Vista para editar un elemento. 
- * put   /administrator/{item}       update     Action    Actualiza un elemento. 
- * get   /administrator/check        delete     Action    Elimina un elemento.
+ * get     /administrator              home       View      Retorna la vista principal. 
+ * get     /administrators             index      View      Retorna todos los elementos. 
+ * get     /administrator/create       create     View      Formulario para crear un nuevo elemento. 
+ * post    /administrator              store      Action    Crea un nuevo elemento. 
+ * get     /administrator/{item}       show       View      Vista de un elemento. 
+ * get     /administrator/{item}/edit  edit       View      Vista para editar un elemento. 
+ * put     /administrator/{item}       update     Action    Actualiza un elemento. 
+ * delete  /administrator/{item}       delete     Action    Elimina un elemento.
 */
 Route::controller(AdministratorController::class)->group(function () {
     Route::get( '/administrator', 'home')->name('administrator.home');
@@ -77,6 +80,50 @@ Route::controller(AdministratorController::class)->group(function () {
     Route::get( '/administrator/{item}/edit', 'edit')->name('administrator.edit');
     Route::put( '/administrator/{item}', 'update')->name('administrator.update');
     Route::delete('/administrator/{item}', 'destroy')->name('administrator.destroy');
+});
+
+
+/** Administrator - Teacher (AdministratorTeacherController)
+ * HTTP     URI                      Method     Reponse   Description
+ * -----------------------------------------------------------------------
+ * get     /admin/teacher              index      View      Retorna todos los elementos. 
+ * get     /admin/teacher/create       create     View      Formulario para crear un nuevo elemento. 
+ * post    /admin/teacher              store      Action    Crea un nuevo elemento. 
+ * get     /admin/teacher/{item}       show       View      Vista de un elemento. 
+ * get     /admin/teacher/{item}/edit  edit       View      Vista para editar un elemento. 
+ * put     /admin/teacher/{item}       update     Action    Actualiza un elemento. 
+ * delete  /admin/teacher/{item}       delete     Action    Elimina un elemento.
+*/
+Route::controller(AdministratorTeacherController::class)->group(function () {
+    Route::get( '/admin/teacher', 'index')->name('admin.teacher.index');
+    Route::get( '/admin/teacher/create', 'create')->name('admin.teacher.create');
+    Route::post('/admin/teacher', 'store')->name('admin.teacher.store');
+    Route::get( '/admin/teacher/{item}', 'show')->name('admin.teacher.show');
+    Route::get( '/admin/teacher/{item}/edit', 'edit')->name('admin.teacher.edit');
+    Route::put( '/admin/teacher/{item}', 'update')->name('admin.teacher.update');
+    Route::delete('/admin/teacher/{item}', 'destroy')->name('admin.teacher.destroy');
+});
+
+
+/** Administrator - Student (AdministratorStudentController)
+ * HTTP     URI                      Method     Reponse   Description
+ * -----------------------------------------------------------------------
+ * get     /admin/student              index      View      Retorna todos los elementos. 
+ * get     /admin/student/create       create     View      Formulario para crear un nuevo elemento. 
+ * post    /admin/student              store      Action    Crea un nuevo elemento. 
+ * get     /admin/student/{item}       show       View      Vista de un elemento. 
+ * get     /admin/student/{item}/edit  edit       View      Vista para editar un elemento. 
+ * put     /admin/student/{item}       update     Action    Actualiza un elemento. 
+ * delete  /admin/student/{item}       delete     Action    Elimina un elemento.
+*/
+Route::controller(AdministratorStudentController::class)->group(function () {
+    Route::get( '/admin/student', 'index')->name('admin.student.index');
+    Route::get( '/admin/student/create', 'create')->name('admin.student.create');
+    Route::post('/admin/student', 'store')->name('admin.student.store');
+    Route::get( '/admin/student/{item}', 'show')->name('admin.student.show');
+    Route::get( '/admin/student/{item}/edit', 'edit')->name('admin.student.edit');
+    Route::put( '/admin/student/{item}', 'update')->name('admin.student.update');
+    Route::delete('/admin/student/{item}', 'destroy')->name('admin.student.destroy');
 });
 
 

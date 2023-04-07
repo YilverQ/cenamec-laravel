@@ -73,12 +73,12 @@
 					</h2>
 					<p class="tab__description">El profesor es una persona importante. Dicha persona está encargada de crear nuevos cursos y exponer los conocimientos que sean necesarios y que son relevantes para los estudiantes. Un profesor puede crear un curso, actualizarlo cuando guste y eliminarlo en caso de no ser necesario.</p>
 					<ul class="header__bottons">
-						<a href="{{ route('teacher.create') }}">
+						<a href="{{ route('admin.teacher.create') }}">
 							<li class="header__loginItem header__loginItem--contrast">
 								Crear un profesor
 							</li>
 						</a>
-						<a href="{{ route('teacher.index') }}">
+						<a href="{{ route('admin.teacher.index') }}">
 							<li class="header__loginItem">
 								Ver profesores
 							</li>
@@ -97,14 +97,14 @@
 
 				<div class="tab__information">
 					<h2 class="tab__title">Getiona a los <strong class="color-Text">estudiantes</strong></h2>
-					<p class="tab__description">El estudiante es la persona a quien va dirigido los curso y quien tiene la responsabilidad de aprender. Un estudiante puede cursar cualquier curso y al final obtener un certificado</p>
+					<p class="tab__description">El estudiante es la persona a quien va dirigido los curso y quien tiene la responsabilidad de aprender. Un estudiante puede cursar cualquier curso y al final obtener un certificado.</p>
 					<ul class="header__bottons">
-						<a href="{{ route('student.create') }}">
+						<a href="{{ route('admin.student.create') }}">
 							<li class="header__loginItem header__loginItem--contrast">
 								Crear un estudiante
 							</li>
 						</a>
-						<a href="{{ route('student.index') }}">
+						<a href="{{ route('admin.student.index') }}">
 							<li class="header__loginItem">
 								Ver estudiantes
 							</li>

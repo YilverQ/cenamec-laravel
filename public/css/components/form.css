@@ -202,3 +202,17 @@
 	border: 2px solid transparent;
 	color: var(--light);
 }
+
+/*Media queries - Globales*/
+@media (max-width: 861px){
+	.form__search{
+		width: 90%;
+		margin: auto;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 50px;
+		column-gap: 10px;
+	}
+}

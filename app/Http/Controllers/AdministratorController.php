@@ -18,7 +18,9 @@ class AdministratorController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * Retornamos una vista.
+     * buscamos el administrador 'admin'
+     * y lo envíamos a la vista. 
      */
     public function home(Request $request)
     {
@@ -30,7 +32,9 @@ class AdministratorController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * Retornamos una lista de todos los administradores.
+     * Buscamos una lista de todos los administradores
+     * y lo envíamos a la vista. 
      */
     public function index()
     {
@@ -41,16 +45,22 @@ class AdministratorController extends Controller
                 ->with("administrators", $administrators);
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Retornamos un formulario que nos permite crear un nuevo elemento.
      */
     public function create()
     {
         return view('administrator.create');
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     * Acción para crear un elemento.
+     * 
+     * Para crear el elemento se debe cumplir:
+     *      1. El elemento debe ingresar un correo electrónico único.
+     *      2. El correo electrónico no puede estar asociado a ningún usuario.    
      */
     public function store(Request $request)
     {
@@ -67,16 +77,19 @@ class AdministratorController extends Controller
             $administrator->password = $request->input('password');
             $administrator->save();
             
-            //Persistimos los datos.
+            #Retornamos un mensaje flash.
             session()->flash('message-success', '¡Un nuevo administrador fue creado!');
             return to_route('administrator.index');
         }
+
+        #Retornamos un mensaje flash de error.
         session()->flash('message-error', 'Error, los datos ingresados no son correctos');
         return to_route('administrator.create');
     }
 
+
     /**
-     * Display the specified resource.
+     * Retornamos una vista que nos muestra un elemento. 
      */
     public function show(Administrator $item)
     {
@@ -84,8 +97,9 @@ class AdministratorController extends Controller
                 ->with("admin", $item);
     }
 
+
     /**
-     * Show the form for editing the specified resource.
+     * Retornamos un formulario que nos permite actualizar un elemento. 
      */
     public function edit(Administrator $item)
     {
@@ -94,33 +108,44 @@ class AdministratorController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Acción para actualizar un elemento.
+     * 
+     * Para actualizar el elemento se debe cumplir:
+     *      1. El elemento debe ingresar un correo electrónico único.
+     *      2. El correo electrónico puede ser igual al que tenía anteriormente.    
      */
     public function update(Request $request, Administrator $item)
     {   
         $email = $request->input('email');
         $is_email_valid = Administrator::where('email', '=', $email)->first();
 
+        //El correo ingresado en el formulario ya está en la bd.
         if (!(empty($is_email_valid->email))) {
             if ($item->email != $email) {
                 #El correo ya lo tiene otra persona.
+                #No actualiza el dato. 
+                #Retorna un mensaje de error. 
                 session()->flash('message-error', 'Error, los datos ingresados no son correctos');
                 return to_route('administrator.index');
             }
         }
         
+        //Si no se cumple lo anterior es porque se puede actualizar los datos. 
         $item->name     = $request->input('name');
         $item->lastname = $request->input('lastname');
         $item->email    = $request->input('email');
         $item->password = $request->input('password');
         $item->save();
         
+        #Retorna un mensaje flash.
         session()->flash('message-success', '¡El administrador fue actualizado!');
         return to_route('administrator.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminamos un elemento de nuestra bd.
+     * Para que se pueda eliminar se debe cumplir con lo siguiente:
+     *      1. El elemento que se desea eliminar no puede ser del usuario que está activo.   
      */
     public function destroy(Request $request, Administrator $item)
     {
@@ -128,11 +153,18 @@ class AdministratorController extends Controller
         $admin_id = $request->session()->get('admin_id');
         $admin    = Administrator::find($admin_id);
 
+
+        /*
+            Si el administrador de la sesión activa es el mismo
+            que el elemento que se desea eliminar, no lo elimina.
+            Retorna un mensaje flash de error. 
+        */
         if ($admin->email == $item->email) {
             session()->flash('message-error', '¡Tu sesión está activa, no te puedes eliminar!');
             return to_route('administrator.index');
         }
 
+        //Elimina el elemento y retorna un mensaje flash.
         $item->delete();
         session()->flash('message-success', '¡El administrador fue eliminado correctamente!');
         return to_route('administrator.index');
