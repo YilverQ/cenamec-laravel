@@ -11,9 +11,10 @@
 	<form class="form__content" method="POST" action="{{ route('login.auth') }}">
 		@csrf
 		<h2 class="form__icon">
-			<i class="fa-solid fa-graduation-cap"></i>
+			<i id="iconTeacher" class="fa-solid fa-chalkboard-user hidden"></i>
+			<i id="iconStudent" class="fa-solid fa-user-graduate"></i>
 		</h2>
-		<h2 class="form__title">¡Bienvenido!</h2>
+		<h2 class="form__title">¡Bienvenido estudiante!</h2>
 		<div class="form__item">
 			<label for="email">Correo Eléctronico:</label>
 			<input class="form__input" 
@@ -53,7 +54,7 @@
 					value="Profesor">
 			</div>
 		</div>
-		<input class="form__send form_send--disabled" 
+		<input id="form__send" class="form__send form_send--disabled" 
 			type="submit" 
 			value="Seguir aprendiendo">
 	</form>

@@ -17,7 +17,7 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Perfil de <strong class="color-Text">{{ $teacher->name }}</strong>
+					Editar el perfil de <strong class="color-Text">{{ $teacher->name }}</strong>
 				</h2>
 				<form class="form__content" 
 						method="POST" 
@@ -27,7 +27,7 @@
 					<h2 class="form__icon">
 						<i class="fa-solid fa-chalkboard-user"></i>
 					</h2>
-					<h2 class="form__title">Ingresar los datos</h2>
+					<h2 class="form__title">Datos del profesor</h2>
 					<div class="form__item">
 						<label for="name">Nombre:</label>
 						<input class="form__input" 
@@ -112,7 +112,7 @@
 					</div>
 					<input class="form__send form_send--disabled" 
 						type="submit" 
-						value="Crear">
+						value="Actualizar">
 				</form>
 			</div>
 		</article>
@@ -120,22 +120,17 @@
 		<article class="article">
 			<section class="tab">
 				<img class="tab__img" 
-					src="{{ asset('img/administrator/administrators.png') }}" 
+					src="{{ asset('img/administrator/teachers.png') }}" 
 					alt="Dos jovenes divertidos">
 				
 				<div class="tab__information">
 					<h2 class="tab__title">
-						Ver lista de <strong class="color-Text">administradores</strong>
+						Ver lista de <strong class="color-Text">profesores</strong>
 					</h2>
 					<ul class="header__bottons">
-						<a href="{{ route('administrator.create') }}">
-							<li class="header__loginItem header__loginItem--contrast">
-								Crear un administrador
-							</li>
-						</a>
-						<a href="{{ route('administrator.index') }}">
+						<a href="{{ route('admin.teacher.index') }}">
 							<li class="header__loginItem">
-								Ver administradores
+								Ver profesores
 							</li>
 						</a>
 					</ul>

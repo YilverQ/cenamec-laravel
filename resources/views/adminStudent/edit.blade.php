@@ -17,7 +17,7 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Perfil de <strong class="color-Text">{{ $student->name }}</strong>
+					Editar el perfil de <strong class="color-Text">{{ $student->name }}</strong>
 				</h2>
 				<form class="form__content" 
 						method="POST" 
@@ -27,7 +27,7 @@
 					<h2 class="form__icon">
 						<i class="fa-solid fa-user-graduate"></i>
 					</h2>
-					<h2 class="form__title">Ingresar los datos</h2>
+					<h2 class="form__title">Datos del estudiante</h2>
 					<div class="form__item">
 						<label for="name">Nombre:</label>
 						<input class="form__input" 
@@ -120,22 +120,17 @@
 		<article class="article">
 			<section class="tab">
 				<img class="tab__img" 
-					src="{{ asset('img/administrator/administrators.png') }}" 
-					alt="Dos jovenes divertidos">
+					src="{{ asset('img/administrator/students.png') }}" 
+					alt="Dos estudiantes divertidos">
 				
 				<div class="tab__information">
 					<h2 class="tab__title">
 						Ver lista de <strong class="color-Text">estudiantes</strong>
 					</h2>
 					<ul class="header__bottons">
-						<a href="{{ route('administrator.create') }}">
-							<li class="header__loginItem header__loginItem--contrast">
-								Crear un estudiante
-							</li>
-						</a>
-						<a href="{{ route('administrator.index') }}">
+						<a href="{{ route('admin.student.index') }}">
 							<li class="header__loginItem">
-								Ver lista de estudiantes
+								Ver estudiantes
 							</li>
 						</a>
 					</ul>

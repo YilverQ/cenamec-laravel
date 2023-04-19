@@ -48,13 +48,13 @@
 				<div class="menuMenu">
 				<ul class="submenu">
 					<a href="{{ route('administrator.index') }}" class="submenu__item">
-						<li>Administradores</li>
+						<li><i class="fa-solid fa-user-shield"></i> <p>Administradores</p></li>
 					</a>
 					<a href="{{ route('admin.teacher.index') }}" class="submenu__item">
-						<li>Profesores</li>
+						<li><i class="fa-solid fa-chalkboard-user"></i> <p>Profesores</p></li>
 					</a>
 					<a href="{{ route('admin.student.index') }}" class="submenu__item">
-						<li>Estudiantes</li>
+						<li><i class="fa-solid fa-user-graduate"></i> <p>Estudiantes</p></li>
 					</a>
 				</ul>
 				</div>
@@ -91,6 +91,7 @@
 	<!--Scripts-->
 	<script type="module" src="{{ asset('js/components/navItemSelected.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/message.js') }}"></script>
+	<script type="module" src="{{ asset('js/administrator/navMenu.js') }}"></script>
 	@yield('scripts')
 </body>
 </html>

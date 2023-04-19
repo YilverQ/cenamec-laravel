@@ -73,6 +73,5 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
 	<script type="module" src="{{ asset('js/administrator/checkFormAdmin.js') }}"></script>
 @endsection

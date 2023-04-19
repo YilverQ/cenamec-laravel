@@ -6,6 +6,19 @@
 	width: 90%;	
 	margin: auto;
 }
+.header__background--login{
+	background: url("../../img/login/wallpaper.jpeg");	
+}
+.header__background--admin{
+	background: url("../../img/administrator/wallpaper.jpeg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 90%;	
+	margin: auto;	
+}
+
+
 .header{
 	background: rgba(10, 10, 10, .5);
 	box-shadow: 0 0 5px rgba(10, 10, 10, .2);
@@ -336,18 +349,22 @@
 	}	
 }
 
-
-/*Data view*/
 .content-data{
 	width: 100%;
+	row-gap: 20px;
+	display: flex;
+	flex-flow: column;
 }
 .data-view{
-	padding: 10px;
 	min-width: min(100%, 800px);
+	padding: 10px;
 	display: flex;
-	column-gap: 10px;
+	flex-flow: column;
+	background: var(--light);
+	border-radius: 3px;
 	align-items: center;
 }
 .data-view__title{
 	font-size: 18px;
+	text-align: center;
 }

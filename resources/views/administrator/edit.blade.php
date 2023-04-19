@@ -17,7 +17,7 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Perfil de <strong class="color-Text">{{ $admin->name }}</strong>
+					Editar el perfil de <strong class="color-Text">{{ $admin->name }}</strong>
 				</h2>
 				<form class="form__content" 
 						method="POST" 
@@ -27,7 +27,7 @@
 					<h2 class="form__icon">
 						<i class="fa-solid fa-user-shield"></i>
 					</h2>
-					<h2 class="form__title">Sus datos</h2>
+					<h2 class="form__title">Datos del administrador</h2>
 					<div class="form__item">
 						<label for="name">Nombre:</label>
 						<input class="form__input" 
@@ -93,11 +93,6 @@
 						Ver lista de <strong class="color-Text">administradores</strong>
 					</h2>
 					<ul class="header__bottons">
-						<a href="{{ route('administrator.create') }}">
-							<li class="header__loginItem header__loginItem--contrast">
-								Crear un administrador
-							</li>
-						</a>
 						<a href="{{ route('administrator.index') }}">
 							<li class="header__loginItem">
 								Ver administradores

@@ -69,7 +69,7 @@
 	}
 }
 /*Media queries*/
-@media (max-width: 550px){
+@media (max-width: 500px){
   	.nav__title{
 		font-size: 20px;
 	}
@@ -82,20 +82,23 @@
 /*Submenu*/
 .submenu{
     position: relative;
-    top: 75px;
-    left: -15px;
+    top: 90px;
+    left: -40px;
     z-index: 10;
     display: none;
     transition: .5s all;
     animation: moverIzquierda .5s;
 }
 
-.nav__item--menu:hover .submenu{
+.submenu--activate{
     display: flex;
     flex-wrap: wrap;
     background: var(--primary);
     border-radius: 3px;
-    width: 150px;
+    width: 180px;
+}
+.nav__item--menu{
+    cursor: pointer;
 }
 
 .submenu__item{
@@ -106,10 +109,46 @@
     background: var(--secondary);
 }
 nav .submenu li{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
     line-height: 40px;
     color: var(--light);
 }
+nav .submenu li p{
+    color: var(--light);
+	min-width: 140px;
+}
+nav .submenu li i{
+	min-width: 25px;
+}
 .menuMenu{
+	display: none;
 	width: 10px;
 	position: absolute;
+}
+
+
+/*Submenu*/
+.completeMenu{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+
+	min-height: 100vh;
+	width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: var(--primary);
+}
+
+/*Media queries*/
+@media (max-width: 500px){
+	.menuMenu{
+		position: inherit;
+	}
 }

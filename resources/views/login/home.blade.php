@@ -10,7 +10,7 @@
 
 @section('content')
 	<!--Header-->
-	<div class="header__background">
+	<div class="header__background header__background--login">
 		<header class="header">
 			<img class="header__img" 
 				src="{{ asset('img/login/header_icon.png') }}" 

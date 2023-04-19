@@ -22,11 +22,3 @@ php artisan migrate --seed
 
 -- Paso 6: Ejecutamos el servidor. 
 php artisan serve
-
-
-
-TODAVÍA NOOOOOOO
--- Paso 7: Logearnos en la aplicación.
--- Las credenciales para entrar en la aplicación son:
--- "usernames" 	= "root"
--- "password" 	= "root" 

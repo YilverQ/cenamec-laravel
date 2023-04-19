@@ -8,11 +8,15 @@
 
 
 @section('content')
-	<form class="form__content">
+	<form class="form__content" 
+			method="POST" 
+			action="{{ route('login.newStudent') }}">
+
+		@csrf @method('POST')
 		<h2 class="form__icon">
 			<i class="fa-solid fa-user-plus"></i>
 		</h2>
-		<h2 class="form__title">Registrarse</h2>
+		<h2 class="form__title">Estudiante nuevo</h2>
 		<div class="form__item">
 			<label for="name">Nombre:</label>
 			<input class="form__input" 
@@ -95,7 +99,7 @@
 					id="rightClick">2da Parte</button>
 			</div>
 		</div>
-		<input class="form__send form_send--disabled" type="submit" value="Vamos a comenzar">
+		<input class="form__send form_send--disabled" type="submit" value="¡Vamos a estudiar!">
 	</form>
 @endsection
 

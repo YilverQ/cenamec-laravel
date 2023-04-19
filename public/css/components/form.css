@@ -17,6 +17,9 @@
 	color: var(--primary);
 	margin: 2.5px 0;
 }
+.form__icon .hidden{
+	display: none;
+}
 
 .form__item{
 	padding: 2px 0;

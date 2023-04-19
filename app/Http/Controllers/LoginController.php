@@ -57,6 +57,60 @@ class LoginController extends Controller
 
 
     /**
+     * Acción para crear un elemento.
+     * 
+     * Para crear el elemento se debe cumplir:
+     *      1. El elemento debe ingresar un correo electrónico único.
+     *      2. El correo electrónico no puede estar asociado a ningún usuario.    
+     */
+    public function storeStudent(Request $request)
+    {
+        $email = $request->input('email');
+        $phone = $request->input('number_phone');
+        $idCard = $request->input('identification_card');
+        $is_email_valid  = Student::where('email', '=', $email)->first();
+        $is_phone_valid  = Student::where('number_phone', '=', $phone)->first();
+        $is_idCard_valid = Student::where('identification_card', '=', $idCard)->first();
+
+        //Si se encuentra un elemento es porque el correo ingresado es incorrecto.
+        if (!(empty($is_email_valid->email))) {
+            #Retornamos un mensaje flash de error.
+            session()->flash('message-error', 'Error, el correo electrónico ya está en uso');
+            return to_route('admin.student.create');
+        }
+
+        //Si se encuentra un elemento es porque el número de teléfono ingresado es incorrecto.
+        if (!(empty($is_phone_valid->number_phone))) {
+            #Retornamos un mensaje flash de error.
+            session()->flash('message-error', 'Error, el número de teléfono ya está en uso');
+            return to_route('admin.student.create');
+        }
+
+        //Si se encuentra un elemento es porque el número de cédula ingresado es incorrecto.
+        if (!(empty($is_idCard_valid->identification_card))) {
+            #Retornamos un mensaje flash de error.
+            session()->flash('message-error', 'Error, el número de cédula ya está en uso');
+            return to_route('admin.student.create');
+        }
+
+        //Creamos un nuevo elemento.
+        $student = new Student;
+        $student->name     = $request->input('name');
+        $student->lastname = $request->input('lastname');
+        $student->identification_card = $request->input('identification_card');
+        $student->number_phone = $request->input('number_phone');
+        $student->email    = $request->input('email');
+        $student->password = $request->input('password');
+        $student->save();
+        
+        #Retornamos un mensaje flash.
+        session()->flash('message-success', '¡Te haz registrado como estudiante!');
+        return to_route('login.login');
+        
+    }
+
+
+    /**
      * Comprobamos el tipo de authentication (teacher o student).
      */
     public function auth(Request $request)
