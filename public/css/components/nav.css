@@ -128,6 +128,11 @@ nav .submenu li i{
 	position: absolute;
 }
 
+.iconXmark{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
 
 /*Submenu*/
 .completeMenu{
@@ -150,5 +155,41 @@ nav .submenu li i{
 @media (max-width: 500px){
 	.menuMenu{
 		position: inherit;
+	}
+	.iconXmark{
+		position: absolute;
+		color: black;
+		right: 50px;
+		top: 50px;
+		width: auto;
+		height: auto;
+		font-size: 30px;
+		background: var(--light);
+		color: var(--primary);
+		padding: 2px;
+		border-radius: 2px;
+	}
+	nav .submenu li{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	    line-height: 40px;
+	    column-gap: 20px;
+	    color: var(--light);
+	}
+	nav .submenu li:hover{
+	    background: var(--secondary);
+	}
+	nav .submenu a li p{
+		display: block;
+		font-size: 20px;
+		text-align: left;
+	}
+	nav .submenu li i{
+		min-width: 30px;
+		font-size: 20px;
+	}
+	.nav__item--menu{
+	    cursor: inherit;
 	}
 }

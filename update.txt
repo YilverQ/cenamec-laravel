@@ -1,0 +1,10 @@
+updates
+
+
+
+Fecha: 21/04/2023
+Lista de actualización: 
+	** Se adapto el menú de navegación del administrador a responsive. 
+	** Se acomodó el switch del formulario para responsive. 
+	** Se modificó el estilo de las listas (administrador, profesor, estudiante).
+	** Se agregó responsive a las listas (administrador, profesor, estudiante).

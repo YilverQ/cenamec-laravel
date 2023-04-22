@@ -3,6 +3,7 @@ let subMenu = document.querySelector(".submenu");
 let divMenu = document.querySelector(".menuMenu");
 let	screenWidth = window.innerWidth; //obtiene el tamaño de la ventana.
 let listItems = document.querySelectorAll(".submenu__item");
+let xMark = document.querySelector(".iconXmark");
 
 menu.addEventListener("click", () => {
 	if (divMenu.style.display == "initial"){
@@ -26,9 +27,11 @@ window.onresize = function(){ //Se ejecuta cuando hay un cambio del tamaño.
 function menuChange(){
 	if (screenWidth >= 501){
 		subMenu.classList.remove("completeMenu");
+		xMark.classList.add("hidden");
 	}
 	else{
 		subMenu.classList.add("completeMenu");
+		xMark.classList.remove("hidden");
 	}
 }
 menuChange();

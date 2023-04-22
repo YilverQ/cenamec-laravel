@@ -41,26 +41,20 @@
 			<h2 class="tab__title--centered">
 				Lista de <strong class="color-Text">estudiantes</strong>
 			</h2>
-
-			<section class="list__content">
-				<div class="list__table list__table--null">
-					<ul class="list__description">
-						<li class="list__text list__text--id list__text--title">N°</li>
-						<li class="list__text list__text--title">Nombre</li>
-						<li class="list__text list__text--title">Número de cédula</li>
-						<li class="list__text list__text--title">Correo electrónico</li>
-					</ul>
-					<ul class="list__actions list__actions--null">
-						<li class="list__text list__text--title">Acciones</li> 
-					</ul>
-				</div>
+			<section class="list">
 	        	@foreach ($students as $key => $item)
-				<div class="list__table">
+				<div class="list__card">
 					<ul class="list__description">
-						<li class="list__text list__text--id">{{ $key + 1 }}</li>
-						<li class="list__text">{{ $item->name }}</li>
-						<li class="list__text">{{ $item->identification_card }}</li>
-						<li class="list__text">{{ $item->email }}</li>
+						<li class="list__text list__text--id"><b>{{ $key + 1 }}</b></li>
+						<li class="list__text">
+							<b>Nombre: </b><p>{{ $item->name }}</p>
+						</li>
+						<li class="list__text">
+							<b>Número de cédula: </b><p>{{ $item->identification_card }}</p>
+						</li>
+						<li class="list__text">
+							<b>Correo Electrónico: </b><p>{{ $item->email }}</p>
+						</li>
 					</ul>
 					<ul class="list__actions">
 						<a href="{{ route('admin.student.show', $item) }}" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 

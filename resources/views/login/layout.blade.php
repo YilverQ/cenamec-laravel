@@ -24,7 +24,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Quicksand&display=swap" rel="stylesheet"> 
 
 	<!--Fuentes de Fontawesome-->
-	<script src="https://kit.fontawesome.com/9d5a264107.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/solid.css') }}">
 </head>
 <body>
 	<!--Navegación-->

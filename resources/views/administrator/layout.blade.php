@@ -11,8 +11,8 @@
 	<!--Estilos-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/normalize.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/nav.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/message.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/nav.css') }}">
 	@yield('styles')
 
 	<!--Favicon-->
@@ -24,9 +24,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Quicksand&display=swap" rel="stylesheet"> 
 
 	<!--Fuentes de Fontawesome-->
-	<script src="https://kit.fontawesome.com/9d5a264107.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/solid.css') }}">
+
 </head>
 <body>
+
 	<!--Navegación-->
   	<nav class="nav">
 		<a href="{{ route('administrator.home') }}" class="nav__home">
@@ -47,6 +50,7 @@
 				<!-- Este es el Submenu/Se puede añadir o eliminar elementos. -->
 				<div class="menuMenu">
 				<ul class="submenu">
+					<i class="iconXmark fa-solid fa-xmark"></i>
 					<a href="{{ route('administrator.index') }}" class="submenu__item">
 						<li><i class="fa-solid fa-user-shield"></i> <p>Administradores</p></li>
 					</a>
