@@ -1,5 +1,11 @@
-.header__background{
+.header__background--teacher{
+	background: url("../../img/teacher/wallpaper.jpeg");
+}
+.header__background--admin{
 	background: url("../../img/administrator/wallpaper.jpeg");
+}
+
+.header__background{
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -8,14 +14,6 @@
 }
 .header__background--login{
 	background: url("../../img/login/wallpaper.jpeg");	
-}
-.header__background--admin{
-	background: url("../../img/administrator/wallpaper.jpeg");
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	width: 90%;	
-	margin: auto;	
 }
 
 
@@ -367,4 +365,84 @@
 .data-view__title{
 	font-size: 18px;
 	text-align: center;
+}
+
+
+
+/*Teach*/
+.teach{
+	display: grid;
+	grid-template-areas: 
+	"img description description"
+	"img card boxButtoms";
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	margin: auto;
+	column-gap: 20px;
+}
+.teach--inversed{
+	grid-template-areas: 
+	"description description img"
+	"card boxButtoms img";
+}
+.teach__img{
+	grid-area: img;
+	display: block;
+	width: 500px;
+	border-radius: 10px;
+}
+.teach-description{
+	padding: 20px;
+	border-radius: 10px;
+	background: var(--light);
+	grid-area: description;
+	height: 200px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	row-gap: 10px;	
+}
+.teach-description--colored{
+	background: var(--primary);
+	height: 100px;
+}
+.teach-description--colored h2,
+.teach-description--colored i{
+	color: var(--light);
+}
+
+.teach-description__subtitle{
+	color: var(--primary);
+	font-size: 18px;
+}
+.teach-description__text, .teach-course__text{
+	text-align: justify;
+	width: 95%;
+}
+.teach-card{
+	border-radius: 10px;
+	background: var(--light);
+	grid-area: card;
+	height: 220px;
+	padding: 20px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 10px;
+}
+.teach-course__title{
+	color: var(--primary);
+}
+.box-bottoms{
+	padding: 20px;
+	height: 220px;
+	border-radius: 10px;
+	background: var(--light);
+	grid-area: boxButtoms;
+	row-gap: 10px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 20px;
+	align-items: center;
+	justify-content: center;
 }

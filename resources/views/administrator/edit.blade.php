@@ -66,7 +66,6 @@
 						<label for="password">Contraseña:</label>
 						<input class="form__input" 
 								name="password" 
-								required 
 								type="password" 
 								id="password" 
 								placeholder="****"
@@ -75,7 +74,7 @@
 								autocomplete="off">
 						<p class="form__eye"><i id="form_eye" class="fa-solid fa-eye"></i></p>
 					</div>
-					<input class="form__send form_send--disabled" 
+					<input class="form__send" 
 							type="submit" 
 							value="Actualizar datos">
 				</form>

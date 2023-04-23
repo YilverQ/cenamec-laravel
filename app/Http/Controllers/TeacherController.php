@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teacher;
 
 class TeacherController extends Controller
 {
@@ -12,16 +13,19 @@ class TeacherController extends Controller
      */
     public function __construct()
     {
-        #$this->middleware('auth.admin');
+        $this->middleware('auth.teacher');
     }
 
 
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return "Vista del profesor";
+        $teacher_id = $request->session()->get('teacher_id');
+        $teacher    = Teacher::find($teacher_id);      
+        return view('teacher.index')
+                ->with("teacher", $teacher);
     }
 
     /**

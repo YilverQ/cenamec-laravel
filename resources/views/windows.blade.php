@@ -24,3 +24,9 @@
 	<script type="module" src="{{ asset('js/administrator/checkFormAdmin.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/windows.js') }}"></script>
 @endsection
+
+
+<i class="fa-solid fa-user-gear"></i>
+<i class="fa-solid fa-book-open-reader"></i>
+<i class="fa-solid fa-laptop-file"></i>
+<i class="fa-solid fa-book"></i>

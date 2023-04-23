@@ -164,7 +164,7 @@ class LoginController extends Controller
         $password = $request->input("password");
         $teacher  = Teacher::where('email', '=', $email)->first();
 
-        //Si no se encuentra un estudiante es porque el correo ingresado es incorrecto.
+        //Si no se encuentra un profesor es porque el correo ingresado es incorrecto.
         if (empty($teacher->password)) {
             session()->flash('message-error', 'Error, el correo electrónico no está registrado');
             return to_route('login.login');
@@ -173,6 +173,7 @@ class LoginController extends Controller
         //Si el correo y la contraseña son correcta, El usuario tiene permiso.
         if ($password == $teacher->password) {
             $request->session()->put('is_teacher_valid', 'true');
+            $request->session()->put('teacher_id', $teacher->id);
             return to_route('teacher.index');
         }
         

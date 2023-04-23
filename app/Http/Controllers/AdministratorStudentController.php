@@ -125,6 +125,7 @@ class AdministratorStudentController extends Controller
     public function update(Request $request, Student $item)
     {   
         $email = $request->input('email');
+        $password = $request->input('password');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
         $is_email_valid  = Student::where('email', '=', $email)->first();
@@ -166,7 +167,9 @@ class AdministratorStudentController extends Controller
         $item->identification_card = $request->input('identification_card');
         $item->number_phone = $request->input('number_phone');
         $item->email    = $request->input('email');
-        $item->password = $request->input('password');
+        if ($password) {
+            $item->password = $request->input('password');
+        }
         $item->save();
         
         #Retorna un mensaje flash.

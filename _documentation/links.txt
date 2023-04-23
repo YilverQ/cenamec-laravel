@@ -1,0 +1,8 @@
+Diagrama Entidad Relación: FIGMA
+    https://www.figma.com/file/IP4oRshJSJsNCloAuboy5p/CENAMEC?node-id=0%3A1&t=ORFhvDxFVUL822cX-1
+
+Casos de Uso: FIGMA
+    https://www.figma.com/file/YtBNzz9iNC6JZ2NaX6hdAJ/Use-Case---CENAMEC?t=ORFhvDxFVUL822cX-1
+
+Documentación: Google Docs.
+    https://docs.google.com/document/d/1QhgchD3zC6Y5RA7MX07GIVNFyeb03z5AfxL4Dst6Omc/edit?usp=sharing

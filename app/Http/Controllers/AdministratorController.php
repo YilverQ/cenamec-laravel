@@ -118,6 +118,7 @@ class AdministratorController extends Controller
     {   
         $email = $request->input('email');
         $is_email_valid = Administrator::where('email', '=', $email)->first();
+        $password = $request->input('password');
 
         //El correo ingresado en el formulario ya está en la bd.
         if (!(empty($is_email_valid->email))) {
@@ -134,7 +135,9 @@ class AdministratorController extends Controller
         $item->name     = $request->input('name');
         $item->lastname = $request->input('lastname');
         $item->email    = $request->input('email');
-        $item->password = $request->input('password');
+        if ($password) {
+            $item->password = $request->input('password');
+        }
         $item->save();
         
         #Retorna un mensaje flash.

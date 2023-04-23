@@ -8,16 +8,19 @@
 //lista de inputs de mi formulario.
 let inputs = document.querySelectorAll(".form__input");
 
-
 /*
 	name: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
 	lastname: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
+	identification_card: Solamente admite números. Min 6 y Máx 8. 
+	number_phone: Solamente admite números. Min 11 y Máx 11. 
 	email: adminte letras alfanúmericas y algunos caracteres especiales (#.+%&). Min 4 y Máx 20.
 	password: Admite caracteres alfanumericos y algunos caracteres especiales. Min 4 y Máx 20. 
 */
 const regularExpression = {
 	name 	 			: /^[a-zA-ZÀ-ÿ]{3,20}$/,
 	lastname 			: /^[a-zA-ZÀ-ÿ]{3,20}$/,
+	identification_card	: /^\d{6,8}$/,
+	number_phone		: /^\d{11,11}$/,
 	email	 			: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	password 			: /^[a-zA-Z0-9_.+#$¡!"%&()?]{4,20}|(^$)$/
 };
@@ -27,9 +30,11 @@ const regularExpression = {
 	Ya los campos vienen comprobados por defecto. A excepción de password. 
 	cada objeto representa el estado del campo de mi formulario. 
 */
-let fieldsForm = {
+let fields = {
 	name 	 			: true,
 	lastname 			: true,
+	identification_card : true,
+	number_phone 		: true,
 	email 				: true,
 	password 			: true
 };
@@ -45,27 +50,34 @@ let fieldsForm = {
 	2. input. 
 	3. 'name' del formulario.
 */
-const checkForm = (e) => {
+const checkField = (e) => {
 	switch (e.target.name){
 		case "name":
-			checkField(regularExpression.name, 
+			checkExpression(regularExpression.name, 
 							e.target, e.target.name);
 		break;
 		case "lastname":
-			checkField(regularExpression.lastname, 
+			checkExpression(regularExpression.lastname, 
+							e.target, e.target.name);
+		break;
+		case "identification_card":
+			checkExpression(regularExpression.identification_card, 
+							e.target, e.target.name);
+		break;
+		case "number_phone":
+			checkExpression(regularExpression.number_phone, 
 							e.target, e.target.name);
 		break;
 		case "email":
-			checkField(regularExpression.email, 
+			checkExpression(regularExpression.email, 
 							e.target, e.target.name);
 		break;
 		case "password":
-			checkField(regularExpression.password, 
+			checkExpression(regularExpression.password, 
 							e.target, e.target.name);
 		break;
 	}
 }
-
 
 /*
 	checkField acepta tres argumentos: 
@@ -79,17 +91,18 @@ const checkForm = (e) => {
 	fieldsForm[fieldName] = true/false: Busca el objeto correspondiente
 	y le cambia el valor boleano. 
 */
-const checkField = (regex, input, fieldName) => {
+const checkExpression = (regex, input, fieldName) => {
 	if(regex.test(input.value)){
 		document.getElementById(`${fieldName}`).classList.remove("form__input--errorField");
 		document.getElementById(`${fieldName}`).classList.add("form__input--successField");
-		fieldsForm[fieldName] = true;
+		fields[fieldName] = true;
 	}else{
 		document.getElementById(`${fieldName}`).classList.remove("form__input--successField");
 		document.getElementById(`${fieldName}`).classList.add("form__input--errorField");
-		fieldsForm[fieldName] = false;
+		fields[fieldName] = false;
 	}
 }
+
 
 /*
 	Comprueba que todos los valores de los campos del formulario
@@ -99,10 +112,12 @@ const checkField = (regex, input, fieldName) => {
 */
 const bottonSendDisabled = () =>{
 	let buttonSend = document.querySelector(".form__send");
-	if (fieldsForm.name && 
-		fieldsForm.lastname && 
-		fieldsForm.email &&
-		fieldsForm.password) 
+	if (fields.name && 
+		fields.lastname && 
+		fields.identification_card &&
+		fields.number_phone &&
+		fields.email &&
+		fields.password) 
 	{
 		buttonSend.classList.remove("form_send--disabled");
 		buttonSend.disabled = false;
@@ -126,8 +141,8 @@ const bottonSendDisabled = () =>{
 	(inputs) son validos, habilita el botón para enviar el formulario.
 */
 inputs.forEach((input) => {
-	input.addEventListener("keyup", checkForm);
-	input.addEventListener("blur", checkForm);
+	input.addEventListener("keyup", checkField);
+	input.addEventListener("blur", checkField);
 	input.addEventListener("keyup", bottonSendDisabled);
 	input.addEventListener("blur", bottonSendDisabled);
 });

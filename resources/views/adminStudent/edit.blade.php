@@ -90,7 +90,6 @@
 						<label for="password">Contraseña:</label>
 						<input class="form__input" 
 								name="password" 
-								required 
 								type="password" 
 								id="password" 
 								placeholder="****"
@@ -110,7 +109,7 @@
 								id="rightClick">2da Parte</button>
 						</div>
 					</div>
-					<input class="form__send form_send--disabled" 
+					<input class="form__send" 
 						type="submit" 
 						value="Editar">
 				</form>
@@ -142,7 +141,6 @@
 
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
-	<script type="module" src="{{ asset('js/administrator/checkFormAdmin.js') }}"></script>
 	<script type="module" src="{{ asset('js/login/switchSignup.js') }}"></script>
-	<script type="module" src="{{ asset('js/login/checkFormSignup.js') }}"></script>
+	<script type="module" src="{{ asset('js/administrator/checkFormTeachStudent.js') }}"></script>
 @endsection
