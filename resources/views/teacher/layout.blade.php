@@ -43,13 +43,13 @@
 					<p>Inicio</p>
 				</li>
 			</a>
-			<a href="{{ route('teacher.index') }}">
+			<a href="{{ route('teacher.course') }}">
 				<li class="nav__item">
 					<i class="fa-solid fa-book-open-reader"></i>
 					<p>Mis cursos</p>
 				</li>
 			</a>
-			<a href="{{ route('teacher.index') }}">
+			<a href="{{ route('teacher.profile') }}">
 				<li class="nav__item">
 					<i class="fa-solid fa-user-gear"></i>
 					<p>Perfil</p>

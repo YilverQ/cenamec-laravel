@@ -50,9 +50,9 @@
 					</p>
 				</div>
 				<div class="teach-card">
-					<h2 class="teach-course__title">Curso de Física I</h2>
+					<h2 class="teach-course__title">{{ $course->name }}</h2>
 					<p class="teach-course__text">
-						¿Crees que aprender física es dificil? Quizás te estuvieron enseñando mal. Danos una oportunidad para mostrarte que la física es igual de entretenida que cualquier otra área.
+						{{ $course->description }}
 					</p>
 					<ul class="list__actions">
 						<a href="#" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 
@@ -170,7 +170,7 @@
 					<h2 class="teach-course__title">Tus datos</h2>
 					<ul class="list__description">
 						<li class="list__text">
-							<b>Nombre: </b><p>{{ $teacher->name }}</p>
+							<b>Apellido: </b><p>{{ $teacher->lastname }}</p>
 						</li>
 						<li class="list__text">
 							<b>Número de cédula: </b><p>{{ $teacher->identification_card }}</p>

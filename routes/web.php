@@ -132,20 +132,14 @@ Route::controller(AdministratorStudentController::class)->group(function () {
 /** Profesor
  * HTTP     URI                Method     Reponse   Description
  * -----------------------------------------------------------------------
- * get   /teacher              index      View      Retorna todos los elementos. 
- * get   /teacher/create       create     View      Formulario para crear un nuevo elemento. 
- * post  /teacher              store      Action    Crea un nuevo elemento. 
- * get   /teacher/{item}/edit  edit       View      Vista para editar un elemento. 
- * put   /teacher/{item}       update     Action    Actualiza un elemento. 
- * get   /teacher/check        delete     Action    Elimina un elemento.
+ * get   /teacher              index      View      Retorna la vista principal del profesor. 
+ * get   /teacher/course       course     View      Retorna todos los cursos del profesor. 
+ * get   /teacher/course       profile    View      Retorna el perfil del usuario. 
 */
 Route::controller(TeacherController::class)->group(function () {
     Route::get( '/teacher', 'index')->name('teacher.index');
-    Route::get( '/teacher/create', 'create')->name('teacher.create');
-    Route::post('/teacher', 'store')->name('teacher.store');
-    Route::get( '/teacher/{item}/edit', 'edit')->name('teacher.edit');
-    Route::put( '/teacher/{item}', 'update')->name('teacher.update');
-    Route::delete('/teacher/{item}', 'destroy')->name('teacher.destroy');
+    Route::get( '/teacher/courses/', 'course')->name('teacher.course');
+    Route::get( '/teacher/profile/', 'profile')->name('teacher.profile');
 });
 
 

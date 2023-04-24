@@ -37,7 +37,18 @@ if (result){
 }
 
 
+/*Teacher controller*/
 result = ubication.endsWith("teacher");
 if (result){
 	itemNav[0].classList.add("nav__item--constrast");
+}
+
+result = ubication.endsWith("courses");
+if (result){
+	itemNav[1].classList.add("nav__item--constrast");
+}
+
+result = ubication.endsWith("profile");
+if (result){
+	itemNav[2].classList.add("nav__item--constrast");
 }
