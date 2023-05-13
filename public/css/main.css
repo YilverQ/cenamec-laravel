@@ -36,7 +36,7 @@ body{
   background: var(--background);
   min-height: 100vh;
 }
-h1, h2, h3, h4, th{
+h1, h2, h3, h4, h5, h6 th{
   font-family: 'Roboto', sans-serif;
   font-display: fallback;
   color: var(--title);
@@ -45,7 +45,7 @@ h1, h2, h3, h4, th{
 h1{
   font-size: 30px;
 }
-p, li, a, input, select, button, label,td{
+p, li, a, input, select, button, label,td, textarea, span, small{
   font-family: 'Quicksand', sans-serif;
   font-display: fallback;
   color:var(--text);
@@ -59,10 +59,10 @@ p, li, a, input, select, button, label,td{
   h1{
     font-size: 20px;
   }
-  h1, h2, h3, h4, th{
+  h1, h2, h3, h4, h5, h6, th{
     font-size: 18px;
   }
-  p, li, a, input, select, button, label,td{
+  p, li, a, input, select, button, label,td, textarea, span, small{
     font-size: 14px;
   }
 }

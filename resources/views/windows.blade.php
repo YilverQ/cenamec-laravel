@@ -19,6 +19,10 @@
 		</article>
 	</div>
 
+	<article>
+		<h2 class="claseD">Hola Mundo</h2>
+	</article>
+
 
 	@section('scripts')
 	<script type="module" src="{{ asset('js/administrator/checkFormAdmin.js') }}"></script>

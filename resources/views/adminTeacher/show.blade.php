@@ -44,14 +44,6 @@
 						<div class="data-view">
 							<h3 class="data-view__title">Correo electrónico:</h3>
 							<p class="data-view__description">{{ $teacher->email }}</p>	
-						</div>
-						<div class="data-view">
-							<h3 class="data-view__title">Fecha de creación:</h3>
-							<p class="data-view__description">{{ $teacher->created_at }}</p>	
-						</div>
-						<div class="data-view">
-							<h3 class="data-view__title">Fecha de actualización:</h3>
-							<p class="data-view__description">{{ $teacher->updated_at }}</p>	
 						</div>			            
 					</section>
 					<ul class="header__bottons">

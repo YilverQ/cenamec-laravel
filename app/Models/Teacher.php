@@ -46,12 +46,12 @@ class Teacher extends Model
 
     public function modules ()
     {
-        return $this->hasMany(Modules::class);
+        return $this->hasMany(Module::class);
     }
 
     public function notes ()
     {
-        return $this->hasMany(Notes::class);
+        return $this->hasMany(Note::class);
     }
 
     public function questionnaires ()

@@ -46,3 +46,103 @@
 	grid-area: boxButtoms;
 	width: 240px;
 }
+
+
+
+/*Detalles del curso*/
+.descriptionCard{
+	width: 90%;
+	margin: auto;
+	background: var(--light);
+	padding: 20px 0;
+	padding-left: 20px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 20px;
+}
+.descriptionCard__nav{
+	display: flex;
+	column-gap: 20px;
+}
+
+.descriptionCard__item{
+	padding: 10px;
+	padding-bottom: 5px;
+	color: var(--littleDark);
+}
+.descriptionCard__item--checked{
+	color:var(--text);
+	border-bottom: 2px solid var(--primary);
+}
+
+.introduction{
+	text-align: justify;
+	max-width: 90%;
+	padding-left:30px;
+}
+
+.smallInformation{
+	max-width: 90%;
+	display: flex;
+	column-gap: 15px;
+	vertical-align: center;
+	align-items: center;
+}
+.smallInformation__title{
+	font-size: 14px;
+}
+
+
+/*Modules*/
+.containerModules{
+	display: flex;
+	flex-flow: column;
+	row-gap: 20px;
+	padding: 20px 0;
+}
+
+.cardModule{
+	display: grid;
+	grid-template-areas: 
+	"id title title title"
+	"id item1 item2 list";
+	background: var(--light);
+	margin: auto;
+	grid-column-gap: 40px;
+	align-items: center;
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+
+.cardModule__number{
+	grid-area: id;
+	font-weight: 700;
+	font-family: "roboto", sans-serif;
+	font-size: 20px;
+	padding: 10px;
+	color: var(--primary);
+}
+.cardModule__title{
+	grid-area: title;
+	font-size: 20px;
+}
+.cardModule__item{
+	color: var(--littleDark);
+}
+.cardModule__item--note{
+	grid-area: item1;
+}
+
+.cardModule__item--question{
+	grid-area: item2;
+}
+.list__actions--course{
+	grid-area: list;
+	width: 320px;
+}
+.bar{
+	margin: auto;
+	background: var(--littleDark);
+	width: 2px;
+	height: 30px;
+}

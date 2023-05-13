@@ -47,17 +47,17 @@ Route::get('/', function () {
  * post  /admin              checkAdmin      Action    Combrueba los datos del usuario y redirecciona. 
 */
 Route::controller(LoginController::class)->group(function () {
-    Route::get( '/home', 'home')->name('login.home');
-    Route::get( '/login', 'login')->name('login.login');
-    Route::get( '/signup', 'signup')->name('login.signup');
-    Route::post('/login', 'auth')->name('login.auth');
+    Route::get( '/home',    'home')->name('login.home');
+    Route::get( '/login',   'login')->name('login.login');
+    Route::get( '/signup',  'signup')->name('login.signup');
+    Route::post('/login',   'auth')->name('login.auth');
     Route::post('/login/student', 'checkStudent')->name('login.checkStudent');
     Route::post('/login/teacher', 'checkTeacher')->name('login.checkTeacher');
-    Route::post('/signup', 'checkSignup')->name('login.checkSignup');
+    Route::post('/signup',  'checkSignup')->name('login.checkSignup');
     Route::post('/signup/student', 'storeStudent')->name('login.newStudent');
-    Route::get( '/logout', 'logout')->name('login.logout');
-    Route::get( '/admin', 'admin')->name('login.admin');
-    Route::post('/admin', 'checkAdmin')->name('login.checkAdmin');
+    Route::get( '/logout',  'logout')->name('login.logout');
+    Route::get( '/admin',   'admin')->name('login.admin');
+    Route::post('/admin',   'checkAdmin')->name('login.checkAdmin');
 });
 
 
@@ -130,16 +130,64 @@ Route::controller(AdministratorStudentController::class)->group(function () {
 
 
 /** Profesor
- * HTTP     URI                Method     Reponse   Description
+ * HTTP     URI                Method          Reponse   Description
  * -----------------------------------------------------------------------
- * get   /teacher              index      View      Retorna la vista principal del profesor. 
- * get   /teacher/course       course     View      Retorna todos los cursos del profesor. 
- * get   /teacher/course       profile    View      Retorna el perfil del usuario. 
+ * get   /teacher               index          View      Retorna la vista principal del profesor. 
+ * get   /teacher/profile       profile        View      Retorna el perfil del usuario. 
+ * get   /teacher/profile/edit  editProfile    View      Retorna un formulario para actualizar el perfil. 
+ * put   /teacher/profile       updateProfile  Action    Actualiza los datos del profesor. 
+ * get   /teacher/course        course         View      Retorna todos los cursos del profesor. 
 */
 Route::controller(TeacherController::class)->group(function () {
     Route::get( '/teacher', 'index')->name('teacher.index');
-    Route::get( '/teacher/courses/', 'course')->name('teacher.course');
     Route::get( '/teacher/profile/', 'profile')->name('teacher.profile');
+    Route::get( '/teacher/profile/edit', 'edit')->name('teacher.edit');
+    Route::put( '/teacher/profile/', 'update')->name('teacher.update');
+});
+
+
+/** Curso
+ * HTTP     URI               Method     Reponse   Description
+ * -----------------------------------------------------------------------
+ * get   /teacher/course              index      View      Retorna todos los elementos. 
+ * get   /teacher/course/create       create     View      Formulario para crear un nuevo elemento. 
+ * post  /teacher/course/create       store      Action    Crea un nuevo elemento. 
+ * get   /teacher/course/{item}       show       View      Vista para editar un elemento. 
+ * put   /teacher/course/{item}/edit  edit       Action    Formulario para actualizar. 
+ * put   /teacher/course/{item}       update     Action    Actualiza un elemento. 
+ * get   /teacher/course/{item}       delete     Action    Elimina un elemento.
+*/
+Route::controller(CourseController::class)->group(function () {
+    Route::get( '/teacher/courses/', 'index')->name('teacher.course.index');
+    Route::get( '/teacher/courses/create', 'create')->name('teacher.course.create');
+    Route::post('/teacher/courses/create', 'store')->name('teacher.course.store');
+    Route::get( '/teacher/course/{item}', 'show')->name('teacher.course.show');
+    Route::get( '/teacher/course/{item}/edit', 'edit')->name('teacher.course.edit');
+    Route::put( '/teacher/course/{item}', 'update')->name('teacher.course.update');
+    Route::delete('/teacher/course/{item}', 'destroy')->name('teacher.course.destroy');
+});
+
+
+/** Módulo
+ * HTTP     URI               Method     Reponse   Description
+ * -----------------------------------------------------------------------
+ * get   /module              index      View      Retorna todos los elementos. 
+ * get   /module/create       create     View      Formulario para crear un nuevo elemento. 
+ * post  /module              store      Action    Crea un nuevo elemento. 
+ * get   /module/{item}       show       View      Vista para editar un elemento. 
+ * get   /module/{item}/edit  edit       Action    Formulario para actualizar. 
+ * put   /module/{item}       update     Action    Actualiza un elemento. 
+ * get   /module/check        delete     Action    Elimina un elemento.
+*/
+Route::controller(ModuleController::class)->group(function () {
+    Route::get( '/teacher/module', 'index')->name('teacher.module.index');
+    Route::get( '/teacher/module/create', 'create')->name('teacher.module.create');
+    Route::post('/teacher/module', 'store')->name('teacher.module.store');
+    
+    Route::get( '/teacher/module/{item}', 'show')->name('teacher.module.show');
+    Route::get( '/teacher/module/{item}/edit', 'edit')->name('teacher.module.edit');
+    Route::put( '/teacher/module/{item}', 'update')->name('teacher.module.update');
+    Route::delete('/teacher/module/{item}', 'destroy')->name('teacher.module.destroy');
 });
 
 
@@ -160,46 +208,6 @@ Route::controller(StudentController::class)->group(function () {
     Route::get( '/student/{item}/edit', 'edit')->name('student.edit');
     Route::put( '/student/{item}', 'update')->name('student.update');
     Route::delete('/student/{item}', 'destroy')->name('student.destroy');
-});
-
-
-/** Curso
- * HTTP     URI               Method     Reponse   Description
- * -----------------------------------------------------------------------
- * get   /course              index      View      Retorna todos los elementos. 
- * get   /course/create       create     View      Formulario para crear un nuevo elemento. 
- * post  /course              store      Action    Crea un nuevo elemento. 
- * get   /course/{item}/edit  edit       View      Vista para editar un elemento. 
- * put   /course/{item}       update     Action    Actualiza un elemento. 
- * get   /course/check        delete     Action    Elimina un elemento.
-*/
-Route::controller(CourseController::class)->group(function () {
-    Route::get( '/course', 'index')->name('course.index');
-    Route::get( '/course/create', 'create')->name('course.create');
-    Route::post('/course', 'store')->name('course.store');
-    Route::get( '/course/{item}/edit', 'edit')->name('course.edit');
-    Route::put( '/course/{item}', 'update')->name('course.update');
-    Route::delete('/course/{item}', 'destroy')->name('course.destroy');
-});
-
-
-/** Módulo
- * HTTP     URI               Method     Reponse   Description
- * -----------------------------------------------------------------------
- * get   /module              index      View      Retorna todos los elementos. 
- * get   /module/create       create     View      Formulario para crear un nuevo elemento. 
- * post  /module              store      Action    Crea un nuevo elemento. 
- * get   /module/{item}/edit  edit       View      Vista para editar un elemento. 
- * put   /module/{item}       update     Action    Actualiza un elemento. 
- * get   /module/check        delete     Action    Elimina un elemento.
-*/
-Route::controller(ModuleController::class)->group(function () {
-    Route::get( '/module', 'index')->name('module.index');
-    Route::get( '/module/create', 'create')->name('module.create');
-    Route::post('/module', 'store')->name('module.store');
-    Route::get( '/module/{item}/edit', 'edit')->name('module.edit');
-    Route::put( '/module/{item}', 'update')->name('module.update');
-    Route::delete('/module/{item}', 'destroy')->name('module.destroy');
 });
 
 

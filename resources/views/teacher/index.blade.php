@@ -22,7 +22,7 @@
 					¡Bienvenido {{ $teacher->name }}!
 				</h2>
 				<ul class="header__bottons">
-					<a href="{{ route('administrator.edit', $teacher) }}">
+					<a href="{{ route('teacher.edit') }}">
 						<li class="header__loginItem header__loginItem--contrast">
 							Editar mis datos
 						</li>
@@ -60,14 +60,14 @@
 					</ul>
 				</div>
 				<div class="box-bottoms">
-					<a href="{{ route('admin.teacher.create') }}">
+					<a href="{{ route('teacher.course.create') }}">
 						<li class="header__loginItem header__loginItem--contrast">
 							Crear un curso
 						</li>
 					</a>
-					<a href="{{ route('admin.teacher.index') }}">
+					<a href="{{ route('teacher.course.index') }}">
 						<li class="header__loginItem">
-							Ver tus cursos
+							Ver mis cursos
 						</li>
 					</a>
 				</div>
@@ -83,14 +83,14 @@
 				
 				<div class="tab__information">
 					<h2 class="tab__title">Crea <strong class="color-Text">módulos educativos</strong> para tus cursos</h2>
-					<p class="tab__description">El administrador es una persona capaz de gestionar a los profesores y estudiantes. Cuando hablamos de gestionar nos referimos a crear, actualizar y eliminar. Tu mismo eres un administrador, y si creas uno nuevo estarás permitiendo a otra persona hacer lo que tu puedes hacer.</p>
+					<p class="tab__description">Los módulos educativos son representaciones de niveles acádemicos que tiene un curso, sirve para dividir la información en segmentos pequeños y dinámicos, cabe mencionar que estos están relacionados con los temas principales de tus cursos es por ello que podrás crear cuantos gustes y requieran tus cursos.</p>
 					<ul class="header__bottons">
-						<a href="{{ route('administrator.create') }}">
+						<a href="{{ route('teacher.module.create') }}">
 							<li class="header__loginItem header__loginItem--contrast">
 								Crear módulo
 							</li>
 						</a>
-						<a href="{{ route('administrator.index') }}">
+						<a href="{{ route('teacher.module.index') }}">
 							<li class="header__loginItem">
 								Ver módulos
 							</li>
@@ -111,14 +111,14 @@
 					<h2 class="tab__title">
 						Crea <strong class="color-Text">notas educativas</strong> para tus cursos
 					</h2>
-					<p class="tab__description">El profesor es una persona importante. Dicha persona está encargada de crear nuevos cursos y exponer los conocimientos que sean necesarios y que son relevantes para los estudiantes. Un profesor puede crear un curso, actualizarlo cuando guste y eliminarlo en caso de no ser necesario.</p>
+					<p class="tab__description">Las notas educativas son como su nombre lo indica, notas. Estos continen detalles importantes del tema de estudio. Al ser fragmentos de información permite al estudiante aprender en secciones y sin tener que abrumarse por la cantidad de información.</p>
 					<ul class="header__bottons">
-						<a href="{{ route('admin.teacher.create') }}">
+						<a href="#">
 							<li class="header__loginItem header__loginItem--contrast">
 								Crear una nota
 							</li>
 						</a>
-						<a href="{{ route('admin.teacher.index') }}">
+						<a href="#">
 							<li class="header__loginItem">
 								Ver notas
 							</li>
@@ -136,15 +136,15 @@
 						alt="formulario">
 
 				<div class="tab__information">
-					<h2 class="tab__title">Crea <strong class="color-Text">questionarios</strong> para tus cursos</h2>
-					<p class="tab__description">El estudiante es la persona a quien va dirigido los curso y quien tiene la responsabilidad de aprender. Un estudiante puede cursar cualquier curso y al final obtener un certificado.</p>
+					<h2 class="tab__title">Crea <strong class="color-Text">cuestionarios</strong> para tus cursos</h2>
+					<p class="tab__description">Los cuestionarios representa una parte fundamental para tus cursos, cada uno es un examen de selección, mediante preguntas y respuestas programadas podrás asegurarte que el estudiante ha aprendido lo necesario para aprobar el módulo.</p>
 					<ul class="header__bottons">
-						<a href="{{ route('admin.student.create') }}">
+						<a href="#">
 							<li class="header__loginItem header__loginItem--contrast">
 								Crear un questionario
 							</li>
 						</a>
-						<a href="{{ route('admin.student.index') }}">
+						<a href="#">
 							<li class="header__loginItem">
 								Ver questionarios
 							</li>
@@ -181,12 +181,12 @@
 					</ul>
 				</div>
 				<div class="box-bottoms">
-					<a href="{{ route('admin.teacher.create') }}">
+					<a href="{{ route('teacher.edit') }}">
 						<li class="header__loginItem header__loginItem--contrast">
 							Editar mis datos
 						</li>
 					</a>
-					<a href="{{ route('admin.teacher.index') }}">
+					<a href="{{ route('teacher.profile') }}">
 						<li class="header__loginItem">
 							Ver mi perfil
 						</li>

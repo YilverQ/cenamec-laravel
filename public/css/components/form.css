@@ -1,6 +1,6 @@
 .form__content{
 	max-width: 500px;
-	background: #eceff4;
+	background: var(--light);
 	margin: 30px auto;
 	padding: 25px 0;
 	border-radius: 5px;
@@ -42,7 +42,7 @@
 	font-family: "Roboto", sans-serif;
 	color: var(--primary);
 }
-.form__input{
+.form__input, .form__textarea{
 	max-width: 400px;
 	margin: 5px 0;
 	padding: 8px 0 5px 10px;
@@ -65,6 +65,37 @@
 .form__input--successField{
 	border: 2px solid var(--primary);
 }
+
+.form__textarea{
+	resize: none;
+	padding: 10px;
+}
+.form__file{
+	display: none;
+}
+.labelFile{
+	border-radius: 2px;
+	cursor:pointer;
+	margin-top: .5em;
+	display: flex;
+}
+.labelFile__input{
+	width: 80%;
+	border-bottom: 2px solid var(--primary);
+	background: #e5e9f0;
+	padding: 10px;
+	border-radius: 2px;
+	border-radius: 2px 0 0 2px;
+}
+.labelFile__text{
+	width: 20%;
+	text-align: center;
+	background: var(--primary);
+	color: var(--light);
+	padding: 10px;
+	border-radius: 0 2px 2px 0;
+}
+
 
 .form__send{
 	max-width: 400px;
@@ -107,13 +138,17 @@
 	color: var(--primary);
 }
 
+.option--disabled{
+	color: green;
+}
+
 /*Toggle btn*/
 .button-box{
 	width: 310px;
 	margin: 35px auto;
 	position: relative;
 	border-radius: 30px;
-	background: #fff;
+	background: #eceff4;
 }
 .toggle-btn{
 	padding: 10px 40px;

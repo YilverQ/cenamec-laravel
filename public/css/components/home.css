@@ -80,6 +80,13 @@
 	border: 3px solid transparent;
 	color: var(--light);
 }
+.header__loginItem--delete{
+	background: var(--danger);
+	cursor: pointer;
+}
+.header__loginItem--delete:hover{
+	background: #e05964;
+}
 .header__loginItem--contrast:hover{
 	transition: all .5s;
 	background: #32ccc6;

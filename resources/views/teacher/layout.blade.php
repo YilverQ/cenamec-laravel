@@ -43,7 +43,7 @@
 					<p>Inicio</p>
 				</li>
 			</a>
-			<a href="{{ route('teacher.course') }}">
+			<a href="{{ route('teacher.course.index') }}">
 				<li class="nav__item">
 					<i class="fa-solid fa-book-open-reader"></i>
 					<p>Mis cursos</p>
@@ -87,7 +87,6 @@
 	<!--Scripts-->
 	<script type="module" src="{{ asset('js/components/navItemSelected.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/message.js') }}"></script>
-	<script type="module" src="{{ asset('js/administrator/navMenu.js') }}"></script>
 	@yield('scripts')
 </body>
 </html>
