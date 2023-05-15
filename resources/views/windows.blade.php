@@ -1,4 +1,4 @@
-<div class="sheetWindows sheetWindows--hidden">
+	<div class="sheetWindows sheetWindows--hidden">
 		<article class="windows windows--delete">
 			<p class="closeText"><i class="fa-solid fa-xmark"></i></p>
 			<div class="windows__message">
@@ -19,18 +19,6 @@
 		</article>
 	</div>
 
-	<article>
-		<h2 class="claseD">Hola Mundo</h2>
-	</article>
-
-
-	@section('scripts')
-	<script type="module" src="{{ asset('js/administrator/checkFormAdmin.js') }}"></script>
+@section('scripts')
 	<script type="module" src="{{ asset('js/components/windows.js') }}"></script>
 @endsection
-
-
-<i class="fa-solid fa-user-gear"></i>
-<i class="fa-solid fa-book-open-reader"></i>
-<i class="fa-solid fa-laptop-file"></i>
-<i class="fa-solid fa-book"></i>

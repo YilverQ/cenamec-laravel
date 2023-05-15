@@ -22,15 +22,20 @@ class ModuleController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * Retornamos una lista de todos los cursos.
+     * 
+     * asignamos el nombre del curso con sus módulos.
+     * Y lo envíamos a la vista.
      */
     public function index(Request $request)
     {
         $teacher = $request->session()->get('teacher_id');
         $teacher = Teacher::find($teacher);
         $courses = $teacher->courses;
+        //listItem es un array asociativo que tiene los cursos y módulos
         $listItem = [];
 
+        //asígnamos el nombre del curso con sus módulos.
         foreach ($courses as $key => $value) {
             $item = Module::where('course_id', $value->id)
                     ->withCount('notes')
@@ -39,12 +44,16 @@ class ModuleController extends Controller
             $listItem[$value->name] = $item;
         }
 
+        //retornamos una vista
         return view('module.index')
                 ->with("listItem", $listItem);
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Retornamos un formulario que nos permite crear un nuevo elemento.
+     * 
+     * Buscamos una lista de cursos y módulos que tiene cada curso.
      */
     public function create(Request $request)
     {
@@ -56,8 +65,14 @@ class ModuleController extends Controller
                         ->with('courses', $courses);
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     * Acción para crear un nuevo elemento.
+     * 
+     * Para crear el elemento se debe cumplir: 
+     *      1. Que el usuario haya ingresado un curso para asociar el módulo. 
+     * 
+     * Guardamos el registro. 
      */
     public function store(Request $request)
     {
@@ -73,6 +88,8 @@ class ModuleController extends Controller
                             ->withCount('modules')
                             ->first();
         $teacher_id = $request->session()->get('teacher_id');
+
+        //Persistimos los datos.
         $module = new Module;
         $module->name = $request->input('name');
         $module->level = $course->modules_count + 1;
@@ -83,16 +100,23 @@ class ModuleController extends Controller
         return redirect()->route('teacher.course.show', $course);
     }
 
+
     /**
-     * Display the specified resource.
+     * Retornamos una vista que nos muestra un elemento.
+     * Buscamos el profesor de nuestra sessión. 
+     * Buscamos los módulos que tiene el curso que viene por párametro.
+     * retornamos todos los datos. 
      */
     public function show(Module $item)
     {
         //
     }
 
+
     /**
-     * Show the form for editing the specified resource.
+     * Retornamos un formulario que nos permite actualizar un elemento. 
+     * Le envíamos el curso asociado al módulo.
+     * Le envíamos el módulo.
      */
     public function edit(Module $item)
     {
@@ -102,8 +126,15 @@ class ModuleController extends Controller
                 ->with('course', $course);
     }
 
-    /**
-     * Update the specified resource in storage.
+
+     /**
+     * Acción para actualizar un elemento.
+     * 
+     * Para actualizar el elemento se debe cumplir:
+     *      1. El 'nombre' debe ser único. 
+     *      2. El 'nombre' es igual al que tenía asociado.
+     * 
+     * Se guardan los datos en bd.
      */
     public function update(Request $request, Module $item)
     {
@@ -130,8 +161,9 @@ class ModuleController extends Controller
         return to_route('teacher.module.index');
     }
 
+
     /**
-     * Remove the specified resource from storage.
+     * Eliminamos un elemento de nuestra bd.
      */
     public function destroy(Request $request, Module $item)
     {

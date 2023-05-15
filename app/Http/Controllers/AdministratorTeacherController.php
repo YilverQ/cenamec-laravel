@@ -138,7 +138,7 @@ class AdministratorTeacherController extends Controller
                 #No actualiza el dato. 
                 #Retorna un mensaje de error. 
                 session()->flash('message-error', 'Error, el correo electrónico ya está en uso');
-                return to_route('admin.teacher.index');
+                return to_route('admin.teacher.edit', $item);
             }
         }
 
@@ -147,7 +147,7 @@ class AdministratorTeacherController extends Controller
             if ($item->number_phone != $phone) {
                 #El número de teléfono ya lo tiene otra persona.
                 session()->flash('message-error', 'Error, el número de teléfono ya está en uso');
-                return to_route('admin.teacher.index');
+                return to_route('admin.teacher.edit', $item);
             }
         }
 
@@ -156,7 +156,7 @@ class AdministratorTeacherController extends Controller
             if ($item->identification_card != $idCard) {
                 #El número de teléfono ya lo tiene otra persona.
                 session()->flash('message-error', 'Error, el número de cédula ya está en uso');
-                return to_route('admin.teacher.index');
+                return to_route('admin.teacher.edit', $item);
             }
         }
         

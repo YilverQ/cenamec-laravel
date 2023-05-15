@@ -47,7 +47,7 @@
 					<ul class="header__bottons">
 						<a href="{{ route('administrator.create') }}">
 							<li class="header__loginItem header__loginItem--contrast">
-								Crear Administrador
+								Crear un administrador
 							</li>
 						</a>
 						<a href="{{ route('administrator.index') }}">

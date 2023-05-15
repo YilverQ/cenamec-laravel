@@ -4,9 +4,7 @@
 @section('title', 'Gestiona a los estudiantes')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/administrator/list.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/windows.css') }}">
 @endsection
 
 
@@ -29,7 +27,7 @@
 					<ul class="header__bottons">
 						<a href="{{ route('admin.student.create') }}">
 							<li class="header__loginItem header__loginItem--contrast">
-								Crear estudiante
+								Crear un estudiante
 							</li>
 						</a>
 					</ul>

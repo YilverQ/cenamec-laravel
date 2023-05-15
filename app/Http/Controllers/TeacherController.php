@@ -21,19 +21,24 @@ class TeacherController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * Retornamos la vista principal del profesor.
+     * envíamos los datos del profesor. 
+     * Envíamos un cursos asociado al profesor de forma aleatoria.
      */
     public function index(Request $request)
     {
         $teacher_id = $request->session()->get('teacher_id');
         $teacher    = Teacher::find($teacher_id);
-        $course     = Course::where('teacher_id', $teacher->id)->first();      
-        
+        $course     = Course::where('teacher_id', $teacher->id)->get()->random();      
         return view('teacher.index')
                 ->with("teacher", $teacher)
                 ->with("course", $course);
     }
 
+
+    /**
+     * Retornamos una vista para ver el perfil.
+     */
     public function profile(Request $request)
     {
         $teacher_id = $request->session()->get('teacher_id');
@@ -43,6 +48,10 @@ class TeacherController extends Controller
                 ->with('teacher', $teacher);
     }
 
+
+    /**
+     * Formulario para editar un elemento.
+     */
     public function edit(Request $request)
     {
         $teacher_id = $request->session()->get('teacher_id');
@@ -52,6 +61,17 @@ class TeacherController extends Controller
                 ->with('teacher', $teacher);
     }
 
+
+    /**
+     * Acción para actualizar un elemento. 
+     * 
+     * Para actualizar se debe cumplir: 
+     *      1. El correo ingresado debe ser único y no puede estar asociado a otra persona. 
+     *      2. El numero de teléfono ingresado debe ser único y no debe estar asociado a otra persona.
+     *      3. El número de cédula ingresado debe ser único y no debe estar asociado a otra persona. 
+     * 
+     * Se guardan los datos y se retorna un vista.
+     */
     public function update(Request $request)
     {
         $teacher_id = $request->session()->get('teacher_id');

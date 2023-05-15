@@ -5,7 +5,6 @@
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/administrator/list.css') }}">
 @endsection
 
 
@@ -20,7 +19,7 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Editar el perfil de <strong class="color-Text">{{ $teacher->name }}</strong>
+					Editar mi <strong class="color-Text">perfil</strong>
 				</h2>
 				<form class="form__content" 
 						method="POST" 
@@ -30,7 +29,7 @@
 					<h2 class="form__icon">
 						<i class="fa-solid fa-chalkboard-user"></i>
 					</h2>
-					<h2 class="form__title">Datos del profesor</h2>
+					<h2 class="form__title">Mis datos</h2>
 					<div class="form__item">
 						<label for="name">Nombre:</label>
 						<input class="form__input" 
@@ -102,14 +101,19 @@
 						<p class="form__eye"><i id="form_eye" class="fa-solid fa-eye"></i></p>
 					</div>
 					<div class="a">
-						<div class="button-box">
-							<div class="btn" id="btn"></div>
-							<button class="toggle-btn toggle-btn--checked"
+						<div class="toggle-next">
+							<button class="toggle-next__button"
 								type="button" 
-								id="leftClick">Personal</button>
-							<button class="toggle-btn"
+								id="next-btn">
+								Siguiente
+								<i class="fa-solid fa-arrow-right icon-btn-button"></i>
+							</button>
+							<button class="toggle-next__button toggle-next__button--hidden"
 								type="button" 
-								id="rightClick">Contacto</button>
+								id="back-btn">
+								<i class="fa-solid fa-arrow-left icon-btn-button"></i>
+								Atrás
+							</button>
 						</div>
 					</div>
 					<input class="form__send" 
@@ -144,6 +148,6 @@
 
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
-	<script type="module" src="{{ asset('js/login/switchSignup.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/switchFormUser.js') }}"></script>
 	<script type="module" src="{{ asset('js/administrator/checkFormTeachStudent.js') }}"></script>
 @endsection

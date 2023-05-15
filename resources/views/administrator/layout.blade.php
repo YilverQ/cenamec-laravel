@@ -13,10 +13,11 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/message.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/nav.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/windowsAlert.css') }}">
 	@yield('styles')
 
 	<!--Favicon-->
-	<link rel="icon" href="{{ asset('img/logo.png') }}">
+	<link rel="icon" href="{{ asset('img/logo.jpeg') }}">
 
 	<!--Fuentes-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,12 +30,33 @@
 
 </head>
 <body>
+	<!--Ventana de alerta-->
+	<div class="sheetWindows sheetWindows--hidden">
+		<article class="windows">
+			<p class="closeText"><i class="fa-solid fa-xmark"></i></p>
+			<div class="windows__message">
+				<i class="fa-solid fa-circle-exclamation iconTitle iconTitle--danger"></i>
+				<h4 class="windows__title">¿Quieres eliminar el elemento?</h4>
+				<ul class="header__bottons">
+					<span class="windows__confirm">
+						<li class="header__loginItem header__loginItem--contrast">
+							Si, eliminar
+						</li>
+					</span>
+					<span class="windows__cancel">
+						<li class="header__loginItem">
+							No
+						</li>
+					</span>
+				</ul>
+			</div>
+		</article>
+	</div>
 
 	<!--Navegación-->
   	<nav class="nav">
 		<a href="{{ route('administrator.home') }}" class="nav__home">
-		  <img src="{{ asset('img/logo.png') }}" class="nav__logo">
-		  <h1 class="nav__title">CENAMEC</h1>
+		  <img src="{{ asset('img/logo.jpeg') }}" class="nav__logo">
 		</a>
 		<ul class="nav__menu">
 			<a href="{{ route('administrator.home') }}">
@@ -96,6 +118,7 @@
 	<script type="module" src="{{ asset('js/components/navItemSelected.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/message.js') }}"></script>
 	<script type="module" src="{{ asset('js/administrator/navMenu.js') }}"></script>
+	<script type="module" src="{{ asset('js/components/windowsAlert.js') }}"></script>
 	@yield('scripts')
 </body>
 </html>

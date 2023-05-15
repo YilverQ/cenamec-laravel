@@ -126,8 +126,8 @@ class AdministratorController extends Controller
                 #El correo ya lo tiene otra persona.
                 #No actualiza el dato. 
                 #Retorna un mensaje de error. 
-                session()->flash('message-error', 'Error, los datos ingresados no son correctos');
-                return to_route('administrator.index');
+                session()->flash('message-error', 'Error, el correo ingresado ya está siendo usado');
+                return to_route('administrator.edit', $item);
             }
         }
         

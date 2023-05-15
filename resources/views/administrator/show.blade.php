@@ -1,11 +1,10 @@
 @extends('administrator.layout')
 
 
-@section('title', 'Data de un administrador')
+@section('title', 'Datos del administrador')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/administrator/list.css') }}">
 @endsection
 
 
@@ -57,6 +56,4 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
-	<script type="module" src="{{ asset('js/administrator/checkFormAdmin.js') }}"></script>
 @endsection

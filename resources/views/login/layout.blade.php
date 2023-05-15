@@ -16,7 +16,7 @@
 	@yield('styles')
 
 	<!--Favicon-->
-	<link rel="icon" href="{{ asset('img/logo.png') }}">
+	<link rel="icon" href="{{ asset('img/logo.jpeg') }}">
 
 	<!--Fuentes-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +31,7 @@
 	<!--Navegación-->
   	<nav class="nav">
 		<a href="{{ route('login.home') }}" class="nav__home">
-		  <img src="{{ asset('img/logo.png') }}" class="nav__logo">
-		  <h1 class="nav__title">CENAMEC</h1>
+		  <img src="{{ asset('img/logo.jpeg') }}" class="nav__logo">
 		</a>
 		<ul class="nav__menu">
 			<a href="{{ route('login.home') }}">

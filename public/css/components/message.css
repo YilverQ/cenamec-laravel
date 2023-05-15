@@ -6,6 +6,7 @@
     padding: .7em .5em;
     padding-left: 1em;
     max-width: min(100%, calc(500px));
+    animation: moverIzquierda .5s;
 }
 .message--error{
     background: var(--danger);

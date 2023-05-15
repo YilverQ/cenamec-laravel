@@ -23,10 +23,13 @@ class CourseController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * Retornamos una lista de todos los cursos.
+     * también cuenta los módulos de cada curso.
+     * y lo envíamos a la vista. 
      */
     public function index(Request $request)
     {
+        //Buscamos el id del profesor. 
         $teacher_id = $request->session()->get('teacher_id');
         $courses    = Course::where('teacher_id', $teacher_id)
                                 ->withCount('modules')
@@ -36,16 +39,28 @@ class CourseController extends Controller
                 ->with("courses", $courses);
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Retornamos un formulario que nos permite crear un nuevo elemento.
      */
     public function create()
     {
         return view('course.create');
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     * Acción para crear un nuevo elemento.
+     * 
+     * Para crear el elemento se debe cumplir: 
+     *      1. El 'nombre' debe ser único. 
+     *      2. El 'nombre' no puede estar asociado a ningún usuario.  
+     * 
+     * Procesamos la imagen. 
+     *      1. Comprobamos que la imagen ingresada sea valida. 
+     *      2. Guardamos la imagen en Storage. 
+     * 
+     * Guardamos el registro. 
      */
     public function store(Request $request)
     {
@@ -65,6 +80,7 @@ class CourseController extends Controller
         $urlImage = $request->file('img')->store('public/imgCourses');
         $urlImage = Storage::url($urlImage);
 
+        //Persistimos los datos en la bd.
         $teacher_id = $request->session()->get('teacher_id');
         $course = new Course;
         $course->name = $request->input('name');
@@ -76,11 +92,16 @@ class CourseController extends Controller
         return redirect()->route('teacher.course.index');
     }
 
+
     /**
-     * Display the specified resource.
+     * Retornamos una vista que nos muestra un elemento.
+     * Buscamos el profesor de nuestra sessión. 
+     * Buscamos los módulos que tiene el curso que viene por párametro.
+     * retornamos todos los datos. 
      */
     public function show(Request $request, Course $item)
     {
+        //Buscamos los datos. 
         $teacher = $request->session()->get('teacher_id');
         $teacher = Teacher::find($teacher);
         $modules = Module::where('course_id', $item->id)
@@ -88,15 +109,16 @@ class CourseController extends Controller
                         ->withCount('questionnaires')
                         ->get(); 
 
-
+        //Retornamos todos los datos a la vista. 
         return view('course.show')
                 ->with("course", $item)
                 ->with("teacher", $teacher)
                 ->with("modules", $modules);
     }
 
+
     /**
-     * Show the form for editing the specified resource.
+     * Retornamos un formulario que nos permite actualizar un elemento. 
      */
     public function edit(Course $item)
     {
@@ -104,8 +126,20 @@ class CourseController extends Controller
                 ->with('course', $item);
     }
 
+
     /**
-     * Update the specified resource in storage.
+     * Acción para actualizar un elemento.
+     * 
+     * Para actualizar el elemento se debe cumplir:
+     *      1. El 'nombre' debe ser único. 
+     *      2. El 'nombre' no puede ser igual al que tenía asociado.
+     * 
+     * Comprobamos si se quiere actualizar la imágen. 
+     *      1. Se comprueba el campo de la imágen. 
+     *      2. Se comprueba que la imágen ingresada sea correcta.
+     *      3. Se guarda la imágen.
+     *    
+     * Se guardan los datos en bd.
      */
     public function update(Request $request, Course $item)
     {
@@ -119,11 +153,11 @@ class CourseController extends Controller
                 #No actualiza el dato. 
                 #Retorna un mensaje de error. 
                 session()->flash('message-error', 'Error, nombre del curso ya está en uso');
-                return to_route('teacher.course.index');
+                return to_route('teacher.course.edit');
             }
         }
 
-        //Comprobamos si se quiere actualizar una imagen. 
+        //Comprobamos si se quiere actualizar una imágen. 
         $imagen = $request->file('img');
         if (!(empty($imagen))){
             //Procesamos la imagen
@@ -147,7 +181,7 @@ class CourseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminamos un elemento de nuestra bd.
      */
     public function destroy(Request $request, Course $item)
     {

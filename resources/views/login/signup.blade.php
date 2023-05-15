@@ -89,14 +89,19 @@
 			<p class="form__eye"><i id="form_eye" class="fa-solid fa-eye"></i></p>
 		</div>
 		<div class="a">
-			<div class="button-box">
-				<div class="btn" id="btn"></div>
-				<button class="toggle-btn toggle-btn--checked"
+			<div class="toggle-next">
+				<button class="toggle-next__button"
 					type="button" 
-					id="leftClick" >1ra Parte</button>
-				<button class="toggle-btn"
+					id="next-btn">
+					Siguiente
+					<i class="fa-solid fa-arrow-right icon-btn-button"></i>
+				</button>
+				<button class="toggle-next__button toggle-next__button--hidden"
 					type="button" 
-					id="rightClick">2da Parte</button>
+					id="back-btn">
+					<i class="fa-solid fa-arrow-left icon-btn-button"></i>
+					Atrás
+				</button>
 			</div>
 		</div>
 		<input class="form__send form_send--disabled" type="submit" value="¡Vamos a estudiar!">
@@ -105,6 +110,6 @@
 
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
-	<script type="module" src="{{ asset('js/login/switchSignup.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/switchFormUser.js') }}"></script>
 	<script type="module" src="{{ asset('js/login/checkFormSignup.js') }}"></script>
 @endsection
