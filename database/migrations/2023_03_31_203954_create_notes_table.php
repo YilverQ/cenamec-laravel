@@ -25,8 +25,9 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
-            $table->string("img")->unique();
-            $table->string("description");
+            $table->string("title");
+            $table->string("img")->nulleable();
+            $table->longText("description");
             $table->integer("level");
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')

@@ -171,23 +171,66 @@ Route::controller(CourseController::class)->group(function () {
 /** Módulo
  * HTTP     URI               Method     Reponse   Description
  * -----------------------------------------------------------------------
- * get   /module              index      View      Retorna todos los elementos. 
- * get   /module/create       create     View      Formulario para crear un nuevo elemento. 
- * post  /module              store      Action    Crea un nuevo elemento. 
- * get   /module/{item}       show       View      Vista para editar un elemento. 
- * get   /module/{item}/edit  edit       Action    Formulario para actualizar. 
- * put   /module/{item}       update     Action    Actualiza un elemento. 
- * get   /module/check        delete     Action    Elimina un elemento.
+ * get   /teacher/module              index      View      Retorna todos los elementos. 
+ * get   /teacher/module/create       create     View      Formulario para crear un nuevo elemento. 
+ * post  /teacher/module              store      Action    Crea un nuevo elemento. 
+ * get   /teacher/module/{item}       show       View      Vista para editar un elemento. 
+ * get   /teacher/module/{item}/edit  edit       Action    Formulario para actualizar. 
+ * put   /teacher/module/{item}       update     Action    Actualiza un elemento. 
+ * get   /teacher/module/check        delete     Action    Elimina un elemento.
 */
 Route::controller(ModuleController::class)->group(function () {
     Route::get( '/teacher/module', 'index')->name('teacher.module.index');
     Route::get( '/teacher/module/create', 'create')->name('teacher.module.create');
     Route::post('/teacher/module', 'store')->name('teacher.module.store');
-    
     Route::get( '/teacher/module/{item}', 'show')->name('teacher.module.show');
     Route::get( '/teacher/module/{item}/edit', 'edit')->name('teacher.module.edit');
     Route::put( '/teacher/module/{item}', 'update')->name('teacher.module.update');
     Route::delete('/teacher/module/{item}', 'destroy')->name('teacher.module.destroy');
+});
+
+
+/** Notas
+ * HTTP     URI               Method     Reponse   Description
+ * -----------------------------------------------------------------------
+ * get   /teacher/note              index      View      Retorna todos los elementos. 
+ * get   /teacher/note/create       create     View      Formulario para crear un nuevo elemento. 
+ * post  /teacher/note              store      Action    Crea un nuevo elemento. 
+ * get   /teacher/note/{item}       show       View      Vista para editar un elemento. 
+ * get   /teacher/note/{item}/edit  edit       Action    Formulario para actualizar. 
+ * put   /teacher/note/{item}       update     Action    Actualiza un elemento. 
+ * get   /teacher/note/check        delete     Action    Elimina un elemento.
+*/
+Route::controller(NoteController::class)->group(function () {
+    Route::get( '/teacher/note', 'index')->name('teacher.note.index');
+    Route::get( '/teacher/note/create', 'create')->name('teacher.note.create');
+    Route::post('/teacher/note', 'store')->name('teacher.note.store');
+    Route::get( '/teacher/note/{item}', 'show')->name('teacher.note.show');
+    Route::get( '/teacher/note/{item}/edit', 'edit')->name('teacher.note.edit');
+    Route::put( '/teacher/note/{item}', 'update')->name('teacher.note.update');
+    Route::delete('/teacher/note/{item}', 'destroy')->name('teacher.note.destroy');
+});
+
+
+/** Cuestionario
+ * HTTP     URI               Method     Reponse   Description
+ * -----------------------------------------------------------------------
+ * get   /teacher/question              index      View      Retorna todos los elementos. 
+ * get   /teacher/question/create       create     View      Formulario para crear un nuevo elemento. 
+ * post  /teacher/question              store      Action    Crea un nuevo elemento. 
+ * get   /teacher/question/{item}       show       View      Vista para editar un elemento. 
+ * get   /teacher/question/{item}/edit  edit       Action    Formulario para actualizar. 
+ * put   /teacher/question/{item}       update     Action    Actualiza un elemento. 
+ * get   /teacher/question/check        delete     Action    Elimina un elemento.
+*/
+Route::controller(QuestionnaireController::class)->group(function () {
+    Route::get( '/teacher/question', 'index')->name('teacher.question.index');
+    Route::get( '/teacher/question/create', 'create')->name('teacher.question.create');
+    Route::post('/teacher/question', 'store')->name('teacher.question.store');
+    Route::get( '/teacher/question/{item}', 'show')->name('teacher.question.show');
+    Route::get( '/teacher/question/{item}/edit', 'edit')->name('teacher.question.edit');
+    Route::put( '/teacher/question/{item}', 'update')->name('teacher.question.update');
+    Route::delete('/teacher/question/{item}', 'destroy')->name('teacher.question.destroy');
 });
 
 
@@ -208,46 +251,6 @@ Route::controller(StudentController::class)->group(function () {
     Route::get( '/student/{item}/edit', 'edit')->name('student.edit');
     Route::put( '/student/{item}', 'update')->name('student.update');
     Route::delete('/student/{item}', 'destroy')->name('student.destroy');
-});
-
-
-/** Nota
- * HTTP     URI             Method     Reponse   Description
- * -----------------------------------------------------------------------
- * get   /note              index      View      Retorna todos los elementos. 
- * get   /note/create       create     View      Formulario para crear un nuevo elemento. 
- * post  /note              store      Action    Crea un nuevo elemento. 
- * get   /note/{item}/edit  edit       View      Vista para editar un elemento. 
- * put   /note/{item}       update     Action    Actualiza un elemento. 
- * get   /note/check        delete     Action    Elimina un elemento.
-*/
-Route::controller(NoteController::class)->group(function () {
-    Route::get( '/note', 'index')->name('note.index');
-    Route::get( '/note/create', 'create')->name('note.create');
-    Route::post('/note', 'store')->name('note.store');
-    Route::get( '/note/{item}/edit', 'edit')->name('note.edit');
-    Route::put( '/note/{item}', 'update')->name('note.update');
-    Route::delete('/note/{item}', 'destroy')->name('note.destroy');
-});
-
-
-/** Cuestionario
- * HTTP     URI                      Method     Reponse   Description
- * -----------------------------------------------------------------------
- * get   /questionnaire              index      View      Retorna todos los elementos. 
- * get   /questionnaire/create       create     View      Formulario para crear un nuevo elemento. 
- * post  /questionnaire              store      Action    Crea un nuevo elemento. 
- * get   /questionnaire/{item}/edit  edit       View      Vista para editar un elemento. 
- * put   /questionnaire/{item}       update     Action    Actualiza un elemento. 
- * get   /questionnaire/check        delete     Action    Elimina un elemento.
-*/
-Route::controller(QuestionnaireController::class)->group(function () {
-    Route::get( '/questionnaire', 'index')->name('questionnaire.index');
-    Route::get( '/questionnaire/create', 'create')->name('questionnaire.create');
-    Route::post('/questionnaire', 'store')->name('questionnaire.store');
-    Route::get( '/questionnaire/{item}/edit', 'edit')->name('questionnaire.edit');
-    Route::put( '/questionnaire/{item}', 'update')->name('questionnaire.update');
-    Route::delete('/questionnaire/{item}', 'destroy')->name('questionnaire.destroy');
 });
 
 

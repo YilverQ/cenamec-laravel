@@ -136,6 +136,9 @@
 	padding: 0 25px;
 	min-height: 270px;
 }
+.tab__subtitle{
+	font-weight: 700;
+}
 .tab__title--centered{
 	text-align: center;
 }
@@ -163,6 +166,10 @@
 }
 .tab__description--list{
 	list-style: inherit;
+}
+.tab__iconsDescription{
+	display: flex;
+	gap: 20px;	
 }
 
 

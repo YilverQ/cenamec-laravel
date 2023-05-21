@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 class NoteController extends Controller
 {
     /**
+     * Middlewares necesarios para comprobar los permisos
+     * auth.teacher -> Comprueba que el usuario tiene permiso de profesor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth.teacher');
+    }
+
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -14,21 +24,30 @@ class NoteController extends Controller
         //
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Retornamos un formulario que nos permite crear un nuevo elemento.
      */
     public function create()
     {
-        //
+        return view('note.create');
     }
 
+
     /**
-     * Store a newly created resource in storage.
+     * Acción para crear un nuevo elemento.
+     * 
+     * Procesamos la imagen. 
+     *      1. Comprobamos que la imagen ingresada sea valida. 
+     *      2. Guardamos la imagen en Storage. 
+     * 
+     * Guardamos el registro. 
      */
     public function store(Request $request)
     {
-        //
+        return "creando nota // la imagen puede ser opcional"
     }
+
 
     /**
      * Display the specified resource.
@@ -38,6 +57,7 @@ class NoteController extends Controller
         //
     }
 
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -46,6 +66,7 @@ class NoteController extends Controller
         //
     }
 
+
     /**
      * Update the specified resource in storage.
      */
@@ -53,6 +74,7 @@ class NoteController extends Controller
     {
         //
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -16,21 +16,21 @@ class CourseSeeder extends Seeder
         /*YILVER*/
         Course::create([
             'name' => 'Física',
-            'description' => "La física es una rama de la ciencia que estudia la materia y el movimiento (desde las moléculas las estrellas) y cómo estos interactúan con la energía y las fuerzas.",
+            'description' => "La física es el estudio de la materia, el movimiento, la energía y la fuerza. Aquí puedes explorar temas, artículos y ejercicios por tema.",
             'img' => '/storage/imgCourses/fisica.jpeg',
             'teacher_id' => 1,
         ]);
 
         Course::create([
             'name' => 'Química',
-            'description' => "La Historia de la Química que corresponde al curso de CIENCIA preparado especialmente para los niños de Sexto Grado de Primaria.",
+            'description' => "La química es el estudio de la materia y los cambios que experimenta. Aquí puedes explorar temas, artículos y ejercicios de química por tema.",
             'img' => '/storage/imgCourses/quimica.jpeg',
             'teacher_id' => 1,
         ]);
 
         Course::create([
             'name' => 'Biología',
-            'description' => "La biología es el estudio de la vida. Mantenemos estas lecciones actualizadas, por lo tanto podrás encontrar aquí contenido nuevo o mejorado con el tiempo.",
+            'description' => "La biología es el estudio de la vida. Aquí puedes explorar temas, artículos y ejercicios por tema. Mantenemos estas lecciones actualizadas, por lo tanto podrás encontrar aquí contenido nuevo o mejorado con el tiempo.",
             'img' => '/storage/imgCourses/biologia.jpeg',
             'teacher_id' => 1,
         ]);

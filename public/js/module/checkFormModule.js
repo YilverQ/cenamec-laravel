@@ -19,6 +19,7 @@ let labelFileInput = document.querySelector(".labelFile__input");
 */
 const regularExpression = {
 	name 	 	: /^[a-zA-ZÀ-ÿ\s\d]{3,50}$/,
+	description : /[a-zA-Z\t\h]{3,255}/,
 };
 
 
@@ -28,6 +29,7 @@ const regularExpression = {
 */
 let fieldsForm = {
 	name 		: false,
+	description : false
 };
 
 
@@ -45,6 +47,10 @@ const checkForm = (e) => {
 	switch (e.target.name){
 		case "name":
 			checkField(regularExpression.name, 
+							e.target, e.target.name);
+		break;
+		case "description":
+			checkField(regularExpression.description, 
 							e.target, e.target.name);
 		break;
 	}
@@ -83,7 +89,8 @@ const checkField = (regex, input, fieldName) => {
 */
 const bottonSendDisabled = () =>{
 	let buttonSend = document.querySelector(".form__send");
-	if (fieldsForm.name) 
+	if (fieldsForm.name &&
+		fieldsForm.description) 
 	{
 		buttonSend.classList.remove("form_send--disabled");
 		buttonSend.disabled = false;

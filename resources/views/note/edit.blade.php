@@ -9,6 +9,12 @@
 @endsection
 
 @section('content')
+	@error('imgFile')
+		<p class="message message--warning">
+			Error, la imagen no es valida 
+        	<i class="close-message fa-solid fa-xmark"></i></i>
+        </p>
+	@endError
 	<!--Contenedor-->
 	<main class="container">
 		<!--Information-->
@@ -16,18 +22,18 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Crear un nuevo <strong class="color-Text">módulo</strong>
+					Editar <strong class="color-Text">nota educativa</strong>
 				</h2>
 				<form class="form__content" 
 						method="POST" 
-						action="{{ route('teacher.module.store') }}"
+						action="{{ route('teacher.note.update', $note) }}"
 						enctype="multipart/form-data">
 
-					@csrf @method('POST')
+					@csrf @method('PUT')
 					<h2 class="form__icon">
 						<i class="fa-solid fa-book-open-reader"></i>
 					</h2>
-					<h2 class="form__title">Datos del módulo</h2>
+					<h2 class="form__title">Datos del curso</h2>
 					<div class="form__item">
 						<label for="name">Nombre:</label>
 						<input class="form__input form__input--input" 
@@ -38,32 +44,38 @@
 								placeholder="Física para principiante"
 								minlength="3"
 								maxlength="50"
-								autocomplete="off">
+								autocomplete="off"
+								value="{{ $course->name }}">
 					</div>
 					<div class="form__item">
 						<label for="description">Descripción:</label>
 						<textarea class="form__textarea form__input--input"
 									name="description"
 									id="description"
-									placeholder="El módulo de introducción a la física sirve para dar comienzo al curso de física." 
+									placeholder="Curso de introducción a la física es un curso que promueve la educación en los niños, niñas, adolecentes y adultos. Con este curso podrás aprender sobre diversas áreas de la física." 
 									maxlength="255"
 									required="true"
-									rows="7"></textarea>
+									rows="7"
+									value="">{{ $course->description }}</textarea>
 					</div>
 					<div class="form__item">
-						<label for="course">Curso:</label>
-						<select class="form__input form__input--del" 
-									name="course" 
-									id="course">
-							<option disabled selected>Selecciona un curso</option>
-							@foreach($courses as $key => $item)
-							<option value="{{ $item->id }}">{{ $item->name }}</option>
-							@endforeach
-						</select>
-					</div>	
-					<input class="form__send form_send--disabled" 
+						<span>Actualizar imágen del curso:</span>
+						<label for="img" class="labelFile">
+							<div class="labelFile__input">
+								<span class="labelFile__imgText" id="imgFile"></span>
+							</div>
+							<span class="labelFile__text">Agregar</span>
+						</label>
+						<input class="form__file" 
+								name="img"
+								type="file" 
+								id="img" 
+								autocomplete="off" 
+								accept="image/*">
+					</div>
+					<input class="form__send" 
 						type="submit" 
-						value="Crear">
+						value="Editar">
 				</form>
 			</div>
 		</article>
@@ -75,12 +87,12 @@
 				
 				<div class="tab__information">
 					<h2 class="tab__title">
-						Ver lista de <strong class="color-Text">módulos</strong>
+						Ver lista de <strong class="color-Text">cursos</strong>
 					</h2>
 					<ul class="header__bottons">
-						<a href="{{ route('teacher.module.index') }}">
+						<a href="{{ route('teacher.course.index') }}">
 							<li class="header__loginItem">
-								Ver módulos
+								Ver mis cursos
 							</li>
 						</a>
 					</ul>
@@ -91,5 +103,6 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="{{ asset('js/module/checkFormModule.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/inputFile.js') }}"></script>
+	<script type="module" src="{{ asset('js/note/checkFormNoteUpdate.js') }}"></script>
 @endsection

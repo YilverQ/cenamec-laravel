@@ -12,14 +12,15 @@ let textFile 	= document.querySelector(".labelFile__imgText");
 let labelFileInput = document.querySelector(".labelFile__input");
 
 /*
-	name: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
+	title: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
 	lastname: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
 	email: adminte letras alfanúmericas y algunos caracteres especiales (#.+%&). Min 4 y Máx 20.
 	password: Admite caracteres alfanumericos y algunos caracteres especiales. Min 4 y Máx 20. 
 */
 const regularExpression = {
-	name 	 	: /^[a-zA-ZÀ-ÿ\s\d]{3,50}$/,
+	title 	 	: /^[a-zA-ZÀ-ÿ\s\d]{3,50}$/,
 	description : /[a-zA-Z\t\h]{3,255}/,
+	imgFile 	: /.$/,
 };
 
 
@@ -28,8 +29,9 @@ const regularExpression = {
 	cada objeto representa el estado del campo de mi formulario. 
 */
 let fieldsForm = {
-	name 		: true,
-	description : true
+	title 		: false,
+	description : false,
+	imgFile 	: false,
 };
 
 
@@ -41,12 +43,12 @@ let fieldsForm = {
 
 	1. expresión regular correspondiente al nombre del input. 
 	2. input. 
-	3. 'name' del formulario.
+	3. 'title' del formulario.
 */
 const checkForm = (e) => {
 	switch (e.target.name){
-		case "name":
-			checkField(regularExpression.name, 
+		case "title":
+			checkField(regularExpression.title, 
 							e.target, e.target.name);
 		break;
 		case "description":
@@ -89,8 +91,9 @@ const checkField = (regex, input, fieldName) => {
 */
 const bottonSendDisabled = () =>{
 	let buttonSend = document.querySelector(".form__send");
-	if (fieldsForm.name &&
-		fieldsForm.description) 
+	if (fieldsForm.title && 
+		fieldsForm.description &&
+		fieldsForm.imgFile) 
 	{
 		buttonSend.classList.remove("form_send--disabled");
 		buttonSend.disabled = false;
@@ -120,4 +123,25 @@ inputs.forEach((input) => {
 	input.addEventListener("blur", bottonSendDisabled);
 });
 
-bottonSendDisabled();
+
+
+//Comprobar el campo para subir archivos
+const checkFileField = (regex, input, fieldName) => {
+	//console.log(regex)
+	if(regex.test(input)){
+		//console.log(fieldsForm[fieldName])
+		fieldsForm[fieldName] = true;
+	}else{
+		fieldsForm[fieldName] = false;
+	}
+}
+
+function FileCheck(){
+	checkFileField(regularExpression.imgFile, textFile.innerHTML, "imgFile");
+	bottonSendDisabled();
+}
+
+labelFile.addEventListener("click", FileCheck);
+labelFile.addEventListener('mouseout', FileCheck);
+labelFileInput.addEventListener('click', FileCheck);
+labelFileInput.addEventListener('mouseout', FileCheck);

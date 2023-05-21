@@ -89,6 +89,7 @@ class CourseController extends Controller
         $course->teacher_id = $teacher_id;
         $course->save();
 
+        session()->flash('message-success', '¡El curso fue creado!');
         return redirect()->route('teacher.course.index');
     }
 
@@ -105,6 +106,7 @@ class CourseController extends Controller
         $teacher = $request->session()->get('teacher_id');
         $teacher = Teacher::find($teacher);
         $modules = Module::where('course_id', $item->id)
+                        ->orderBy('level')
                         ->withCount('notes')
                         ->withCount('questionnaires')
                         ->get(); 
@@ -186,6 +188,9 @@ class CourseController extends Controller
     public function destroy(Request $request, Course $item)
     {
         //Elimina el elemento y retorna un mensaje flash.
+        $image = str_replace('storage', 'public', $item->img);
+        Storage::delete($image);
+        
         $item->delete();
         session()->flash('message-success', '¡El curso fue eliminado correctamente!');
         return to_route('teacher.course.index');

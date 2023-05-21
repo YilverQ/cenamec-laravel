@@ -7,8 +7,9 @@
 }
 
 .sabana{
-	background: rgba(10, 10, 10, .5);
-	box-shadow: 0 0 5px rgba(10, 10, 10, .2);
+	background: rgb(0,0,0);
+	box-shadow: 0 0 5px rgba(10, 10, 10, .3);
+	background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(24,24,24,.6) 48%, rgba(150,150,150,0) 100%); 
 	margin: auto;
 	border-radius: 2px;
 	width: 100%;	
@@ -42,8 +43,7 @@
 	justify-content: space-around;
 }
 .headerBackground__information{
-	background: rgba(255, 255, 255, 0.2);
-	max-width: 700px;
+	max-width: 600px;
 	display: flex;
 	flex-flow: column;
 	row-gap: 25px;

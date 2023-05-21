@@ -27,6 +27,7 @@ return new class extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("description");
             $table->integer("level");
             $table->unsignedBigInteger('teacher_id');
             $table->foreign('teacher_id')

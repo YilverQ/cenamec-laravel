@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Course;
 use App\Models\Module;
+use App\Models\Note;
+use App\Models\Questionnaire;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -29,18 +31,20 @@ class ModuleController extends Controller
      */
     public function index(Request $request)
     {
-        $teacher = $request->session()->get('teacher_id');
-        $teacher = Teacher::find($teacher);
+        $teacher_id = $request->session()->get('teacher_id');
+        $teacher = Teacher::find($teacher_id);
         $courses = $teacher->courses;
         //listItem es un array asociativo que tiene los cursos y módulos
         $listItem = [];
 
         //asígnamos el nombre del curso con sus módulos.
         foreach ($courses as $key => $value) {
-            $item = Module::where('course_id', $value->id)
+            $item = Module::where('teacher_id', $teacher_id)
+                    ->where('course_id', $value->id)
                     ->withCount('notes')
                     ->withCount('questionnaires')
-                    ->get();
+                    ->orderBy('level')
+                    ->get(); 
             $listItem[$value->name] = $item;
         }
 
@@ -92,11 +96,13 @@ class ModuleController extends Controller
         //Persistimos los datos.
         $module = new Module;
         $module->name = $request->input('name');
+        $module->description = $request->input('description');
         $module->level = $course->modules_count + 1;
         $module->teacher_id = $teacher_id;
         $module->course_id  = $course->id;
         $module->save();
 
+        session()->flash('message-success', '¡El módulo fue creado!');
         return redirect()->route('teacher.course.show', $course);
     }
 
@@ -107,9 +113,30 @@ class ModuleController extends Controller
      * Buscamos los módulos que tiene el curso que viene por párametro.
      * retornamos todos los datos. 
      */
-    public function show(Module $item)
+    public function show(Request $request, Module $item)
     {
-        //
+        $teacher_id = $request->session()->get('teacher_id');
+        $course = Course::find($item->course_id);
+
+        $item = Module::where('id', $item->id)
+                    ->withCount('notes')
+                    ->withCount('questionnaires')
+                    ->first();
+
+        $notes = Note::where('module_id', $item->id)
+                        ->where("teacher_id", $teacher_id)
+                        ->orderBy('level')
+                        ->get(); 
+
+        $questionnaires = Questionnaire::where('module_id', $item->id)
+                        ->get(); 
+
+        //Retornamos todos los datos a la vista. 
+        return view('module.show')
+                ->with("course", $course)
+                ->with("module", $item)
+                ->with("notes", $notes)
+                ->with("questionnaires", $questionnaires);
     }
 
 
@@ -138,27 +165,17 @@ class ModuleController extends Controller
      */
     public function update(Request $request, Module $item)
     {
-        //Comprobamos si el nombre es valido.
-        $name = $request->input('name');
-        $is_name_valid  = Module::where('name', '=', $name)->first();
-        //Si se encuentra un elemento es porque el nombre ingresado es incorrecto.
-        if (!(empty($is_name_valid->name))) {
-            if ($item->name != $name) {
-                #El nombre del curso ya lo tiene otra persona.
-                #No actualiza el dato. 
-                #Retorna un mensaje de error. 
-                session()->flash('message-error', 'Error, nombre del módulo ya está en uso');
-                return to_route('teacher.module.edit', $item);
-            }
-        }
-
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
         $item->name = $request->input('name');
+        $item->description = $request->input('description');
         $item->save();
+
+        //Buscamos el curso correspondiente.
+        $course = Course::find($item->course_id);
 
         #Retorna un mensaje flash.
         session()->flash('message-success', '¡El módulo fue actualizado!');
-        return to_route('teacher.module.index');
+        return to_route('teacher.course.show', $course);
     }
 
 
@@ -167,9 +184,20 @@ class ModuleController extends Controller
      */
     public function destroy(Request $request, Module $item)
     {
+        $course = Course::find($item->course_id);
+        $modules  = Module::where('course_id', '=', $item->course_id)->get();
+        
+        //Acomodamos el level de los módulos.
+        foreach ($modules as $key => $value) {
+            if ($value->level > $item->level) {
+                $value->level = $value->level - 1;
+                $value->save();
+            }
+        }
+
         //Elimina el elemento y retorna un mensaje flash.
         $item->delete();
         session()->flash('message-success', '¡El módulo fue eliminado correctamente!');
-        return to_route('teacher.module.index');
+        return to_route('teacher.course.show', $course);
     }
 }

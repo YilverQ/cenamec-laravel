@@ -1,7 +1,7 @@
 @extends('teacher.layout')
 
 
-@section('title', 'Crea un nuevo curso')
+@section('title', 'Crea un nuevo módulo')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
@@ -16,26 +16,25 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Editar <strong class="color-Text">módulo</strong>
+					Crear una nueva <strong class="color-Text">nota educativa</strong>
 				</h2>
 				<form class="form__content" 
 						method="POST" 
-						action="{{ route('teacher.module.update', $module) }}"
+						action="{{ route('teacher.note.store') }}"
 						enctype="multipart/form-data">
 
-					@csrf @method('PUT')
+					@csrf @method('POST')
 					<h2 class="form__icon">
-						<i class="fa-solid fa-book-open-reader"></i>
+						<i class="fa-solid fa-note-sticky"></i>
 					</h2>
-					<h2 class="form__title">Datos del módulo</h2>
+					<h2 class="form__title">Datos de la nota</h2>
 					<div class="form__item">
-						<label for="name">Nombre:</label>
+						<label for="title">Título:</label>
 						<input class="form__input form__input--input" 
-								name="name" 
+								name="title" 
 								required 
 								type="text" 
-								id="name"
-								value="{{ $module->name }}" 
+								id="title" 
 								placeholder="Física para principiante"
 								minlength="3"
 								maxlength="50"
@@ -46,22 +45,30 @@
 						<textarea class="form__textarea form__input--input"
 									name="description"
 									id="description"
-									placeholder="El módulo de introducción a la física sirve para dar comienzo al curso de física." 
+									placeholder="Curso de introducción a la física es un curso que promueve la educación en los niños, niñas, adolecentes y adultos. Con este curso podrás aprender sobre diversas áreas de la física." 
 									maxlength="255"
 									required="true"
-									rows="7">{{ $module->description }}</textarea>
+									rows="7"></textarea>
 					</div>
 					<div class="form__item">
-						<label for="course">Este módulo pertenece al curso:</label>
-						<select class="form__input form__input--del" 
-									name="course" 
-									id="course">
-							<option selected>{{ $course->name }}</option>
-						</select>
-					</div>	
+						<span>Imágen de la nota educativa:</span>
+						<label for="img" class="labelFile">
+							<div class="labelFile__input">
+								<span class="labelFile__imgText" id="imgFile"></span>
+							</div>
+							<span class="labelFile__text">Agregar</span>
+						</label>
+						<input class="form__file" 
+								name="img"
+								required  
+								type="file" 
+								id="img" 
+								autocomplete="off" 
+								accept="image/*">
+					</div>
 					<input class="form__send form_send--disabled" 
 						type="submit" 
-						value="Editar">
+						value="Crear">
 				</form>
 			</div>
 		</article>
@@ -69,5 +76,7 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="{{ asset('js/module/checkFormModuleUpdate.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/inputFile.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/resetField.js') }}"></script>
+	<script type="module" src="{{ asset('js/note/checkFormNote.js') }}"></script>
 @endsection

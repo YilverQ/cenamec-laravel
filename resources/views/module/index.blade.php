@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/administrator/list.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/course.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/headerBackground.css') }}">
 @endsection
 
 
@@ -40,10 +39,11 @@
 		<!--Information-->
 		@foreach ($listItem as $nameCourse => $value)
 		<article class="article">
-			<h2 class="tab__title--centered">
+			<h2 class="tab__title--centered boxExpand">
 				Curso: <strong class="color-Text">{{ $nameCourse }}</strong>
+				<i class="expandContent fa-solid fa-caret-down"></i>
 			</h2>
-			<section class="containerModules">
+			<section class="containerModules containerModules--hidden">
 			@if (empty($value[0]))
 				<h3>No hay módulos</h3>
 			@else
@@ -76,12 +76,12 @@
 				</div>
 				<div class="bar"></div>
 			@endforeach
-			</section>
 			<a href="{{ route('teacher.course.show', $item->course_id) }}">
 				<li class="header__loginItem header__loginItem--contrast">
 					Ver detalles del curso
 				</li>
 			</a>
+			</section>
 			@endif
 		</article>
 		@endforeach
@@ -89,5 +89,5 @@
 @endsection
 
 @section('scripts')
-
+	<script type="module" src="{{ asset('js/module/expandContent.js') }}"></script>
 @endsection

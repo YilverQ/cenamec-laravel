@@ -55,8 +55,8 @@
 						{{ $course->description }}
 					</p>
 					<ul class="list__actions">
-						<a href="#" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 
-	                    <a href="#" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+						<a href="{{ route('teacher.course.show', $course) }}" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 
+	                    <a href="{{ route('teacher.course.edit', $course) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 					</ul>
 				</div>
 				<div class="box-bottoms">
@@ -112,18 +112,6 @@
 						Crea <strong class="color-Text">notas educativas</strong> para tus cursos
 					</h2>
 					<p class="tab__description">Las notas educativas son como su nombre lo indica, notas. Estos continen detalles importantes del tema de estudio. Al ser fragmentos de información permite al estudiante aprender en secciones y sin tener que abrumarse por la cantidad de información.</p>
-					<ul class="header__bottons">
-						<a href="#">
-							<li class="header__loginItem header__loginItem--contrast">
-								Crear una nota
-							</li>
-						</a>
-						<a href="#">
-							<li class="header__loginItem">
-								Ver notas
-							</li>
-						</a>
-					</ul>
 				</div>
 			</section>
 		</article>
@@ -138,18 +126,6 @@
 				<div class="tab__information">
 					<h2 class="tab__title">Crea <strong class="color-Text">cuestionarios</strong> para tus cursos</h2>
 					<p class="tab__description">Los cuestionarios representa una parte fundamental para tus cursos, cada uno es un examen de selección, mediante preguntas y respuestas programadas podrás asegurarte que el estudiante ha aprendido lo necesario para aprobar el módulo.</p>
-					<ul class="header__bottons">
-						<a href="#">
-							<li class="header__loginItem header__loginItem--contrast">
-								Crear un questionario
-							</li>
-						</a>
-						<a href="#">
-							<li class="header__loginItem">
-								Ver questionarios
-							</li>
-						</a>
-					</ul>
 				</div>
 			</section>
 		</article>
