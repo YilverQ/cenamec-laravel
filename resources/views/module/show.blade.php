@@ -73,11 +73,10 @@
 						<h3 class="cardNote__title">Lección</h3>
 					</div>
 					<p class="cardNote__description">{{ $item->title }}</p>
-					<ul class="list__actions list__actions--module">
-						<a href="{{ route('teacher.module.show', $item) }}" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 
+					<ul class="list__actions list__actions--module"> 
 	                    <a href="{{ route('teacher.note.edit', $item) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 						<form 
-	                    	action="{{ route('teacher.module.destroy', $item) }}" 
+	                    	action="{{ route('teacher.note.destroy', $item) }}" 
 	                    	method="POST" 
 	                    	class="form__delete">
 	                        
@@ -89,13 +88,20 @@
 				</div>
 			@endforeach
 			</div>				
-			<a href="{{ route('teacher.note.create') }}">
-				<li class="header__loginItem header__loginItem--contrast">
-					Crear una nota educativa
-				</li>
-			</a>
 			</section>
 			@endif
+			<div class="bottonEnd">
+				<a href="{{ route('teacher.note.create') }}">
+					<li class="header__loginItem header__loginItem--contrast">
+						Crear una nota educativa
+					</li>
+				</a>
+				<a href="#">
+					<li class="header__loginItem">
+						Previsualizar notas
+					</li>
+				</a>
+			</div>
 		</article>
 
 
@@ -142,13 +148,19 @@
 				</div>
 			@endforeach
 			</div>
-			<a href="{{ route('teacher.module.show', $module->id) }}">
-				<li class="header__loginItem header__loginItem--contrast">
-					Crear un cuestionario
-				</li>
-			</a>
-			</section>
 			@endif
+			<div class="bottonEnd">
+				<a href="{{ route('teacher.note.create') }}">
+					<li class="header__loginItem header__loginItem--contrast">
+						Crear un cuestionario educativo
+					</li>
+				</a>
+				<a href="#">
+					<li class="header__loginItem">
+						Previsualizar cuestionarios
+					</li>
+				</a>
+			</div>
 		</article>
 
 

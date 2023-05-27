@@ -19,6 +19,7 @@ class DeleteSessions
         $request->session()->forget('is_teacher_valid');
         $request->session()->forget('is_student_valid');
         $request->session()->forget('is_admin_valid');
+        $request->session()->forget('module_id');
         $request->session()->forget('admin_id');
         return $next($request);
     }

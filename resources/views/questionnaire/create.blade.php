@@ -1,7 +1,7 @@
 @extends('teacher.layout')
 
 
-@section('title', 'Crea una nueva nota')
+@section('title', 'Crea una cuestionario')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">

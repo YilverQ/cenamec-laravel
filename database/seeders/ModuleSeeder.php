@@ -37,6 +37,7 @@ class ModuleSeeder extends Seeder
             'teacher_id' => 1,
             'course_id'  => 1,
         ]);
+        
         Module::create([
             'name' => 'Fuerza centrípeta y gravitación',
             'description' => 'Así que abróchate el cinturón y prepárate para un paseo suave por los fundamentos de la física.',

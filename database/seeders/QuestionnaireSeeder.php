@@ -93,7 +93,7 @@ class QuestionnaireSeeder extends Seeder
             'bad3'   => "Violeta",
             'level'  => 1,
             'teacher_id'  => 2,
-            'module_id'   => 10,
+            'module_id'   => 13,
         ]);
 
         Questionnaire::create([
@@ -104,7 +104,7 @@ class QuestionnaireSeeder extends Seeder
             'bad3'   => "Violeta",
             'level'  => 2,
             'teacher_id'  => 2,
-            'module_id'   => 10,
+            'module_id'   => 13,
         ]);
 
 
@@ -116,7 +116,7 @@ class QuestionnaireSeeder extends Seeder
             'bad3'   => "Falsas",
             'level'  => 1,
             'teacher_id'  => 2,
-            'module_id'   => 11,
+            'module_id'   => 14,
         ]);
 
         Questionnaire::create([
@@ -127,7 +127,7 @@ class QuestionnaireSeeder extends Seeder
             'bad3'   => "Canción",
             'level'  => 2,
             'teacher_id'  => 2,
-            'module_id'   => 11,
+            'module_id'   => 14,
         ]);
 
         Questionnaire::create([
@@ -138,9 +138,8 @@ class QuestionnaireSeeder extends Seeder
             'bad3'   => "Gravedad",
             'level'  => 3,
             'teacher_id'  => 2,
-            'module_id'   => 11,
+            'module_id'   => 14,
         ]);
-
 
         Questionnaire::create([
             'ask'    => '¿La gravedad fue descubierta por?',
@@ -150,7 +149,7 @@ class QuestionnaireSeeder extends Seeder
             'bad3'   => "Cristiano Ronaldo",
             'level'  => 1,
             'teacher_id'  => 2,
-            'module_id'   => 12,
+            'module_id'   => 14,
         ]);
     }
 }

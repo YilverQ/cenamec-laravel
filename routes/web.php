@@ -86,7 +86,7 @@ Route::controller(AdministratorController::class)->group(function () {
 
 
 /** Administrator - Teacher (AdministratorTeacherController)
- * HTTP     URI                      Method     Reponse   Description
+ * HTTP     URI                        Method     Reponse   Description
  * -----------------------------------------------------------------------
  * get     /admin/teacher              index      View      Retorna todos los elementos. 
  * get     /admin/teacher/create       create     View      Formulario para crear un nuevo elemento. 
@@ -169,7 +169,7 @@ Route::controller(CourseController::class)->group(function () {
 
 
 /** Módulo
- * HTTP     URI               Method     Reponse   Description
+ * HTTP     URI                       Method     Reponse   Description
  * -----------------------------------------------------------------------
  * get   /teacher/module              index      View      Retorna todos los elementos. 
  * get   /teacher/module/create       create     View      Formulario para crear un nuevo elemento. 
@@ -191,7 +191,7 @@ Route::controller(ModuleController::class)->group(function () {
 
 
 /** Notas
- * HTTP     URI               Method     Reponse   Description
+ * HTTP     URI                     Method     Reponse   Description
  * -----------------------------------------------------------------------
  * get   /teacher/note              index      View      Retorna todos los elementos. 
  * get   /teacher/note/create       create     View      Formulario para crear un nuevo elemento. 
@@ -202,10 +202,8 @@ Route::controller(ModuleController::class)->group(function () {
  * get   /teacher/note/check        delete     Action    Elimina un elemento.
 */
 Route::controller(NoteController::class)->group(function () {
-    Route::get( '/teacher/note', 'index')->name('teacher.note.index');
     Route::get( '/teacher/note/create', 'create')->name('teacher.note.create');
     Route::post('/teacher/note', 'store')->name('teacher.note.store');
-    Route::get( '/teacher/note/{item}', 'show')->name('teacher.note.show');
     Route::get( '/teacher/note/{item}/edit', 'edit')->name('teacher.note.edit');
     Route::put( '/teacher/note/{item}', 'update')->name('teacher.note.update');
     Route::delete('/teacher/note/{item}', 'destroy')->name('teacher.note.destroy');
@@ -213,7 +211,7 @@ Route::controller(NoteController::class)->group(function () {
 
 
 /** Cuestionario
- * HTTP     URI               Method     Reponse   Description
+ * HTTP     URI                         Method     Reponse   Description
  * -----------------------------------------------------------------------
  * get   /teacher/question              index      View      Retorna todos los elementos. 
  * get   /teacher/question/create       create     View      Formulario para crear un nuevo elemento. 
@@ -235,7 +233,7 @@ Route::controller(QuestionnaireController::class)->group(function () {
 
 
 /** Estudiante
- * HTTP     URI                      Method     Reponse   Description
+ * HTTP     URI                Method     Reponse   Description
  * -----------------------------------------------------------------------
  * get   /student              index      View      Retorna todos los elementos. 
  * get   /student/create       create     View      Formulario para crear un nuevo elemento. 
@@ -255,7 +253,7 @@ Route::controller(StudentController::class)->group(function () {
 
 
 /** Certificado
- * HTTP     URI                      Method     Reponse   Description
+ * HTTP     URI                    Method     Reponse   Description
  * -----------------------------------------------------------------------
  * get   /certificate              index      View      Retorna todos los elementos. 
  * get   /certificate/create       create     View      Formulario para crear un nuevo elemento. 

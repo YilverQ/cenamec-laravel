@@ -162,6 +162,11 @@ class CourseController extends Controller
         //Comprobamos si se quiere actualizar una imágen. 
         $imagen = $request->file('img');
         if (!(empty($imagen))){
+
+            //Elimina la imagen antigua.
+            $image = str_replace('storage', 'public', $item->img);
+            Storage::delete($image);
+            
             //Procesamos la imagen
             $request->validate([
                 'img' => 'required|image|max:2048'
@@ -182,8 +187,15 @@ class CourseController extends Controller
         return to_route('teacher.course.index');
     }
 
+
     /**
-     * Eliminamos un elemento de nuestra bd.
+     * Eliminamos la imagen del curso que está en 
+     * carpeta "Storage" en nuestro proyecto.
+     *  
+     * Eliminamos el elemento de nuestra base de datos. 
+     * 
+     * Envíamos un mensaje flash.
+     * Retornamos la vista principal.  
      */
     public function destroy(Request $request, Course $item)
     {

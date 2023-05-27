@@ -159,6 +159,14 @@
 	height: 30px;
 }
 
+/*BottonEnds*/
+.bottonEnd{
+	display: flex;
+	flex-flow: column;
+	gap: 5px;
+	margin-top: 16px;
+}
+
 
 /*Notes*/
 .cardNoteContent{
@@ -175,7 +183,7 @@
 	"descriptionNote descriptionNote"
 	"actionButtonNote actionButtonNote";
 	background: var(--light);
-	width: 420px;
+	width: 400px;
 	border-top: 3px solid var(--primary);
 	border-radius: 3px;
 	padding: 20px 10px;

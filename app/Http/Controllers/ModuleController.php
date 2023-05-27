@@ -115,6 +115,8 @@ class ModuleController extends Controller
      */
     public function show(Request $request, Module $item)
     {
+        $request->session()->put('module_id', $item->id);
+
         $teacher_id = $request->session()->get('teacher_id');
         $course = Course::find($item->course_id);
 
@@ -156,11 +158,8 @@ class ModuleController extends Controller
 
      /**
      * Acción para actualizar un elemento.
-     * 
-     * Para actualizar el elemento se debe cumplir:
-     *      1. El 'nombre' debe ser único. 
-     *      2. El 'nombre' es igual al que tenía asociado.
-     * 
+     * Recibimos los datos envíados por el formulario.
+     * Persistimos los datos. 
      * Se guardan los datos en bd.
      */
     public function update(Request $request, Module $item)
@@ -181,6 +180,13 @@ class ModuleController extends Controller
 
     /**
      * Eliminamos un elemento de nuestra bd.
+     * Buscamos el course al cual pertenece nuestro módulo. 
+     * Buscamos los módulos que tiene nuestro curso. 
+     * 
+     * Antes de eliminar el elemento debemos acomodar 
+     * el orden de niveles de nuestro módulos.
+     *  
+     * Retornamos a la vista de un curso '$course'. 
      */
     public function destroy(Request $request, Module $item)
     {

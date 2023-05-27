@@ -123,25 +123,4 @@ inputs.forEach((input) => {
 	input.addEventListener("blur", bottonSendDisabled);
 });
 
-
-
-//Comprobar el campo para subir archivos
-const checkFileField = (regex, input, fieldName) => {
-	//console.log(regex)
-	if(regex.test(input)){
-		//console.log(fieldsForm[fieldName])
-		fieldsForm[fieldName] = true;
-	}else{
-		fieldsForm[fieldName] = false;
-	}
-}
-
-function FileCheck(){
-	checkFileField(regularExpression.imgFile, textFile.innerHTML, "imgFile");
-	bottonSendDisabled();
-}
-
-labelFile.addEventListener("click", FileCheck);
-labelFile.addEventListener('mouseout', FileCheck);
-labelFileInput.addEventListener('click', FileCheck);
-labelFileInput.addEventListener('mouseout', FileCheck);
+bottonSendDisabled();
