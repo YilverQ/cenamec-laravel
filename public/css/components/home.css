@@ -229,7 +229,7 @@
 		justify-content: center;
 		align-items: center;
 		column-gap: 0;
-		grid-row-gap: 50px;
+		grid-row-gap: 20px;
 		min-height: 460px;
 		padding: 50px 0 20px 0;
 	}	
@@ -383,7 +383,7 @@
 
 
 
-/*Teach*/
+/*Teacher - Home*/
 .teach{
 	display: grid;
 	grid-template-areas: 
@@ -459,4 +459,64 @@
 	row-gap: 20px;
 	align-items: center;
 	justify-content: center;
+}
+
+/*Media queries - Teacher Home*/
+@media (max-width: 1270px){
+	.teach{
+		grid-template-areas: 
+		"description description"
+		"img card"
+		"img boxButtoms";
+		row-gap: 20px;
+	}
+	.teach--inversed{
+		grid-template-areas: 
+		"description description"
+		"img img"
+		"card boxButtoms";
+	}
+}
+
+@media (max-width: 1000px){
+	.teach{
+		grid-template-areas: 
+		"description description"
+		"card boxButtoms"
+		"img img";
+		row-gap: 20px;
+		justify-items: center;
+	}
+	.teach--inversed{
+		grid-template-areas: 
+		"description description"
+		"img img"
+		"card boxButtoms";
+		justify-items: inherit;
+	}
+}
+@media (max-width: 650px){
+	.teach{
+		grid-template-areas: 
+		"description"
+		"img"
+		"card"
+		"boxButtoms";
+		row-gap: 20px;
+		justify-items: center;
+	}
+	.teach--inversed{
+		grid-template-areas: 
+		"description description"
+		"img img"
+		"card boxButtoms";
+		justify-items: inherit;
+	}
+	.box-bottoms{
+		background: transparent;
+		width: 100%;
+	}
+	.teach__img{
+		width: 100%;
+	}
 }

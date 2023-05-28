@@ -137,9 +137,19 @@ class NoteController extends Controller
     public function destroy(Request $request, Note $item)
     {
         $module = Module::where('id', $item->module_id)->first();
+        $notes  = Note::where('module_id', '=', $module->id)->get();
+
         //Elimina el elemento y retorna un mensaje flash.
         $image = str_replace('storage', 'public', $item->img);
         Storage::delete($image);
+
+        //Acomodamos el campo level.
+        foreach ($notes as $key => $value) {
+            if ($value->level > $item->level) {
+                $value->level = $value->level - 1;
+                $value->save();
+            }
+        }
         
         $item->delete();
         session()->flash('message-success', '¡La nota educativa fue eliminada correctamente!');

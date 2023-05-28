@@ -88,8 +88,8 @@
 				</div>
 			@endforeach
 			</div>				
-			</section>
 			@endif
+			</section>
 			<div class="bottonEnd">
 				<a href="{{ route('teacher.note.create') }}">
 					<li class="header__loginItem header__loginItem--contrast">
@@ -98,7 +98,7 @@
 				</a>
 				<a href="#">
 					<li class="header__loginItem">
-						Previsualizar notas
+						Vista previa
 					</li>
 				</a>
 			</div>
@@ -134,9 +134,9 @@
 						<p class="cardQuestion__answer">{{ $item->bad3 }}</p>
 					</div>
 					<ul class="list__actions list__actions--question">
-	                    <a href="{{ route('teacher.module.edit', $item) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+	                    <a href="{{ route('teacher.question.edit', $item) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 						<form 
-	                    	action="{{ route('teacher.module.destroy', $item) }}" 
+	                    	action="{{ route('teacher.question.destroy', $item) }}" 
 	                    	method="POST" 
 	                    	class="form__delete">
 	                        
@@ -149,15 +149,16 @@
 			@endforeach
 			</div>
 			@endif
+			</section>
 			<div class="bottonEnd">
-				<a href="{{ route('teacher.note.create') }}">
+				<a href="{{ route('teacher.question.create') }}">
 					<li class="header__loginItem header__loginItem--contrast">
 						Crear un cuestionario educativo
 					</li>
 				</a>
 				<a href="#">
 					<li class="header__loginItem">
-						Previsualizar cuestionarios
+						Vista previa
 					</li>
 				</a>
 			</div>

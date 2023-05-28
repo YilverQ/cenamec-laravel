@@ -1,7 +1,7 @@
 @extends('teacher.layout')
 
 
-@section('title', 'Editar Cuestionario')
+@section('title', 'Crea un cuestionario')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
@@ -16,60 +16,87 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Editar <strong class="color-Text">Nota Educativa</strong>
+					Editar <strong class="color-Text">cuestionario</strong>
 				</h2>
 				<form class="form__content" 
 						method="POST" 
-						action="{{ route('teacher.note.update', $note) }}"
+						action="{{ route('teacher.question.update', $questionnaire) }}"
 						enctype="multipart/form-data">
 
 					@csrf @method('PUT')
 					<h2 class="form__icon">
-						<i class="fa-solid fa-note-sticky"></i>
+						<i class="fa-solid fa-clipboard-question"></i>
 					</h2>
-					<h2 class="form__title">Datos de la nota</h2>
+					<h2 class="form__title">Datos del cuestionario</h2>
 					<div class="form__item">
-						<label for="title">Nombre:</label>
+						<label for="ask">Pregunta:</label>
 						<input class="form__input form__input--input" 
-								name="title" 
+								name="ask" 
 								required 
 								type="text" 
-								id="title"
-								value="{{ $note->title }}" 
-								placeholder="Física para principiante"
+								id="ask" 
+								placeholder="¿Cúal es un área de la ciencia naturales?"
+								value="{{ $questionnaire->ask }}" 
 								minlength="3"
 								maxlength="50"
 								autocomplete="off">
 					</div>
 					<div class="form__item">
-						<label for="description">Descripción:</label>
-						<textarea class="form__textarea form__input--input"
-									name="description"
-									id="description"
-									placeholder="El módulo de introducción a la física sirve para dar comienzo al curso de física." 
-									maxlength="255"
-									required="true"
-									rows="7">{{ $note->description }}</textarea>
+						<label for="answer">Respuesta correcta:</label>
+						<input class="form__input form__input--input" 
+								name="answer" 
+								required 
+								type="text" 
+								id="answer" 
+								placeholder="Física"
+								value="{{ $questionnaire->answer }}" 
+								minlength="3"
+								maxlength="50"
+								autocomplete="off">
 					</div>
 					<div class="form__item">
-						<span>Actualizar imágen de la nota educativa:</span>
-						<label for="img" class="labelFile">
-							<div class="labelFile__input">
-								<span class="labelFile__imgText" id="imgFile"></span>
-							</div>
-							<span class="labelFile__text">Agregar</span>
-						</label>
-						<input class="form__file" 
-								name="img"
-								required  
-								type="file" 
-								id="img" 
-								autocomplete="off" 
-								accept="image/*">
+						<label for="bad1">1° Respuesta incorrecta:</label>
+						<input class="form__input form__input--input" 
+								name="bad1" 
+								required 
+								type="text" 
+								id="bad1" 
+								placeholder="Artes plásticas"
+								value="{{ $questionnaire->bad1 }}" 
+								minlength="3"
+								maxlength="50"
+								autocomplete="off">
 					</div>
+					<div class="form__item">
+						<label for="bad2">2° Respuesta incorrecta:</label>
+						<input class="form__input form__input--input" 
+								name="bad2" 
+								required 
+								type="text" 
+								id="bad2" 
+								placeholder="Educación física"
+								value="{{ $questionnaire->bad2 }}" 
+								minlength="3"
+								maxlength="50"
+								autocomplete="off">
+					</div>
+					<div class="form__item">
+						<label for="bad3">3° Respuesta incorrecta:</label>
+						<input class="form__input form__input--input" 
+								name="bad3" 
+								required 
+								type="text" 
+								id="bad3" 
+								placeholder="Economía"
+								value="{{ $questionnaire->bad3 }}" 
+								minlength="3"
+								maxlength="50"
+								autocomplete="off">
+					</div>
+					
 					<input class="form__send form_send--disabled" 
 						type="submit" 
-						value="Editar">
+						value="Actualizar">
 				</form>
 			</div>
 		</article>
@@ -77,6 +104,5 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="{{ asset('js/form/inputFile.js') }}"></script>
-	<script type="module" src="{{ asset('js/note/checkFormNoteUpdate.js') }}"></script>
+	<script type="module" src="{{ asset('js/questionnaire/checkFormQuestionnaireUpdate.js') }}"></script>
 @endsection
