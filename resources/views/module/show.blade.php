@@ -24,7 +24,7 @@
 					<p class="tab__subtitle tab__subtitle--bold">
 						Curso: {{ $course->name }}
 					</p>
-					<h2 class="tab__title">
+					<h2 class="tab__title tab__title--module">
 						Módulo: <strong class="color-Text">{{ $module->name }}</strong>
 					</h2>
 					<p>
@@ -96,11 +96,6 @@
 						Crear una nota educativa
 					</li>
 				</a>
-				<a href="#">
-					<li class="header__loginItem">
-						Vista previa
-					</li>
-				</a>
 			</div>
 		</article>
 
@@ -154,11 +149,6 @@
 				<a href="{{ route('teacher.question.create') }}">
 					<li class="header__loginItem header__loginItem--contrast">
 						Crear un cuestionario educativo
-					</li>
-				</a>
-				<a href="#">
-					<li class="header__loginItem">
-						Vista previa
 					</li>
 				</a>
 			</div>

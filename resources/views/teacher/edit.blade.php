@@ -116,7 +116,7 @@
 							</button>
 						</div>
 					</div>
-					<input class="form__send" 
+					<input class="form__send hidden" 
 						type="submit" 
 						value="Actualizar">
 				</form>

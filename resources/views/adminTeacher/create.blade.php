@@ -113,7 +113,7 @@
 							</button>
 						</div>
 					</div>
-					<input class="form__send form_send--disabled" 
+					<input class="form__send form_send--disabled hidden" 
 						type="submit" 
 						value="Crear">
 				</form>

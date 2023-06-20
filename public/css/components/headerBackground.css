@@ -9,7 +9,7 @@
 .sabana{
 	background: rgb(0,0,0);
 	box-shadow: 0 0 5px rgba(10, 10, 10, .3);
-	background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(24,24,24,.6) 48%, rgba(150,150,150,0) 100%); 
+	background: linear-gradient(90deg, rgba(0,0,0,.9) 0%, rgba(24,24,24,.7) 48%, rgba(150,150,150,0) 100%); 
 	margin: auto;
 	border-radius: 2px;
 	width: 100%;	
@@ -77,4 +77,22 @@
 	font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	color: var(--light);
+}
+
+
+/*Media queries - Header*/
+@media (max-width: 700px){
+	.containerHeader{width: 100%;}
+	.headerBackground__information{
+		max-width: 350px;
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 450px){
+	.headerBackground__buttons{
+		grid-template-columns: repeat(1, max-content);
+		grid-column-gap: 0;
+		row-gap: 20px;
+	}
 }

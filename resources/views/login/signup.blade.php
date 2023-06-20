@@ -104,7 +104,7 @@
 				</button>
 			</div>
 		</div>
-		<input class="form__send form_send--disabled" type="submit" value="¡Vamos a estudiar!">
+		<input class="form__send form_send--disabled hidden" type="submit" value="¡Vamos a estudiar!">
 	</form>
 @endsection
 

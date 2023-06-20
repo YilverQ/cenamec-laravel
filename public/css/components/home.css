@@ -520,3 +520,34 @@
 		width: 100%;
 	}
 }
+@media (max-width: 450px){
+	.teach--inversed{
+		grid-template-areas: 
+		"description"
+		"img"
+		"card"
+		"boxButtoms";
+	}
+	.teach-card .list__actions{
+		width: 100%;
+	}
+}
+
+
+/*Media queries - header__loginItem*/
+@media (max-width: 400px){
+	.header__loginItem{
+		max-width: 270px;
+	}
+}
+
+/*tab__iconsDescription*/
+@media (max-width: 450px){
+	.tab__iconsDescription{
+		flex-flow: column;
+		gap: 20px;	
+	}
+	.tab__title--module{
+		text-align: inherit;
+	}
+}

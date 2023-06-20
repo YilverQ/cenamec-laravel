@@ -2,7 +2,7 @@ let nextBtn = document.getElementById('next-btn');
 let backBtn = document.getElementById('back-btn');
 let fields = document.querySelectorAll(".form__item");
 let buttons = [nextBtn, backBtn];
-
+let sendBtn = document.querySelector(".form__send");
 
 function changeButton(button){
 	nextBtn.classList.toggle('toggle-next__button--hidden');
@@ -24,4 +24,5 @@ function hiddenFields(){
 	fields.forEach((input) => {
 		input.classList.toggle("form__item--hidden");
 	});
+	sendBtn.classList.toggle("hidden");
 };

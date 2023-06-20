@@ -47,6 +47,30 @@
 	width: 240px;
 }
 
+@media (max-width: 400px){
+	.cardCourse{
+		width: 95%;
+	}
+	.cardCourse__img{
+		width: 100%;
+	}
+	.cardCourse .list__actions{
+		width: 100%;	
+	}
+	.cardCourse{
+		grid-template-areas: 
+		"img"
+		"title"
+		"info"
+		"boxButtoms";
+	}
+	.cardCourse__info{
+		margin-left: 20px;
+		text-align: left;
+		width: 100%;
+	}
+}
+
 
 
 /*Detalles del curso*/
@@ -157,6 +181,38 @@
 	background: var(--littleDark);
 	width: 2px;
 	height: 30px;
+}
+
+/*Media queries - CARDMODULE*/
+@media (max-width: 700px){
+	.cardModule{
+		grid-template-areas: 
+		"id title title"
+		"id item1 item2"
+		"id list list";
+		width: 90%;
+	}
+}
+@media (max-width: 450px){
+	.cardModule .list__actions{
+		width: 100%;
+		padding: 0;
+		gap: 2px;
+		margin: 0;
+	}
+	.cardModule{
+		padding: 10px;
+		grid-template-areas: 
+		"id title"
+		"id item1"
+		"id item2"
+		"list list";
+		grid-template-columns: 30px 1fr;
+		width: 96%;
+	}
+	.cardModule__title{
+		font-size: 18px;
+	}
 }
 
 /*BottonEnds*/
@@ -293,4 +349,27 @@
 }
 .cardQuestion__answer--true{
 	background: var(--success);
+}
+
+
+
+/*cardNote*/
+@media (max-width: 450px){
+	.cardNote{
+		width: 90%;
+	}
+	.list__actions--module{
+		width: 100%;
+	}
+}
+
+
+/*cardNote*/
+@media (max-width: 450px){
+	.cardQuestion{
+		width: 90%;
+	}
+	.cardQuestion__number, .cardQuestion__super-text{
+		font-size: 16px;
+	}
 }

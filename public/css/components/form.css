@@ -278,3 +278,13 @@
 		column-gap: 10px;
 	}
 }
+@media (max-width: 450px){
+	.labelFile__text{
+		width: 30%;
+	}
+}
+@media (max-width: 400px){
+	.form__icon, .form__title{
+		font-size: 22px;
+	}
+}
