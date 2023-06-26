@@ -22,6 +22,7 @@ return new class extends Migration
     {
         Schema::create('module_student', function (Blueprint $table) {
             $table->id();
+            $table->string("state")->default("inactive");
             $table->unsignedBigInteger('module_id');
             $table->foreign('module_id')
                             ->references('id')

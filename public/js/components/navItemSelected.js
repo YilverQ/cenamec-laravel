@@ -52,3 +52,20 @@ result = ubication.endsWith("profile");
 if (result){
 	itemNav[2].classList.add("nav__item--constrast");
 }
+
+
+
+/*Student Controller*/
+result = ubication.endsWith("student");
+if (result){
+	itemNav[0].classList.add("nav__item--constrast");
+}
+result = ubication.endsWith("course");
+if (result){
+	itemNav[1].classList.add("nav__item--constrast");
+}
+
+result = ubication.endsWith("profile");
+if (result){
+	itemNav[2].classList.add("nav__item--constrast");
+}

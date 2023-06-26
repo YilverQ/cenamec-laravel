@@ -150,6 +150,28 @@
 	border-radius: 5px;
 }
 
+.cardModule--student-block{
+	min-width: 600px;
+	background: var(--background);
+}
+
+.cardModule--finished{
+	background: var(--primary);
+	background-image: url('../../img/course/starts.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+.cardModule--finished:hover{
+	transition: all .5s;
+	background-position: bottom right;
+}
+.cardModule--finished span, 
+.cardModule--finished .cardModule__item,
+.cardModule--finished .cardModule__title{
+	color: var(--light);
+}
+
 .cardModule__number{
 	grid-area: id;
 	font-weight: 700;

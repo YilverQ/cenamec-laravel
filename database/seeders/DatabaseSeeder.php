@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ModuleSeeder::class);
         $this->call(NoteSeeder::class);
         $this->call(QuestionnaireSeeder::class);
-        $this->call(CertificateSeeder::class);
+        #$this->call(CertificateSeeder::class);
 
 
         Administrator::factory(2)->create();

@@ -4,6 +4,9 @@
 .header__background--admin{
 	background: url("../../img/administrator/wallpaper.jpeg");
 }
+.header__background--student{
+	background: url("../../img/student/wallpaper.jpg");
+}
 
 .header__background{
 	background-position: center;
@@ -550,4 +553,72 @@
 	.tab__title--module{
 		text-align: inherit;
 	}
+}
+
+
+
+
+/*cuadricula*/
+.cuadricula{
+	display: grid;
+	grid-template-areas: 
+	"img title title"
+	"img cu_left cu_right";
+
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	margin: auto;
+	column-gap: 20px;
+}
+
+.cuadricula__img{
+	grid-area: img;
+	display: block;
+	width: 256px;
+	border-radius: 10px;
+	padding: 20px;
+}
+.cuadricula-description{
+	grid-area: title;
+	background: var(--light);
+	padding: 20px;
+	border-radius: 10px;
+}
+.cuadricula-description__subtitle{
+	color: var(--primary);
+	font-size: 18px;
+}
+.cuadricula-left{
+	grid-area: cu_left;
+	background: var(--light);
+	padding: 20px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+.cuadricula-right{
+	grid-area: cu_right;
+	background: var(--light);
+	padding: 20px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+.cuadricula__title{
+	font-size: 18px;
+	text-align: center;
+}
+
+.teach-description{
+	padding: 20px;
+	border-radius: 10px;
+	grid-area: description;
+	height: 200px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	row-gap: 10px;	
 }

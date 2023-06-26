@@ -18,7 +18,7 @@ class TeacherSeeder extends Seeder
             'lastname' => 'Quevedo',
             'identification_card' => '28333459',
             'number_phone' => '04160140472',
-            'email' => 'yilver@teacher.com',
+            'email' => 'yilver@profesor.com',
             'password' => 'root',
         ]);
 
@@ -27,7 +27,7 @@ class TeacherSeeder extends Seeder
             'lastname' => 'Longa',
             'identification_card' => '28000111',
             'number_phone' => '04123938615',
-            'email' => 'vanessa@teacher.com',
+            'email' => 'vanessa@profesor.com',
             'password' => 'root',
         ]);
     }

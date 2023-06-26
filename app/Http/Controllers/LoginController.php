@@ -104,9 +104,9 @@ class LoginController extends Controller
         $student->save();
         
         #Retornamos un mensaje flash.
+        #Nos dirijimos a la vista principal del estudiante
         session()->flash('message-success', '¡Te haz registrado como estudiante!');
-        return to_route('login.login');
-        
+        return $this->checkStudent($request);
     }
 
 
@@ -145,6 +145,7 @@ class LoginController extends Controller
         //Si el correo y la contraseña son correcta, El usuario tiene permiso.
         if ($password == $student->password) {
             $request->session()->put('is_student_valid', 'true');
+            $request->session()->put('student_id', $student->id);
             return to_route('student.index');
         }
         

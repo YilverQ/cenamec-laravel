@@ -41,6 +41,16 @@
 	transition: all .5s;
 }
 
+.icon--repeat{
+	background: var(--tertiary);
+	color: var(--light);
+	border: 1px solid var(--tertiary);
+}
+
+.icon--lock{
+	color: var(--littleDark);
+}
+
 /*Table*/
 .list{
 	width: 95%;
