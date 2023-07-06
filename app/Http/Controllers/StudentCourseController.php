@@ -122,20 +122,4 @@ class StudentCourseController extends Controller
                 ->with("course", $item)
                 ->with("modules", $modules);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 }

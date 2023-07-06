@@ -40,21 +40,21 @@ class CourseSeeder extends Seeder
         Course::create([
             'name' => 'Humanidades',
             'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/fisica.jpeg',
+            'img' => '/storage/imgCourses/humanidades.jpeg',
             'teacher_id' => 2,
         ]);
 
         Course::create([
             'name' => 'Psicología',
             'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/quimica.jpeg',
+            'img' => '/storage/imgCourses/psicologia.jpeg',
             'teacher_id' => 2,
         ]);
 
         Course::create([
             'name' => 'Ciencias Sociales',
             'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/biologia.jpeg',
+            'img' => '/storage/imgCourses/sociales.jpeg',
             'teacher_id' => 2,
         ]);
     }

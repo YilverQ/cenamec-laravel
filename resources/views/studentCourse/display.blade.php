@@ -55,7 +55,7 @@
 							Preguntas: {{ $item->questionnaires_count }}
 						</p>
 						<ul class="list__actions list__actions--course">
-							<a href="#" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Estudiar</a>
+							<a href="{{ route('student.module.study', $item) }}" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Estudiar</a>
 						</ul>
 					</div>
 					<div class="bar"></div>

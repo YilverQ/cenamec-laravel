@@ -72,6 +72,7 @@
 	border: 3px solid transparent;
 	background: rgba(50, 50, 50, .5);
 	color: var(--light);
+	cursor: pointer;
 }
 .header__loginItem:hover{
 	transition: all ease .5s;

@@ -9,6 +9,7 @@ use App\Http\Controllers\AdministratorStudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentCourseController;
+use App\Http\Controllers\StudentModuleController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\NoteController;
@@ -246,17 +247,31 @@ Route::controller(StudentController::class)->group(function () {
     Route::delete('/student/{item}', 'destroy')->name('student.destroy');
 });
 
+
 /** Estudiante - Cursos
  * HTTP     URI                    Method     Reponse   Description
  * -----------------------------------------------------------------------
  * get   /student/course/          index      View      Retorna todos los elementos. 
- * get   /student/course/{item}/   show       View      vista de un elemento. 
+ * post  /student/course/{item}/   store      Action    Agregarmos un curso al estudiante. 
+ * get   /student/course/{item}/   show       View      vista de un elemento para inscribir. 
+ * get   /student/course/{item}/   display    View      vista de un elemento inscrito. 
 */
 Route::controller(StudentCourseController::class)->group(function () {
     Route::get('/student/course/', 'index')->name('student.course.index');
     Route::post('/student/course/{item}', 'store')->name('student.course.store');
     Route::get('/student/course/{item}', 'show')->name('student.course.show');
     Route::get('/student/my/course/{item}', 'display')->name('student.course.display');
+});
+
+
+/** Estudiante - Module
+ * HTTP     URI                    Method     Reponse   Description
+ * -----------------------------------------------------------------------
+ * get   /student/module/{item}    index      View      Retorna una vista para estudiar. 
+*/
+Route::controller(StudentModuleController::class)->group(function () {
+    Route::get('/student/study/module/{item}', 'study')->name('student.module.study');
+    Route::get('/student/test/module/{item}', 'test')->name('student.module.test');
 });
 
 

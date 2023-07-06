@@ -109,7 +109,6 @@
 	<!--Scripts-->
 	<script type="module" src="{{ asset('js/components/navItemSelected.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/message.js') }}"></script>
-	<script type="module" src="{{ asset('js/administrator/navMenu.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/windowsAlert.js') }}"></script>
 	@yield('scripts')
 </body>
