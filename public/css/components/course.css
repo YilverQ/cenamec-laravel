@@ -47,12 +47,13 @@
 	width: 240px;
 }
 
-@media (max-width: 400px){
+@media (max-width: 410px){
 	.cardCourse{
 		width: 95%;
 	}
 	.cardCourse__img{
-		width: 100%;
+		object-fit: cover;
+		width: 150%;
 	}
 	.cardCourse .list__actions{
 		width: 100%;	
@@ -67,6 +68,13 @@
 	.cardCourse__info{
 		margin-left: 20px;
 		text-align: left;
+		width: 100%;
+	}
+}
+
+@media (max-width: 310px){
+	.cardCourse__img{
+		object-fit: cover;
 		width: 100%;
 	}
 }
@@ -204,24 +212,38 @@
 	width: 2px;
 	height: 30px;
 }
+.iconBlockCourse{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+}
 
 /*Media queries - CARDMODULE*/
-@media (max-width: 700px){
+@media (max-width: 900px){
 	.cardModule{
 		grid-template-areas: 
 		"id title title"
 		"id item1 item2"
-		"id list list";
+		"list list list";
 		width: 90%;
+		row-gap: 10px;
 	}
-}
-@media (max-width: 450px){
 	.cardModule .list__actions{
 		width: 100%;
 		padding: 0;
 		gap: 2px;
 		margin: 0;
 	}
+}
+@media (max-width: 700px){
+	.cardModule--student-block{
+		min-width: inherit;
+		width: 90%;
+		margin: auto;
+	}
+}
+@media (max-width: 450px){
 	.cardModule{
 		padding: 10px;
 		grid-template-areas: 
@@ -236,6 +258,8 @@
 		font-size: 18px;
 	}
 }
+
+
 
 /*BottonEnds*/
 .bottonEnd{

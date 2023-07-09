@@ -4,6 +4,7 @@
 @section('title', 'Inicio')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/footer.css') }}">
 @endsection
 
 
@@ -131,4 +132,55 @@
 			</section>
 		</article>
 	</main>
+
+
+	<footer class="footer">
+		<div class="endTitle">
+			<h3 class="endTitle__title">Aprende Ciencias con el CENAMEC</h3>
+			<ul class="header__bottons">
+				<a href="{{ route('login.signup') }}">
+					<li class="header__loginItem">
+						Empieza ahora
+					</li>
+				</a>
+			</ul>
+		</div>
+		<div class="endSections">
+			<div class="endSection">
+				<h4 class="endSection__title">Sobre Nosotros</h4>
+				<ul class="endSection__itemBox">
+					<li class="endSection__item">Misión</li>
+					<li class="endSection__item">Equipo</li>
+					<li class="endSection__item">Investigación</li>
+					<li class="endSection__item">Contáctanos</li>
+				</ul>
+			</div>
+			<div class="endSection">
+				<h4 class="endSection__title">Otras páginas</h4>
+				<ul class="endSection__itemBox">
+					<li class="endSection__item">CENAMEC</li>
+					<li class="endSection__item">MPPPE</li>
+					<li class="endSection__item">Proyecto</li>
+				</ul>
+			</div>
+			<div class="endSection">
+				<h4 class="endSection__title">Redes Sociales</h4>
+				<ul class="endSection__itemBox">
+					<li class="endSection__item">Blog</li>
+					<li class="endSection__item">Instagram</li>
+					<li class="endSection__item">Facebook</li>
+					<li class="endSection__item">Twitter</li>
+					<li class="endSection__item">Youtube</li>
+				</ul>
+			</div>
+			<div class="endSection">
+				<h4 class="endSection__title">Términos y privacidad</h4>
+				<ul class="endSection__itemBox">
+					<li class="endSection__item">Normas de la comunidad</li>
+					<li class="endSection__item">Términos</li>
+					<li class="endSection__item">Privacidad</li>
+				</ul>
+			</div>
+		</div>
+	</footer>
 @endsection

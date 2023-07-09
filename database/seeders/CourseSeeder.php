@@ -17,7 +17,7 @@ class CourseSeeder extends Seeder
         Course::create([
             'name' => 'Física',
             'description' => "La física es el estudio de la materia, el movimiento, la energía y la fuerza. Aquí puedes explorar temas, artículos y ejercicios por tema.",
-            'img' => '/storage/imgCourses/fisica.jpeg',
+            'img' => '/storage/imgCourses/fisica.jpg',
             'teacher_id' => 1,
         ]);
 
@@ -40,21 +40,21 @@ class CourseSeeder extends Seeder
         Course::create([
             'name' => 'Humanidades',
             'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/humanidades.jpeg',
+            'img' => '/storage/imgCourses/humanidades.jpg',
             'teacher_id' => 2,
         ]);
 
         Course::create([
             'name' => 'Psicología',
             'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/psicologia.jpeg',
+            'img' => '/storage/imgCourses/psicologia.jpg',
             'teacher_id' => 2,
         ]);
 
         Course::create([
             'name' => 'Ciencias Sociales',
             'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/sociales.jpeg',
+            'img' => '/storage/imgCourses/sociales.jpg',
             'teacher_id' => 2,
         ]);
     }

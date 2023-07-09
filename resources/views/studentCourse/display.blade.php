@@ -88,9 +88,9 @@
 							<i class="fa-solid fa-clipboard-question"></i>
 							Preguntas: {{ $item->questionnaires_count }}
 						</p>
-						<ul>
+						<ul class="list__actions list__actions--course">
 							<li class="icon icon--lock">
-								<i class="fa-solid fa-lock"></i> 
+								<i class="fa-solid fa-lock iconBlockCourse"></i> 
 							</li>
 						</ul>
 					</div>

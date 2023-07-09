@@ -78,6 +78,12 @@
 			</div>
 
 			<div class="buttons-arrows">
+				@if (count($questionnaires) == 1)
+				<div id="buttonSuperHidden" class="buttons-arrows__arrow buttons-arrows__arrow--next">
+					<p>Finalizar</p>
+					<i class="fa-solid fa-arrow-right icon-btn-button"></i>
+				</div>	
+				@else
 				<div id="leftButton" class="buttons-arrows__arrow buttons-arrows__arrow--after buttonHidden">
 					<i class="fa-solid fa-arrow-left icon-btn-button"></i>
 					<p>Atrás</p>
@@ -90,6 +96,7 @@
 					<p>Finalizar</p>
 					<i class="fa-solid fa-arrow-right icon-btn-button"></i>
 				</div>	
+				@endif
 			</div>
 			@endif
 		</article>

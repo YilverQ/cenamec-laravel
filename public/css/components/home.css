@@ -557,8 +557,6 @@
 }
 
 
-
-
 /*cuadricula*/
 .cuadricula{
 	display: grid;
@@ -611,4 +609,26 @@
 .cuadricula__title{
 	font-size: 18px;
 	text-align: center;
+}
+
+@media (max-width: 1200px){
+	.cuadricula{
+		grid-template-areas: 
+		"title title"
+		"img img"
+		"cu_left cu_right";
+		justify-items: center;
+	}
+}
+
+/*tab__iconsDescription*/
+@media (max-width: 550px){
+	.cuadricula{
+		grid-template-areas: 
+		"title"
+		"img"
+		"cu_left"
+		"cu_right";
+		row-gap: 25px;
+	}
 }

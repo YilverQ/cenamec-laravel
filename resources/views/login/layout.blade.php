@@ -74,7 +74,6 @@
 
 	@yield('content')
 
-
 	<!--Scripts-->
 	<script type="module" src="{{ asset('js/components/navItemSelected.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/message.js') }}"></script>
