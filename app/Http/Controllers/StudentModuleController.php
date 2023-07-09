@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Module;
+use App\Models\Certificate;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class StudentModuleController extends Controller
 {
@@ -78,20 +80,21 @@ class StudentModuleController extends Controller
               ->where('student_id', $student_id)
               ->update(['state' => 'finished']);
 
+
         #Buscamos el id máximo de los módulos.
+        $course_id = $item->course->id;
         $id_max = DB::table('module_student')
                         ->join('modules', 'module_student.module_id', '=', 'modules.id')
                         ->select("modules.course_id")
-                        ->where('modules.course_id', '=', $item->id)
+                        ->where('modules.course_id', '=', $course_id)
                         ->max('modules.id');
 
         #Buscamos el id máximo de los módulos.
 
-
         /*
             Activamos el siguiente módulo si el id del módulo no es el máximo y si no ha aprobado el siguiente módulo.
         */
-        if ($item->id != $id_max and $item->id) {
+        if ($item->id != $id_max) {
             #Buscamos el siguiente módulo.
             $next_module = DB::table('module_student')
               ->where('module_id', $item->id + 1)
@@ -104,6 +107,18 @@ class StudentModuleController extends Controller
                   ->where('module_id', $item->id + 1)
                   ->where('student_id', $student_id)
                   ->update(['state' => 'active']);
+            }
+        }else{
+            $certificate = Certificate::where('course_id', $item->id)
+                                ->where('student_id', $student_id)
+                                ->first();
+            if (!$certificate) {
+                //Generamos un certificado.
+                $certificate = new Certificate;
+                $certificate->date_certificate = now();
+                $certificate->course_id  = $course_id;
+                $certificate->student_id = $student_id;
+                $certificate->save();
             }
         }
 

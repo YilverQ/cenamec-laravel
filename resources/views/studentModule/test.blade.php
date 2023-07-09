@@ -26,6 +26,34 @@
 				@endforeach
 			</div>
 
+
+			@if (! isset($questionnaires[0]))
+				<div class="contanierMessage">
+				<h2 class="tab__title--centered">
+					&#x2b50; Este módulo no cuenta con 
+					<strong class="color-Text">cuestionarios</strong>,
+				</h2>
+				<h2 class="tab__title--centered">
+					puedes continuar. &#x1f396;
+				</h2>
+				<img src="{{ asset('img/school/fun.png') }}" alt="Imagen final" class="contanierMessage__img">
+				<div class="messageFinal__buttons">
+					<form 
+		            	action="{{ route('student.module.pass', $module) }}" 
+		            	method="POST" 
+		            	class="headerBackground__buttons">
+		                
+		                @csrf
+		                @method('POST')
+		                <button type="submit" class="header__loginItem header__loginItem--contrast">
+								Seguir Estudiando
+		                </button>                
+		            </form>
+					</a>
+				</div>
+				</div>
+			@else
+
 			<div class="questionnaires">
 				@foreach ($questionnaires as $key => $item)
 				<div class="question">
@@ -63,6 +91,7 @@
 					<i class="fa-solid fa-arrow-right icon-btn-button"></i>
 				</div>	
 			</div>
+			@endif
 		</article>
 
 		<article id="boxPass" class="article hidden">

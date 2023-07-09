@@ -26,6 +26,26 @@
 				@endforeach
 			</div>
 
+			@if (! isset($notes[0]))
+				<div class="contanierMessage">
+					<h2 class="tab__title--centered">
+						&#x2b50; Este módulo no cuenta con 
+						<strong class="color-Text">notas educativas</strong>,
+					</h2>
+					<h2 class="tab__title--centered">
+						puedes continuar con la siguiente sección. &#x1f44d;
+					</h2>
+					<img src="{{ asset('img/school/fun.png') }}" alt="Imagen final" class="contanierMessage__img">
+					<div class="messageFinal__buttons">
+						<a href="{{ route('student.module.test', $module) }}" class="headerBackground__buttons">
+							<p class="header__loginItem header__loginItem--contrast">
+								Realizar Cuestionario
+							</p>
+						</a>
+					</div>
+				</div>
+			@else
+
 			<div class="notes">
 				@foreach ($notes as $key => $item)
 				@if ($key == 0)
@@ -58,6 +78,7 @@
 					<i class="fa-solid fa-arrow-right icon-btn-button"></i>
 				</a>
 			</div>
+			@endif
 		</article>
 	</main>
 @endsection

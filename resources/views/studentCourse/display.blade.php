@@ -100,11 +100,19 @@
 				</section>
 			@endif
 			<div class="bottonEnd">
+				@if ($certificate)
 				<a href="#">
-					<li class="header__loginItem">
+					<li class="bottonEnd__text bottonEnd__text--contrast">
 						Generar certificado
 					</li>
 				</a>
+				@else
+				<a>
+					<li class="bottonEnd__text">
+						Generar certificado
+					</li>
+				</a>
+				@endif
 			</div>
 		</article>
 	</main>

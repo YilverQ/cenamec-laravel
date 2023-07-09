@@ -43,6 +43,25 @@
 }
 
 
+/*contanierMessage*/
+.contanierMessage{
+	display: flex;
+	flex-flow: column;
+	row-gap: 10px;
+	align-items: center;
+	background: var(--light);
+	max-width: 600px;
+	margin: auto;
+	padding: 20px 0;
+	border-radius: 5px;
+}
+.contanierMessage .messageFinal__buttons{
+	margin-top: 30px;
+}
+.contanierMessage__img{
+	object-fit: contain;
+	width: 200px;
+}
 
 /*Note*/
 .notes{

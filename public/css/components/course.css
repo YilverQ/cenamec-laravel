@@ -244,6 +244,26 @@
 	gap: 5px;
 	margin-top: 16px;
 }
+.bottonEnd__text{
+	text-align: center;
+	max-width: 400px;
+	min-width: 200px;
+	margin: auto;
+	padding: 8px 0;
+	outline: none;
+	border-radius: 2px;
+	border: 3px solid transparent;
+	background: rgba(50, 50, 50, .5);
+	color: var(--light);
+	cursor: inherit;
+}
+.bottonEnd__text--contrast{
+	background: var(--tertiary);
+	cursor: pointer;
+}
+.bottonEnd a{
+	cursor: inherit;
+}
 
 
 /*Notes*/

@@ -55,6 +55,7 @@ cardQuestions.forEach( (card) =>{
 buttonSuperHidden.addEventListener('click', ()=>{
 	let num = cardQuestions.length;
 	let porcentage = (score * 100) / num;
+	porcentage = Math.trunc(porcentage);
 	boxQuestion.classList.add('hidden');
 	if (porcentage >= 50){
 		boxPass.classList.remove('hidden');

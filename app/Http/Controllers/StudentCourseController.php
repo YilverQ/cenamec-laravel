@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Module;
+use App\Models\Certificate;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -69,7 +70,9 @@ class StudentCourseController extends Controller
 
 
         $active_module = DB::table('module_student')
-              ->where('module_id', $id_min)->update(['state' => 'active']);
+              ->where('module_id', $id_min)
+              ->where('student_id', '=', $student_id)
+              ->update(['state' => 'active']);
 
         #Retorna un mensaje flash.
         session()->flash('message-success', '¡Te haz inscrito en el curso!');
@@ -119,9 +122,14 @@ class StudentCourseController extends Controller
                         ->where('students.id', '=', $student_id)
                         ->get();
 
+        $certificate = Certificate::where('course_id', $item->id)
+                                ->where('student_id', $student_id)
+                                ->first();
+
         //Retornamos todos los datos a la vista. 
         return view('studentCourse.display')
                 ->with("course", $item)
+                ->with("certificate", $certificate)
                 ->with("modules", $modules);
     }
 }
