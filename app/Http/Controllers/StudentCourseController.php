@@ -113,8 +113,10 @@ class StudentCourseController extends Controller
                         ->orderBy('level')
                         ->select('modules.*', 'module_student.state')
                         ->join('module_student', 'module_student.module_id', '=', 'modules.id')
+                        ->join('students', 'students.id', '=', 'module_student.student_id')
                         ->withCount('notes')
                         ->withCount('questionnaires')
+                        ->where('students.id', '=', $student_id)
                         ->get();
 
         //Retornamos todos los datos a la vista. 

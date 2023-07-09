@@ -131,6 +131,7 @@ class ModuleController extends Controller
                         ->get(); 
 
         $questionnaires = Questionnaire::where('module_id', $item->id)
+                        ->orderBy('level')
                         ->get(); 
 
         //Retornamos todos los datos a la vista. 

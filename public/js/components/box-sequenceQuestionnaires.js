@@ -7,6 +7,7 @@ let superButton = document.getElementById('buttonSuperHidden');
 let questionnaires = document.querySelectorAll('.question');
 let state = 0;
 
+
 /* Actualizamos la secuencia */
 sequence__item.forEach( (item, key) => {
 	item.addEventListener('click', ()=> {

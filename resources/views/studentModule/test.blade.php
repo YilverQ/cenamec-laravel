@@ -1,6 +1,5 @@
 @extends('student.layout')
 
-
 @section('title', 'Realizando prueba')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
@@ -13,7 +12,7 @@
 
 @section('content')
 	<main class="container">
-		<article class="article">
+		<article id="boxQuestion" class="article">
 			<div class="box-sequence">
 				@foreach ($questionnaires as $key => $item)
 					@if ($key != 0)
@@ -33,10 +32,17 @@
 					<div class="question__card">
 						<h3 class="question__ask">{{ $item->ask }}</h3>
 						<div class="question__contentAnswer">
-							<p class="question__answer">{{ $item->answer }}</p>
-							<p class="question__answer">{{ $item->bad1 }}</p>
-							<p class="question__answer">{{ $item->bad2 }}</p>
-							<p class="question__answer">{{ $item->bad3 }}</p>
+							@foreach ($item->choices as $value => $choice)
+							@if ($choice == $item->answer)
+							<p class="question__answer question__answer--click answer-true">
+								{{ $choice }}
+							</p>
+							@else
+							<p class="question__answer question__answer--click">
+								{{ $choice }}
+							</p>
+							@endif
+							@endforeach
 						</div>
 					</div>
 				</div>
@@ -51,15 +57,15 @@
 				<div id="rightButton" class="buttons-arrows__arrow buttons-arrows__arrow--next">
 					<p>Siguiente</p>
 					<i class="fa-solid fa-arrow-right icon-btn-button"></i>
-				</div>	
-				<a href="{{ route('student.module.test', $module) }}" id="buttonSuperHidden" class="buttons-arrows__arrow buttons-arrows__arrow--next buttonSuperHidden">
+				</div>
+				<div id="buttonSuperHidden" class="buttons-arrows__arrow buttons-arrows__arrow--next buttonSuperHidden">
 					<p>Finalizar</p>
 					<i class="fa-solid fa-arrow-right icon-btn-button"></i>
-				</a>
+				</div>	
 			</div>
 		</article>
 
-		<article class="article hidden">
+		<article id="boxPass" class="article hidden">
 			<div class="messageFinal">
 				<img src="{{ asset('img/school/fun.png') }}" alt="Imagen final" class="messageFinal__img">
 				<div class="messageFinal__container">
@@ -80,23 +86,32 @@
 					        	a 15.9155 15.9155 0 0 1 0 31.831
 					        	a 15.9155 15.9155 0 0 1 0 -31.831"
 					      	/>
-						    <path class="circle"
+						    <path id="path-pass" class="circle"
 						    	stroke-dasharray="70, 100"
 						    	d="M18 2.0845
 						        a 15.9155 15.9155 0 0 1 0 31.831
 						        a 15.9155 15.9155 0 0 1 0 -31.831"
 						    />
-					      	<text x="18" y="20.35" class="percentage">70%</text>
+					      	<text x="18" y="20.35" class="percentage" id="value-percentage-pass">
+					      		70%
+					      	</text>
 					    	</svg>
 					  	</div>
 				    	<p class="percentage--title">Porcentaje de aciertos</p>
 					</div>
 
 					<div class="messageFinal__buttons">
-						<a href="#">
-							<li class="header__loginItem header__loginItem--contrast">
-								Seguir estudiando
-							</li>
+						<form 
+			            	action="{{ route('student.module.pass', $module) }}" 
+			            	method="POST" 
+			            	class="headerBackground__buttons">
+			                
+			                @csrf
+			                @method('POST')
+			                <button type="submit" class="header__loginItem header__loginItem--contrast">
+									Seguir Estudiando
+			                </button>                
+			            </form>
 						</a>
 					</div>
 				</div>
@@ -104,7 +119,7 @@
 		</article>
 
 
-		<article class="article hidden">
+		<article id="boxFail" class="article hidden">
 			<div class="messageFinal">
 				<img src="{{ asset('img/school/cry.png') }}" alt="Imagen final" class="messageFinal__img">
 				<div class="messageFinal__container">
@@ -125,25 +140,27 @@
 					        	a 15.9155 15.9155 0 0 1 0 31.831
 					        	a 15.9155 15.9155 0 0 1 0 -31.831"
 					      	/>
-						    <path class="circle"
+						    <path id="path-fail" class="circle"
 						    	stroke-dasharray="30, 100"
 						    	d="M18 2.0845
 						        a 15.9155 15.9155 0 0 1 0 31.831
 						        a 15.9155 15.9155 0 0 1 0 -31.831"
 						    />
-					      	<text x="18" y="20.35" class="percentage">30%</text>
+					      	<text x="18" y="20.35" class="percentage" id="value-percentage-fail">
+					      		30%
+					      	</text>
 					    	</svg>
 					  	</div>
 				    	<p class="percentage--title">Porcentaje de aciertos</p>
 					</div>
 
 					<div class="messageFinal__buttons">
-						<a href="#">
+						<a href="{{ route('student.course.display', $course) }}">
 							<li class="header__loginItem messageFinal__button--reset">
 								Volver al curso
 							</li>
 						</a>
-						<a href="#">
+						<a href="{{ route('student.module.study', $module) }}">
 							<li class="header__loginItem header__loginItem--contrast messageFinal__button--back">
 								Repetir módulo
 							</li>
@@ -157,4 +174,5 @@
 
 @section('scripts')
 	<script type="module" src="{{ asset('js/components/box-sequenceQuestionnaires.js') }}"></script>
+	<script type="module" src="{{ asset('js/questionnaire/answerClick.js') }}"></script>
 @endsection

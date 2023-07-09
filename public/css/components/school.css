@@ -2,6 +2,10 @@
 .article{
 	min-height: calc(100vh - 60px);
 }
+#boxPass, #boxFail{
+	transition: all .5s;
+	animation: moverArriba .5s;
+} 
 
 /*Box sequence*/
 .box-sequence{
@@ -134,10 +138,27 @@
 }
 .question__answer{
 	padding: 10px;
-	background: var(--littleDark);
+	background: var(--background);
 	border-radius: 2px;
-	color: var(--light);
+	color: var(--text);
 	font-weight: 700;
+}
+.question__answer--click{
+	cursor: pointer;
+	transition: all .4;
+}
+.question__answer--click:hover{
+	color: var(--light);
+	background: var(--littleDark);
+	transition: all .4;
+}
+.question__answer--true, .question__answer--true:hover{
+	background: var(--primary);
+	color: var(--light);
+}
+.question__answer--false, .question__answer--false:hover{
+	background: var(--danger);
+	color: var(--light);
 }
 
 /* buttons-arrows */

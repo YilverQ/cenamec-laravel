@@ -272,6 +272,7 @@ Route::controller(StudentCourseController::class)->group(function () {
 Route::controller(StudentModuleController::class)->group(function () {
     Route::get('/student/study/module/{item}', 'study')->name('student.module.study');
     Route::get('/student/test/module/{item}', 'test')->name('student.module.test');
+    Route::post('/student/pass/module/{item}', 'passModule')->name('student.module.pass');
 });
 
 

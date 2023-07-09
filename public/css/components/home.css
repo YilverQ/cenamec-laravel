@@ -612,14 +612,3 @@
 	font-size: 18px;
 	text-align: center;
 }
-
-.teach-description{
-	padding: 20px;
-	border-radius: 10px;
-	grid-area: description;
-	height: 200px;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	row-gap: 10px;	
-}
