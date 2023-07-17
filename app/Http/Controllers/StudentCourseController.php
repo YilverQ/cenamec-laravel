@@ -75,7 +75,7 @@ class StudentCourseController extends Controller
               ->update(['state' => 'active']);
 
         #Retorna un mensaje flash.
-        session()->flash('message-success', '¡Te haz inscrito en el curso!');
+        session()->flash('message-success', '¡Te has inscrito en el curso!');
         return to_route('student.course.display', $item);
     }
 

@@ -13,183 +13,159 @@ class ModuleSeeder extends Seeder
      */
     public function run(): void
     {
-        /*Física*/
+        /*La fotosíntesis*/
         Module::create([
-            'name' => 'Movimiento en una dimensión',
-            'description' => 'Así que abróchate el cinturón y prepárate para un paseo suave por los fundamentos de la física.',
+            'name' => 'Introducción a la fotosíntesis: concepto y definición',
+            'description' => 'Curso de Fotosíntesis.',
             'level' => 1,
             'teacher_id' => 1,
             'course_id'  => 1,
         ]);
-
         Module::create([
-            'name' => 'Movimiento en dos dimensiones',
-            'description' => 'Así que abróchate el cinturón y prepárate para un paseo suave por los fundamentos de la física.',
+            'name' => 'Los procesos de la fotosíntesis: fase luminosa y fase oscura',
+            'description' => 'Curso de Fotosíntesis.',
             'level' => 2,
             'teacher_id' => 1,
             'course_id'  => 1,
         ]);
-
         Module::create([
-            'name' => 'Fuerzas y leyes del movimiento de Newton',
-            'description' => 'Así que abróchate el cinturón y prepárate para un paseo suave por los fundamentos de la física.',
+            'name' => 'La clorofila y su papel en la fotosíntesis',
+            'description' => 'Curso de Fotosíntesis.',
             'level' => 3,
             'teacher_id' => 1,
             'course_id'  => 1,
         ]);
-        
         Module::create([
-            'name' => 'Fuerza centrípeta y gravitación',
-            'description' => 'Así que abróchate el cinturón y prepárate para un paseo suave por los fundamentos de la física.',
+            'name' => 'La importancia de la luz en la fotosíntesis',
+            'description' => 'Curso de Fotosíntesis.',
             'level' => 4,
             'teacher_id' => 1,
             'course_id'  => 1,
         ]);
-
         Module::create([
-            'name' => 'Trabajo y energía',
-            'description' => 'Así que abróchate el cinturón y prepárate para un paseo suave por los fundamentos de la física.',
+            'name' => 'El ciclo del carbono y la fotosíntesis',
+            'description' => 'Curso de Fotosíntesis.',
             'level' => 5,
             'teacher_id' => 1,
             'course_id'  => 1,
         ]);
-
         Module::create([
-            'name' => 'Impacto y momento lineal',
-            'description' => 'Así que abróchate el cinturón y prepárate para un paseo suave por los fundamentos de la física.',
+            'name' => 'Fotosíntesis en los diferentes tipos de plantas',
+            'description' => 'Curso de Fotosíntesis.',
             'level' => 6,
+            'teacher_id' => 1,
+            'course_id'  => 1,
+        ]);
+        Module::create([
+            'name' => 'Fotosíntesis y su impacto en la vida terrestre',
+            'description' => 'Curso de Fotosíntesis.',
+            'level' => 7,
             'teacher_id' => 1,
             'course_id'  => 1,
         ]);
 
 
-        /*Química*/
+
+        /*El sistema solar*/
         Module::create([
-            'name' => 'Introducción a la Química',
-            'description' => '',
+            'name' => 'Introducción al sistema solar: concepto y definición',
+            'description' => 'Curso de El Sistema Solar.',
             'level' => 1,
             'teacher_id' => 1,
             'course_id'  => 2,
         ]);
-
         Module::create([
-            'name' => 'Fundamentos elementales de la Química',
-            'description' => '',
+            'name' => 'El sol: La estrella central del sistema solar',
+            'description' => 'Curso de El Sistema Solar.',
             'level' => 2,
             'teacher_id' => 1,
             'course_id'  => 2,
         ]);
-
         Module::create([
-            'name' => 'Conceptos avanzados de la Química',
-            'description' => '',
+            'name' => 'Los planetas interiores: Mercurio, Venus, Tierra y Marte',
+            'description' => 'Curso de El Sistema Solar.',
             'level' => 3,
+            'teacher_id' => 1,
+            'course_id'  => 2,
+        ]);
+        Module::create([
+            'name' => 'Los planetas exteriores: Júpiter, Saturno, Urano y Neptuno',
+            'description' => 'Curso de El Sistema Solar.',
+            'level' => 4,
             'teacher_id' => 1,
             'course_id'  => 2,
         ]);
 
 
-        /*Biología*/
+
+        /*Salvando animales*/
         Module::create([
-            'name' => 'Introducción a la Biología',
-            'description' => '',
+            'name' => 'Introducción a la conservación de especies',
+            'description' => 'Curso de Salvando animales.',
             'level' => 1,
-            'teacher_id' => 1,
+            'teacher_id' => 2,
             'course_id'  => 3,
         ]);
-
         Module::create([
-            'name' => 'Fundamentos elementales de la Biología',
-            'description' => '',
+            'name' => 'Especies en peligro de extinción: causas y consecuencias',
+            'description' => 'Curso de Salvando animales.',
             'level' => 2,
-            'teacher_id' => 1,
+            'teacher_id' => 2,
             'course_id'  => 3,
         ]);
-
         Module::create([
-            'name' => 'Conceptos avanzados de la Biología',
-            'description' => '',
+            'name' => 'El papel de los zoológicos y acuarios en la conservación de especies',
+            'description' => 'Curso de Salvando animales.',
             'level' => 3,
-            'teacher_id' => 1,
+            'teacher_id' => 2,
+            'course_id'  => 3,
+        ]);
+        Module::create([
+            'name' => 'Conservación en la naturaleza: proyectos y estrategias ',
+            'description' => 'Curso de Salvando animales.',
+            'level' => 4,
+            'teacher_id' => 2,
             'course_id'  => 3,
         ]);
 
 
-        /*Humanidades*/
+
+
+        /*Estados de la Materia*/
         Module::create([
-            'name' => 'Introducción a la Humanidades',
-            'description' => '',
+            'name' => 'Introducción a los estados de la materia: concepto y definición',
+            'description' => 'Estados de la Materia.',
             'level' => 1,
             'teacher_id' => 2,
             'course_id'  => 4,
         ]);
-
         Module::create([
-            'name' => 'Fundamentos elementales de la Humanidades',
-            'description' => '',
+            'name' => 'Estado sólido: características y propiedades',
+            'description' => 'Estados de la Materia.',
             'level' => 2,
             'teacher_id' => 2,
             'course_id'  => 4,
         ]);
-
         Module::create([
-            'name' => 'Conceptos avanzados de la Humanidades',
-            'description' => '',
+            'name' => 'Estado líquido: características y propiedades',
+            'description' => 'Estados de la Materia.',
             'level' => 3,
             'teacher_id' => 2,
             'course_id'  => 4,
         ]);
-
-
-        /*Psicología*/
         Module::create([
-            'name' => 'Introducción a la Psicología',
-            'description' => '',
-            'level' => 1,
+            'name' => 'Estado gaseoso: características y propiedades',
+            'description' => 'Estados de la Materia.',
+            'level' => 4,
             'teacher_id' => 2,
-            'course_id'  => 5,
+            'course_id'  => 4,
         ]);
-
         Module::create([
-            'name' => 'Fundamentos elementales de la Psicología',
-            'description' => '',
-            'level' => 2,
+            'name' => 'Cambios de estado',
+            'description' => 'Estados de la Materia.',
+            'level' => 5,
             'teacher_id' => 2,
-            'course_id'  => 5,
-        ]);
-
-        Module::create([
-            'name' => 'Conceptos avanzados de la Psicología',
-            'description' => '',
-            'level' => 3,
-            'teacher_id' => 2,
-            'course_id'  => 5,
-        ]);
-
-
-        /*Ciencias Sociales*/
-        Module::create([
-            'name' => 'Introducción a la Ciencias Sociales',
-            'description' => '',
-            'level' => 1,
-            'teacher_id' => 2,
-            'course_id'  => 6,
-        ]);
-
-        Module::create([
-            'name' => 'Fundamentos elementales de la Ciencias Sociales',
-            'description' => '',
-            'level' => 2,
-            'teacher_id' => 2,
-            'course_id'  => 6,
-        ]);
-
-        Module::create([
-            'name' => 'Conceptos avanzados de la Ciencias Sociales',
-            'description' => '',
-            'level' => 3,
-            'teacher_id' => 2,
-            'course_id'  => 6,
+            'course_id'  => 4,
         ]);
     }
 }

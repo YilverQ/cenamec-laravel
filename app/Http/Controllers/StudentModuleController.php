@@ -124,7 +124,7 @@ class StudentModuleController extends Controller
 
 
         //Retornamos todos los datos a la vista.
-        session()->flash('message-success', '¡Feliciades, haz aprobado el módulo!'); 
+        session()->flash('message-success', '¡Feliciades, has aprobado el módulo!'); 
         return to_route('student.course.display', $item->course_id);
     }
 }

@@ -18,8 +18,8 @@ let labelFileInput = document.querySelector(".labelFile__input");
 	password: Admite caracteres alfanumericos y algunos caracteres especiales. Min 4 y Máx 20. 
 */
 const regularExpression = {
-	name 	 	: /^[a-zA-ZÀ-ÿ\s\d]{3,50}$/,
-	description : /[a-zA-Z\t\h]{3,255}/,
+	name 	 	: /^[a-zA-ZÀ-ÿ-:;,\s\d]{3,120}$/,
+	description : /[a-zA-Z\t\h-:;,]{3,800}/,
 	imgFile 	: /[a-zA-Z\t\h]+|(^$)/,
 };
 

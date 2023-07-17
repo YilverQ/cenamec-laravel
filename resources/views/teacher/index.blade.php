@@ -49,16 +49,19 @@
 						Mediante técnicas de estudios podrás enseñar de una forma fácil y entretenida. Conecta con tus estudiantes, aprovecha la tecnología y utilizala a tu favor.
 					</p>
 				</div>
+				@if (isset($course->name))
 				<div class="teach-card">
 					<h2 class="teach-course__title">{{ $course->name }}</h2>
-					<p class="teach-course__text">
-						{{ $course->description }}
-					</p>
 					<ul class="list__actions">
 						<a href="{{ route('teacher.course.show', $course) }}" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 
 	                    <a href="{{ route('teacher.course.edit', $course) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 					</ul>
 				</div>
+				@else
+				<div class="teach-card">
+					<h2 class="teach-course__title">Debes crear un curso primero</h2>
+				</div>
+				@endif
 				<div class="box-bottoms">
 					<a href="{{ route('teacher.course.create') }}">
 						<li class="header__loginItem header__loginItem--contrast">

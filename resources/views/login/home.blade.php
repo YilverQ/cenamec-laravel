@@ -54,7 +54,7 @@
 				
 				<div class="tab__information">
 					<h2 class="tab__title">Una forma <strong class="color-Text">divertida</strong> de aprender ciencia</h2>
-					<p class="tab__description">¡El aprendizaje puede ser efectivo y divertido a la vez! Nuestra formula se basa en una técnica de aprendizaje que traslada la mécanica de juego al ambito educativo. Mediante niveles entretenidos y cada vez más competitivos, el estudiante podrá ganar recompensas generando experiencias positivas que le motiven a la finalización del curso.</p>
+					<p class="tab__description">¡El aprendizaje puede ser efectivo y divertido a la vez! Nuestra formula se basa en una técnica de aprendizaje que traslada la mécanica de juego al ámbito educativo. Mediante niveles entretenidos y cada vez más competitivos, el estudiante podrá ganar recompensas generando experiencias positivas que le motiven a la finalización del curso.</p>
 				</div>
 			</section>
 		</article>
@@ -65,11 +65,11 @@
 				<h2 class="love-middle__titleMain">¿Por qué te <strong class="color-Text">encantará</strong> aprender con nosotros?</h2>
 				<section class="love-middle__information">
 					<h3 class="love-middle__title"><i class="fa-solid fa-fire"></i>Efectivo y eficiente</h3>
-					<p class="love-middle__description">Nuestras lecciones cortas ayudan a los alumnos a retener la información más importante. Los pequeños segmentos de formación se centran en un solo concepto o idea a la vez y lo hace más fácil de absorber que las lecciones tradicionales.</p>
+					<p class="love-middle__description">Nuestras lecciones cortas ayudan a los estudiantes a retener la información más importante. Los pequeños segmentos de formación se centran en un solo concepto o idea a la vez y lo hace más fácil de absorber que las lecciones tradicionales.</p>
 				</section>
 				<section class="love-middle__information">
 					<h3 class="love-middle__title"><i class="fa-solid fa-circle-check"></i>Exámenes sencillos</h3>
-					<p class="love-middle__description">A lo largo de los cursos, se hace precisa la evaluación continua del trabajo que se realiza. De esta manera la realimentación es constante y la evaluación es realmente formativa.</p>
+					<p class="love-middle__description">A lo largo de los cursos, se hace precisa la evaluación continua del trabajo que se realiza. De esta manera la retroalimentación es constante y la evaluación es realmente formativa.</p>
 				</section>
 				<section class="love-middle__information">
 					<h3 class="love-middle__title"><i class="fa-solid fa-person-running"></i>Te mantiene motivado</h3>
@@ -77,7 +77,7 @@
 				</section>
 				<section class="love-middle__information">
 					<h3 class="love-middle__title"><i class="fa-solid fa-face-laugh-beam"></i>¡Es súper divertido!</h3>
-					<p class="love-middle__description">El aprendizaje divertido realmente funciona porque consigue motivar a los alumnos, desarrollando un mayor compromiso, e incentiva el ánimo de superación.</p>
+					<p class="love-middle__description">El aprendizaje divertido realmente funciona porque consigue motivar a los estudiantes, desarrollando un mayor compromiso, e incentiva el ánimo de superación.</p>
 				</section>
 				<img class="love-middle__img" 
 					src="{{ asset('img/login/love.png') }}" 
@@ -112,7 +112,7 @@
 					<ol class="tab__content">
 						<li class="tab__description tab__description--list">Acceso las 24 horas. El estudiante sólo necesita tener conexión a internet para poder acceder a los contenidos del curso.</li>
 						<li class="tab__description tab__description--list">¿No te puedes conectar ahora? No te preocupes. El curso comienza cuando tengas tiempo y disponibilidad, de tal forma que puedes empezar en septiembre, octubre, enero o julio.</li>
-						<li class="tab__description tab__description--list">Los cursos están diseñado para ser completado según tu capacidad. Puedes consultar los contenidos educativos cuando quieras y cuantas veces quieras, esto para que el alumno sea capaz de completar su formación al ritmo que él desee.</li>
+						<li class="tab__description tab__description--list">Los cursos están diseñado para ser completado según tu capacidad. Puedes consultar los contenidos educativos cuando quieras y cuantas veces quieras, esto para que el estudiante sea capaz de completar su formación al ritmo que él desee.</li>
 					</ol>
 				</div>
 			</section>
@@ -127,7 +127,7 @@
 				
 				<div class="tab__information">
 					<h2 class="tab__title">Obtén un <strong class="color-Text">certificado</strong></h2>
-					<p class="tab__description">El objetivo del <strong>CENAMEC</strong> es la de proveer educación y grandes oportunidades para todos aquellos interesados, por lo tanto obtener un certificado de finalización es posible y completamente gratuito. Demuestra con orgullo tus certificados de finalización ya que cuentan con validación de parte del <strong>Ministerio de Eduación de Venezuela</strong>.</p>
+					<p class="tab__description">El objetivo del <strong>CENAMEC</strong> es proveer educación y grandes oportunidades para todos aquellos interesados, por lo tanto obtener un certificado de finalización es posible y completamente gratuito. Demuestra con orgullo tus certificados de finalización ya que cuentan con validación de parte del <strong>Ministerio de Eduación de Venezuela</strong>.</p>
 				</div>
 			</section>
 		</article>

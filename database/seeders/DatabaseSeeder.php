@@ -39,9 +39,9 @@ class DatabaseSeeder extends Seeder
         #$this->call(CertificateSeeder::class);
 
 
-        Administrator::factory(2)->create();
-        Teacher::factory(8)->create();
-        Student::factory(18)->create();
+        #Administrator::factory(2)->create();
+        #Teacher::factory(8)->create();
+        #Student::factory(4)->create();
 
 
         /*FACTORY

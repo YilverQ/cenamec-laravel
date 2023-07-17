@@ -18,16 +18,16 @@ class TeacherSeeder extends Seeder
             'lastname' => 'Quevedo',
             'identification_card' => '28333459',
             'number_phone' => '04160140472',
-            'email' => 'yilver@profesor.com',
+            'email' => 'yilver0906@gmail.com',
             'password' => 'root',
         ]);
 
         Teacher::create([
             'name' => 'Vanessa',
             'lastname' => 'Longa',
-            'identification_card' => '28000111',
-            'number_phone' => '04123938615',
-            'email' => 'vanessa@profesor.com',
+            'identification_card' => '27914751',
+            'number_phone' => '04127603410',
+            'email' => 'vanessa.longa06@gmail.com',
             'password' => 'root',
         ]);
     }

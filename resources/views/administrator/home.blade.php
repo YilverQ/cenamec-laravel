@@ -97,7 +97,7 @@
 
 				<div class="tab__information">
 					<h2 class="tab__title">Getiona a los <strong class="color-Text">estudiantes</strong></h2>
-					<p class="tab__description">El estudiante es la persona a quien va dirigido los curso y quien tiene la responsabilidad de aprender. Un estudiante puede cursar cualquier curso y al final obtener un certificado.</p>
+					<p class="tab__description">Los estudiantes son las personas a quienes van dirigidos los cursos y quienes tienen la responsabilidad de aprender. Un estudiante puede cursar cualquier curso y al final obtener un certificado.</p>
 					<ul class="header__bottons">
 						<a href="{{ route('admin.student.create') }}">
 							<li class="header__loginItem header__loginItem--contrast">

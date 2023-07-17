@@ -15,46 +15,32 @@ class CourseSeeder extends Seeder
     {
         /*YILVER*/
         Course::create([
-            'name' => 'Física',
-            'description' => "La física es el estudio de la materia, el movimiento, la energía y la fuerza. Aquí puedes explorar temas, artículos y ejercicios por tema.",
-            'img' => '/storage/imgCourses/fisica.jpg',
+            'name' => 'La fotosíntesis: La transformación de luz en energía.',
+            'description' => "En este curso, los estudiantes aprenderán sobre uno de los procesos más importantes de la naturaleza: la fotosíntesis. Este curso es ideal para personas que quieran entender mejor cómo funciona la vida en nuestro planeta y cómo las plantas son fundamentales para mantener el equilibrio ecológico.",
+            'img' => '/storage/imgCourses/fotosintesis.jpeg',
             'teacher_id' => 1,
         ]);
 
         Course::create([
-            'name' => 'Química',
-            'description' => "La química es el estudio de la materia y los cambios que experimenta. Aquí puedes explorar temas, artículos y ejercicios de química por tema.",
-            'img' => '/storage/imgCourses/quimica.jpeg',
-            'teacher_id' => 1,
-        ]);
-
-        Course::create([
-            'name' => 'Biología',
-            'description' => "La biología es el estudio de la vida. Aquí puedes explorar temas, artículos y ejercicios por tema. Mantenemos estas lecciones actualizadas, por lo tanto podrás encontrar aquí contenido nuevo o mejorado con el tiempo.",
-            'img' => '/storage/imgCourses/biologia.jpeg',
+            'name' => 'El sistema solar: un viaje por el espacio',
+            'description' => "En este curso, los estudiantes explorarán el fascinante mundo de los planetas en nuestro sistema solar. Conocerás los ocho planetas principales: Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno. Aprenderán sobre las características de cada planeta, como su tamaño, su atmósfera, su temperatura y su distancia del sol. ¡Únete a nosotros en un emocionante viaje a través del sistema solar!",
+            'img' => '/storage/imgCourses/solar.jpeg',
             'teacher_id' => 1,
         ]);
 
 
         /*Vanessa*/
         Course::create([
-            'name' => 'Humanidades',
-            'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/humanidades.jpg',
+            'name' => 'Salvando animales: la importancia de la conservación.',
+            'description' => "En este curso, los estudiantes explorarán el fascinante mundo de los animales en peligro de extinción y la importancia de la conservación de especies. Aquí conocerás sobre el papel de los zoológicos y acuarios en la conservación de especies y cómo pueden ayudar ellos mismos.",
+            'img' => '/storage/imgCourses/conservacion.jpeg',
             'teacher_id' => 2,
         ]);
 
         Course::create([
-            'name' => 'Psicología',
-            'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/psicologia.jpg',
-            'teacher_id' => 2,
-        ]);
-
-        Course::create([
-            'name' => 'Ciencias Sociales',
-            'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque autem et earum, veniam laudantium impedit placeat voluptatum corporis cum, fugit?",
-            'img' => '/storage/imgCourses/sociales.jpg',
+            'name' => 'Los estados de la materia y sus propiedades',
+            'description' => "En este curso, los estudiantes explorarán los diferentes estados de la materia y las propiedades que los definen. Los estudiantes conocerán los tres estados principales de la materia: sólido, líquido y gas. Aprenderán sobre las características de cada estado y también descubrirán cómo pueden cambiar de un estado a otro.",
+            'img' => '/storage/imgCourses/estados.jpeg',
             'teacher_id' => 2,
         ]);
     }

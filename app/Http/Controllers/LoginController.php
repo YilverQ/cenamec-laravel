@@ -105,7 +105,7 @@ class LoginController extends Controller
         
         #Retornamos un mensaje flash.
         #Nos dirijimos a la vista principal del estudiante
-        session()->flash('message-success', '¡Te haz registrado como estudiante!');
+        session()->flash('message-success', '¡Te has registrado como estudiante!');
         return $this->checkStudent($request);
     }
 

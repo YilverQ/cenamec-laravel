@@ -16,14 +16,14 @@ class AdministratorSeeder extends Seeder
         Administrator::create([
             'name' => 'Yilver',
             'lastname' => 'Quevedo',
-            'email' => 'yilver@admin.com',
+            'email' => 'yilver0906@gmail.com',
             'password' => 'root',
         ]);
 
         Administrator::create([
             'name' => 'Vanessa',
             'lastname' => 'Longa',
-            'email' => 'vanessa@admin.com',
+            'email' => 'vanessa.longa06@gmail.com',
             'password' => 'root',
         ]);
 
@@ -31,13 +31,6 @@ class AdministratorSeeder extends Seeder
             'name' => 'Cenamec',
             'lastname' => 'Cenamec',
             'email' => 'cenamec@admin.com',
-            'password' => 'root',
-        ]);
-
-        Administrator::create([
-            'name' => 'root',
-            'lastname' => 'root',
-            'email' => 'root@admin.com',
             'password' => 'root',
         ]);
 

@@ -43,7 +43,7 @@
 								id="name" 
 								placeholder="Física para principiante"
 								minlength="3"
-								maxlength="50"
+								maxlength="120"
 								autocomplete="off"
 								value="{{ $course->name }}">
 					</div>
@@ -53,7 +53,7 @@
 									name="description"
 									id="description"
 									placeholder="Curso de introducción a la física es un curso que promueve la educación en los niños, niñas, adolecentes y adultos. Con este curso podrás aprender sobre diversas áreas de la física." 
-									maxlength="255"
+									maxlength="800"
 									required="true"
 									rows="7"
 									value="">{{ $course->description }}</textarea>
