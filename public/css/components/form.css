@@ -1,3 +1,11 @@
+.grid-one{
+	display: flex;
+	flex-flow: column;
+}
+.grid-two{
+	display: flex;
+	justify-content: center;
+}
 .form__content{
 	max-width: 500px;
 	background: var(--light);
@@ -9,6 +17,9 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: repeat(8, max-content);
+}
+.form__content--big{
+	max-width: 800px;
 }
 
 .form__icon, .form__title{
@@ -26,10 +37,13 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: repeat(2, max-content);
-	width: 90%;
+	width: 45%;
 	margin: 10px auto;
 	border-radius: 2px;
 	max-width: 400px;
+}
+.form__item--small{
+	width: 80%;
 }
 .form__item--toggle{
 	display: flex;
@@ -64,6 +78,30 @@
 }
 .form__input--successField{
 	border: 2px solid var(--primary);
+}
+.form__input--disabled{
+	background: #c5cedd;
+	border: 2px solid transparent;
+	color: var(--text);
+
+	max-width: 400px;
+	margin: 5px 0;
+	padding: 8px 0 5px 10px;
+	border-radius: 2px;
+	outline: none;
+}
+.form__input--select{
+	max-width: 400px;
+	margin: 5px 0;
+	padding: 8px 0 5px 10px;
+	border: none;
+	border-bottom: 2px solid var(--primary);
+	border-radius: 2px;
+	outline: none;
+	background: #e5e9f0;
+}
+.form__item--hidden{
+	display: none;
 }
 
 .form__textarea{
@@ -263,6 +301,11 @@
 	background: var(--primary);
 	border: 2px solid transparent;
 	color: var(--light);
+}
+
+.form__message-error{
+	font-weight: 700;
+	color: var(--danger);
 }
 
 /*Media queries - Globales*/

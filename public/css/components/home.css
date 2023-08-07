@@ -155,6 +155,10 @@
 	grid-row-gap: 25px;
 	max-width: 500px;
 }
+.tab__container-img{
+	background: var(--primary);
+	border-radius: 50%;
+}
 .tab__img{
 	display: block;
 	object-fit: cover;
@@ -632,4 +636,39 @@
 		"cu_right";
 		row-gap: 25px;
 	}
+}
+
+
+
+
+/*Profile*/
+.profile{
+	display: flex;
+	justify-content: center;
+	column-gap: 50px;
+	position: relative;
+}
+.superContainerFixed{
+	width: 300px;
+	position: relative;
+}
+.container_img{
+	width: 300px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	row-gap: 25px;
+	position: fixed;
+}
+.profile__container-img{
+	border-radius: 50%;
+	background: var(--primary);
+}
+.profile__img{
+	display: block;
+	object-fit: cover;
+	width: 250px;
+}
+.container_profile{
+	width: 800px;
 }

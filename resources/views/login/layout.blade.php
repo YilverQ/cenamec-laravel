@@ -30,9 +30,11 @@
 <body>
 	<!--Navegación-->
   	<nav class="nav">
-		<a href="{{ route('login.home') }}" class="nav__home">
-		  <img src="{{ asset('img/logo.jpeg') }}" class="nav__logo">
-		</a>
+  		<div class="nav__contentLogos">
+			<a href="{{ route('login.home') }}" class="nav__home">
+			  <img src="{{ asset('img/logo1.png') }}" class="nav__logo">
+			</a>
+  		</div>
 		<ul class="nav__menu">
 			<a href="{{ route('login.home') }}">
 				<li class="nav__item">

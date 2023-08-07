@@ -2,43 +2,33 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Parishe;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
+
+    protected $fillable = [ 'firts_name', 
+                            'second_name',
+                            'lastname',
+                            'second_lastname',
+                            'gender',
+                            'birthdate', 
+                            'identification_card', 
+                            'number_phone',
+                            'email', 
+                            'password'];
+
+    protected $hidden = ['password'];
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+     * Relationship. 
+     * One to Many - Inverse
+    **/
+    public function parishe ()
+    {
+        return $this->belongsTo(Parishe::class);
+    }
 }

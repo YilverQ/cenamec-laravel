@@ -15,10 +15,7 @@ class Administrator extends Model
      * protected $fillable  = [array_fields] : Para definir los campos que se pueden cargar.
      * protected $hidden    = [array_fields] : Para definir los campos que no son visibles.
     **/
-    protected $fillable = [ 'name', 'lastname', 
-                            'email', 'password'];
-                            
-    protected $hidden = ['password'];
+    protected $fillable = [];
 
 
     /**

@@ -37,6 +37,7 @@
 								minlength="3"
 								maxlength="20"
 								autocomplete="off">
+						<p class="form__message-error hidden">Debe tener mínimo 3 letras y solamente se admiten caracteres alfabéticos.</p>
 					</div>
 					<div class="form__item">
 						<label for="lastname">Apellido:</label>
@@ -49,6 +50,7 @@
 								minlength="3"
 								maxlength="20"
 								autocomplete="off">
+						<p class="form__message-error hidden">Debe tener mínimo 3 letras y solamente se admiten caracteres alfabéticos.</p>
 					</div>
 					<div class="form__item">
 						<label for="email">Correo Eléctronico:</label>
@@ -59,6 +61,7 @@
 								id="email" 
 								placeholder="yilver@gmail.com"
 								autocomplete="off">
+						<p class="form__message-error hidden">Debes agregar un corre electrónico válido</p>
 					</div>
 					<div class="form__item">
 						<label for="password">Contraseña:</label>
@@ -72,6 +75,7 @@
 								maxlength="20"
 								autocomplete="off">
 						<p class="form__eye"><i id="form_eye" class="fa-solid fa-eye"></i></p>
+						<p class="form__message-error hidden">Debes agregar una contraseña entre 4 y 20 caracteres alfanumericos y signos especiales: .+*=#$%&?</p>
 					</div>
 					<input class="form__send form_send--disabled" 
 							type="submit" 

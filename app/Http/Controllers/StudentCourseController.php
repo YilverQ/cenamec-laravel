@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Module;
@@ -28,10 +29,10 @@ class StudentCourseController extends Controller
      */
     public function index(Request $request)
     {
-        $student_id = $request->session()->get('student_id');
-        $student    = Student::find($student_id);
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
 
-        $myCourses = $student->courses;
+        $myCourses = $user->courses;
         $courses = Course::where("id", "!=", 0)
                             ->withCount('modules')
                             ->get();

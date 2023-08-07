@@ -13,27 +13,8 @@ class AdministratorSeeder extends Seeder
      */
     public function run(): void
     {
-        Administrator::create([
-            'name' => 'Yilver',
-            'lastname' => 'Quevedo',
-            'email' => 'yilver0906@gmail.com',
-            'password' => 'root',
-        ]);
-
-        Administrator::create([
-            'name' => 'Vanessa',
-            'lastname' => 'Longa',
-            'email' => 'vanessa.longa06@gmail.com',
-            'password' => 'root',
-        ]);
-
-        Administrator::create([
-            'name' => 'Cenamec',
-            'lastname' => 'Cenamec',
-            'email' => 'cenamec@admin.com',
-            'password' => 'root',
-        ]);
-
-        #Administrator::factory(4)->create();
+        Administrator::create(['user_id' => 1]);
+        Administrator::create(['user_id' => 2]);
+        Administrator::create(['user_id' => 5]);
     }
 }

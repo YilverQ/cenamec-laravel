@@ -19,7 +19,7 @@
 
 			<div class="header__information">
 				<h2 class="header__title">
-					¡Bienvenido {{ $student->name }}!
+					¡Bienvenido {{ $student->firts_name }}!
 				</h2>
 				<ul class="header__bottons">
 					<a href="{{ route('student.edit') }}">

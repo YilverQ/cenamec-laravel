@@ -3,19 +3,19 @@
 use Illuminate\Support\Facades\Route;
 
 /*Importamos los controladores*/
-use App\Http\Controllers\AdministratorController;
-use App\Http\Controllers\AdministratorTeacherController;
-use App\Http\Controllers\AdministratorStudentController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\StudentCourseController;
-use App\Http\Controllers\StudentModuleController;
+use App\Http\Controllers\NoteController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ModuleController;
-use App\Http\Controllers\NoteController;
-use App\Http\Controllers\QuestionnaireController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CertificateController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\StudentCourseController;
+use App\Http\Controllers\StudentModuleController;
+use App\Http\Controllers\QuestionnaireController;
+use App\Http\Controllers\AdministratorTeacherController;
+use App\Http\Controllers\AdministratorStudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login.home');
 });
 
 
@@ -43,7 +43,7 @@ Route::get('/', function () {
  * post  /login/student   checkStudent    Action    Combrueba los datos del usuario y redirecciona. 
  * post  /login/teacher   checkTeacher    Action    Combrueba los datos del usuario y redirecciona. 
  * post  /signup          checkSignup     Action    Comprueba los datos del usuario y redirecciona.
- * post  /signup/student  storeStudent    Action    Crea un nuevo estudiante.
+ * post  /signup/student  store           Action    Crea un nuevo estudiante.
  * get   /logout          logout          Action    Cerramos la sección. 
  * get   /admin           admin           view      Formulario para ingresar al sistema como admin. 
  * post  /admin           checkAdmin      Action    Combrueba los datos del usuario y redirecciona. 
@@ -56,7 +56,7 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/login/student', 'checkStudent')->name('login.checkStudent');
     Route::post('/login/teacher', 'checkTeacher')->name('login.checkTeacher');
     Route::post('/signup',  'checkSignup')->name('login.checkSignup');
-    Route::post('/signup/student', 'storeStudent')->name('login.newStudent');
+    Route::post('/signup/student', 'store')->name('login.newStudent');
     Route::get( '/logout',  'logout')->name('login.logout');
     Route::get( '/admin',   'admin')->name('login.admin');
     Route::post('/admin',   'checkAdmin')->name('login.checkAdmin');

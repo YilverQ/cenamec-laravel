@@ -59,6 +59,11 @@
 	border-bottom: 3px solid var(--primary);
 }
 
+.nav__contentLogos{
+	display: flex;
+	gap: 0 10px;
+}
+
 
 
 /*Media queries*/

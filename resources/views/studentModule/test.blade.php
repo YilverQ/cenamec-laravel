@@ -106,7 +106,7 @@
 				<img src="{{ asset('img/school/fun.png') }}" alt="Imagen final" class="messageFinal__img">
 				<div class="messageFinal__container">
 					<div class="messageFinal__titles">
-						<h3 class="messageFinal__title">&#x1f389; ¡Felicidades, haz aprobado el módulo: </h3>
+						<h3 class="messageFinal__title">&#x1f389; ¡Felicidades, has aprobado el módulo: </h3>
 						<h3 class="messageFinal__module">
 							<strong class="color-Text">
 								{{ $module->name }}! &#129321;
@@ -160,7 +160,7 @@
 				<img src="{{ asset('img/school/cry.png') }}" alt="Imagen final" class="messageFinal__img">
 				<div class="messageFinal__container">
 					<div class="messageFinal__titles">
-						<h3 class="messageFinal__title">&#x26a0;&#xfe0f; ¡Lo siento, no haz aprobado el módulo: </h3>
+						<h3 class="messageFinal__title">&#x26a0;&#xfe0f; ¡Lo siento, no has aprobado el módulo: </h3>
 						<h3 class="messageFinal__module">
 							<strong class="color-Text">
 								{{ $module->name }}! &#x1f622;

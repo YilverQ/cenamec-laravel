@@ -37,6 +37,7 @@
 								minlength="3"
 								maxlength="20"
 								autocomplete="off">
+						<p class="form__message-error hidden">Debe tener mínimo 3 letras y solamente se admiten caracteres alfabéticos.</p>
 					</div>
 					<div class="form__item">
 						<label for="lastname">Apellido:</label>
@@ -49,6 +50,7 @@
 								minlength="3"
 								maxlength="20"
 								autocomplete="off">
+						<p class="form__message-error hidden">Debe tener mínimo 3 letras y solamente se admiten caracteres alfabéticos.</p>
 					</div>
 					<div class="form__item">
 						<label for="identification_card">Cédula:</label>
@@ -61,6 +63,7 @@
 								minlength="6"
 								maxlength="8"
 								autocomplete="off">
+						<p class="form__message-error hidden">Solamente se admiten números entre 6 y 8 dígitos.</p>
 					</div>
 					<div class="form__item form__item--hidden">
 						<label for="number_phone">Número de teléfono:</label>
@@ -73,6 +76,7 @@
 								minlength="11"
 								maxlength="11"
 								autocomplete="off">
+						<p class="form__message-error hidden">Debes agregar un número de teléfono válido. Ejemplo: 04160001010, 04140120122</p>
 					</div>
 					<div class="form__item form__item--hidden">
 						<label for="email">Correo Eléctronico:</label>
@@ -83,6 +87,7 @@
 								id="email" 
 								placeholder="vanessa@gmail.com"
 								autocomplete="off">
+						<p class="form__message-error hidden">Debes agregar un corre electrónico válido</p>
 					</div>
 					<div class="form__item form__item--hidden">
 						<label for="password">Contraseña:</label>
@@ -96,6 +101,7 @@
 								maxlength="20"
 								autocomplete="off">
 						<p class="form__eye"><i id="form_eye" class="fa-solid fa-eye"></i></p>
+						<p class="form__message-error hidden">Debes agregar una contraseña entre 4 y 20 caracteres alfanumericos y signos especiales: .+*=#$%&?</p>
 					</div>
 					<div class="a">
 						<div class="toggle-next">

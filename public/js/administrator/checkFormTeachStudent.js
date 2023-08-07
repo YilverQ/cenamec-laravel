@@ -8,6 +8,14 @@
 //lista de inputs de mi formulario.
 let inputs = document.querySelectorAll(".form__input");
 
+let messages = document.querySelectorAll(".form__message-error");
+const positionMessages = [
+	"name", "lastname",
+	"identification_card",
+	"number_phone",
+	"email", "password"
+];
+
 /*
 	name: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
 	lastname: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
@@ -17,12 +25,12 @@ let inputs = document.querySelectorAll(".form__input");
 	password: Admite caracteres alfanumericos y algunos caracteres especiales. Min 4 y Máx 20. 
 */
 const regularExpression = {
-	name 	 			: /^[a-zA-ZÀ-ÿ]{3,20}$/,
-	lastname 			: /^[a-zA-ZÀ-ÿ]{3,20}$/,
+	name 	 			: /^[a-zA-ZÀ-ÿ\s]{3,50}$/,
+	lastname 			: /^[a-zA-ZÀ-ÿ\s]{3,50}$/,
 	identification_card	: /^\d{6,8}$/,
-	number_phone		: /^\d{11,11}$/,
+	number_phone		: /^((0416)|(0212)|(0426)|(0412)|(0414)|(0424))\d{7}$/,
 	email	 			: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	password 			: /^[a-zA-Z0-9_.+#$¡!"%&()?]{4,20}|(^$)$/
+	password 			: /^[a-zA-Z0-9_.+*=#$%&?]{4,20}$/
 };
 
 
@@ -96,10 +104,25 @@ const checkExpression = (regex, input, fieldName) => {
 		document.getElementById(`${fieldName}`).classList.remove("form__input--errorField");
 		document.getElementById(`${fieldName}`).classList.add("form__input--successField");
 		fields[fieldName] = true;
+		
 	}else{
 		document.getElementById(`${fieldName}`).classList.remove("form__input--successField");
 		document.getElementById(`${fieldName}`).classList.add("form__input--errorField");
 		fields[fieldName] = false;
+		
+	}
+}
+
+
+const messageInput = (e) =>{
+	let position = positionMessages.indexOf(e.target.name);
+	let message = null;
+	message = messages[position];
+	if (fields[e.target.name]){
+		message.classList.add('hidden');
+	}else{
+		message.classList.remove('hidden');
+
 	}
 }
 
@@ -145,4 +168,5 @@ inputs.forEach((input) => {
 	input.addEventListener("blur", checkField);
 	input.addEventListener("keyup", bottonSendDisabled);
 	input.addEventListener("blur", bottonSendDisabled);
+	input.addEventListener("keyup", messageInput);
 });

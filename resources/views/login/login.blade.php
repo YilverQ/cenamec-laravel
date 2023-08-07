@@ -15,7 +15,7 @@
 			<i id="iconStudent" class="fa-solid fa-user-graduate"></i>
 		</h2>
 		<h2 class="form__title">¡Bienvenido estudiante!</h2>
-		<div class="form__item">
+		<div class="form__item form__item--small">
 			<label for="email">Correo Eléctronico:</label>
 			<input class="form__input" 
 					name="email" 
@@ -25,7 +25,7 @@
 					placeholder="yilver@gmail.com"
 					autocomplete="off">
 		</div>
-		<div class="form__item">
+		<div class="form__item form__item--small">
 			<label for="password">Contraseña:</label>
 			<input class="form__input" 
 					name="password" 
@@ -64,6 +64,6 @@
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
 	<script type="module" src="{{ asset('js/login/switchField.js') }}"></script>
-	<script type="module" src="{{ asset('js/login/checkFormLogin.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/checkForm.js') }}"></script>
 	<script type="module" src="{{ asset('js/login/roleButtonSelect.js') }}"></script>
 @endsection

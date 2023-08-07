@@ -147,38 +147,25 @@
 		</div>
 		<div class="endSections">
 			<div class="endSection">
-				<h4 class="endSection__title">Sobre Nosotros</h4>
+				<h4 class="endSection__title">Aprende más</h4>
 				<ul class="endSection__itemBox">
-					<li class="endSection__item">Misión</li>
-					<li class="endSection__item">Equipo</li>
-					<li class="endSection__item">Investigación</li>
-					<li class="endSection__item">Contáctanos</li>
+					<li class="endSection__item"><a target="_blank" href="https://linktr.ee/fundacioncenamec">Libros</a></li>
 				</ul>
 			</div>
 			<div class="endSection">
-				<h4 class="endSection__title">Otras páginas</h4>
+				<h4 class="endSection__title">Otras Páginas</h4>
 				<ul class="endSection__itemBox">
-					<li class="endSection__item">CENAMEC</li>
-					<li class="endSection__item">MPPPE</li>
-					<li class="endSection__item">Proyecto</li>
+					<li class="endSection__item"><a target="_blank" href="#">CENAMEC</a></li>
+					<li class="endSection__item"><a target="_blank" href="http://me.gob.ve/">MPPPE</a></li>
 				</ul>
 			</div>
 			<div class="endSection">
 				<h4 class="endSection__title">Redes Sociales</h4>
 				<ul class="endSection__itemBox">
-					<li class="endSection__item">Blog</li>
-					<li class="endSection__item">Instagram</li>
-					<li class="endSection__item">Facebook</li>
-					<li class="endSection__item">Twitter</li>
-					<li class="endSection__item">Youtube</li>
-				</ul>
-			</div>
-			<div class="endSection">
-				<h4 class="endSection__title">Términos y privacidad</h4>
-				<ul class="endSection__itemBox">
-					<li class="endSection__item">Normas de la comunidad</li>
-					<li class="endSection__item">Términos</li>
-					<li class="endSection__item">Privacidad</li>
+					<li class="endSection__item"><a target="_blank" href="https://www.instagram.com/fundacioncenamec/">Instagram</a></li>
+					<li class="endSection__item"><a target="_blank" href="https://www.facebook.com/CENAMEC.FUNDACION/">Facebook</a></li>
+					<li class="endSection__item"><a target="_blank" href="https://twitter.com/Funda_cenamec1">Twitter</a></li>
+					<li class="endSection__item"><a target="_blank" href="https://www.youtube.com/channel/UCpU6O2dZSh9IgBd6sVzPiPg">Youtube</a></li>
 				</ul>
 			</div>
 		</div>

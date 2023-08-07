@@ -4,14 +4,19 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Administrator;
-use App\Models\Teacher;
-use App\Models\Student;
 use App\Models\Course;
 use App\Models\Module;
 use App\Models\Certificate;
 use App\Models\Note;
 use App\Models\Questionnaire;
+
+use App\Models\State;
+use App\Models\Municipalitie;
+use App\Models\Parishe;
+use App\Models\User;
+use App\Models\Administrator;
+use App\Models\Teacher;
+use App\Models\Student;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,14 +34,20 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        #$this->call(CourseSeeder::class);
+        #$this->call(ModuleSeeder::class);
+        #$this->call(NoteSeeder::class);
+        #$this->call(QuestionnaireSeeder::class);
+        #$this->call(CertificateSeeder::class);
+
+
+        $this->call(StateSeeder::class);
+        $this->call(MunicipalitieSeeder::class);
+        $this->call(ParisheSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(AdministratorSeeder::class);
         $this->call(TeacherSeeder::class);
         $this->call(StudentSeeder::class);
-        $this->call(CourseSeeder::class);
-        $this->call(ModuleSeeder::class);
-        $this->call(NoteSeeder::class);
-        $this->call(QuestionnaireSeeder::class);
-        #$this->call(CertificateSeeder::class);
 
 
         #Administrator::factory(2)->create();

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Parishe;
+use App\Models\Municipalitie;
+use App\Models\State;
 use App\Models\Student;
 use App\Models\Course;
 
@@ -27,13 +31,12 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $student_id = $request->session()->get('student_id');
-        $student    = Student::where('id', $student_id)
-                                ->withCount('courses')
-                                ->withCount('certificates')
+        $user_id = $request->session()->get('user_id');
+        $user    = User::where('id', $user_id)
                                 ->first();
+
         return view('student.index')
-                ->with("student", $student);
+                ->with("student", $user);
     }
 
     /**
@@ -41,10 +44,25 @@ class StudentController extends Controller
      */
     public function profile(Request $request)
     {
-        $student_id = $request->session()->get('student_id');
-        $student    = Student::find($student_id);
+        $states = State::all();
+        $municipalities = Municipalitie::all();
+        $parishes = Parishe::all();
+        
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
+
+        $myState = $user->parishe->municipalitie->state;
+        $myMunicipalitie = $user->parishe->municipalitie;
+        $myParishe = $user->parishe;
+
         return view('student.profile')
-                ->with('student', $student);
+                    ->with("myState", $myState)
+                    ->with("myMunicipalitie", $myMunicipalitie)
+                    ->with("myParishe", $myParishe)
+                    ->with("parishes", $parishes)
+                    ->with("municipalities", $municipalities)
+                    ->with("states", $states)
+                    ->with('student', $user);
     }
 
 
@@ -53,11 +71,11 @@ class StudentController extends Controller
      */
     public function edit(Request $request)
     {
-        $student_id = $request->session()->get('student_id');
-        $student    = Student::find($student_id);
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
 
         return view('student.edit')
-                ->with('student', $student);
+                ->with('student', $user);
     }
 
     /**
@@ -72,16 +90,16 @@ class StudentController extends Controller
      */
     public function update(Request $request)
     {
-        $student_id = $request->session()->get('student_id');
-        $item    = Student::find($student_id);
+        $user_id = $request->session()->get('user_id');
+        $item    = User::find($user_id);
 
         $email = $request->input('email');
         $password = $request->input('password');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
-        $is_email_valid  = Student::where('email', '=', $email)->first();
-        $is_phone_valid  = Student::where('number_phone', '=', $phone)->first();
-        $is_idCard_valid = Student::where('identification_card', '=', $idCard)->first();
+        $is_email_valid  = User::where('email', '=', $email)->first();
+        $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
+        $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
 
         //El correo ingresado en el formulario ya está en la bd.
         if (!(empty($is_email_valid->email))) {
@@ -134,7 +152,7 @@ class StudentController extends Controller
      * Envíamos un mensaje flash.
      * Retornamos la vista de login.  
      */
-    public function destroy(Request $request, Student $item)
+    public function destroy(Request $request, User $item)
     {
         $item->delete();
         session()->flash('message-success', '¡El usuario fue eliminado correctamente!');

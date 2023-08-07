@@ -7,7 +7,9 @@
 
 //lista de inputs de mi formulario.
 let inputs = document.querySelectorAll(".form__input");
-
+let messages = document.querySelectorAll(".form__message-error");
+let position = 0;
+let message = null;
 
 /*
 	email: adminte letras alfanúmericas y algunos caracteres especiales (#.+%&). Min 4 y Máx 20.
@@ -15,8 +17,12 @@ let inputs = document.querySelectorAll(".form__input");
 */
 const regularExpression = {
 	email	 			: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	password 			: /^[a-zA-Z0-9_.+#$¡!"%&()?]{4,20}$/
+	password 			: /^[a-zA-Z0-9_.+*=#$%&?]{4,20}$/
 };
+
+const positionMessages = [
+	"email", "password"
+];
 
 
 /*
@@ -70,10 +76,16 @@ const checkExpression = (regex, input, fieldName) => {
 		document.getElementById(`${fieldName}`).classList.remove("form__input--errorField");
 		document.getElementById(`${fieldName}`).classList.add("form__input--successField");
 		fields[fieldName] = true;
+		position = positionMessages.indexOf(fieldName);
+		message = messages[position];
+		message.classList.add('hidden');
 	}else{
 		document.getElementById(`${fieldName}`).classList.remove("form__input--successField");
 		document.getElementById(`${fieldName}`).classList.add("form__input--errorField");
 		fields[fieldName] = false;
+		position = positionMessages.indexOf(fieldName);
+		message = messages[position];
+		message.classList.remove('hidden');
 	}
 }
 

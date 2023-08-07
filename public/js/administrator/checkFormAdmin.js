@@ -8,6 +8,11 @@
 //lista de inputs de mi formulario.
 let inputs = document.querySelectorAll(".form__input");
 
+let messages = document.querySelectorAll(".form__message-error");
+const positionMessages = [
+	"name", "lastname",
+	"email", "password"
+];
 
 /*
 	name: Solamente admite letras del abecedario en mayúsculas, minúsculas y acentos. Min 3 y Máx 20.
@@ -16,10 +21,10 @@ let inputs = document.querySelectorAll(".form__input");
 	password: Admite caracteres alfanumericos y algunos caracteres especiales. Min 4 y Máx 20. 
 */
 const regularExpression = {
-	name 	 			: /^[a-zA-ZÀ-ÿ]{3,20}$/,
-	lastname 			: /^[a-zA-ZÀ-ÿ]{3,20}$/,
+	name 	 			: /^[a-zA-ZÀ-ÿ\s]{3,50}$/,
+	lastname 			: /^[a-zA-ZÀ-ÿ\s]{3,50}$/,
 	email	 			: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	password 			: /^[a-zA-Z0-9_.+#$¡!"%&()?]{4,20}|(^$)$/
+	password 			: /^[a-zA-Z0-9_.+*=#$%&?]{4,20}$/
 };
 
 
@@ -91,6 +96,18 @@ const checkField = (regex, input, fieldName) => {
 	}
 }
 
+const messageInput = (e) =>{
+	let position = positionMessages.indexOf(e.target.name);
+	let message = null;
+	message = messages[position];
+	if (fieldsForm[e.target.name]){
+		message.classList.add('hidden');
+	}else{
+		message.classList.remove('hidden');
+
+	}
+}
+
 /*
 	Comprueba que todos los valores de los campos del formulario
 	son validos para ser enviados. 
@@ -130,4 +147,5 @@ inputs.forEach((input) => {
 	input.addEventListener("blur", checkForm);
 	input.addEventListener("keyup", bottonSendDisabled);
 	input.addEventListener("blur", bottonSendDisabled);
+	input.addEventListener("keyup", messageInput);
 });
