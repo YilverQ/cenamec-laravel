@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 use App\Models\Teacher;
 use App\Models\Student;
 
@@ -16,6 +17,17 @@ class Administrator extends Model
      * protected $hidden    = [array_fields] : Para definir los campos que no son visibles.
     **/
     protected $fillable = [];
+
+
+
+    /**
+     * Relationship. 
+     * One to Many - Inverse
+    **/
+    public function user ()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 
     /**

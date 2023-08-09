@@ -331,3 +331,83 @@
 		font-size: 22px;
 	}
 }
+
+
+
+
+
+/*Input Checkbox ROLES*/
+.form_checkbox{
+	padding-left: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	column-gap: 25px;
+}
+.form__subtitle{
+	width: 100%;
+	font-size: 20px;
+}
+.boxCheckbox{
+	margin-top: 10px;
+	height: 150px;
+	width: 160px;
+	position: relative;
+}
+.input__checkbox{
+	-webkit-appearance: none;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background: #e5e9f0;
+	border-radius: 10%;
+	border: 3px solid transparent;
+	outline: none;
+	box-shadow: 15px 15px 25px rgba(2, 28, 53, 0.05);
+}
+.input__checkbox::after{
+	position: absolute;
+	content: '\f111';
+	font-family: "Font Awesome 6 free";
+	font-weight: 400;
+	font-size: 20px;
+	top: 10px;
+	left: 10px;
+	color: var(--light);
+}
+
+.input__checkbox:hover{
+	transform: scale(1.08);
+}
+
+.labelTitle{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	height: 80%;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	cursor: pointer;
+}
+
+.labelTitle i{
+	font-size: 30px;
+}
+.labelTitle_text{ 
+	font-size: 20px;
+}
+.boxCheckbox input[type="checkbox"]:checked + .labelTitle .labelTitle_text,
+.boxCheckbox input[type="checkbox"]:checked + .labelTitle i,
+.boxCheckbox input[type="radio"]:checked + .labelTitle .labelTitle_text,
+.boxCheckbox input[type="radio"]:checked + .labelTitle i{
+	color: var(--primary);
+}
+
+.boxCheckbox input[type="checkbox"]:checked:after,
+.boxCheckbox input[type="radio"]:checked:after{
+	content: '\f058';
+	color: var(--primary);
+}

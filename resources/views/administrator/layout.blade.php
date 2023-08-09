@@ -65,26 +65,18 @@
 					<p>Inicio</p>
 				</li>
 			</a>
-			<li class="nav__item nav__item--menu">
-				<i class="fa-solid fa-list-check"></i>
-				<p>Gestión</p>
-					
-				<!-- Este es el Submenu/Se puede añadir o eliminar elementos. -->
-				<div class="menuMenu">
-				<ul class="submenu">
-					<i class="iconXmark fa-solid fa-xmark"></i>
-					<a href="{{ route('administrator.index') }}" class="submenu__item">
-						<li><i class="fa-solid fa-user-shield"></i> <p>Administradores</p></li>
-					</a>
-					<a href="{{ route('admin.teacher.index') }}" class="submenu__item">
-						<li><i class="fa-solid fa-chalkboard-user"></i> <p>Profesores</p></li>
-					</a>
-					<a href="{{ route('admin.student.index') }}" class="submenu__item">
-						<li><i class="fa-solid fa-user-graduate"></i> <p>Estudiantes</p></li>
-					</a>
-				</ul>
-				</div>
-			</li>
+			<a href="{{ route('administrator.index') }}">
+				<li class="nav__item">
+					<i class="fa-solid fa-users"></i>
+					<p>Usuarios</p>
+				</li>
+			</a>
+			<a href="#administrator.statistics">
+				<li class="nav__item">
+					<i class="fa-solid fa-chart-simple"></i>
+					<p>Estadísticas</p>
+				</li>
+			</a>
 			<a href="{{ route('login.logout') }}">
 				<li class="nav__item">
 					<i class="fa-solid fa-door-open"></i>
@@ -117,7 +109,6 @@
 	<!--Scripts-->
 	<script type="module" src="{{ asset('js/components/navItemSelected.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/message.js') }}"></script>
-	<script type="module" src="{{ asset('js/administrator/navMenu.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/windowsAlert.js') }}"></script>
 	@yield('scripts')
 </body>

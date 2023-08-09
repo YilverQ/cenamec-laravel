@@ -14,7 +14,7 @@
 	<div class="header__background header__background--student">
 		<header class="header">
 			<img class="header__img" 
-					src="{{ asset('img/student/header_icon.png') }}" 
+					src="{{ asset($student->profileimg->url) }}" 
 					alt="Imagen de una profesora">
 
 			<div class="header__information">
@@ -22,7 +22,7 @@
 					¡Bienvenido {{ $student->firts_name }}!
 				</h2>
 				<ul class="header__bottons">
-					<a href="{{ route('student.edit') }}">
+					<a href="{{ route('student.profile') }}">
 						<li class="header__loginItem header__loginItem--contrast">
 							Editar mis datos
 						</li>

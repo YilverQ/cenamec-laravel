@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'number_phone'  => '04160140472',
             'email'         => 'yilver0906@gmail.com',
             'password'      => 'root',
-            'img'           => '/storage/imgProfile/Vikingo.png',
+            'profileimg_id' => '49',
             'parishe_id'    => '670'
         ]);
 
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'number_phone'  => '04127603410',
             'email'         => 'vanessa.longa06@gmail.com',
             'password'      => 'root',
-            'img'           => '/storage/imgProfile/Unicornio.png',
+            'profileimg_id' => '46',
             'parishe_id'    => '639'
         ]);
 
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
             'number_phone'  => '04122100312',
             'email'         => 'biagni@gmail.com',
             'password'      => 'root',
-            'img'           => '/storage/imgProfile/Unicornio.png',
+            'profileimg_id' => '46',
             'parishe_id'    => '636'
         ]);
 
@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
             'number_phone'  => '04142100312',
             'email'         => 'mayra@gmail.com',
             'password'      => 'root',
-            'img'           => '/storage/imgProfile/Unicornio.png',
+            'profileimg_id' => '46',
             'parishe_id'    => '667'
         ]);
 
@@ -79,7 +79,7 @@ class UserSeeder extends Seeder
             'number_phone'  => '04142210312',
             'email'         => 'diego@gmail.com',
             'password'      => 'root',
-            'img'           => '/storage/imgProfile/Vikingo.png',
+            'profileimg_id' => '49',
             'parishe_id'    => '669'
         ]);
     }

@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\State;
+use App\Models\Municipalitie;
+use App\Models\Parishe;
+use App\Models\Profileimg;
+use App\Models\User;
 use App\Models\Administrator;
+use App\Models\Teacher;
+use App\Models\Student;
 
 class AdministratorController extends Controller
 {
@@ -24,8 +31,8 @@ class AdministratorController extends Controller
      */
     public function home(Request $request)
     {
-        $admin_id = $request->session()->get('admin_id');
-        $admin    = Administrator::find($admin_id);      
+        $admin_id = $request->session()->get('user_id');
+        $admin    = User::find($admin_id);  
         return view('administrator.home')
                 ->with("admin", $admin);
     }
@@ -39,7 +46,7 @@ class AdministratorController extends Controller
     public function index()
     {
         //Obtenemos todos los administradores.
-        $administrators = Administrator::all();
+        $administrators = User::all();
 
         return view('administrator.index')
                 ->with("administrators", $administrators);
@@ -51,7 +58,14 @@ class AdministratorController extends Controller
      */
     public function create()
     {
-        return view('administrator.create');
+        $states = State::all();
+        $municipalities = Municipalitie::all();
+        $parishes = Parishe::all();
+
+        return view('administrator.create')
+                    ->with("parishes", $parishes)
+                    ->with("municipalities", $municipalities)
+                    ->with("states", $states);
     }
 
 
@@ -64,27 +78,77 @@ class AdministratorController extends Controller
      */
     public function store(Request $request)
     {
-        $email = $request->input('email');
-        $is_email_valid = Administrator::where('email', '=', $email)->first();
 
-        //Si no se encuentra un elemento es porque el correo ingresado es correcto.
-        if (empty($is_email_valid->email)) {
-            //Creamos un nuevo elemento.
-            $administrator = new Administrator;
-            $administrator->name     = $request->input('name');
-            $administrator->lastname = $request->input('lastname');
-            $administrator->email    = $request->input('email');
-            $administrator->password = $request->input('password');
-            $administrator->save();
-            
-            #Retornamos un mensaje flash.
-            session()->flash('message-success', '¡Un nuevo administrador fue creado!');
-            return to_route('administrator.index');
+        $email = $request->input('email');
+        $phone = $request->input('number_phone');
+        $idCard = $request->input('identification_card');
+
+        $is_email_valid  = User::where('email', '=', $email)->first();
+        $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
+        $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
+
+        //Si se encuentra un elemento es porque el correo ingresado es incorrecto.
+        if (!(empty($is_email_valid->email))) {
+            #Retornamos un mensaje flash de error.
+            session()->flash('message-error', 'Error, el correo electrónico ya está en uso');
+            return to_route('administrator.create');
+        }
+
+        //Si se encuentra un elemento es porque el número de teléfono ingresado es incorrecto.
+        if (!(empty($is_phone_valid->number_phone))) {
+            #Retornamos un mensaje flash de error.
+            session()->flash('message-error', 'Error, el número de teléfono ya está en uso');
+            return to_route('administrator.create');
+        }
+
+        //Si se encuentra un elemento es porque el número de cédula ingresado es incorrecto.
+        if (!(empty($is_idCard_valid->identification_card))) {
+            #Retornamos un mensaje flash de error.
+            session()->flash('message-error', 'Error, el número de cédula ya está en uso');
+            return to_route('administrator.create');
+        }
+
+        //Creamos un nuevo elemento.
+        $user = new User;
+        $user->firts_name  = $request->input('firts_name');
+        $user->second_name = $request->input('second_name');
+        $user->lastname  = $request->input('lastname');
+        $user->second_lastname = $request->input('second_lastname');
+        $user->gender    = $request->input('gender');
+        $user->birthdate = $request->input('birthdate');
+        $user->identification_card = $request->input('identification_card');
+        $user->number_phone = $request->input('number_phone');
+        $user->email    = $request->input('email');
+        $user->password = $request->input('password');
+        if ($user->gender == "Masculino"){
+            $user->profileimg_id = 49;
+        }
+        else{
+            $user->profileimg_id = 46;
+        }
+        $user->parishe_id = $request->input('parishe');
+        $user->save();
+
+        //Creamos un nuevo elemento ROLE.
+        if (!(empty($request->input("is_admin")))) {
+            $role = new Administrator;
+            $role->user_id = $user->id; 
+            $role->save();
+        }
+        if (!(empty($request->input("is_teacher")))) {
+            $role = new Teacher;
+            $role->user_id = $user->id; 
+            $role->save();
+        }
+        if (!(empty($request->input("is_student")))) {
+            $role = new Student;
+            $role->user_id = $user->id; 
+            $role->save();
         }
 
         #Retornamos un mensaje flash de error.
-        session()->flash('message-error', 'Error, los datos ingresados no son correctos');
-        return to_route('administrator.create');
+        session()->flash('message-success', '¡Has agregado un nuevo usuario!');
+        return to_route('administrator.index');
     }
 
 
@@ -101,10 +165,20 @@ class AdministratorController extends Controller
     /**
      * Retornamos un formulario que nos permite actualizar un elemento. 
      */
-    public function edit(Administrator $item)
+    public function edit(User $item)
     {
+        $states = State::all();
+        $municipalities = Municipalitie::all();
+        $parishes = Parishe::all();
+        $profileimgs = Profileimg::all();
+
+
         return view('administrator.edit')
-                ->with("admin", $item);
+                    ->with("states", $states)
+                    ->with("municipalities", $municipalities)
+                    ->with("parishes", $parishes)
+                    ->with("profileimgs", $profileimgs)
+                    ->with('user', $item);
     }
 
     /**
@@ -114,12 +188,45 @@ class AdministratorController extends Controller
      *      1. El elemento debe ingresar un correo electrónico único.
      *      2. El correo electrónico puede ser igual al que tenía anteriormente.    
      */
-    public function update(Request $request, Administrator $item)
+    public function update(Request $request, User $item)
     {   
+        /*Estos son los datos más sensibles*/
         $email = $request->input('email');
-        $is_email_valid = Administrator::where('email', '=', $email)->first();
-        $password = $request->input('password');
+        $phone = $request->input('number_phone');
+        $idCard = $request->input('identification_card');
 
+        $is_email_valid  = User::where('email', '=', $email)->first();
+        $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
+        $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
+
+        //El correo ingresado en el formulario ya está en la bd.
+        if (!(empty($is_email_valid->email))) {
+            if ($item->email != $email) {
+                #El correo ya lo tiene otra persona.
+                #No actualiza el dato. 
+                #Retorna un mensaje de error. 
+                session()->flash('message-error', 'Error, el correo electrónico ya está en uso');
+                return to_route('administrator.edit', $item);
+            }
+        }
+
+        //Si se encuentra un elemento es porque el número de teléfono ingresado es incorrecto.
+        if (!(empty($is_phone_valid->number_phone))) {
+            if ($item->number_phone != $phone) {
+                #El número de teléfono ya lo tiene otra persona.
+                session()->flash('message-error', 'Error, el número de teléfono ya está en uso');
+                return to_route('administrator.edit', $item);
+            }
+        }
+
+        //Si se encuentra un elemento es porque el número de teléfono ingresado es incorrecto.
+        if (!(empty($is_idCard_valid->identification_card))) {
+            if ($item->identification_card != $idCard) {
+                #El número de teléfono ya lo tiene otra persona.
+                session()->flash('message-error', 'Error, el número de cédula ya está en uso');
+                return to_route('administrator.edit', $item);
+            }
+        }
         //El correo ingresado en el formulario ya está en la bd.
         if (!(empty($is_email_valid->email))) {
             if ($item->email != $email) {
@@ -132,17 +239,45 @@ class AdministratorController extends Controller
         }
         
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $item->name     = $request->input('name');
-        $item->lastname = $request->input('lastname');
+        $password = $request->input('password');
+        $item->firts_name  = $request->input('firts_name');
+        $item->second_name = $request->input('second_name');
+        $item->lastname  = $request->input('lastname');
+        $item->second_lastname = $request->input('second_lastname');
+        $item->gender    = $request->input('gender');
+        $item->birthdate = $request->input('birthdate');
+        $item->identification_card = $request->input('identification_card');
+        $item->number_phone = $request->input('number_phone');
         $item->email    = $request->input('email');
+        $item->parishe_id = $request->input('parishe');
+
+        /*Comprobamos si el usuario quizo actualizar su contraseña*/
         if ($password) {
             $item->password = $request->input('password');
         }
+
         $item->save();
         
         #Retorna un mensaje flash.
-        session()->flash('message-success', '¡El administrador fue actualizado!');
-        return to_route('administrator.index');
+        session()->flash('message-success', '¡El usuario fue actualizado!');
+        return to_route('administrator.edit', $item);
+    }
+
+
+    /**
+     * Actualizamos la imagen del usuario 
+     */
+    public function updateImg(Request $request, User $item)
+    {
+        $value = $request->input('picture');
+        if ($value){
+            $item->profileimg_id = $value;
+            $item->save();
+        }
+
+        #Retorna un mensaje flash.
+        session()->flash('message-success', '¡La imagen del usuario fue actualizada!');
+        return to_route('administrator.edit', $item);
     }
 
     /**
@@ -150,26 +285,25 @@ class AdministratorController extends Controller
      * Para que se pueda eliminar se debe cumplir con lo siguiente:
      *      1. El elemento que se desea eliminar no puede ser del usuario que está activo.   
      */
-    public function destroy(Request $request, Administrator $item)
+    public function destroy(Request $request, User $item)
     {
         //Obtener el administrador con la sesión activa. 
-        $admin_id = $request->session()->get('admin_id');
-        $admin    = Administrator::find($admin_id);
-
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
 
         /*
             Si el administrador de la sesión activa es el mismo
             que el elemento que se desea eliminar, no lo elimina.
             Retorna un mensaje flash de error. 
         */
-        if ($admin->email == $item->email) {
+        if ($user->email == $item->email) {
             session()->flash('message-error', '¡Tu sesión está activa, no te puedes eliminar!');
             return to_route('administrator.index');
         }
 
         //Elimina el elemento y retorna un mensaje flash.
         $item->delete();
-        session()->flash('message-success', '¡El administrador fue eliminado correctamente!');
+        session()->flash('message-success', '¡El usuario fue eliminado correctamente!');
         return to_route('administrator.index');
     }
 }

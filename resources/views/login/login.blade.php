@@ -54,7 +54,7 @@
 					value="Profesor">
 			</div>
 		</div>
-		<input id="form__send" class="form__send form_send--disabled" 
+		<input id="form__send" class="form__send" 
 			type="submit" 
 			value="Seguir aprendiendo">
 	</form>
@@ -64,6 +64,6 @@
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
 	<script type="module" src="{{ asset('js/login/switchField.js') }}"></script>
-	<script type="module" src="{{ asset('js/form/checkForm.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/form.js') }}"></script>
 	<script type="module" src="{{ asset('js/login/roleButtonSelect.js') }}"></script>
 @endsection

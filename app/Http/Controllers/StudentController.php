@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Parishe;
-use App\Models\Municipalitie;
 use App\Models\State;
+use App\Models\Municipalitie;
+use App\Models\Parishe;
+use App\Models\Profileimg;
+use App\Models\User;
 use App\Models\Student;
 use App\Models\Course;
 
@@ -47,35 +48,17 @@ class StudentController extends Controller
         $states = State::all();
         $municipalities = Municipalitie::all();
         $parishes = Parishe::all();
+        $profileimgs = Profileimg::all();
         
         $user_id = $request->session()->get('user_id');
         $user    = User::find($user_id);
 
-        $myState = $user->parishe->municipalitie->state;
-        $myMunicipalitie = $user->parishe->municipalitie;
-        $myParishe = $user->parishe;
-
         return view('student.profile')
-                    ->with("myState", $myState)
-                    ->with("myMunicipalitie", $myMunicipalitie)
-                    ->with("myParishe", $myParishe)
-                    ->with("parishes", $parishes)
-                    ->with("municipalities", $municipalities)
                     ->with("states", $states)
+                    ->with("municipalities", $municipalities)
+                    ->with("parishes", $parishes)
+                    ->with("profileimgs", $profileimgs)
                     ->with('student', $user);
-    }
-
-
-    /**
-     * Formulario para editar un elemento.
-     */
-    public function edit(Request $request)
-    {
-        $user_id = $request->session()->get('user_id');
-        $user    = User::find($user_id);
-
-        return view('student.edit')
-                ->with('student', $user);
     }
 
     /**
@@ -90,13 +73,16 @@ class StudentController extends Controller
      */
     public function update(Request $request)
     {
+        /*Buscamos el usuario de la sessión activa*/
         $user_id = $request->session()->get('user_id');
         $item    = User::find($user_id);
 
+
+        /*Estos son los datos más sensibles*/
         $email = $request->input('email');
-        $password = $request->input('password');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
+
         $is_email_valid  = User::where('email', '=', $email)->first();
         $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
         $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
@@ -131,18 +117,47 @@ class StudentController extends Controller
         }
         
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $item->name     = $request->input('name');
-        $item->lastname = $request->input('lastname');
+        $password = $request->input('password');
+        $item->firts_name  = $request->input('firts_name');
+        $item->second_name = $request->input('second_name');
+        $item->lastname  = $request->input('lastname');
+        $item->second_lastname = $request->input('second_lastname');
+        $item->gender    = $request->input('gender');
+        $item->birthdate = $request->input('birthdate');
         $item->identification_card = $request->input('identification_card');
         $item->number_phone = $request->input('number_phone');
         $item->email    = $request->input('email');
+        $item->parishe_id = $request->input('parishe');
+
+        /*Comprobamos si el usuario quizo actualizar su contraseña*/
         if ($password) {
             $item->password = $request->input('password');
         }
+
         $item->save();
         
         #Retorna un mensaje flash.
         session()->flash('message-success', '¡El estudiante fue actualizado!');
+        return to_route('student.profile');
+    }
+
+    /**
+     * Actualizamos la imagen del usuario 
+     */
+    public function updateImg(Request $request)
+    {
+        /*Buscamos el usuario de la sessión activa*/
+        $user_id = $request->session()->get('user_id');
+        $item    = User::find($user_id);
+
+        $value = $request->input('picture');
+        if ($value){
+            $item->profileimg_id = $value;
+            $item->save();
+        }
+
+        #Retorna un mensaje flash.
+        session()->flash('message-success', '¡La imagen fue actualizada!');
         return to_route('student.profile');
     }
 

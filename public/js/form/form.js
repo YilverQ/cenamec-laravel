@@ -43,26 +43,21 @@ class Input{
 }
 
 
-let inputs = document.querySelectorAll(".form__input");
-let buttonSend = document.querySelector(".form__send");
-let messages = document.querySelectorAll(".form__message-error");
-let input, regex = null;
-let inputsForms = [];
-
-const signupInputs = {
+const regexInputs = {
 	firts_name 	 		: /^[a-zA-ZÀ-ÿ]{3,50}$/,
 	second_name 		: /^[a-zA-ZÀ-ÿ]{3,50}$/,
 	lastname 			: /^[a-zA-ZÀ-ÿ]{3,50}$/,
 	second_lastname 	: /^[a-zA-ZÀ-ÿ]{3,50}$/,
-	gender 				: /^/,
-	birthdate 			: /^/,
+	gender 				: /^(Masculino|Femenino)$/,
+	birthdate 			: /^(\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/,
 	identification_card	: /^\d{6,8}$/,
 	number_phone		: /^((0416)|(0212)|(0426)|(0412)|(0414)|(0424))\d{7}$/,
 	email	 			: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	password 			: /^[a-zA-Z0-9_.+*=#$%&?]{4,20}$/,
 	state 				: /^(?!.*Selecciona un Estado).*$/,
 	municipalitie 		: /^(?!.*Selecciona un Municipio).*$/,
-	parishe 			: /^(?!.*Selecciona una Parroquia).*$/
+	parishe 			: /^(?!.*Selecciona una Parroquia).*$/,
+	reset_password		: /^(?:[a-zA-Z0-9_.+*=#$%&?]{4,20}|)$/
 };
 
 const messagesInputs = {
@@ -78,46 +73,44 @@ const messagesInputs = {
 	password 			: 'Debes agregar una contraseña entre 4 y 20 caracteres alfanumericos y signos especiales: .+*=#$%&?',
 	state 				: 'Debes escoger una opción.',
 	municipalitie 		: 'Debes escoger una opción.',
-	parishe 			: 'Debes escoger una opción.'
-}
+	parishe 			: 'Debes escoger una opción.',
+	reset_password		: 'Debes agregar una contraseña entre 4 y 20 caracteres alfanumericos y signos especiales: .+*=#$%&? o puedes dejarlo en blanco si no quieres actualizar la contraseña'
+};
 
-inputs.forEach( (item, i)=> {
-	regex = signupInputs[item.name];
-	let message = messagesInputs[item.name];
-	input = new Input(item.name, regex, item, message);
+let inputs = document.querySelectorAll(".form__input");
+let messages = document.querySelectorAll(".form__message-error");
+let input, regex, message = null;
+let inputsForms = [];
+
+inputs.forEach( (item)=> {
+	regex 	= regexInputs[item.name];
+	message = messagesInputs[item.name];
+	input 	= new Input(item.name, regex, item, message);
 	inputsForms.push(input);
 });
 
-
-const checkField = (e) => {
+function checkField(){
 	inputsForms.forEach( (item) =>{
-		if (item.name == e.target.name){
-			item.checkExpression();
-		}
+		item.checkExpression();
 	});
 }
 
 
-const bottonSendDisabled = () =>{
+const send = document.querySelector('.form__send');
+send.addEventListener('click', (e) =>{
+	checkField();
+	if (!allCheck()) {
+		e.preventDefault();
+	}
+});
+
+
+function allCheck(){
 	let validated = true;	
 	inputsForms.forEach( (item)=>{
 		if (!item.check){
 			validated = false;
 		}
 	});
-	if (validated){
-		buttonSend.classList.remove("form_send--disabled");
-		buttonSend.disabled = false;
-	}else{
-		buttonSend.classList.add("form_send--disabled");
-		buttonSend.disabled = true;
-	}
+	return validated;
 }
-
-
-inputs.forEach((input) => {
-	input.addEventListener("keyup", checkField);
-	input.addEventListener("blur", checkField);
-	input.addEventListener("keyup", bottonSendDisabled);
-	input.addEventListener("blur", bottonSendDisabled);
-});

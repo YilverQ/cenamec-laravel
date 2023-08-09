@@ -64,26 +64,28 @@ Route::controller(LoginController::class)->group(function () {
 
 
 /** Administrador
- * HTTP     URI                      Method     Reponse   Description
+ * HTTP     URI                Method       Reponse  Description
  * -----------------------------------------------------------------------
- * get     /administrator              home     View     Retorna la vista principal. 
- * get     /administrators             index    View     Retorna todos los elementos. 
- * get     /administrator/create       create   View     Formulario para crear un nuevo elemento. 
- * post    /administrator              store    Action   Crea un nuevo elemento. 
- * get     /administrator/{item}       show     View     Vista de un elemento. 
- * get     /administrator/{item}/edit  edit     View     Vista para editar un elemento. 
- * put     /administrator/{item}       update   Action   Actualiza un elemento. 
- * delete  /administrator/{item}       delete   Action   Elimina un elemento.
+ * get     /admin              home         View     Retorna la vista principal. 
+ * get     /admin              index        View     Retorna todos los elementos. 
+ * get     /admin/create       create       View     Formulario para crear un nuevo elemento. 
+ * post    /admin              store        Action   Crea un nuevo elemento. 
+ * get     /admin/{item}       show         View     Vista de un elemento. 
+ * get     /admin/{item}/edit  edit         View     Vista para editar un elemento. 
+ * put     /admin/{item}       update       Action   Actualiza un elemento. 
+ * put     /admin/{item}/img   updateImg    Action   Actualiza un elemento. 
+ * delete  /admin/{item}       delete       Action   Elimina un elemento.
 */
 Route::controller(AdministratorController::class)->group(function () {
     Route::get( '/administrator', 'home')->name('administrator.home');
-    Route::get( '/administrators', 'index')->name('administrator.index');
+    Route::get( '/administrator/user', 'index')->name('administrator.index');
     Route::get( '/administrator/create', 'create')->name('administrator.create');
-    Route::post('/administrator', 'store')->name('administrator.store');
-    Route::get( '/administrator/{item}', 'show')->name('administrator.show');
-    Route::get( '/administrator/{item}/edit', 'edit')->name('administrator.edit');
-    Route::put( '/administrator/{item}', 'update')->name('administrator.update');
-    Route::delete('/administrator/{item}', 'destroy')->name('administrator.destroy');
+    Route::post('/administrator/user', 'store')->name('administrator.store');
+    Route::get( '/administrator/user/{item}', 'show')->name('administrator.show');
+    Route::get( '/administrator/user/{item}/edit', 'edit')->name('administrator.edit');
+    Route::put( '/administrator/user/{item}', 'update')->name('administrator.update');
+    Route::put( '/administrator/user/{item}/img', 'updateImg')->name('administrator.img');
+    Route::delete('/administrator/user/{item}', 'destroy')->name('administrator.destroy');
 });
 
 
@@ -242,8 +244,8 @@ Route::controller(QuestionnaireController::class)->group(function () {
 Route::controller(StudentController::class)->group(function () {
     Route::get( '/student', 'index')->name('student.index');
     Route::get( '/student/profile', 'profile')->name('student.profile');
-    Route::get( '/student/profile/edit', 'edit')->name('student.edit');
     Route::put( '/student/profile', 'update')->name('student.update');
+    Route::put( '/student/profile/img', 'updateImg')->name('student.img');
     Route::delete('/student/{item}', 'destroy')->name('student.destroy');
 });
 

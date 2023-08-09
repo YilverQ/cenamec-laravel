@@ -43,12 +43,12 @@
 		<div class="a">
 			<input type="hidden" id="role" name="role" value="admin">
 		</div>
-		<input class="form__send form_send--disabled" type="submit" value="Entrar">
+		<input class="form__send" type="submit" value="Entrar">
 	</form>
 @endsection
 
 
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
-	<script type="module" src="{{ asset('js/form/checkForm.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/form.js') }}"></script>
 @endsection

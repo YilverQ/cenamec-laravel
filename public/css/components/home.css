@@ -122,6 +122,10 @@
 	color: var(--primary);
 	font-weight: 700;
 }
+.color-TextWhite{
+	color: var(--light);
+	font-weight: 700;
+}
 .container{
 	width: 90% ;
 	margin: auto;
@@ -456,6 +460,9 @@
 .teach-course__title{
 	color: var(--primary);
 }
+.list__text{
+	margin-top: 15px;
+}
 .box-bottoms{
 	padding: 20px;
 	height: 220px;
@@ -671,4 +678,67 @@
 }
 .container_profile{
 	width: 800px;
+}
+
+
+
+/*Admin Section*/
+/*CTA*/
+.cta{
+	display: flex;
+	justify-content: space-around;
+
+	position: relative;
+	isolation: isolate;
+}
+.cta::after{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	inset: 0;
+	background-image: url("../../img/administrator/background.png");
+	background-position: top;
+	background-size: cover;
+	opacity: 0.8;
+}
+
+.cta__imgContainer{
+	display: grid;
+	grid-template-areas: 
+	"height1 width1"
+	"height1 width2";
+	gap: 10px;
+}
+
+.cta__img--height{
+	height: 310px;
+	width: 180px;
+	object-fit: cover;
+	display: block;
+	grid-area: height1;
+}
+.cta__img--widthTop{
+	height: 150px;
+	width: 200px;
+	object-fit: cover;
+	display: block;
+	grid-area: width1;
+}
+.cta__img--widthDown{
+	height: 150px;
+	width: 200px;
+	object-fit: cover;
+	display: block;
+	grid-area: width2;
+}
+
+.cta__info{
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	row-gap: 25px;
+}
+.cta__description{
+	max-width: 500px;
+	font-weight: 700;
 }

@@ -118,14 +118,19 @@ class LoginController extends Controller
         $user->number_phone = $request->input('number_phone');
         $user->email    = $request->input('email');
         $user->password = $request->input('password');
-        if (gender == "Masculino"){
-            $user->img = "/storage/imgProfile/Vikingo.png";
+        if ($user->gender == "Masculino"){
+            $user->profileimg_id = 49;
         }
         else{
-            $user->img = "/storage/imgProfile/Unicornio.png";
+            $user->profileimg_id = 46;
         }
+        
         $user->parishe_id = $request->input('parishe');
         $user->save();
+
+        $role = new Student;
+        $role->user_id = $user->id; 
+        $role->save();
         
         #Retornamos un mensaje flash.
         #Nos dirijimos a la vista principal del estudiante
@@ -220,10 +225,10 @@ class LoginController extends Controller
      */
     public function checkAdmin(Request $request, User $user)
     {
-        $teacher = Administrator::where('user_id', $user->id)
+        $admin = Administrator::where('user_id', $user->id)
                                 ->first(); 
 
-        if (empty($teacher->id)){
+        if (empty($admin->id)){
             session()->flash('message-error', 'Error, El administrador no existe');
             return to_route('login.admin');
         }

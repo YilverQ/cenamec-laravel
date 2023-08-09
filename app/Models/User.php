@@ -5,6 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Parishe;
+use App\Models\Profileimg;
+use App\Models\Administrator;
+use App\Models\Teacher;
+use App\Models\Student;
 
 class User extends Model
 {
@@ -30,5 +34,41 @@ class User extends Model
     public function parishe ()
     {
         return $this->belongsTo(Parishe::class);
+    }
+
+    /**
+     * Relationship. 
+     * One to Many - Inverse
+    **/
+    public function profileimg ()
+    {
+        return $this->belongsTo(Profileimg::class);
+    }
+
+    /**
+     * Relationship. 
+     * One to Many - Many to One
+    **/
+    public function administrator()
+    {
+        return $this->hasOne(Administrator::class);
+    }
+
+    /**
+     * Relationship. 
+     * One to Many - Many to One
+    **/
+    public function teacher()
+    {
+        return $this->hasOne(Teacher::class);
+    }
+
+    /**
+     * Relationship. 
+     * One to Many - Many to One
+    **/
+    public function student()
+    {
+        return $this->hasOne(Student::class);
     }
 }

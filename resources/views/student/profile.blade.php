@@ -6,12 +6,51 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/administrator/list.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/imgOptions.css') }}">
 @endsection
 
 
 @section('content')
 	<!--Contenedor-->
 	<main class="container">
+		<div class="containerImgOptions containerImgOptions--hidden">
+		<div class="imgOptions">
+			<p class="imgOptions__closeButton"><i class="fa-solid fa-xmark"></i> Quitar</p>
+			<form class="imgOptions__form"
+					method="POST" 
+					action="{{ route('student.img') }}">
+					@csrf @method('PUT')
+
+				<div class="grid-one grid-one--justify">
+				<div class="form_checkbox">
+					<h3 class="form__subtitle">Selecciona una foto de perfil</h3>
+					
+					@foreach($profileimgs as $key => $item)
+					<div class="boxCheckbox">
+						<input class="input__checkbox" 
+								name="picture" 
+								type="radio"
+								value="{{ $item->id }}" 
+								id="{{ $item->name }}" 
+								autocomplete="off">
+						<label for="{{ $item->name }}" class="labelTitle">
+							<img class="imgOptions__img" 
+								src="{{ $item->url }}" 
+								alt="Imagen de perfil">
+							<h4 class="labelTitle_text">{{ $item->name }}</h4>
+						</label>
+					</div>
+					@endforeach
+
+				</div>
+				</div>
+				<div class="buttonFixed">
+					<input class="form__send" type="submit" value="¡Actualizar Foto!">
+				</div>
+			</form>
+		</div>
+	</div>
+
 		<!--Information-->
 		<article class="article">
 			<section class="profile">
@@ -19,11 +58,11 @@
 				<div class="container_img">
 					<div class="profile__container-img">
 						<img class="profile__img" 
-							src="{{ asset($student->img) }}" 
+							src="{{ asset($student->profileimg->url) }}" 
 							alt="Niño aprendiendo">
 					</div>
 					<ul class="header__bottons">
-						<li class="header__loginItem header__loginItem--contrast">
+						<li class="header__loginItem header__loginItem--contrast" id="profileimg">
 							Editar foto de perfil
 						</li>
 					</ul>
@@ -33,9 +72,9 @@
 				<div class="container_profile">
 				<form class="form__content form__content--big" 
 					method="POST" 
-					action="{{ route('login.newStudent') }}">
+					action="{{ route('student.update') }}">
 
-					@csrf @method('POST')
+					@csrf @method('PUT')
 					<h2 class="form__icon">
 						<i class="fa-solid fa-chalkboard-user"></i>
 					</h2>
@@ -102,10 +141,10 @@
 					<div class="grid-two">
 						<div class="form__item">
 							<label for="gender">Genero:</label>
-							<select class="form__input form__input--select" 
+							<select class="form__input" 
 										name="gender" 
 										id="gender">
-								<option disabled selected>{{ $student->gender }}</option>
+								<option value="{{ $student->gender }}" selected>{{ $student->gender }}</option>
 								<option value="Masculino">Masculino</option>
 								<option value="Femenino">Femenino</option>
 							</select>
@@ -169,9 +208,7 @@
 							<select class="form__input form__input--select" 
 										name="municipalitie" 
 										id="municipalitie">
-								<option disabled selected class="municipalitie municipalitie--{{ str_replace(' ', '_', $myState->name) }}">
-									{{ $myMunicipalitie->name }}
-								</option>
+								<option disabled selected>{{ $student->parishe->municipalitie->name }}</option>
 								@foreach($municipalities as $key => $item)
 								<option value="{{ $item->name }}" class="municipalitie municipalitie--{{ str_replace(' ', '_', $item->state->name) }}">{{ $item->name }}</option>
 								@endforeach
@@ -184,7 +221,8 @@
 							<select class="form__input form__input--select" 
 										name="parishe" 
 										id="parishe">
-								<option disabled selected>{{ $student->parishe->name }}</option>
+								<option value="{{ $student->parishe->id }}" 
+										selected>{{ $student->parishe->name }}</option>
 								@foreach($parishes as $key => $item)
 								<option value="{{ $item->id }}" 
 									class="parishe parishe--{{ str_replace(' ', '_', $item->municipalitie->name) }} state--{{ str_replace(' ', '_', $item->municipalitie->state->name) }}">
@@ -194,6 +232,7 @@
 							</select>
 						</div>
 					</div>
+
 
 					<div class="grid-two">
 						<div class="form__item">
@@ -208,21 +247,21 @@
 									autocomplete="off">
 						</div>
 						<div class="form__item">
-							<label for="password">Contraseña:</label>
+							<label for="reset_password">Contraseña:</label>
 							<input class="form__input" 
-									name="password" 
-									required 
+									name="reset_password" 
 									type="password" 
-									id="password" 
+									id="reset_password" 
 									placeholder="****"
 									minlength="4"
 									maxlength="20"
 									autocomplete="off">
 							<p class="form__eye"><i id="form_eye" class="fa-solid fa-eye"></i></p>
+							<p>Si no quieres actualizar la contraseña debes dejarlo en blanco.</p>
 						</div>
 					</div>
 
-					<input class="form__send form_send--disabled" type="submit" value="¡Vamos a estudiar!">
+					<input class="form__send" type="submit" value="Actualizar mis datos">
 
 				</form>
 				</div>
@@ -233,7 +272,7 @@
 
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
-	<script type="module" src="{{ asset('js/form/checkForm.js') }}"></script>
-	<script type="module" src="{{ asset('js/form/defaultField.js') }}"></script>
-	<script type="module" src="{{ asset('js/administrator/checkUbication.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/form.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/checkUbicationUpdate.js') }}"></script>
+	<script type="module" src="{{ asset('js/components/profileImg.js') }}"></script>
 @endsection

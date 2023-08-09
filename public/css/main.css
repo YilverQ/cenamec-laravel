@@ -37,7 +37,7 @@ body{
   background: var(--background);
   min-height: 100vh;
 }
-h1, h2, h3, h4, h5, h6 th{
+h1, h2, h3, h4, h5, h6 th, tr{
   font-family: 'Roboto', sans-serif;
   font-display: fallback;
   color: var(--title);
@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 th{
 h1{
   font-size: 30px;
 }
-p, li, a, input, select, button, label,td, textarea, span, small{
+p, li, a, input, select, button, label,td, textarea, span, small, tr{
   font-family: 'Quicksand', sans-serif;
   font-display: fallback;
   color:var(--text);

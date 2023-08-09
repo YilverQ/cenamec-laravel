@@ -1,0 +1,61 @@
+.containerImgOptions{
+	overflow-y: scroll;
+	min-height: 100vh;
+	min-width: 100vw;
+	margin: auto;
+	z-index: 10;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	align-content: center;
+	background: rgba(10, 10, 10, .5);
+}
+.containerImgOptions--hidden{
+	display: none;
+}
+.imgOptions{
+	position: relative;
+	background: var(--light);
+	width: min(80%, 900px);
+	max-height: 90vh;
+	overflow-y: scroll;
+	margin: auto;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(10, 10, 10, .2);
+	transition: all .5s;
+	animation: moverIzquierda .5s;
+}
+.imgOptions__closeButton{
+	position: fixed;
+	font-size: 20px;
+	font-weight: 700;
+	background: var(--danger);
+	padding: 10px;
+	display: block;
+	border-radius: 4px 0 20px 0;
+	z-index: 11;
+	cursor: pointer;
+}
+
+.imgOptions__form{
+	margin-top: 40px;
+	padding: 20px;
+	position: relative;
+}
+
+.imgOptions__img{
+	width: 60px;
+	object-fit: contain;
+	display: block;
+}
+.buttonFixed{
+	padding-bottom: 20px;
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: var(--light);
+	display: flex;
+	justify-content: center;
+}

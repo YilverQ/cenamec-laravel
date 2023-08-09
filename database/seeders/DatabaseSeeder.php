@@ -13,6 +13,7 @@ use App\Models\Questionnaire;
 use App\Models\State;
 use App\Models\Municipalitie;
 use App\Models\Parishe;
+use App\Models\Profileimg;
 use App\Models\User;
 use App\Models\Administrator;
 use App\Models\Teacher;
@@ -44,6 +45,7 @@ class DatabaseSeeder extends Seeder
         $this->call(StateSeeder::class);
         $this->call(MunicipalitieSeeder::class);
         $this->call(ParisheSeeder::class);
+        $this->call(ProfileimgSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(AdministratorSeeder::class);
         $this->call(TeacherSeeder::class);

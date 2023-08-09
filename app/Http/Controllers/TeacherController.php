@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Parishe;
+use App\Models\Municipalitie;
+use App\Models\State;
 use App\Models\Teacher;
 use App\Models\Course;
 
@@ -27,14 +31,14 @@ class TeacherController extends Controller
      */
     public function index(Request $request)
     {
-        $teacher_id = $request->session()->get('teacher_id');
-        $teacher    = Teacher::find($teacher_id);
-        $course     = Course::where('teacher_id', $teacher->id)->get();
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
+        $course  = Course::where('teacher_id', $teacher->id)->get();
         if (isset($course[0])) {
             $course = $course->random();      
         }
         return view('teacher.index')
-                ->with("teacher", $teacher)
+                ->with("teacher", $user)
                 ->with("course", $course);
     }
 
