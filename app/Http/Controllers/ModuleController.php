@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Teacher;
 use App\Models\Course;
 use App\Models\Module;
@@ -61,10 +62,11 @@ class ModuleController extends Controller
      */
     public function create(Request $request)
     {
-        $teacher_id = $request->session()->get('teacher_id');
-        $courses    = Course::where('teacher_id', $teacher_id)
-                                ->withCount('modules')
-                                ->get();
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
+        $teacher = Teacher::find($user->teacher->id);
+        $courses = $teacher->courses()->withCount('modules')->get(); 
+
         return view('module.create')
                         ->with('courses', $courses);
     }
@@ -80,25 +82,23 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //Comprobamos que se haya introducido un curso.
-        $course = $request->input('course');
-        if ($course == null) {
-            session()->flash('message-error', 'Error, debes agregar un curso para el módulo');
-            return to_route('teacher.module.create');
-        }
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
 
+       
+
+        $course_id = $request->input('course');
         //buscamos el curso
-        $course = Course::where('id', $course)
+        $course = Course::where('id', $course_id)
                             ->withCount('modules')
                             ->first();
-        $teacher_id = $request->session()->get('teacher_id');
 
         //Persistimos los datos.
         $module = new Module;
-        $module->name = $request->input('name');
+        $module->name = $request->input('name_module');
         $module->description = $request->input('description');
         $module->level = $course->modules_count + 1;
-        $module->teacher_id = $teacher_id;
+        $module->teacher_id = $user->teacher->id;
         $module->course_id  = $course->id;
         $module->save();
 
@@ -165,8 +165,7 @@ class ModuleController extends Controller
      */
     public function update(Request $request, Module $item)
     {
-        //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $item->name = $request->input('name');
+        $item->name = $request->input('name_module');
         $item->description = $request->input('description');
         $item->save();
 

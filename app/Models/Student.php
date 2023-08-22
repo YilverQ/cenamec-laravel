@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Administrator;
+use App\Models\User;
+
 use App\Models\Certificate;
 use App\Models\Course;
 use App\Models\Module;
@@ -21,11 +22,11 @@ class Student extends Model
 
     /**
      * Relationship. 
-     * Many to many
+     * One to Many - Inverse
     **/
-    public function administrators()
+    public function user ()
     {
-        return $this->belongsToMany(Administrator::class);
+        return $this->belongsTo(User::class);
     }
 
 

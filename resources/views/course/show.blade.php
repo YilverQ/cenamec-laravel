@@ -22,12 +22,6 @@
 					<small class="descriptionContent">Título del curso:</small>
 					<h2 class="headerBackground__title">{{ $course->name }}</h2>
 				</div>
-				<div>
-					<small class="descriptionContent">Descripción del curso:</small>
-					<p class="headerBackground__description">
-						{{ $course->description }}
-					</p>
-				</div>
 			</div>
 			<ul class="headerBackground__buttons">
 				<a href="{{ route('teacher.course.edit', $course) }}">

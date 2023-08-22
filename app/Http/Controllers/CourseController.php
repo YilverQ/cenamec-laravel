@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Teacher;
 use App\Models\Course;
 use App\Models\Module;
@@ -30,10 +31,11 @@ class CourseController extends Controller
     public function index(Request $request)
     {
         //Buscamos el id del profesor. 
-        $teacher_id = $request->session()->get('teacher_id');
-        $courses    = Course::where('teacher_id', $teacher_id)
-                                ->withCount('modules')
-                                ->get(); 
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
+
+        $teacher = Teacher::find($user->teacher->id);
+        $courses = $teacher->courses()->withCount('modules')->get(); 
 
         return view('course.index')
                 ->with("courses", $courses);
@@ -45,7 +47,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('course.create');
+        $teachers = Teacher::all();
+        return view('course.create')
+                ->with("teachers", $teachers);
     }
 
 
@@ -80,14 +84,22 @@ class CourseController extends Controller
         $urlImage = $request->file('img')->store('public/imgCourses');
         $urlImage = Storage::url($urlImage);
 
+        
         //Persistimos los datos en la bd.
-        $teacher_id = $request->session()->get('teacher_id');
         $course = new Course;
-        $course->name = $request->input('name');
-        $course->description = $request->input('description');
-        $course->img = $urlImage;
-        $course->teacher_id = $teacher_id;
+        $course->name        = $request->input('name_course');
+        $course->purpose     = $request->input('purpose');
+        $course->general_objetive  = $request->input('general_objetive');
+        $course->specific_objetive = $request->input('specific_objetive');
+        $course->competence  = $request->input('competence');
+        $course->disabled    = $request->input('disabled');
+        $course->img         = $urlImage;
         $course->save();
+        
+        //Asignamos el curso a los profesores
+        $teachers_id = $request->input('teachers');
+        $course->teachers()->sync($teachers_id);
+
 
         session()->flash('message-success', '¡El curso fue creado!');
         return redirect()->route('teacher.course.index');
@@ -124,7 +136,9 @@ class CourseController extends Controller
      */
     public function edit(Course $item)
     {
+        $teachers = Teacher::all();
         return view('course.edit')
+                ->with('teachers', $teachers)
                 ->with('course', $item);
     }
 
@@ -178,13 +192,25 @@ class CourseController extends Controller
         }
 
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $item->name        = $request->input('name');
-        $item->description = $request->input('description');
+        $item->name        = $request->input('name_course');
+        $item->purpose     = $request->input('purpose');
+        $item->general_objetive  = $request->input('general_objetive');
+        $item->specific_objetive = $request->input('specific_objetive');
+        $item->competence  = $request->input('competence');
+        $item->disabled    = $request->input('disabled');
         $item->save();
+
+        //Asignamos el curso a los profesores
+        if ($request->input('teachers')) {
+            $teachers_id = $request->input('teachers');
+            $item->teachers()->sync($teachers_id, true);
+        }
+
 
         #Retorna un mensaje flash.
         session()->flash('message-success', '¡El curso fue actualizado!');
-        return to_route('teacher.course.index');
+        return to_route('teacher.course.edit', $item);
+        #return to_route('teacher.course.index');
     }
 
 

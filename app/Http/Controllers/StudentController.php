@@ -33,8 +33,7 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $user_id = $request->session()->get('user_id');
-        $user    = User::where('id', $user_id)
-                                ->first();
+        $user    = User::find($user_id);
 
         return view('student.index')
                 ->with("student", $user);
@@ -94,7 +93,7 @@ class StudentController extends Controller
                 #No actualiza el dato. 
                 #Retorna un mensaje de error. 
                 session()->flash('message-error', 'Error, el correo electrónico ya está en uso');
-                return to_route('student.edit');
+                return to_route('student.profile');
             }
         }
 
@@ -103,7 +102,7 @@ class StudentController extends Controller
             if ($item->number_phone != $phone) {
                 #El número de teléfono ya lo tiene otra persona.
                 session()->flash('message-error', 'Error, el número de teléfono ya está en uso');
-                return to_route('student.edit');
+                return to_route('student.profile');
             }
         }
 
@@ -112,7 +111,7 @@ class StudentController extends Controller
             if ($item->identification_card != $idCard) {
                 #El número de teléfono ya lo tiene otra persona.
                 session()->flash('message-error', 'Error, el número de cédula ya está en uso');
-                return to_route('student.edit');
+                return to_route('student.profile');
             }
         }
         
@@ -137,7 +136,7 @@ class StudentController extends Controller
         $item->save();
         
         #Retorna un mensaje flash.
-        session()->flash('message-success', '¡El estudiante fue actualizado!');
+        session()->flash('message-success', '¡Tus datos fueron actualizados!');
         return to_route('student.profile');
     }
 
@@ -159,18 +158,5 @@ class StudentController extends Controller
         #Retorna un mensaje flash.
         session()->flash('message-success', '¡La imagen fue actualizada!');
         return to_route('student.profile');
-    }
-
-    /**
-     * Eliminamos el elemento de nuestra base de datos. 
-     * 
-     * Envíamos un mensaje flash.
-     * Retornamos la vista de login.  
-     */
-    public function destroy(Request $request, User $item)
-    {
-        $item->delete();
-        session()->flash('message-success', '¡El usuario fue eliminado correctamente!');
-        return to_route('login.login');
     }
 }

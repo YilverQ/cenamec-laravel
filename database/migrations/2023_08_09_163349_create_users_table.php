@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("second_name")->null();
             $table->string("lastname");
             $table->string("second_lastname")->null();
-            $table->string("gender");
+            $table->enum('gender', ['Masculino', 'Femenino']);
             $table->date("birthdate");
             $table->string("identification_card")->unique();
             $table->string("number_phone")->unique();

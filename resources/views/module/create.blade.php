@@ -1,7 +1,7 @@
 @extends('teacher.layout')
 
 
-@section('title', 'Crea un nuevo curso')
+@section('title', 'Crea un nuevo módulo educativo')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
@@ -16,9 +16,9 @@
 			<!--Information-->
 			<div class="form">
 				<h2 class="tab__title--centered">
-					Crear un nuevo <strong class="color-Text">módulo</strong>
+					Crear un nuevo <strong class="color-Text">módulo educativo</strong>
 				</h2>
-				<form class="form__content" 
+				<form class="form__content form__content--big" 
 						method="POST" 
 						action="{{ route('teacher.module.store') }}"
 						enctype="multipart/form-data">
@@ -28,40 +28,47 @@
 						<i class="fa-solid fa-book-open-reader"></i>
 					</h2>
 					<h2 class="form__title">Datos del módulo</h2>
-					<div class="form__item">
-						<label for="name">Nombre:</label>
-						<input class="form__input form__input--input" 
-								name="name" 
-								required 
-								type="text" 
-								id="name" 
-								placeholder="Física para principiante"
-								minlength="3"
-								maxlength="50"
-								autocomplete="off">
+					<div class="grid-two">
+						
+						<div class="form__item">
+							<label for="name_module">Nombre:</label>
+							<input class="form__input form__input" 
+									name="name_module" 
+									required 
+									type="text" 
+									id="name_module" 
+									placeholder="Física para principiante"
+									minlength="3"
+									maxlength="120"
+									autocomplete="off">
+						</div>
+						<div class="form__item">
+							<label for="course">Curso:</label>
+							<select class="form__input form__input--del" 
+										name="course" 
+										id="course">
+								<option disabled selected>Selecciona un curso</option>
+								@foreach($courses as $key => $item)
+								<option value="{{ $item->id }}">{{ $item->name }}</option>
+								@endforeach
+							</select>
+						</div>
+						
 					</div>
-					<div class="form__item">
-						<label for="description">Descripción:</label>
-						<textarea class="form__textarea form__input--input"
-									name="description"
-									id="description"
-									placeholder="El módulo de introducción a la física sirve para dar comienzo al curso de física." 
-									maxlength="255"
-									required="true"
-									rows="7"></textarea>
-					</div>
-					<div class="form__item">
-						<label for="course">Curso:</label>
-						<select class="form__input form__input--del" 
-									name="course" 
-									id="course">
-							<option disabled selected>Selecciona un curso</option>
-							@foreach($courses as $key => $item)
-							<option value="{{ $item->id }}">{{ $item->name }}</option>
-							@endforeach
-						</select>
+					<div class="grid-one">
+						<div class="form__item form__item--big">
+							<label for="description">Descripción:</label>
+							<textarea class="form__textarea form__input form__input--big"
+										name="description"
+										id="description"
+										placeholder="Consolidar el desarrollo formativo del “Diplomado en Ciencia y Calidad Educativa en el Sub - Sistema de Educación Básica”..." 
+										maxlength="800"
+										required="true"
+										rows="7"></textarea>
+						</div>
 					</div>	
-					<input class="form__send form_send--disabled" 
+						
+					<input class="form__send" 
 						type="submit" 
 						value="Crear">
 				</form>
@@ -91,5 +98,5 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="{{ asset('js/module/checkFormModule.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/form.js') }}"></script>
 @endsection

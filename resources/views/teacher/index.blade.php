@@ -14,15 +14,15 @@
 	<div class="header__background header__background--teacher">
 		<header class="header">
 			<img class="header__img" 
-					src="{{ asset('img/teacher/header_icon.png') }}" 
+					src="{{ $teacher->profileimg->url }}"
 					alt="Imagen de una profesora">
 
 			<div class="header__information">
 				<h2 class="header__title">
-					¡Bienvenido {{ $teacher->name }}!
+					¡Bienvenido {{ $teacher->firts_name }}!
 				</h2>
 				<ul class="header__bottons">
-					<a href="{{ route('teacher.edit') }}">
+					<a href="{{ route('teacher.profile') }}">
 						<li class="header__loginItem header__loginItem--contrast">
 							Editar mis datos
 						</li>
@@ -146,10 +146,10 @@
 					<h2 class="teach-description__title"><i id="iconTeacher" class="fa-solid fa-chalkboard-user"></i> Profesor {{ $teacher->name }}</h2>
 				</div>
 				<div class="teach-card">
-					<h2 class="teach-course__title">Tus datos</h2>
+					<h2 class="teach-course__title">Mis datos</h2>
 					<ul class="list__description">
 						<li class="list__text">
-							<b>Apellido: </b><p>{{ $teacher->lastname }}</p>
+							<b>Número de teléfono: </b><p>{{ $teacher->number_phone }}</p>
 						</li>
 						<li class="list__text">
 							<b>Número de cédula: </b><p>{{ $teacher->identification_card }}</p>
@@ -160,14 +160,14 @@
 					</ul>
 				</div>
 				<div class="box-bottoms">
-					<a href="{{ route('teacher.edit') }}">
+					<a href="{{ route('teacher.profile') }}">
 						<li class="header__loginItem header__loginItem--contrast">
 							Editar mis datos
 						</li>
 					</a>
-					<a href="{{ route('teacher.profile') }}">
+					<a href="#">
 						<li class="header__loginItem">
-							Ver mi perfil
+							Ver mis cursos
 						</li>
 					</a>
 				</div>

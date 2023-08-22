@@ -57,7 +57,16 @@ const regexInputs = {
 	state 				: /^(?!.*Selecciona un Estado).*$/,
 	municipalitie 		: /^(?!.*Selecciona un Municipio).*$/,
 	parishe 			: /^(?!.*Selecciona una Parroquia).*$/,
-	reset_password		: /^(?:[a-zA-Z0-9_.+*=#$%&?]{4,20}|)$/
+	reset_password		: /^(?:[a-zA-Z0-9_.+*=#$%&?]{4,20}|)$/,
+	name_course			: /^[a-zA-ZÀ-ÿ-:;,\s\d]{3,120}$/, 
+	img 	 			: /[a-zA-Z\t\h]+|(^$)/,
+	purpose 			: /[a-zA-Z\t\h:;,]{3,800}/,
+	general_objetive 	: /[a-zA-Z\t\h:;,]{3,800}/,
+	specific_objetive 	: /[a-zA-Z\t\h:;,]{3,800}/,
+	competence 			: /[a-zA-Z\t\h:;,]{3,800}/,
+	name_module			: /^[a-zA-ZÀ-ÿ-:;,\s\d]{3,120}$/, 
+	course 		 		: /^(?!Selecciona un curso$).+$/,
+	description 		: /[a-zA-Z\t\h:;,]{3,800}/,
 };
 
 const messagesInputs = {
@@ -74,7 +83,16 @@ const messagesInputs = {
 	state 				: 'Debes escoger una opción.',
 	municipalitie 		: 'Debes escoger una opción.',
 	parishe 			: 'Debes escoger una opción.',
-	reset_password		: 'Debes agregar una contraseña entre 4 y 20 caracteres alfanumericos y signos especiales: .+*=#$%&? o puedes dejarlo en blanco si no quieres actualizar la contraseña'
+	reset_password		: 'Debes agregar una contraseña entre 4 y 20 caracteres alfanumericos y signos especiales: .+*=#$%&? o puedes dejarlo en blanco si no quieres actualizar la contraseña',
+	name_course			: 'Debes agregar entre 3 y 120 caracteres', 
+	img 	 			: 'Debes agregar una imagen',
+	purpose 			: 'Debes agregar un texto de máximo 800 caracteres',
+	general_objetive 	: 'Debes agregar un texto de máximo 500 caracteres',
+	specific_objetive 	: 'Debes agregar un texto de máximo 800 caracteres',
+	competence 			: 'Debes agregar un texto de máximo 800 caracteres',
+	name_module			: 'Debes agregar entre 3 y 120 caracteres', 
+	course 		 		: 'Debes elegir un curso',
+	description 		: 'Debes agregar un texto de máximo 800 caracteres',
 };
 
 let inputs = document.querySelectorAll(".form__input");
@@ -92,6 +110,7 @@ inputs.forEach( (item)=> {
 function checkField(){
 	inputsForms.forEach( (item) =>{
 		item.checkExpression();
+		console.log(item);
 	});
 }
 

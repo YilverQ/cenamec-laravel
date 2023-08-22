@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Administrator;
+use App\Models\User;
+
 use App\Models\Course;
 use App\Models\Module;
 use App\Models\Note;
@@ -23,11 +24,11 @@ class Teacher extends Model
 
     /**
      * Relationship. 
-     * Many to many
+     * One to Many - Inverse
     **/
-    public function administrators()
+    public function user ()
     {
-        return $this->belongsToMany(Administrator::class);
+        return $this->belongsTo(User::class);
     }
 
 
@@ -37,7 +38,10 @@ class Teacher extends Model
     **/
     public function courses ()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsToMany(Course::class, 
+                                'course_teacher', 
+                                'teacher_id', 
+                                'course_id');
     }
 
     public function modules ()

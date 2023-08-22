@@ -1,7 +1,7 @@
 @extends('student.layout')
 
 
-@section('title', 'Datos del estudiante')
+@section('title', 'Mis datos')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">

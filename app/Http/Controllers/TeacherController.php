@@ -7,8 +7,8 @@ use App\Models\User;
 use App\Models\Parishe;
 use App\Models\Municipalitie;
 use App\Models\State;
+use App\Models\Profileimg;
 use App\Models\Teacher;
-use App\Models\Course;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -33,13 +33,8 @@ class TeacherController extends Controller
     {
         $user_id = $request->session()->get('user_id');
         $user    = User::find($user_id);
-        $course  = Course::where('teacher_id', $teacher->id)->get();
-        if (isset($course[0])) {
-            $course = $course->random();      
-        }
         return view('teacher.index')
-                ->with("teacher", $user)
-                ->with("course", $course);
+                ->with("teacher", $user);
     }
 
 
@@ -48,24 +43,20 @@ class TeacherController extends Controller
      */
     public function profile(Request $request)
     {
-        $teacher_id = $request->session()->get('teacher_id');
-        $teacher    = Teacher::find($teacher_id);
+        $states = State::all();
+        $municipalities = Municipalitie::all();
+        $parishes = Parishe::all();
+        $profileimgs = Profileimg::all();
+        
+        $user_id = $request->session()->get('user_id');
+        $user    = User::find($user_id);
 
         return view('teacher.profile')
-                ->with('teacher', $teacher);
-    }
-
-
-    /**
-     * Formulario para editar un elemento.
-     */
-    public function edit(Request $request)
-    {
-        $teacher_id = $request->session()->get('teacher_id');
-        $teacher    = Teacher::find($teacher_id);
-
-        return view('teacher.edit')
-                ->with('teacher', $teacher);
+                    ->with("states", $states)
+                    ->with("municipalities", $municipalities)
+                    ->with("parishes", $parishes)
+                    ->with("profileimgs", $profileimgs)
+                    ->with('user', $user);
     }
 
 
@@ -81,16 +72,19 @@ class TeacherController extends Controller
      */
     public function update(Request $request)
     {
-        $teacher_id = $request->session()->get('teacher_id');
-        $item    = Teacher::find($teacher_id);
+        /*Buscamos el usuario de la sessión activa*/
+        $user_id = $request->session()->get('user_id');
+        $item    = User::find($user_id);
 
+
+        /*Estos son los datos más sensibles*/
         $email = $request->input('email');
-        $password = $request->input('password');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
-        $is_email_valid  = Teacher::where('email', '=', $email)->first();
-        $is_phone_valid  = Teacher::where('number_phone', '=', $phone)->first();
-        $is_idCard_valid = Teacher::where('identification_card', '=', $idCard)->first();
+
+        $is_email_valid  = User::where('email', '=', $email)->first();
+        $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
+        $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
 
         //El correo ingresado en el formulario ya está en la bd.
         if (!(empty($is_email_valid->email))) {
@@ -99,7 +93,7 @@ class TeacherController extends Controller
                 #No actualiza el dato. 
                 #Retorna un mensaje de error. 
                 session()->flash('message-error', 'Error, el correo electrónico ya está en uso');
-                return to_route('teacher.edit');
+                return to_route('teacher.profile');
             }
         }
 
@@ -108,7 +102,7 @@ class TeacherController extends Controller
             if ($item->number_phone != $phone) {
                 #El número de teléfono ya lo tiene otra persona.
                 session()->flash('message-error', 'Error, el número de teléfono ya está en uso');
-                return to_route('teacher.edit');
+                return to_route('teacher.profile');
             }
         }
 
@@ -117,23 +111,52 @@ class TeacherController extends Controller
             if ($item->identification_card != $idCard) {
                 #El número de teléfono ya lo tiene otra persona.
                 session()->flash('message-error', 'Error, el número de cédula ya está en uso');
-                return to_route('teacher.edit');
+                return to_route('teacher.profile');
             }
         }
         
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $item->name     = $request->input('name');
-        $item->lastname = $request->input('lastname');
+        $password = $request->input('password');
+        $item->firts_name  = $request->input('firts_name');
+        $item->second_name = $request->input('second_name');
+        $item->lastname  = $request->input('lastname');
+        $item->second_lastname = $request->input('second_lastname');
+        $item->gender    = $request->input('gender');
+        $item->birthdate = $request->input('birthdate');
         $item->identification_card = $request->input('identification_card');
         $item->number_phone = $request->input('number_phone');
         $item->email    = $request->input('email');
+        $item->parishe_id = $request->input('parishe');
+
+        /*Comprobamos si el usuario quizo actualizar su contraseña*/
         if ($password) {
             $item->password = $request->input('password');
         }
+
         $item->save();
         
         #Retorna un mensaje flash.
-        session()->flash('message-success', '¡El profesor fue actualizado!');
+        session()->flash('message-success', '¡Tus datos fueron actualizados!');
+        return to_route('teacher.profile');
+    }
+
+    /**
+     * Actualizamos la imagen del usuario 
+     */
+    public function updateImg(Request $request)
+    {
+        /*Buscamos el usuario de la sessión activa*/
+        $user_id = $request->session()->get('user_id');
+        $item    = User::find($user_id);
+
+        $value = $request->input('picture');
+        if ($value){
+            $item->profileimg_id = $value;
+            $item->save();
+        }
+
+        #Retorna un mensaje flash.
+        session()->flash('message-success', '¡La imagen fue actualizada!');
         return to_route('teacher.profile');
     }
 }

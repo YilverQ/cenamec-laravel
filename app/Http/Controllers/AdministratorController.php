@@ -239,28 +239,82 @@ class AdministratorController extends Controller
         }
         
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $password = $request->input('password');
+        $password          = $request->input('password');
         $item->firts_name  = $request->input('firts_name');
         $item->second_name = $request->input('second_name');
-        $item->lastname  = $request->input('lastname');
+        $item->lastname    = $request->input('lastname');
         $item->second_lastname = $request->input('second_lastname');
-        $item->gender    = $request->input('gender');
-        $item->birthdate = $request->input('birthdate');
+        $item->gender      = $request->input('gender');
+        $item->birthdate   = $request->input('birthdate');
         $item->identification_card = $request->input('identification_card');
         $item->number_phone = $request->input('number_phone');
-        $item->email    = $request->input('email');
-        $item->parishe_id = $request->input('parishe');
+        $item->email       = $request->input('email');
+        $item->parishe_id  = $request->input('parishe');
 
         /*Comprobamos si el usuario quizo actualizar su contraseña*/
         if ($password) {
             $item->password = $request->input('password');
         }
-
         $item->save();
         
-        #Retorna un mensaje flash.
+        #Comprobamos los roles del usuario.
+        return $this->checkRoles($request, $item);
+    }
+
+
+    /**
+     * Comprobamos los roles del usuario 
+     */
+    public function checkRoles(Request $request, User $user)
+    {
+        /*Administrador*/
+        if (!(empty($request->input("is_admin")))) {
+            if (!($user->administrator)) {
+                $role = new Administrator;
+                $role->user_id = $user->id; 
+                $role->save();
+            }
+        }
+        else{
+            if ($user->administrator) {
+                $new_user = Administrator::where('user_id', '=', $user->id)->first();
+                $new_user->delete();
+            }
+        }
+
+        /*Profesor*/
+        if (!(empty($request->input("is_teacher")))) {
+            if (!($user->teacher)) {
+                $role = new Teacher;
+                $role->user_id = $user->id; 
+                $role->save();
+            }
+        }
+        else{
+            if ($user->teacher) {
+                $new_user = Teacher::where('user_id', '=', $user->id)->first();
+                $new_user->delete();
+            }
+        }
+
+        /*Estudiante*/
+        if (!(empty($request->input("is_student")))) {
+            if (!($user->student)) {
+                $role = new Student;
+                $role->user_id = $user->id; 
+                $role->save();
+            }
+        } 
+        else{
+            if ($user->student) {
+                $new_user = Student::where('user_id', '=', $user->id)->first();
+                $new_user->delete();
+            }
+        }
+
+
         session()->flash('message-success', '¡El usuario fue actualizado!');
-        return to_route('administrator.edit', $item);
+        return to_route('administrator.edit', $user);
     }
 
 
@@ -279,6 +333,7 @@ class AdministratorController extends Controller
         session()->flash('message-success', '¡La imagen del usuario fue actualizada!');
         return to_route('administrator.edit', $item);
     }
+
 
     /**
      * Eliminamos un elemento de nuestra bd.

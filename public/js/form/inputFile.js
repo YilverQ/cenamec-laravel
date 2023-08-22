@@ -5,7 +5,6 @@ const labelFileInput = document.querySelector('.labelFile__input');
 let text = "";
 //let formFileItem = document.querySelector(".form__item");
 
-
 //Mouseout
 labelFile.addEventListener('mouseout', () =>{
 	changeTextInputFile();
