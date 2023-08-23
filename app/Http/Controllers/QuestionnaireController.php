@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\Module;
-use App\Models\Questionnaire;
 
-#use Illuminate\Support\Facades\Storage;
+/*Importamos los modelos*/
+use App\Models\User;
+use App\Models\Module;
+use App\Models\Teacher;
+use App\Models\Questionnaire;
 
 
 class QuestionnaireController extends Controller
@@ -19,6 +20,7 @@ class QuestionnaireController extends Controller
     {
         $this->middleware('auth.teacher');
     }
+
 
     /**
      * Retornamos un formulario que nos permite crear un nuevo elemento.
@@ -35,23 +37,23 @@ class QuestionnaireController extends Controller
     public function store(Request $request)
     {
         //Obtenemos los datos básicos
-        $module_id  = $request->session()->get('module_id');
         $teacher_id = $request->session()->get('teacher_id');
-        $module = Module::where('id', $module_id)
+        $module_id  = $request->session()->get('module_id');
+        $module     = Module::where('id', $module_id)
                             ->withCount('questionnaires')
                             ->first();  
 
 
         //Persistimos los datos.
         $questionnaire = new Questionnaire;
-        $questionnaire->ask        = $request->input('ask');
-        $questionnaire->answer     = $request->input('answer');
-        $questionnaire->bad1       = $request->input('bad1');
-        $questionnaire->bad2       = $request->input('bad2');
-        $questionnaire->bad3       = $request->input('bad3');
+        $questionnaire->ask         = $request->input('ask');
+        $questionnaire->answer      = $request->input('answer');
+        $questionnaire->bad1        = $request->input('bad1');
+        $questionnaire->bad2        = $request->input('bad2');
+        $questionnaire->bad3        = $request->input('bad3');
         $questionnaire->level       = $module->questionnaires_count + 1;
-        $questionnaire->teacher_id = $teacher_id;
-        $questionnaire->module_id  = $module_id;
+        $questionnaire->teacher_id  = $teacher_id;
+        $questionnaire->module_id   = $module_id;
         $questionnaire->save();
 
         session()->flash('message-success', '¡El cuestionario fue creado!');
@@ -71,12 +73,12 @@ class QuestionnaireController extends Controller
 
     /**
      * Acción para actualizar un elemento.
-     * Se guardan los datos en bd.
      */
     public function update(Request $request, Questionnaire $item)
     {
         $module = Module::where('id', $item->module_id)->first();
 
+        //Persistimos los datos.
         $item->ask    = $request->input('ask'); 
         $item->answer = $request->input('answer'); 
         $item->bad1   = $request->input('bad1'); 
@@ -91,10 +93,7 @@ class QuestionnaireController extends Controller
 
 
     /**
-     * Eliminamos el elemento de nuestra base de datos. 
-     * 
-     * Envíamos un mensaje flash.
-     * Retornamos la vista principal y envíamos el modulo a la vista.  
+     * Acción para eliminar un elemento. 
      */
     public function destroy(Request $request, Questionnaire $item)
     {

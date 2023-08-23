@@ -32,12 +32,12 @@
 					<div class="grid-two">
 						
 						<div class="form__item">
-							<label for="name_course">Nombre:</label>
+							<label for="super_name">Nombre:</label>
 							<input class="form__input form__input" 
-									name="name_course" 
+									name="super_name" 
 									required 
 									type="text" 
-									id="name_course"
+									id="super_name"
 									value="{{ $course->name }}" 
 									placeholder="Física para principiante"
 									minlength="3"
@@ -136,6 +136,7 @@
 								</option>
 								@endforeach
 							</select>
+							<p>Si no quieres cambiar los profesores asignados debes dejar este campo en blanco.</p>
 						</div>
 						@if (!$course->disabled)
 						<div class="buttonCourse">

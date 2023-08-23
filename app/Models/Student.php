@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
-use App\Models\Certificate;
+/*Modelos*/
+use App\Models\User;
 use App\Models\Course;
 use App\Models\Module;
+use App\Models\Certificate;
+
 
 class Student extends Model
 {
@@ -19,6 +21,7 @@ class Student extends Model
      * protected $hidden    = [array_fields] : Para definir los campos que no son visibles.
     **/
     protected $fillable = [];
+
 
     /**
      * Relationship. 
@@ -44,9 +47,12 @@ class Student extends Model
      * Relationship. 
      * Many to many
     **/
-    public function courses()
+    public function courses ()
     {
-        return $this->belongsToMany(Course::class);
+        return $this->belongsToMany(Course::class, 
+                                'course_student', 
+                                'student_id', 
+                                'course_id');
     }
 
     public function modules()

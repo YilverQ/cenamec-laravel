@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\State;
-use App\Models\Municipalitie;
-use App\Models\Parishe;
-use App\Models\Profileimg;
+
+/*Importamos los modelos*/
 use App\Models\User;
-use App\Models\Administrator;
+use App\Models\State;
+use App\Models\Parishe;
 use App\Models\Teacher;
 use App\Models\Student;
+use App\Models\Profileimg;
+use App\Models\Administrator;
+use App\Models\Municipalitie;
+
 
 class AdministratorController extends Controller
 {
@@ -25,14 +27,14 @@ class AdministratorController extends Controller
 
 
     /**
-     * Retornamos una vista.
-     * buscamos el administrador 'admin'
-     * y lo envíamos a la vista. 
+     * Retornamos una vista. 
      */
     public function home(Request $request)
     {
-        $admin_id = $request->session()->get('user_id');
+        //buscamos el administrador.
+        $admin_id = $request->session()->get('admin_id');
         $admin    = User::find($admin_id);  
+       
         return view('administrator.home')
                 ->with("admin", $admin);
     }
@@ -40,8 +42,6 @@ class AdministratorController extends Controller
 
     /**
      * Retornamos una lista de todos los administradores.
-     * Buscamos una lista de todos los administradores
-     * y lo envíamos a la vista. 
      */
     public function index()
     {
@@ -58,6 +58,7 @@ class AdministratorController extends Controller
      */
     public function create()
     {
+        //Buscamos todas las ubicaciones geográficas.
         $states = State::all();
         $municipalities = Municipalitie::all();
         $parishes = Parishe::all();
@@ -73,16 +74,24 @@ class AdministratorController extends Controller
      * Acción para crear un elemento.
      * 
      * Para crear el elemento se debe cumplir:
-     *      1. El elemento debe ingresar un correo electrónico único.
-     *      2. El correo electrónico no puede estar asociado a ningún usuario.    
+     *      1. Ingresar un correo electrónico único.
+     *      2. Ingresar un número de teléfono único.
+     *      3. Ingresar un número de cédula único.
+     *      4. Los datos ingresados no puede estar asociado a ningún otro usuario.
+     * 
+     * Luego de comprobar se procede a:
+     *      1. Persistir los datos que ingresó el usuario.
+     *      2. Se crea un relación con según el role que se agregó. 
+     *      3. Se redirecciona a la vista principal del estudiante.   
      */
     public function store(Request $request)
     {
-
+        /*Recibimos los datos sencibles*/
         $email = $request->input('email');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
 
+        /*Buscamos en la DB si existe alguno de los datos*/
         $is_email_valid  = User::where('email', '=', $email)->first();
         $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
         $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
@@ -112,14 +121,15 @@ class AdministratorController extends Controller
         $user = new User;
         $user->firts_name  = $request->input('firts_name');
         $user->second_name = $request->input('second_name');
-        $user->lastname  = $request->input('lastname');
+        $user->lastname    = $request->input('lastname');
         $user->second_lastname = $request->input('second_lastname');
-        $user->gender    = $request->input('gender');
-        $user->birthdate = $request->input('birthdate');
+        $user->gender      = $request->input('gender');
+        $user->birthdate   = $request->input('birthdate');
         $user->identification_card = $request->input('identification_card');
         $user->number_phone = $request->input('number_phone');
-        $user->email    = $request->input('email');
-        $user->password = $request->input('password');
+        $user->email       = $request->input('email');
+        $user->password    = $request->input('password');
+        //Según el genero, le asignamos una imagen de perfil.
         if ($user->gender == "Masculino"){
             $user->profileimg_id = 49;
         }
@@ -167,12 +177,16 @@ class AdministratorController extends Controller
      */
     public function edit(User $item)
     {
+        //Buscamos todas las ubicaciones geográficas.
         $states = State::all();
         $municipalities = Municipalitie::all();
         $parishes = Parishe::all();
+
+        //Buscamos todas las imagenes para el perfil de usuario.
         $profileimgs = Profileimg::all();
 
 
+        //Retornamos una vista con todos los datos necesarios.
         return view('administrator.edit')
                     ->with("states", $states)
                     ->with("municipalities", $municipalities)
@@ -181,20 +195,29 @@ class AdministratorController extends Controller
                     ->with('user', $item);
     }
 
+
     /**
      * Acción para actualizar un elemento.
      * 
      * Para actualizar el elemento se debe cumplir:
-     *      1. El elemento debe ingresar un correo electrónico único.
-     *      2. El correo electrónico puede ser igual al que tenía anteriormente.    
+     *      1. Ingresar un correo electrónico único.
+     *      2. Ingresar un número de teléfono único.
+     *      3. Ingresar un número de cédula único.
+     *      4. Los datos ingresados puedes ser igual al que tenían anteriormente.
+     * 
+     * Luego de comprobar se procede a:
+     *      1. Persistir los datos que ingresó el usuario.
+     *      2. Se crea un relación con según el role que se agregó. 
+     *      3. Se redirecciona a la vista principal del estudiante.   
      */
     public function update(Request $request, User $item)
     {   
-        /*Estos son los datos más sensibles*/
+        /*Recibimos los datos sencibles*/
         $email = $request->input('email');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
 
+        /*Buscamos en la DB si existe alguno de los datos*/
         $is_email_valid  = User::where('email', '=', $email)->first();
         $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
         $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
@@ -224,16 +247,6 @@ class AdministratorController extends Controller
             if ($item->identification_card != $idCard) {
                 #El número de teléfono ya lo tiene otra persona.
                 session()->flash('message-error', 'Error, el número de cédula ya está en uso');
-                return to_route('administrator.edit', $item);
-            }
-        }
-        //El correo ingresado en el formulario ya está en la bd.
-        if (!(empty($is_email_valid->email))) {
-            if ($item->email != $email) {
-                #El correo ya lo tiene otra persona.
-                #No actualiza el dato. 
-                #Retorna un mensaje de error. 
-                session()->flash('message-error', 'Error, el correo ingresado ya está siendo usado');
                 return to_route('administrator.edit', $item);
             }
         }
@@ -323,7 +336,10 @@ class AdministratorController extends Controller
      */
     public function updateImg(Request $request, User $item)
     {
+        //Recibimos el nombre de la imagen. 
         $value = $request->input('picture');
+        
+        //Comprobamos si el usuario quiso actualizar la imagen.
         if ($value){
             $item->profileimg_id = $value;
             $item->save();

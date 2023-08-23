@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+/*Importamos los modelos*/
 use App\Models\User;
-use App\Models\Teacher;
+use App\Models\Note;
 use App\Models\Course;
 use App\Models\Module;
-use App\Models\Note;
+use App\Models\Teacher;
 use App\Models\Questionnaire;
 
-use Illuminate\Support\Facades\Storage;
 
 class ModuleController extends Controller
 {
@@ -25,40 +26,7 @@ class ModuleController extends Controller
 
 
     /**
-     * Retornamos una lista de todos los cursos.
-     * 
-     * asignamos el nombre del curso con sus módulos.
-     * Y lo envíamos a la vista.
-     */
-    public function index(Request $request)
-    {
-        $teacher_id = $request->session()->get('teacher_id');
-        $teacher = Teacher::find($teacher_id);
-        $courses = $teacher->courses;
-        //listItem es un array asociativo que tiene los cursos y módulos
-        $listItem = [];
-
-        //asígnamos el nombre del curso con sus módulos.
-        foreach ($courses as $key => $value) {
-            $item = Module::where('teacher_id', $teacher_id)
-                    ->where('course_id', $value->id)
-                    ->withCount('notes')
-                    ->withCount('questionnaires')
-                    ->orderBy('level')
-                    ->get(); 
-            $listItem[$value->name] = $item;
-        }
-
-        //retornamos una vista
-        return view('module.index')
-                ->with("listItem", $listItem);
-    }
-
-
-    /**
      * Retornamos un formulario que nos permite crear un nuevo elemento.
-     * 
-     * Buscamos una lista de cursos y módulos que tiene cada curso.
      */
     public function create(Request $request)
     {
@@ -74,31 +42,22 @@ class ModuleController extends Controller
 
     /**
      * Acción para crear un nuevo elemento.
-     * 
-     * Para crear el elemento se debe cumplir: 
-     *      1. Que el usuario haya ingresado un curso para asociar el módulo. 
-     * 
-     * Guardamos el registro. 
      */
     public function store(Request $request)
     {
-        $user_id = $request->session()->get('user_id');
-        $user    = User::find($user_id);
-
-       
-
+        //buscamos los datos para el curso.
+        $teacher_id = $request->session()->get('teacher_id');
         $course_id = $request->input('course');
-        //buscamos el curso
         $course = Course::where('id', $course_id)
                             ->withCount('modules')
                             ->first();
 
         //Persistimos los datos.
         $module = new Module;
-        $module->name = $request->input('name_module');
+        $module->name = $request->input('super_name');
         $module->description = $request->input('description');
         $module->level = $course->modules_count + 1;
-        $module->teacher_id = $user->teacher->id;
+        $module->teacher_id = $teacher_id;
         $module->course_id  = $course->id;
         $module->save();
 
@@ -109,27 +68,30 @@ class ModuleController extends Controller
 
     /**
      * Retornamos una vista que nos muestra un elemento.
-     * Buscamos el profesor de nuestra sessión. 
-     * Buscamos los módulos que tiene el curso que viene por párametro.
-     * retornamos todos los datos. 
      */
     public function show(Request $request, Module $item)
     {
+        //Guardamos el ID del módulo en session.
         $request->session()->put('module_id', $item->id);
-
+        
+        //Buscamos los datos básicos
         $teacher_id = $request->session()->get('teacher_id');
+        $teacher = Teacher::find($teacher_id);
         $course = Course::find($item->course_id);
 
+
+        //Buscamos los módulos.
         $item = Module::where('id', $item->id)
                     ->withCount('notes')
                     ->withCount('questionnaires')
                     ->first();
 
+        //Buscamos las notas.
         $notes = Note::where('module_id', $item->id)
-                        ->where("teacher_id", $teacher_id)
                         ->orderBy('level')
                         ->get(); 
 
+        //Buscamos los cuestionarios.
         $questionnaires = Questionnaire::where('module_id', $item->id)
                         ->orderBy('level')
                         ->get(); 
@@ -145,8 +107,6 @@ class ModuleController extends Controller
 
     /**
      * Retornamos un formulario que nos permite actualizar un elemento. 
-     * Le envíamos el curso asociado al módulo.
-     * Le envíamos el módulo.
      */
     public function edit(Module $item)
     {
@@ -159,13 +119,11 @@ class ModuleController extends Controller
 
      /**
      * Acción para actualizar un elemento.
-     * Recibimos los datos envíados por el formulario.
-     * Persistimos los datos. 
-     * Se guardan los datos en bd.
      */
     public function update(Request $request, Module $item)
     {
-        $item->name = $request->input('name_module');
+        //Persistimos los datos.
+        $item->name = $request->input('super_name');
         $item->description = $request->input('description');
         $item->save();
 
@@ -180,7 +138,7 @@ class ModuleController extends Controller
 
     /**
      * Eliminamos un elemento de nuestra bd.
-     * Buscamos el course al cual pertenece nuestro módulo. 
+     * Buscamos el curso al cual pertenece nuestro módulo. 
      * Buscamos los módulos que tiene nuestro curso. 
      * 
      * Antes de eliminar el elemento debemos acomodar 

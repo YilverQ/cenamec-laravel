@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\Module;
-use App\Models\Note;
-
 use Illuminate\Support\Facades\Storage;
+
+/*Importamos los modelos*/
+use App\Models\Note;
+use App\Models\Module;
+
 
 class NoteController extends Controller
 {
@@ -31,18 +32,12 @@ class NoteController extends Controller
 
     /**
      * Acción para crear un nuevo elemento.
-     * 
-     * Procesamos la imagen. 
-     *      1. Comprobamos que la imagen ingresada sea valida. 
-     *      2. Guardamos la imagen en Storage. 
-     * 
-     * Guardamos el registro. 
      */
     public function store(Request $request)
     {
         //Obtenemos los datos básicos
-        $module_id  = $request->session()->get('module_id');
         $teacher_id = $request->session()->get('teacher_id');
+        $module_id  = $request->session()->get('module_id');
         $module = Module::where('id', $module_id)
                             ->withCount('notes')
                             ->first();  
@@ -57,15 +52,15 @@ class NoteController extends Controller
 
         //Persistimos los datos.
         $note = new Note;
-        $note->title = $request->input('title');
-        $note->img = $urlImage;
+        $note->title       = $request->input('super_name');
+        $note->img         = $urlImage;
         $note->description = $request->input('description');
-        $note->level = $module->notes_count + 1;
-        $note->teacher_id = $teacher_id;
-        $note->module_id  = $module_id;
+        $note->level       = $module->notes_count + 1;
+        $note->teacher_id  = $teacher_id;
+        $note->module_id   = $module_id;
         $note->save();
 
-        session()->flash('message-success', '¡El módulo fue creado!');
+        session()->flash('message-success', '¡La nota educativa fue creada!');
         return redirect()->route('teacher.module.show', $module);
     }
 
@@ -112,7 +107,7 @@ class NoteController extends Controller
             $item->img = $urlImage;
         }
 
-        $item->title       = $request->input('title');
+        $item->title       = $request->input('super_name');
         $item->description = $request->input('description');
         $item->save();
 
@@ -123,14 +118,12 @@ class NoteController extends Controller
 
 
     /**
-     * Buscamos el módulo que corresponde 
-     * con la nota que será eliminada. 
+     * Acción para eliminar un elemento.
      * 
-     * Eliminamos la imagen del curso que está en 
-     * carpeta "Storage" en nuestro proyecto.
-     *  
+     * Buscamos el módulo que corresponde la nota. 
+     * Buscamos todas las notas educativas.
+     * Eliminamos la imagen del curso que está en carpeta "Storage" en nuestro proyecto.
      * Eliminamos el elemento de nuestra base de datos. 
-     * 
      * Envíamos un mensaje flash.
      * Retornamos la vista principal y envíamos el modulo a la vista.  
      */

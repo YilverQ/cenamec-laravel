@@ -43,7 +43,7 @@
 					<ul class="header__bottons">
 						<a href="{{ route('teacher.course.show', $course) }}">
 							<li class="header__loginItem header__loginItem--contrast">
-								Ver detalles del curso
+								Volver al curso
 							</li>
 						</a>
 					</ul>

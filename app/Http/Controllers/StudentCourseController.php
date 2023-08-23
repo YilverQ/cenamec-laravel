@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
+/*Importamos los modelos*/
 use App\Models\User;
-use App\Models\Student;
 use App\Models\Course;
 use App\Models\Module;
+use App\Models\Student;
 use App\Models\Certificate;
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 
 class StudentCourseController extends Controller
 {
@@ -29,16 +30,22 @@ class StudentCourseController extends Controller
      */
     public function index(Request $request)
     {
+        //Buscamos el usuario.
         $user_id = $request->session()->get('user_id');
         $user    = User::find($user_id);
 
-        $myCourses = $user->courses;
+        //Buscamos los cursos del usuario.
+        $myCourses = $user->student->courses;
         $courses = Course::where("id", "!=", 0)
+                            ->where("disabled", "=", "t")
                             ->withCount('modules')
                             ->get();
 
+        //Dividimos los cursos en los que está inscrito el usuario 
+        //Y los que no está inscrito.
         $diff   = $courses->diff($myCourses);
         $diff2 = $courses->intersect($myCourses);
+
 
         return view('studentCourse.index')
                 ->with('myCourses', $diff2)
@@ -47,7 +54,7 @@ class StudentCourseController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * Acción para crear un nuevo elemento.
      */
     public function store(Request $request, Course $item)
     {
@@ -83,8 +90,6 @@ class StudentCourseController extends Controller
 
     /**
      * Retornamos una vista que nos muestra un elemento.
-     * Buscamos los módulos que tiene el curso que viene por párametro.
-     * retornamos todos los datos. 
      */
     public function show(Request $request, Course $item)
     {

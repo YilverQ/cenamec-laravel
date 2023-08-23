@@ -314,7 +314,7 @@
 						</div>
 					</div>
 
-					<input class="form__send" type="submit" value="Actualizar mis datos">
+					<input class="form__send" type="submit" value="Actualizar datos">
 
 				</form>
 				</div>

@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Teacher;
+
+/*Modelos*/
 use App\Models\Note;
-use App\Models\Questionnaire;
-use App\Models\Student;
 use App\Models\Course;
+use App\Models\Teacher;
+use App\Models\Student;
+use App\Models\Questionnaire;
 
 
 class Module extends Model

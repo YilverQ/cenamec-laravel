@@ -78,6 +78,7 @@
 	@yield('content')
 
 
+	<!-- Footer -->
 	<footer class="footer">
 		<div class="endTitle">
 			<h3 class="endTitle__title">Aprende Ciencias con el CENAMEC</h3>
@@ -152,6 +153,7 @@
 			</div>
 		</div>
 	</footer>
+
 
 	<!--Scripts-->
 	<script type="module" src="{{ asset('js/components/navItemSelected.js') }}"></script>

@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
+/*Modelos*/
+use App\Models\User;
+use App\Models\Note;
 use App\Models\Course;
 use App\Models\Module;
-use App\Models\Note;
 use App\Models\Questionnaire;
+
 
 class Teacher extends Model
 {
@@ -34,7 +36,7 @@ class Teacher extends Model
 
     /**
      * Relationship. 
-     * One to Many - Many to One
+     * Many to many
     **/
     public function courses ()
     {
@@ -44,6 +46,11 @@ class Teacher extends Model
                                 'course_id');
     }
 
+
+    /**
+     * Relationship. 
+     * One to Many - Many to One
+    **/
     public function modules ()
     {
         return $this->hasMany(Module::class);

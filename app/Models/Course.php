@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Teacher;
-use App\Models\Aptitude;
-use App\Models\Objetive;
 
-use App\Models\Certificate;
-use App\Models\Student;
+/*Modelos*/
 use App\Models\Module;
+use App\Models\Teacher;
+use App\Models\Student;
+use App\Models\Certificate;
 
 
 class Course extends Model
@@ -32,28 +31,16 @@ class Course extends Model
     **/
     public function teachers ()
     {
-        return $this->belongsToMany(Teacher::class);
+        return $this->belongsToMany(Teacher::class, 
+                                'course_teacher', 
+                                'course_id', 
+                                'teacher_id');
     }
 
 
     public function students()
     {
         return $this->belongsToMany(Student::class);
-    }
-
-
-    /**
-     * Relationship. 
-     * One to Many - Many to One
-    **/
-    public function aptitudes ()
-    {
-        return $this->hasMany(Aptitude::class);
-    }
-
-    public function objetives ()
-    {
-        return $this->hasMany(Objetive::class);
     }
 
 

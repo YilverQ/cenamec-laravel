@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+/*Modelos*/
 use App\Models\Course;
 use App\Models\Student;
 
@@ -16,6 +18,7 @@ class Certificate extends Model
      * protected $hidden    = [array_fields] : Para definir los campos que no son visibles.
     **/
     protected $fillable = [ 'date_certificate'];
+
 
     /**
      * Relationship. 

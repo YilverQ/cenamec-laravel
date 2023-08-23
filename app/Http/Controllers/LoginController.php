@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+
+/*Importamos los modelos*/
 use App\Models\User;
-use App\Models\Parishe;
-use App\Models\Municipalitie;
 use App\Models\State;
 use App\Models\Student;
+use App\Models\Parishe;
 use App\Models\Teacher;
+use App\Models\Municipalitie;
 use App\Models\Administrator;
 
 
@@ -16,7 +17,8 @@ class LoginController extends Controller
 {
     /**
      * Middlewares necesarios para comprobar los permisos
-     * auth.admin -> Comprueba que el usuario tiene permiso de administrador.
+     * delete.sessions -> Elimina las sessiones del servidor.
+     * Solamente se aplica a algunos métodos.
      */
     public function __construct()
     {
@@ -47,10 +49,12 @@ class LoginController extends Controller
      */
     public function signup(Request $request)
     {
+        /*Buscamos la ubicaciones*/
         $states = State::all();
         $municipalities = Municipalitie::all();
         $parishes = Parishe::all();
 
+        /*Retornamos una vista*/
         return view('login.signup')
                     ->with("parishes", $parishes)
                     ->with("municipalities", $municipalities)
@@ -59,7 +63,8 @@ class LoginController extends Controller
 
 
     /**
-     * Retornamos un formulario que nos permite ingresar a la aplicación como administrador.
+     * Retornamos un formulario que nos permite 
+     * ingresar a la aplicación como administrador.
      */
     public function admin(Request $request)
     {
@@ -71,15 +76,24 @@ class LoginController extends Controller
      * Acción para crear un elemento.
      * 
      * Para crear el elemento se debe cumplir:
-     *      1. El elemento debe ingresar un correo electrónico único.
-     *      2. El correo electrónico no puede estar asociado a ningún usuario.    
+     *      1. Ingresar un correo electrónico único.
+     *      2. Ingresar un número de teléfono único.
+     *      3. Ingresar un número de cédula único.
+     *      4. Los datos ingresados no puede estar asociado a ningún otro usuario.
+     * 
+     * Luego de comprobar se procede a:
+     *      1. Persistir los datos que ingresó el usuario.
+     *      2. Se crea un relación con la tabla 'students'. 
+     *      3. Se redirecciona a la vista principal del estudiante.   
      */
     public function store(Request $request)
     {
+        /*Recibimos los datos sencibles*/
         $email = $request->input('email');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
 
+        /*Buscamos en la DB si existe alguno de los datos*/
         $is_email_valid  = User::where('email', '=', $email)->first();
         $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
         $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
@@ -89,21 +103,21 @@ class LoginController extends Controller
         if (!(empty($is_email_valid->email))) {
             #Retornamos un mensaje flash de error.
             session()->flash('message-error', 'Error, el correo electrónico ya está en uso');
-            return to_route('login.checkSignup');
+            return to_route('login.signup');
         }
 
         //Si se encuentra un elemento es porque el número de teléfono ingresado es incorrecto.
         if (!(empty($is_phone_valid->number_phone))) {
             #Retornamos un mensaje flash de error.
             session()->flash('message-error', 'Error, el número de teléfono ya está en uso');
-            return to_route('login.checkSignup');
+            return to_route('login.signup');
         }
 
         //Si se encuentra un elemento es porque el número de cédula ingresado es incorrecto.
         if (!(empty($is_idCard_valid->identification_card))) {
             #Retornamos un mensaje flash de error.
             session()->flash('message-error', 'Error, el número de cédula ya está en uso');
-            return to_route('login.checkSignup');
+            return to_route('login.signup');
         }
 
         //Creamos un nuevo elemento.
@@ -118,6 +132,7 @@ class LoginController extends Controller
         $user->number_phone = $request->input('number_phone');
         $user->email    = $request->input('email');
         $user->password = $request->input('password');
+        //Según el genero, le asignamos una imagen de perfil.
         if ($user->gender == "Masculino"){
             $user->profileimg_id = 49;
         }
@@ -128,14 +143,17 @@ class LoginController extends Controller
         $user->parishe_id = $request->input('parishe');
         $user->save();
 
+        //Creamos un nuevo estudiante.
         $role = new Student;
         $role->user_id = $user->id; 
         $role->save();
         
+        #Guardamos datos importantes en "session".
         #Retornamos un mensaje flash.
         #Nos dirijimos a la vista principal del estudiante
         $request->session()->put('is_student_valid', 'true');
         $request->session()->put('user_id', $user->id);
+        $request->session()->put('student_id', $user->student->id);
         session()->flash('message-success', '¡Te has registrado como estudiante!');
         return to_route('student.index');
     }
@@ -146,13 +164,12 @@ class LoginController extends Controller
      */
     public function auth(Request $request)
     {
-        # $student: Hacemos una busqueda con Eloquent.
         $email    = $request->input("email");
         $password = $request->input("password");
         $user  = User::where('email', '=', $email)->first();
 
-        //Si no se encuentra un estudiante es porque el correo ingresado es incorrecto.
-        if (empty($user->password)) {
+        //Si no se encuentra un usuario es porque el correo ingresado es incorrecto.
+        if (empty($user->email)) {
             session()->flash('message-error', 'Error, el correo electrónico no está registrado');
             return to_route('login.login');
         }
@@ -187,13 +204,16 @@ class LoginController extends Controller
         $student = Student::where('user_id', $user->id)
                                 ->first(); 
 
+        //Si no se encuentra un estudiante es porque no tiene permiso para acceder.
         if (empty($student->id)){
-            session()->flash('message-error', 'Error, El estudiante no existe');
+            session()->flash('message-error', 
+                             'Error, no tienes permiso para acceder como estudiante');
             return to_route('login.login');
         }
         
         //Si el correo y la contraseña son correcta, El usuario tiene permiso.
         $request->session()->put('is_student_valid', 'true');
+        $request->session()->put('student_id', $student->id);
         $request->session()->put('user_id', $user->id);
         return to_route('student.index');
         
@@ -208,13 +228,16 @@ class LoginController extends Controller
         $teacher = Teacher::where('user_id', $user->id)
                                 ->first(); 
 
+        //Si no se encuentra un profesor es porque no tiene permiso para acceder.
         if (empty($teacher->id)){
-            session()->flash('message-error', 'Error, El profesor no existe');
+            session()->flash('message-error', 
+                             'Error, no tienes permiso para acceder como profesor');
             return to_route('login.login');
         }
         
         //Si el correo y la contraseña son correcta, El usuario tiene permiso.
         $request->session()->put('is_teacher_valid', 'true');
+        $request->session()->put('teacher_id', $teacher->id);
         $request->session()->put('user_id', $user->id);
         return to_route('teacher.index');
     }
@@ -228,6 +251,7 @@ class LoginController extends Controller
         $admin = Administrator::where('user_id', $user->id)
                                 ->first(); 
 
+        //Si no se encuentra un administrador es porque no tiene permiso para acceder.
         if (empty($admin->id)){
             session()->flash('message-error', 'Error, El administrador no existe');
             return to_route('login.admin');
@@ -235,6 +259,7 @@ class LoginController extends Controller
         
         //Si el correo y la contraseña son correcta, El usuario tiene permiso.
         $request->session()->put('is_admin_valid', 'true');
+        $request->session()->put('admin_id', $admin->id);
         $request->session()->put('user_id', $user->id);
         return to_route('administrator.home');
     }

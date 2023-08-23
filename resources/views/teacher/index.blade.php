@@ -51,6 +51,7 @@
 				</div>
 				@if (isset($course->name))
 				<div class="teach-card">
+					<h3>Curso:</h3>
 					<h2 class="teach-course__title">{{ $course->name }}</h2>
 					<ul class="list__actions">
 						<a href="{{ route('teacher.course.show', $course) }}" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 
@@ -91,11 +92,6 @@
 						<a href="{{ route('teacher.module.create') }}">
 							<li class="header__loginItem header__loginItem--contrast">
 								Crear módulo
-							</li>
-						</a>
-						<a href="{{ route('teacher.module.index') }}">
-							<li class="header__loginItem">
-								Ver módulos
 							</li>
 						</a>
 					</ul>

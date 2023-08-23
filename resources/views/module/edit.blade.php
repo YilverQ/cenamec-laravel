@@ -31,13 +31,13 @@
 					<div class="grid-two">
 						
 						<div class="form__item">
-							<label for="name_module">Nombre:</label>
+							<label for="super_name">Nombre:</label>
 							<input class="form__input form__input" 
-									name="name_module" 
+									name="super_name" 
 									required 
 									type="text" 
 									value="{{ $module->name }}" 
-									id="name_module" 
+									id="super_name" 
 									placeholder="Física para principiante"
 									minlength="3"
 									maxlength="120"
@@ -85,9 +85,9 @@
 						Ver lista de <strong class="color-Text">módulos</strong>
 					</h2>
 					<ul class="header__bottons">
-						<a href="{{ route('teacher.module.index') }}">
+						<a href="{{ route('teacher.course.index') }}">
 							<li class="header__loginItem">
-								Ver módulos
+								Ver cursos
 							</li>
 						</a>
 					</ul>

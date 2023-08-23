@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Parishe;
-use App\Models\Municipalitie;
-use App\Models\State;
-use App\Models\Profileimg;
-use App\Models\Teacher;
-
 use Illuminate\Support\Facades\Storage;
+
+/*Importamos los modelos*/
+use App\Models\User;
+use App\Models\State;
+use App\Models\Parishe;
+use App\Models\Teacher;
+use App\Models\Profileimg;
+use App\Models\Municipalitie;
+
 
 class TeacherController extends Controller
 {
@@ -26,14 +27,17 @@ class TeacherController extends Controller
 
     /**
      * Retornamos la vista principal del profesor.
-     * envíamos los datos del profesor. 
      * Envíamos un cursos asociado al profesor de forma aleatoria.
      */
     public function index(Request $request)
     {
         $user_id = $request->session()->get('user_id');
         $user    = User::find($user_id);
+        $teacher = Teacher::find($user->teacher->id);
+        $course  = $teacher->courses()->inRandomOrder()->first(); 
+
         return view('teacher.index')
+                ->with("course", $course)
                 ->with("teacher", $user);
     }
 
@@ -43,11 +47,15 @@ class TeacherController extends Controller
      */
     public function profile(Request $request)
     {
+        //Buscamos todas las ubicaciones geográficas.
         $states = State::all();
         $municipalities = Municipalitie::all();
         $parishes = Parishe::all();
+
+        //Buscamos todas las imagenes para el perfil de usuario.
         $profileimgs = Profileimg::all();
         
+        //Buscamos el usuario con session activa.
         $user_id = $request->session()->get('user_id');
         $user    = User::find($user_id);
 
@@ -61,14 +69,17 @@ class TeacherController extends Controller
 
 
     /**
-     * Acción para actualizar un elemento. 
+     * Acción para actualizar un elemento.
      * 
-     * Para actualizar se debe cumplir: 
-     *      1. El correo ingresado debe ser único y no puede estar asociado a otra persona. 
-     *      2. El numero de teléfono ingresado debe ser único y no debe estar asociado a otra persona.
-     *      3. El número de cédula ingresado debe ser único y no debe estar asociado a otra persona. 
+     * Para actualizar el elemento se debe cumplir:
+     *      1. Ingresar un correo electrónico único.
+     *      2. Ingresar un número de teléfono único.
+     *      3. Ingresar un número de cédula único.
+     *      4. Los datos ingresados puedes ser igual al que tenían anteriormente.
      * 
-     * Se guardan los datos y se retorna un vista.
+     * Luego de comprobar se procede a:
+     *      1. Persistir los datos que ingresó el usuario.
+     *      2. Se redirecciona a la vista principal del estudiante.   
      */
     public function update(Request $request)
     {
@@ -77,11 +88,12 @@ class TeacherController extends Controller
         $item    = User::find($user_id);
 
 
-        /*Estos son los datos más sensibles*/
+        /*Recibimos los datos sencibles*/
         $email = $request->input('email');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
 
+        /*Buscamos en la DB si existe alguno de los datos*/
         $is_email_valid  = User::where('email', '=', $email)->first();
         $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
         $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
@@ -140,6 +152,7 @@ class TeacherController extends Controller
         return to_route('teacher.profile');
     }
 
+
     /**
      * Actualizamos la imagen del usuario 
      */
@@ -149,7 +162,10 @@ class TeacherController extends Controller
         $user_id = $request->session()->get('user_id');
         $item    = User::find($user_id);
 
+        //Recibimos el nombre de la imagen. 
         $value = $request->input('picture');
+        
+        //Comprobamos si el usuario quiso actualizar la imagen.
         if ($value){
             $item->profileimg_id = $value;
             $item->save();

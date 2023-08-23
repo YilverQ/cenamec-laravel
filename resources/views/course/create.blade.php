@@ -32,12 +32,12 @@
 					<div class="grid-two">
 						
 						<div class="form__item">
-							<label for="name_course">Nombre:</label>
+							<label for="super_name">Nombre:</label>
 							<input class="form__input form__input" 
-									name="name_course" 
+									name="super_name" 
 									required 
 									type="text" 
-									id="name_course" 
+									id="super_name" 
 									placeholder="Física para principiante"
 									minlength="3"
 									maxlength="120"

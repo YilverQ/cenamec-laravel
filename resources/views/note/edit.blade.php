@@ -1,7 +1,7 @@
 @extends('teacher.layout')
 
 
-@section('title', 'Editar Nota')
+@section('title', 'Editar Nota Educativa')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
@@ -18,7 +18,7 @@
 				<h2 class="tab__title--centered">
 					Editar <strong class="color-Text">Nota Educativa</strong>
 				</h2>
-				<form class="form__content" 
+				<form class="form__content form__content--big" 
 						method="POST" 
 						action="{{ route('teacher.note.update', $note) }}"
 						enctype="multipart/form-data">
@@ -28,48 +28,50 @@
 						<i class="fa-solid fa-note-sticky"></i>
 					</h2>
 					<h2 class="form__title">Datos de la nota</h2>
-					<div class="form__item">
-						<label for="title">Nombre:</label>
-						<input class="form__input form__input--input" 
-								name="title" 
-								required 
-								type="text" 
-								id="title"
-								value="{{ $note->title }}" 
-								placeholder="Física para principiante"
-								minlength="3"
-								maxlength="50"
-								autocomplete="off">
+					<div class="grid-two">
+						<div class="form__item">
+							<label for="super_name">Título de la nota educativa:</label>
+							<input class="form__input form__input" 
+									name="super_name" 
+									required 
+									type="text" 
+									id="super_name" 
+									value="{{ $note->title }}" 
+									placeholder="Física para principiante"
+									minlength="3"
+									maxlength="120"
+									autocomplete="off">
+						</div>
+						<div class="form__item">
+							<span>Imagen de la nota educativa:</span>
+							<label for="img" class="labelFile">
+								<div class="labelFile__input">
+									<span class="labelFile__imgText" id="imgFile">Haz click para cambiar la imagen</span>
+								</div>
+								<span class="labelFile__text">Agregar</span>
+							</label>
+							<input class="form__file form__input" 
+									name="img"
+									type="file" 
+									id="img" 
+									accept="image/*">
+						</div>
 					</div>
-					<div class="form__item">
-						<label for="description">Descripción:</label>
-						<textarea class="form__textarea form__input--input"
-									name="description"
-									id="description"
-									placeholder="El módulo de introducción a la física sirve para dar comienzo al curso de física." 
-									maxlength="255"
-									required="true"
-									rows="7">{{ $note->description }}</textarea>
+					<div class="grid-one">
+						<div class="form__item form__item--big">
+							<label for="description">Descripción:</label>
+							<textarea class="form__textarea form__input form__input--big"
+										name="description"
+										id="description"
+										placeholder="Consolidar el desarrollo formativo del “Diplomado en Ciencia y Calidad Educativa en el Sub - Sistema de Educación Básica”..." 
+										maxlength="800"
+										required="true"
+										rows="7">{{ $note->description }}</textarea>
+						</div>
 					</div>
-					<div class="form__item">
-						<span>Actualizar imágen de la nota educativa:</span>
-						<label for="img" class="labelFile">
-							<div class="labelFile__input">
-								<span class="labelFile__imgText" id="imgFile"></span>
-							</div>
-							<span class="labelFile__text">Agregar</span>
-						</label>
-						<input class="form__file" 
-								name="img"
-								required  
-								type="file" 
-								id="img" 
-								autocomplete="off" 
-								accept="image/*">
-					</div>
-					<input class="form__send form_send--disabled" 
+					<input class="form__send" 
 						type="submit" 
-						value="Editar">
+						value="Actualizar">
 				</form>
 			</div>
 		</article>
@@ -77,6 +79,5 @@
 @endsection
 
 @section('scripts')
-	<script type="module" src="{{ asset('js/form/inputFile.js') }}"></script>
-	<script type="module" src="{{ asset('js/note/checkFormNoteUpdate.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/form.js') }}"></script>
 @endsection

@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Teacher;
-use App\Models\Module;
 
+/*Modelos*/
+use App\Models\Module;
+use App\Models\Teacher;
 
 
 class Questionnaire extends Model

@@ -27,6 +27,7 @@ class User extends Model
 
     protected $hidden = ['password'];
 
+
     /**
      * Relationship. 
      * One to Many - Inverse
@@ -36,14 +37,11 @@ class User extends Model
         return $this->belongsTo(Parishe::class);
     }
 
-    /**
-     * Relationship. 
-     * One to Many - Inverse
-    **/
     public function profileimg ()
     {
         return $this->belongsTo(Profileimg::class);
     }
+
 
     /**
      * Relationship. 
@@ -54,19 +52,11 @@ class User extends Model
         return $this->hasOne(Administrator::class);
     }
 
-    /**
-     * Relationship. 
-     * One to Many - Many to One
-    **/
     public function teacher()
     {
         return $this->hasOne(Teacher::class);
     }
 
-    /**
-     * Relationship. 
-     * One to Many - Many to One
-    **/
     public function student()
     {
         return $this->hasOne(Student::class);

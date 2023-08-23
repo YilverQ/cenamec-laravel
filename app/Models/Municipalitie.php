@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
+/*Modelos*/
 use App\Models\State;
 use App\Models\Parishe;
 
@@ -21,6 +23,7 @@ class Municipalitie extends Model
     {
         return $this->belongsTo(State::class);
     }
+
 
     /**
      * Relationship. 

@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Teacher;
+use Illuminate\Support\Facades\Storage;
+
+/*Importamos los modelos*/
 use App\Models\Course;
 use App\Models\Module;
-
-use Illuminate\Support\Facades\Storage;
+use App\Models\Teacher;
 
 
 class CourseController extends Controller
@@ -25,16 +24,12 @@ class CourseController extends Controller
 
     /**
      * Retornamos una lista de todos los cursos.
-     * también cuenta los módulos de cada curso.
-     * y lo envíamos a la vista. 
      */
     public function index(Request $request)
     {
-        //Buscamos el id del profesor. 
-        $user_id = $request->session()->get('user_id');
-        $user    = User::find($user_id);
-
-        $teacher = Teacher::find($user->teacher->id);
+        //Buscamos los cursos asignados al profesor. 
+        $teacher_id = $request->session()->get('teacher_id');
+        $teacher = Teacher::find($teacher_id);
         $courses = $teacher->courses()->withCount('modules')->get(); 
 
         return view('course.index')
@@ -57,8 +52,7 @@ class CourseController extends Controller
      * Acción para crear un nuevo elemento.
      * 
      * Para crear el elemento se debe cumplir: 
-     *      1. El 'nombre' debe ser único. 
-     *      2. El 'nombre' no puede estar asociado a ningún usuario.  
+     *      1. El nombre del elemento debe ser único. 
      * 
      * Procesamos la imagen. 
      *      1. Comprobamos que la imagen ingresada sea valida. 
@@ -87,7 +81,7 @@ class CourseController extends Controller
         
         //Persistimos los datos en la bd.
         $course = new Course;
-        $course->name        = $request->input('name_course');
+        $course->name        = $request->input('super_name');
         $course->purpose     = $request->input('purpose');
         $course->general_objetive  = $request->input('general_objetive');
         $course->specific_objetive = $request->input('specific_objetive');
@@ -147,7 +141,7 @@ class CourseController extends Controller
      * Acción para actualizar un elemento.
      * 
      * Para actualizar el elemento se debe cumplir:
-     *      1. El 'nombre' debe ser único. 
+     *      1. El nombre del elemento debe ser único.
      *      2. El 'nombre' no puede ser igual al que tenía asociado.
      * 
      * Comprobamos si se quiere actualizar la imágen. 
@@ -192,7 +186,7 @@ class CourseController extends Controller
         }
 
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $item->name        = $request->input('name_course');
+        $item->name        = $request->input('super_name');
         $item->purpose     = $request->input('purpose');
         $item->general_objetive  = $request->input('general_objetive');
         $item->specific_objetive = $request->input('specific_objetive');
@@ -210,7 +204,6 @@ class CourseController extends Controller
         #Retorna un mensaje flash.
         session()->flash('message-success', '¡El curso fue actualizado!');
         return to_route('teacher.course.edit', $item);
-        #return to_route('teacher.course.index');
     }
 
 

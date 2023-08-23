@@ -1,23 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+/*Importamos los modelos*/
+use App\Models\User;
 use App\Models\State;
-use App\Models\Municipalitie;
 use App\Models\Parishe;
 use App\Models\Profileimg;
-use App\Models\User;
-use App\Models\Student;
-use App\Models\Course;
+use App\Models\Municipalitie;
 
-use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
     /**
      * Middlewares necesarios para comprobar los permisos
-     * auth.teacher -> Comprueba que el usuario tiene permiso de estudiante.
+     * auth.student -> Comprueba que el usuario tiene permiso de estudiante.
      */
     public function __construct()
     {
@@ -27,8 +26,6 @@ class StudentController extends Controller
 
     /**
      * Retornamos la vista principal del estudiante.
-     * Envíamos los datos del estudiante. 
-     * Envíamos los cursos asociados al estudiante.
      */
     public function index(Request $request)
     {
@@ -39,14 +36,18 @@ class StudentController extends Controller
                 ->with("student", $user);
     }
 
+
     /**
      * Retornamos una vista para ver el perfil.
      */
     public function profile(Request $request)
     {
+        //Buscamos todas las ubicaciones geográficas.
         $states = State::all();
         $municipalities = Municipalitie::all();
         $parishes = Parishe::all();
+
+        //Buscamos todas las imagenes para el perfil de usuario.
         $profileimgs = Profileimg::all();
         
         $user_id = $request->session()->get('user_id');
@@ -61,14 +62,17 @@ class StudentController extends Controller
     }
 
     /**
-     * Acción para actualizar un elemento. 
+     * Acción para actualizar un elemento.
      * 
-     * Para actualizar se debe cumplir: 
-     *      1. El correo ingresado debe ser único y no puede estar asociado a otra persona. 
-     *      2. El numero de teléfono ingresado debe ser único y no debe estar asociado a otra persona.
-     *      3. El número de cédula ingresado debe ser único y no debe estar asociado a otra persona. 
+     * Para actualizar el elemento se debe cumplir:
+     *      1. Ingresar un correo electrónico único.
+     *      2. Ingresar un número de teléfono único.
+     *      3. Ingresar un número de cédula único.
+     *      4. Los datos ingresados puedes ser igual al que tenían anteriormente.
      * 
-     * Se guardan los datos y se retorna un vista.
+     * Luego de comprobar se procede a:
+     *      1. Persistir los datos que ingresó el usuario.
+     *      2. Se redirecciona a la vista principal del estudiante.   
      */
     public function update(Request $request)
     {
@@ -76,15 +80,16 @@ class StudentController extends Controller
         $user_id = $request->session()->get('user_id');
         $item    = User::find($user_id);
 
-
-        /*Estos son los datos más sensibles*/
+        /*Recibimos los datos sencibles*/
         $email = $request->input('email');
         $phone = $request->input('number_phone');
         $idCard = $request->input('identification_card');
 
+        /*Buscamos en la DB si existe alguno de los datos*/
         $is_email_valid  = User::where('email', '=', $email)->first();
         $is_phone_valid  = User::where('number_phone', '=', $phone)->first();
         $is_idCard_valid = User::where('identification_card', '=', $idCard)->first();
+
 
         //El correo ingresado en el formulario ya está en la bd.
         if (!(empty($is_email_valid->email))) {
@@ -140,6 +145,7 @@ class StudentController extends Controller
         return to_route('student.profile');
     }
 
+
     /**
      * Actualizamos la imagen del usuario 
      */
@@ -149,9 +155,12 @@ class StudentController extends Controller
         $user_id = $request->session()->get('user_id');
         $item    = User::find($user_id);
 
+        //Recibimos el nombre de la imagen. 
         $value = $request->input('picture');
+        
+        //Comprobamos si el usuario quiso actualizar la imagen.
         if ($value){
-            $item->profileimg_id = $value;
+            $item->profileimg_id = $value;  
             $item->save();
         }
 
