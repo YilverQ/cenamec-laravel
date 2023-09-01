@@ -68,7 +68,7 @@
 										name="purpose"
 										id="purpose"
 										placeholder="Consolidar el desarrollo formativo del “Diplomado en Ciencia y Calidad Educativa en el Sub - Sistema de Educación Básica”..." 
-										maxlength="800"
+										maxlength="5000"
 										required="true"
 										rows="7"></textarea>
 						</div>
@@ -78,7 +78,7 @@
 										name="general_objetive"
 										id="general_objetive"
 										placeholder="Generar un proceso de acompañamiento, para el desarrollo formativo del Diplomado en Ciencia y Calidad Educativa en el Sub - Sistema de Educación Básica en los ocho corredores del conocimiento. " 
-										maxlength="500"
+										maxlength="5000"
 										required="true"
 										rows="7"></textarea>
 						</div>
@@ -94,7 +94,7 @@
 • Diagnosticar el proceso organizativo para la administración del plan de formación. 
 • Orientar sobre los procesos formativos, requeridos, para el desarrollo del plan de formación. 
 • Orientar a los facilitadores y tutores sobre la concepción de los programas y procesos de organización para su activación" 
-										maxlength="800"
+										maxlength="5000"
 										required="true"
 										rows="7"></textarea>
 						</div>
@@ -109,7 +109,7 @@
 • Diagnosticar el proceso organizativo para la administración del plan de formación. 
 • Orientar sobre los procesos formativos, requeridos, para el desarrollo del plan de formación. 
 • Orientar a los facilitadores y tutores sobre la concepción de los programas y procesos de organización para su activación" 
-										maxlength="800"
+										maxlength="5000"
 										required="true"
 										rows="7"></textarea>
 						</div>

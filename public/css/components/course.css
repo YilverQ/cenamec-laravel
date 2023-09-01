@@ -82,7 +82,7 @@
 
 
 /*Detalles del curso*/
-.descriptionCard{
+.descriptionBanner{
 	width: 90%;
 	margin: auto;
 	background: var(--light);
@@ -92,17 +92,26 @@
 	flex-flow: column;
 	row-gap: 20px;
 }
-.descriptionCard__nav{
+.descriptionBanner__nav{
 	display: flex;
 	column-gap: 20px;
 }
 
-.descriptionCard__item{
+.descriptionBanner__item, .collapse__icon{
 	padding: 10px;
 	padding-bottom: 5px;
 	color: var(--littleDark);
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
 }
-.descriptionCard__item--checked{
+.collapse__icon{
+	padding: 10px;
+	padding-bottom: 5px;
+	color: var(--text);
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
+}
+.descriptionBanner__item--checked{
 	color:var(--text);
 	border-bottom: 2px solid var(--primary);
 }
@@ -115,15 +124,27 @@
 
 .smallInformation{
 	max-width: 90%;
-	display: flex;
-	column-gap: 15px;
-	vertical-align: center;
-	align-items: center;
+	margin: 5px 0;
+	margin-left: 10px;
 }
 .smallInformation__title{
-	font-size: 14px;
+	font-size: 16px;
+	margin: 10px 0;
 }
-
+.smallInformation__title--second{
+	margin-top: 40px;
+}
+.tableInformation{
+	max-width: 90%;
+	margin: 5px 0;
+	margin-left: 10px;
+	display: flex;	
+}
+.tableInformation__img{
+	object-fit: contain;
+	width: 50px;
+	display: block;
+}
 
 /*Modules*/
 .containerModules{

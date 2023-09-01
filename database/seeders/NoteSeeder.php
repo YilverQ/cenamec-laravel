@@ -13,7 +13,186 @@ class NoteSeeder extends Seeder
      */
     public function run(): void
     {
-        /*YILVER*/
+        /*La fotosíntesis: La transformación de luz en energía.*/
+        Note::create([
+            'title'       => "El proceso de la fotosíntesis", 
+            'img'         => '/storage/imgNotes/foto01.jpeg',
+            'description' => "La fotosíntesis es un proceso muy especial que realizan las plantas para poder crecer y obtener alimentos. Es como si las plantas tuvieran su propia cocina dentro de ellas, donde pueden fabricar su propio alimento.
+
+¿Sabías que las plantas pueden hacer algo que nosotros no podemos? Ellas pueden capturar la energía del sol y convertirla en alimento. Esto ocurre en las hojas de las plantas, que tienen algo llamado clorofila, que les da su color verde.
+
+La fotosíntesis es un proceso muy inteligente y sorprendente que las plantas realizan para sobrevivir y ayudar a todo el ecosistema. Así que, la próxima vez que veas una planta, ¡recuerda todo lo que hacen por nosotros a través de la fotosíntesis!", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 1,
+        ]);
+        Note::create([
+            'title'       => "Importancia de la fotosíntesis en los seres vivos", 
+            'img'         => '/storage/imgNotes/foto02.jpeg',
+            'description' => "La fotosíntesis es muy importante para los seres vivos porque es el proceso mediante el cual las plantas y algunas bacterias convierten la luz solar en energía. Esta energía es utilizada por las plantas para crecer, producir alimentos y liberar oxígeno al aire. Sin la fotosíntesis, los seres vivos no podrían obtener los nutrientes y el oxígeno que necesitan para sobrevivir. Por eso, la fotosíntesis es un proceso vital para la vida en la Tierra.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 1,
+        ]);
+        Note::create([
+            'title'       => "La fase luminosa de la fotosíntesis", 
+            'img'         => '/storage/imgNotes/foto03.jpeg',
+            'description' => "La fase luminosa de la fotosíntesis es cuando las plantas usan la energía del sol para convertir agua y dióxido de carbono en comida y oxígeno. Esta conversión ocurre en las hojas de las plantas gracias a un pigmento llamado clorofila. Es como una 'cocina' donde la luz es absorbida por la clorofila y se utiliza para romper las moléculas de agua en hidrógeno y oxígeno. El oxígeno se libera al aire y el hidrógeno se usa en otra etapa de la fotosíntesis.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 2,
+        ]);
+        Note::create([
+            'title'       => "La fase oscura de la fotosíntesis", 
+            'img'         => '/storage/imgNotes/foto04.jpeg',
+            'description' => "La fase oscura de la fotosíntesis es una parte muy importante en la vida de las plantas. Es cuando las plantas hacen su propia comida usando dióxido de carbono y la energía que obtienen de la luz solar. Así pueden crecer y reproducirse. También producen oxígeno, que es vital para todos los seres vivos. Las plantas son realmente especiales porque pueden hacer su propia comida y ayudarnos a respirar. 
+
+Aunque la fase oscura no depende directamente de la luz solar, ya que no requiere de ella para que ocurran las reacciones, sí depende de los productos energéticos generados en la fase luminosa.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 2,
+        ]);
+        Note::create([
+            'title'       => "Diferencia entre la fase luminosa y oscura de la fotosíntesis", 
+            'img'         => '/storage/imgNotes/foto05.jpeg',
+            'description' => "La fase luminosa de la fotosíntesis es la primera etapa del proceso, en la cual la luz solar es capturada por los pigmentos de los cloroplastos, como la clorofila, y se convierte en energía química en forma de ATP y NADPH. Esta energía se utiliza en la fase oscura de la fotosíntesis.
+
+La fase oscura, también conocida como ciclo de Calvin, es la segunda etapa. En esta etapa, el ATP y el NADPH producidos en la fase luminosa se utilizan para convertir el dióxido de carbono en glucosa y otros compuestos orgánicos utilizando una serie de reacciones químicas. La fase oscura no requiere luz directa para suceder, pero depende de la energía almacenada en forma de ATP y NADPH.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 2,
+        ]);
+        Note::create([
+            'title'       => "La clorofila y sus pigmentos fotosintéticos", 
+            'img'         => '/storage/imgNotes/foto06.jpeg',
+            'description' => "La clorofila es un pigmento fotosintético presente en las plantas y algunas bacterias, responsable de capturar la energía luminosa del sol y convertirla en energía química a través del proceso de la fotosíntesis.
+
+Existen varios tipos de clorofila, siendo el más común la clorofila a, presente en la mayoría de las plantas verdes. La clorofila a es de color verde, ya que absorbe principalmente la luz azul y roja, reflejando la luz verde.
+
+Además de la clorofila a, existen otros tipos de clorofila, como la clorofila b, presente en las plantas terrestres y algas verdes. La clorofila b es similar a la clorofila a en su estructura, pero su función principal es ampliar el rango de absorción de luz de la planta.
+
+Los pigmentos fotosintéticos, como las clorofilas a y b, son esenciales en el proceso de la fotosíntesis, ya que absorben la energía luminosa y la transfieren a los centros de reacción fotosintéticos, donde se llevan a cabo las reacciones químicas necesarias para producir energía química en forma de ATP y NADPH.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 3,
+        ]);
+        Note::create([
+            'title'       => "Rol de la clorofila en el proceso de la fotosíntesis", 
+            'img'         => '/storage/imgNotes/foto07.jpeg',
+            'description' => "La clorofila desempeña un papel crucial en el proceso de la fotosíntesis. Es un pigmento verde que se encuentra en los cloroplastos de las células vegetales y es responsable de capturar la energía lumínica del sol.
+
+La clorofila absorbe la luz en la región del espectro visible, principalmente en los rangos de color azul y rojo. Esta energía absorbida se utiliza para impulsar la reacción química en la que se convierte el dióxido de carbono y el agua en glucosa y oxígeno.
+
+En el proceso de fotosíntesis, la clorofila juega un papel esencial como el principal pigmento fotoreceptor. Captura la energía lumínica y la convierte en energía química, que se almacena en forma de glucosa. Esta glucosa se utiliza como fuente de energía para el crecimiento y desarrollo de la planta.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 3,
+        ]);
+        Note::create([
+            'title'       => "Tipos de luz", 
+            'img'         => '/storage/imgNotes/foto08.jpeg',
+            'description' => "En la fotosíntesis, la luz es una parte fundamental del proceso mediante el cual las plantas capturan la energía solar y la convierten en energía química. Hay diferentes tipos de luz que son utilizados por las plantas durante este proceso.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 4,
+        ]);
+        Note::create([
+            'title'       => "Luz visible", 
+            'img'         => '/storage/imgNotes/foto09.jpeg',
+            'description' => "Es la luz que podemos percibir con nuestros ojos y se compone de diferentes colores, como el rojo, el verde y el azul. Las plantas utilizan principalmente la luz roja y la luz azul para llevar a cabo la fotosíntesis.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 4,
+        ]);
+        Note::create([
+            'title'       => "Luz ultravioleta", 
+            'img'         => '/storage/imgNotes/foto10.jpeg',
+            'description' => "La luz ultravioleta es una forma de radiación electromagnética que se encuentra en el espectro de luz entre la luz visible y los rayos X. Aunque la luz ultravioleta puede ser dañina para los seres humanos y otros organismos, las plantas son capaces de utilizarla en pequeñas cantidades para estimular el crecimiento y la producción de flores.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 4,
+        ]);
+        Note::create([
+            'title'       => "Luz infrarroja", 
+            'img'         => '/storage/imgNotes/foto11.jpeg',
+            'description' => "La luz infrarroja es una forma de radiación electromagnética que se encuentra en el espectro de luz por debajo de la luz visible. Aunque las plantas no utilizan directamente la luz infrarroja en la fotosíntesis, esta forma de luz puede ayudar a mantener la temperatura adecuada en las hojas y facilitar la transpiración y la absorción de agua.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 4,
+        ]);
+        Note::create([
+            'title'       => "Ciclo del carbono", 
+            'img'         => '/storage/imgNotes/foto12.jpeg',
+            'description' => "El ciclo del carbono es el proceso natural en el que el carbono se mueve entre la atmósfera, la tierra, los océanos y los seres vivos, a medida que se incorpora y se libera en diferentes formas químicas.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 5,
+        ]);
+        Note::create([
+            'title'       => "Relación entre la fotosíntesis y el ciclo del carbono", 
+            'img'         => '/storage/imgNotes/foto13.jpeg',
+            'description' => "La relación entre la fotosíntesis y el ciclo del carbono se basa en el intercambio continuo de dióxido de carbono (CO2) entre las plantas y la atmósfera. 
+
+A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, reduciendo su concentración y, a su vez, liberan oxígeno al entorno. El carbono se almacena en forma de carbohidratos en las plantas y puede ser utilizado posteriormente como fuente de energía en la respiración o transferido a otros organismos cuando son consumidas.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 5,
+        ]);
+        Note::create([
+            'title'       => "Importancia del equilibrio del carbono en la atmósfera", 
+            'img'         => '/storage/imgNotes/foto14.jpeg',
+            'description' => "El equilibrio del carbono en la atmósfera es fundamental para mantener la estabilidad climática y el funcionamiento de los ecosistemas. La fotosíntesis es el proceso mediante el cual las plantas y otros organismos fotosintéticos convierten el dióxido de carbono (CO2) en carbohidratos, liberando oxígeno (O2) como subproducto. Esta transformación reduce la concentración de CO2 en la atmósfera y ayuda a regular el efecto invernadero. Asimismo, el CO2 es utilizado por los organismos para sintetizar compuestos orgánicos, lo que permite el flujo continuo de carbono a través de la cadena alimentaria. En resumen, el equilibrio del carbono en la atmósfera es esencial para mantener el clima adecuado y garantizar la supervivencia de los seres vivos.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 5,
+        ]);
+        Note::create([
+            'title'       => "Fotosíntesis en plantas terrestres", 
+            'img'         => '/storage/imgNotes/foto15.jpeg',
+            'description' => "La fotosíntesis en plantas terrestres ocurre en las células de las hojas, donde hay un alto contenido de cloroplastos. Estas estructuras especializadas contienen pigmentos verdes llamados clorofila que capturan la energía de la luz solar. Durante la fotosíntesis, las plantas terrestres toman dióxido de carbono del aire a través de pequeños poros en las hojas llamados estomas, y liberan oxígeno como subproducto. La energía solar es utilizada para convertir la energía luminosa en energía química, que se almacena en forma de glucosa y otros carbohidratos. Estos carbohidratos son esenciales para el crecimiento y desarrollo de la planta, y también se utilizan como fuente de energía para otros procesos vitales.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 6,
+        ]);
+        Note::create([
+            'title'       => "Fotosíntesis en plantas acuáticas", 
+            'img'         => '/storage/imgNotes/foto16.jpeg',
+            'description' => "Las plantas acuáticas también realizan la fotosíntesis, pero en un entorno acuático. A diferencia de las plantas terrestres, las plantas acuáticas tienen células vegetales especializadas llamadas 'células acuáticas' que les permiten adaptarse a su entorno acuático. Estas células tienen una capa externa delgada y permeable que permite el intercambio de gases y nutrientes con el agua circundante.
+
+Al igual que las plantas terrestres, las plantas acuáticas también tienen cloroplastos que contienen clorofila y realizan la fotosíntesis. Sin embargo, debido a la disponibilidad constante de agua, las plantas acuáticas pueden tener una mayor eficiencia en la captura de dióxido de carbono disuelto en el agua. Además, algunas plantas acuáticas pueden tomar dióxido de carbono directamente del agua a través de sus raíces o absorberlo de la atmósfera a través de sus hojas sumergidas. Para la captura de luz solar, las plantas acuáticas tienen estructuras adaptadas como hojas flotantes o estrechas para maximizar la exposición a la luz. ", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 6,
+        ]);
+        Note::create([
+            'title'       => "Importancia de la fotosíntesis en la producción de alimentos", 
+            'img'         => '/storage/imgNotes/foto17.jpeg',
+            'description' => "La importancia de la fotosíntesis en la producción de alimentos radica en que gracias a este proceso se obtienen los nutrientes necesarios para el crecimiento y desarrollo. Las plantas, especialmente las verduras y frutas, son fuentes fundamentales de vitaminas, minerales y fibra que contribuyen a fortalecer su sistema inmunológico, mantener un adecuado funcionamiento de sus órganos y tejidos, así como asegurar una buena digestión.
+
+Además, la fotosíntesis es la base de la cadena alimentaria, ya que las plantas son el primer eslabón al ser consumidas por los herbívoros, estos a su vez serán consumidos por carnívoros u omnívoros y así sucesivamente. Por lo tanto, sin la fotosíntesis no habría alimentos disponibles para los seres vivos, incluidos los niños.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 7,
+        ]);
+        Note::create([
+            'title'       => "Fotosíntesis y su influencia en el clima y la generación de oxígeno", 
+            'img'         => '/storage/imgNotes/foto18.jpeg',
+            'description' => "El proceso de la fotosíntesis tiene una influencia crucial en el clima y en la generación de oxígeno en nuestro planeta. Las plantas absorben dióxido de carbono de la atmósfera durante la fotosíntesis, lo que ayuda a regular la cantidad de este gas de efecto invernadero en la atmósfera. El dióxido de carbono es uno de los responsables del calentamiento global, por lo que la fotosíntesis ayuda a enlentecer este proceso.
+
+Además, la fotosíntesis es la principal fuente de oxígeno en la Tierra. Durante este proceso, las plantas liberan oxígeno al ambiente, lo que es esencial para la vida en nuestro planeta. El oxígeno es necesario para que los seres vivos respiren y desempeña un papel crucial en la respiración celular, el proceso mediante el cual los organismos obtienen energía.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 7,
+        ]);
+
+
+
+
+
+
+
+
+        /*El sistema solar: un viaje por el espacio*/
         Note::create([
             'title'       => "El Sistema Solar", 
             'img'         => '/storage/imgNotes/solar01.jpeg',
@@ -38,7 +217,6 @@ class NoteSeeder extends Seeder
             'teacher_id'  => 1,
             'module_id'   => 8,
         ]);
-
         Note::create([
             'title'       => "Definición del sol", 
             'img'         => '/storage/imgNotes/solar04.jpeg',
@@ -55,7 +233,6 @@ class NoteSeeder extends Seeder
             'teacher_id'  => 1,
             'module_id'   => 9,
         ]);
-
         Note::create([
             'title'       => "Definición de los planetas interiores", 
             'img'         => '/storage/imgNotes/solar06.jpeg',
@@ -104,8 +281,6 @@ class NoteSeeder extends Seeder
             'teacher_id'  => 1,
             'module_id'   => 10,
         ]);
-
-
         Note::create([
             'title'       => "Definición de los planetas exteriores", 
             'img'         => '/storage/imgNotes/solar12.jpeg',
@@ -153,6 +328,439 @@ class NoteSeeder extends Seeder
             'level'       => 6,
             'teacher_id'  => 1,
             'module_id'   => 11,
+        ]);
+
+
+
+
+        
+
+
+
+
+
+        /*Salvando animales: la importancia de la conservación.*/
+        Note::create([
+            'title'       => "Conservación de las especies", 
+            'img'         => '/storage/imgNotes/animal01.jpeg',
+            'description' => "La conservación de especies trata de proteger a diferentes tipos de animales y plantas para que no desaparezcan de la Tierra. Esto es muy importante porque cada especie tiene un papel especial en el equilibrio de la naturaleza.
+
+Hay muchas razones por las que algunas especies están en peligro de extinción. Algunas pueden ser por la destrucción de su hábitat natural, como la tala de árboles o la contaminación del agua. Otras pueden ser por la caza y pesca excesiva, o la introducción de especies invasoras que compiten con ellos por recursos.
+
+Cuando una especie está en peligro de extinción, los científicos y conservacionistas trabajan para protegerla. Esto puede incluir la creación de reservas naturales y parques nacionales donde los animales y las plantas estén seguros. También se llevan a cabo programas para reproducir y criar especies en peligro en lugares seguros, como zoológicos y centros de conservación.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 12,
+        ]);
+        Note::create([
+            'title'       => "La importancia de la conservación de especies", 
+            'img'         => '/storage/imgNotes/animal02.jpeg',
+            'description' => "Si no conservamos las especies, diferentes animales y plantas podrían desaparecer para siempre. Esto sería algo triste porque cada especie tiene un papel importante en el equilibrio de la naturaleza. Por ejemplo, los árboles producen oxígeno que necesitamos para respirar, y los insectos ayudan a polinizar las flores para que podamos tener frutas y verduras. Además, algunas especies nos brindan medicinas y materiales útiles. Por eso es crucial cuidar de todas las especies y su hábitat, para que sigan existiendo y viviendo en armonía con nosotros.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 12,
+        ]);
+        Note::create([
+            'title'       => "Biodiversidad y su relación con la conservación", 
+            'img'         => '/storage/imgNotes/animal03.jpeg',
+            'description' => "La biodiversidad se refiere a la variedad de seres vivos que existen en nuestro planeta, como plantas, animales, insectos y microorganismos. Cada especie tiene un papel importante en el ecosistema y su conservación es fundamental para mantener el equilibrio de la naturaleza. Si cuidamos y protegemos la biodiversidad, garantizamos la supervivencia de muchas especies y preservamos los recursos naturales que necesitamos para vivir.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 12,
+        ]);
+        Note::create([
+            'title'       => "La interdependencia de las especies en los ecosistemas", 
+            'img'         => '/storage/imgNotes/animal04.jpeg',
+            'description' => "Las especies en los ecosistemas dependen unas de otras para sobrevivir. Por ejemplo, las plantas producen oxígeno que necesitan los animales para respirar, y los animales esparcen las semillas de las plantas al moverse. También hay animales que se comen a otros animales para obtener alimento, formando una cadena alimentaria. Si desaparece una especie, puede afectar a otras especies y desequilibrar todo el ecosistema. Por eso es importante cuidar y respetar a todas las especies para mantener el equilibrio y la biodiversidad en nuestros ecosistemas.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 12,
+        ]);
+
+        Note::create([
+            'title'       => "Especies en peligro de extinción", 
+            'img'         => '/storage/imgNotes/animal05.jpeg',
+            'description' => "Las especies en los ecosistemas dependen unas de otras para sobrevivir. Por ejemplo, las plantas producen oxígeno que necesitan los animales para respirar, y los animales esparcen las semillas de las plantas al moverse. También hay animales que se comen a otros animales para obtener alimento, formando una cadena alimentaria. Si desaparece una especie, puede afectar a otras especies y desequilibrar todo el ecosistema. Por eso es importante cuidar y respetar a todas las especies para mantener el equilibrio y la biodiversidad en nuestros ecosistemas.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 13,
+        ]);
+        Note::create([
+            'title'       => "Especies en peligro de extinción en Venezuela", 
+            'img'         => '/storage/imgNotes/animal06.jpeg',
+            'description' => "En Venezuela, algunas especies se encuentran en peligro de extinción debido a la destrucción de su hábitat, la caza ilegal y el tráfico de animales. Algunas de estas especies son:", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 13,
+        ]);
+        Note::create([
+            'title'       => "El jaguar", 
+            'img'         => '/storage/imgNotes/animal07.jpeg',
+            'description' => "Este felino es el mayor depredador de América Latina y se encuentra en peligro crítico de extinción en Venezuela debido a la caza ilegal y la destrucción de su hábitat.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 13,
+        ]);
+        Note::create([
+            'title'       => "El oso frontino", 
+            'img'         => '/storage/imgNotes/animal08.jpeg',
+            'description' => "Esta especie de oso habita en las montañas de los Andes venezolanos y se encuentra en peligro crítico de extinción debido a la reducción de su hábitat y la caza ilegal.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 13,
+        ]);
+        Note::create([
+            'title'       => "El cóndor andino", 
+            'img'         => '/storage/imgNotes/animal09.jpeg',
+            'description' => "Esta imponente ave rapaz es uno de los símbolos de la fauna venezolana y se encuentra en peligro crítico de extinción debido a la caza y la contaminación..", 
+            'level'       => 5,
+            'teacher_id'  => 1,
+            'module_id'   => 13,
+        ]);
+        Note::create([
+            'title'       => "La tortuga arrau", 
+            'img'         => '/storage/imgNotes/animal10.jpeg',
+            'description' => "Esta especie de tortuga acuática es una de las más grandes del mundo y se encuentra en peligro crítico de extinción debido a la caza ilegal de sus huevos y la destrucción de su hábitat.", 
+            'level'       => 6,
+            'teacher_id'  => 1,
+            'module_id'   => 13,
+        ]);
+        Note::create([
+            'title'       => "El delfín rosado", 
+            'img'         => '/storage/imgNotes/animal11.jpeg',
+            'description' => "Este delfín de agua dulce habita en los ríos de Venezuela y se encuentra en peligro de extinción debido a la contaminación de los cuerpos de agua y la captura accidental en redes de pesca.", 
+            'level'       => 7,
+            'teacher_id'  => 1,
+            'module_id'   => 13,
+        ]);
+        Note::create([
+            'title'       => "La importancia de los zoológicos y acuarios en la conservación de especies en peligro de extinción", 
+            'img'         => '/storage/imgNotes/animal12.jpeg',
+            'description' => "Los zoológicos y acuarios son lugares muy importantes para ayudar a proteger y conservar a los animales en peligro de extinción. Estos lugares les brindan un hogar seguro y cuidados especiales que muchas veces no pueden encontrar en su entorno natural. Además, los expertos en los zoológicos y acuarios investigan sobre estas especies y trabajan para reproducirlas y aumentar su población. De esta manera, los zoológicos y acuarios nos permiten conocer a estos animales de cerca y aprender sobre la importancia de preservar a todas las especies en nuestro planeta.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 14,
+        ]);
+        Note::create([
+            'title'       => "Los programas de cría en cautividad y reintroducción de especies en los zoológicos y acuarios como estrategias de conservación.", 
+            'img'         => '/storage/imgNotes/animal13.jpeg',
+            'description' => "Los programas de cría en cautividad y reintroducción de especies en zoológicos y acuarios son estrategias que buscan salvar a especies en peligro de extinción. Esto se hace al criar a estos animales en lugares seguros, como un zoológico o acuario, donde se les brinda cuidados especiales y se les protege de los peligros que enfrentan en su hábitat natural. Luego, cuando estos animales están lo suficientemente fuertes y preparados, se les devuelve a su hábitat original para que puedan vivir libres y ayudar a aumentar la población de su especie. De esta manera, los zoológicos y acuarios contribuyen a conservar la diversidad biológica del planeta.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 14,
+        ]);
+        Note::create([
+            'title'       => "El papel de los programas de educación para la promoción de la conservación de especies.", 
+            'img'         => '/storage/imgNotes/animal14.jpeg',
+            'description' => "Los programas de educación ambiental en zoológicos y acuarios son muy importantes para promover la conservación de especies. A través de estas actividades, los niños pueden aprender sobre la importancia de proteger a los animales y su hábitat. Además, pueden conocer de cerca a diferentes especies y entender cómo pueden ayudar a conservarlas. Mediante la educación y la concienciación, estos programas procuran que las especies no desaparezcan y que los animales puedan vivir en un entorno seguro y saludable.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 14,
+        ]);
+        Note::create([
+            'title'       => "La importancia de la participación comunitaria y el compromiso ciudadano en la conservación de especies a través de zoológicos y acuarios.", 
+            'img'         => '/storage/imgNotes/animal15.jpeg',
+            'description' => "En los zoológicos y acuarios podemos ver diferentes especies de animales y plantas de todo el mundo. Es importante que como ciudadanos nos comprometamos a cuidar de ellos porque así podemos ayudar a conservar estas especies. Participar en actividades en los zoológicos y acuarios nos permite aprender sobre la importancia de proteger a los animales y su hábitat, y nos hace más responsables con el medio ambiente. Al estar comprometidos podemos colaborar en la conservación de estas especies, para que puedan seguir viviendo y para que las futuras generaciones también puedan disfrutar de ellos.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 14,
+        ]);
+        Note::create([
+            'title'       => "Protección de especies en peligro de extinción", 
+            'img'         => '/storage/imgNotes/animal16.jpeg',
+            'description' => "Se pueden abordar proyectos y estrategias para conservar y proteger especies en peligro de extinción, como la creación de reservas naturales, programas de reproducción en cautiverio, educación ambiental, entre otros.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 15,
+        ]);
+        Note::create([
+            'title'       => "Restauración de ecosistemas degradados.", 
+            'img'         => '/storage/imgNotes/animal17.jpeg',
+            'description' => "Se pueden desarrollar proyectos y estrategias para restaurar ecosistemas degradados, como la reforestación, rehabilitación de áreas contaminadas, recuperación de humedales, entre otros.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 15,
+        ]);
+        Note::create([
+            'title'       => "Educación ambiental.", 
+            'img'         => '/storage/imgNotes/animal18.jpeg',
+            'description' => "Se pueden desarrollar proyectos y estrategias para concienciar y educar a la población sobre la importancia de la conservación en la naturaleza, promoviendo actividades como talleres, charlas, campañas de sensibilización y programas educativos.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 15,
+        ]);
+        Note::create([
+            'title'       => "Promoción de la conservación en comunidades locales.", 
+            'img'         => '/storage/imgNotes/animal19.jpeg',
+            'description' => "Se pueden desarrollar proyectos y estrategias para involucrar a las comunidades locales en la conservación en la naturaleza, como la capacitación en prácticas sostenibles, apoyo a proyectos de turismo comunitario, promoción de prácticas de pesca sostenible, entre otros.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 15,
+        ]);
+
+
+
+
+
+
+
+
+        /*Estados de la Materia*/
+        Note::create([
+            'title'       => "Los estados de la materia.", 
+            'img'         => '/storage/imgNotes/materia01.jpeg',
+            'description' => "Los estados de la materia son las formas en las que podemos encontrar las cosas en el mundo. Pueden ser sólidas, como un libro o una mesa; líquidas, como el agua o el jugo; o gaseosas, como el aire o el vapor. Cada estado tiene diferentes características, como su forma y cómo se comporta.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 16,
+        ]);
+        Note::create([
+            'title'       => "Aplicaciones de los estados de la materia.", 
+            'img'         => '/storage/imgNotes/materia02.jpeg',
+            'description' => "Los estados de la materia son formas en las que se puede encontrar la materia, como el agua, el hielo o el vapor. Podemos observarlos en nuestra vida cotidiana. Por ejemplo, cuando ponemos un hielo en un vaso de agua caliente, vemos cómo el hielo se derrite y se convierte en agua. También podemos ver cómo el agua hierve y se convierte en vapor cuando la calentamos en una olla. Estas formas de la materia son muy importantes porque nos permiten entender cómo se comporta y cómo podemos utilizarla en diferentes situaciones.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 16,
+        ]);
+        Note::create([
+            'title'       => "La importancia de estudiar los estados de la materia.", 
+            'img'         => '/storage/imgNotes/materia03.jpeg',
+            'description' => "Estudiar los estados de la materia es importante para entender cómo se comportan las cosas a nuestro alrededor. Esto nos ayuda a entender el mundo en el que vivimos y cómo interactuamos con él.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 16,
+        ]);
+        Note::create([
+            'title'       => "El estado sólido: ¿qué es y cuáles son sus características?", 
+            'img'         => '/storage/imgNotes/materia04.jpeg',
+            'description' => "El estado sólido es uno de los estados en los que podemos encontrar la materia. Un objeto o sustancia en estado sólido tiene sus partículas muy juntas y no se pueden mover fácilmente. Esto hace que el objeto mantenga su forma y no se deforme. Algunos ejemplos de sustancias en estado sólido son la roca, el hielo y los juguetes hechos de plástico.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 17,
+        ]);
+        Note::create([
+            'title'       => "Ejemplos comunes de sustancias en estado sólido.", 
+            'img'         => '/storage/imgNotes/materia05.jpeg',
+            'description' => "1. Hielo: el agua se encuentra en estado sólido a una temperatura inferior a 0 °C.
+2. Sal de mesa: la sal común se presenta como pequeños cristales sólidos.
+3. Hierro: el hierro puro se encuentra en estado sólido a temperatura ambiente.
+4. Azúcar: el azúcar de mesa se presenta como un sólido cristalino.
+5. Diamante: el diamante es una forma cristalina de carbono que se encuentra en estado sólido.
+6. Oro: el oro puro se encuentra en estado sólido a temperatura ambiente.
+7. Plomo: el plomo es un metal que se encuentra en estado sólido a temperatura ambiente.
+8. Aluminio: el aluminio es un metal que se encuentra en estado sólido a temperatura ambiente.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 17,
+        ]);
+        Note::create([
+            'title'       => "Propiedades físicas del estado sólido: forma, volumen, densidad.", 
+            'img'         => '/storage/imgNotes/materia06.jpeg',
+            'description' => "Forma: Los sólidos tienen una forma definida y mantienen su forma cuando se someten a fuerzas externas. Esto se debe a que las partículas en un sólido están muy cerca unas de otras y tienen una estructura ordenada.
+
+Volumen: Los sólidos tienen un volumen definido y ocupan una cantidad específica de espacio. Esto se debe a que las partículas en un sólido están fuertemente unidas y no pueden comprimirse fácilmente.
+
+Densidad: La densidad de un sólido es la relación entre su masa y su volumen. Los sólidos tienden a tener una densidad más alta que los líquidos y los gases debido a la proximidad de las partículas. La densidad de un sólido puede variar según el material del que esté hecho.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 17,
+        ]);
+        Note::create([
+            'title'       => "Propiedades térmicas del estado sólido: conducción, expansión térmica.", 
+            'img'         => '/storage/imgNotes/materia07.jpeg',
+            'description' => "La conducción térmica se refiere a la transferencia de calor a través de un material sólido debido a la vibración de las partículas. En un sólido, las partículas están muy cerca unas de otras y se mantienen en una posición fija. Cuando se aplica calor a un extremo del sólido, las partículas cercanas comienzan a vibrar más rápidamente y transmiten esta energía térmica a las partículas adyacentes, lo que resulta en la transferencia de calor a través del material sólido.
+
+La expansión térmica se produce cuando un sólido experimenta un cambio en su tamaño o volumen debido al aumento de temperatura. Cuando se calienta un sólido, las partículas individuales vibran más rápidamente y ocupan más espacio, lo que resulta en una expansión del material. Por el contrario, cuando se enfría un sólido, las partículas se desaceleran y se contraen, lo que resulta en una contracción o disminución del tamaño del material.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 17,
+        ]);
+        Note::create([
+            'title'       => "Propiedades mecánicas del estado sólido: dureza, elasticidad, fragilidad.", 
+            'img'         => '/storage/imgNotes/materia08.jpeg',
+            'description' => "Dureza: se refiere a la resistencia de un material a ser rayado, deformado o penetrado. La dureza está relacionada con la resistencia de los enlaces entre los átomos o moléculas de un material. Los materiales más duros son aquellos que tienen enlaces fuertes y alta densidad de átomos, como el diamante.
+
+Elasticidad: es la capacidad de un material para deformarse cuando se le aplica una fuerza externa y luego recuperar su forma original una vez que se elimina esa fuerza. Los materiales elásticos tienen enlaces débiles y se caracterizan por su alta flexibilidad y capacidad para sufrir deformaciones reversibles.
+
+Fragilidad: es la propiedad de un material de romperse o fracturarse con facilidad cuando se le aplica una fuerza. Los materiales frágiles tienen enlaces fuertes pero poco flexibles, lo que los hace propensos a romperse en lugar de deformarse plásticamente cuando se les aplica una carga. El vidrio y la cerámica son ejemplos de materiales frágiles.", 
+            'level'       => 5,
+            'teacher_id'  => 1,
+            'module_id'   => 17,
+        ]);
+        Note::create([
+            'title'       => "Usos y aplicaciones de los sólidos en la vida cotidiana.", 
+            'img'         => '/storage/imgNotes/materia09.jpeg',
+            'description' => "Construcción y arquitectura: Los sólidos son utilizados en la construcción de edificios, puentes y carreteras. Los materiales sólidos como el hormigón, el acero y la madera son fundamentales en la construcción y dan forma y soporte a las estructuras.
+
+Mobiliario: Los objetos cotidianos como sillas, mesas, camas y armarios están hechos en su mayoría de materiales sólidos, como la madera, el metal y el plástico. Estos sólidos proporcionan durabilidad y resistencia a los muebles.
+
+Electrodomésticos y dispositivos electrónicos: Los sólidos se utilizan en la fabricación de electrodomésticos y dispositivos electrónicos como neveras, televisores, computadoras y teléfonos móviles. Por ejemplo, los componentes electrónicos, como los chips y circuitos impresos, están hechos de materiales sólidos.
+
+Envases y embalajes: Los envases y embalajes están hechos de materiales sólidos como el vidrio, el plástico y el metal para almacenar y proteger alimentos, bebidas y otros productos. Estos sólidos ayudan a mantener la frescura y calidad de los productos.
+
+Joyería y accesorios: Los sólidos son utilizados en la fabricación de joyas y accesorios como anillos, pulseras, collares y relojes. Los metales preciosos como el oro y la plata, así como las gemas y piedras preciosas, son sólidos utilizados en la joyería.
+
+Transporte: Los sólidos son esenciales en el campo del transporte. Los automóviles, aviones, trenes y barcos están hechos principalmente de materiales sólidos como el acero, el aluminio y el plástico.
+
+Ropa y textiles: Los sólidos también juegan un papel importante en la industria textil. Los tejidos y materiales utilizados en la ropa, como el algodón y el poliéster, son sólidos que proporcionan comodidad y protección en la vida diaria.
+
+En resumen, los sólidos están presentes en numerosos ámbitos de nuestra vida cotidiana, desde la construcción hasta la joyería, y desempeñan un papel crucial en la sociedad moderna.", 
+            'level'       => 6,
+            'teacher_id'  => 1,
+            'module_id'   => 17,
+        ]);
+
+        Note::create([
+            'title'       => "¿Qué es el estado líquido?", 
+            'img'         => '/storage/imgNotes/materia10.jpeg',
+            'description' => "El estado líquido es uno de los tres estados en los que se pueden encontrar las cosas, junto con el sólido y el gaseoso. En el estado líquido, las sustancias tienen forma y volumen, como por ejemplo el agua. Pueden fluir fácilmente y tomar la forma del recipiente en el que se encuentran. Es decir, pueden moverse de un lugar a otro. Además, las partículas que forman el líquido están juntas pero no tan cerca como en el estado sólido, lo que significa que los líquidos pueden adaptarse a diferentes espacios y mezclarse entre sí.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 18,
+        ]);
+        Note::create([
+            'title'       => "Características principales del estado líquido: forma, volumen y fluidez.", 
+            'img'         => '/storage/imgNotes/materia11.jpeg',
+            'description' => "Forma: Los líquidos no tienen una forma definida, adoptando la forma del recipiente en el que se encuentran. Esto se debe a que las moléculas que componen los líquidos tienen la capacidad de moverse libremente una respecto a otra, permitiendo que se adapten al espacio en el que se encuentran.
+
+Volumen: Los líquidos tienen un volumen definido y constante. Esto significa que ocupan un espacio determinado, el cual no se ve afectado por cambios en la forma del recipiente en el que se encuentran. A diferencia de los gases, que se expanden para llenar todo el volumen disponible, los líquidos mantienen su volumen original.
+
+Fluidez: Los líquidos tienen la propiedad de fluir, es decir, de desplazarse y moverse fácilmente. Esto se debe a que las moléculas que los componen tienen la capacidad de deslizarse unas sobre otras sin mucha resistencia, lo que les permite fluir y adaptarse a cualquier forma del recipiente.
+
+Es importante destacar que estas características son generales y pueden variar según el tipo de líquido y las condiciones en las que se encuentre. Por ejemplo, algunos líquidos tienen mayor viscosidad, lo que dificulta su fluidez, y otros pueden cambiar de forma y volumen bajo ciertas condiciones de temperatura y presión.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 18,
+        ]);
+        Note::create([
+            'title'       => "Propiedades físicas del estado líquido: densidad, viscosidad y capilaridad.", 
+            'img'         => '/storage/imgNotes/materia12.jpeg',
+            'description' => "Densidad: Es la relación entre la masa de una sustancia y el volumen que ocupa. En el estado líquido, la densidad tiende a ser mayor que en el estado gaseoso, pero menor que en el estado sólido. Esto se debe a que las moléculas en el estado líquido se encuentran más cerca unas de otras, pero aún tienen la capacidad de moverse y fluir.
+
+Viscosidad: Es la resistencia interna de un líquido a fluir. Depende de la cohesión entre las moléculas del líquido y de su temperatura. Un líquido viscoso tiene mayor resistencia al flujo, mientras que un líquido menos viscoso fluye más fácilmente. La viscosidad disminuye a medida que la temperatura aumenta, ya que las moléculas se mueven más rápidamente.
+
+Capilaridad: Es la capacidad de un líquido para ascender o descender en un tubo capilar. Esto se debe a la interacción entre las moléculas del líquido y las del material del tubo capilar. La capilaridad es causada por la tensión superficial y la adhesión entre las moléculas. Por ejemplo, el agua puede ascender en un tubo capilar delgado debido a su alta adhesión a las paredes del tubo. La altura de ascenso o descenso depende de la viscosidad y la tensión superficial del líquido, así como de las dimensiones del tubo capilar.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 18,
+        ]);
+        Note::create([
+            'title'       => "Propiedades termodinámicas del estado líquido: puntos de fusión y ebullición, calor específico.", 
+            'img'         => '/storage/imgNotes/materia13.jpeg',
+            'description' => "Punto de fusión: es la temperatura en la que una sustancia sólida se convierte en líquida. Esto ocurre cuando las fuerzas que mantienen las moléculas juntas se debilitan y pueden moverse libremente.
+
+Punto de ebullición: es la temperatura en la que una sustancia líquida cambia a estado gaseoso. Durante este proceso, las fuerzas que mantenían las moléculas unidas se rompen y las moléculas se dispersan en el aire.
+
+Calor específico: es la cantidad de calor necesaria para aumentar la temperatura de una cantidad determinada de una sustancia en un grado. Algunas sustancias necesitan más calor para calentarse, mientras que otras necesitan menos. El agua tiene un calor específico alto, lo que significa que requiere más calor para calentarla en comparación con otras sustancias.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 18,
+        ]);
+        Note::create([
+            'title'       => "Aplicaciones y usos de los líquidos en diferentes industrias.", 
+            'img'         => '/storage/imgNotes/materia14.jpeg',
+            'description' => "Industria alimentaria: Los líquidos se utilizan para la fabricación de bebidas como jugos, refrescos, vino, cerveza y bebidas alcohólicas. También se emplean en la preparación de alimentos como salsas, aderezos, sopas y cremas.
+
+Industria farmacéutica: Los líquidos son fundamentales en la fabricación de medicamentos ya que permiten la disolución y mezcla de los compuestos activos. Además, se utilizan para la elaboración de soluciones intravenosas, jarabes y suspensiones.
+
+Industria petrolera: Los líquidos desempeñan un papel fundamental en la extracción, transporte y procesamiento del petróleo. Se utilizan para la perforación de pozos, la producción de petróleo y la refinación de derivados como gasolina, diesel y lubricantes.
+
+Industria automotriz: Los líquidos tienen una variedad de usos en la industria automotriz. El aceite lubricante se utiliza para mantener el motor en buen estado, los líquidos de frenos permiten el correcto funcionamiento del sistema de frenado y los líquidos refrigerantes mantienen la temperatura del motor.
+
+Estos son solo algunos ejemplos de cómo se utilizan los líquidos en diferentes industrias. Su versatilidad y capacidad de fluir y mezclarse los convierten en un recurso esencial en numerosos procesos industriales.", 
+            'level'       => 5,
+            'teacher_id'  => 1,
+            'module_id'   => 18,
+        ]);
+        Note::create([
+            'title'       => "¿Qué es el estado gaseoso?", 
+            'img'         => '/storage/imgNotes/materia15.jpeg',
+            'description' => "El estado gaseoso es una de las tres formas básicas de la materia, junto con los estados sólido y líquido. En este estado, las partículas que componen la sustancia se encuentran en constante movimiento y separadas entre sí, ocupando todo el espacio disponible. No tienen una forma ni un volumen definidos, ya que pueden expandirse y comprimirse fácilmente. Además, no tienen una fuerza de atracción fuerte entre ellas, lo que les permite moverse libremente y colisionar unas con otras. Algunos ejemplos comunes de sustancias en estado gaseoso son el oxígeno, el dióxido de carbono y el vapor de agua.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 19,
+        ]);
+        Note::create([
+            'title'       => "Propiedades físicas del estado gaseoso: forma, volumen, densidad.", 
+            'img'         => '/storage/imgNotes/materia16.jpeg',
+            'description' => "La forma: Los gases no tienen una forma fija y pueden expandirse y contraerse para llenar completamente el contenedor en el que se encuentran. Esto se debe a que las partículas de los gases están muy separadas y se mueven en todas las direcciones.
+
+El volumen: Los gases no tienen un volumen fijo y se adaptan al volumen del contenedor en el que se encuentran. Por lo tanto, pueden ocupar cualquier espacio disponible sin tener una forma o volumen específico.
+
+La densidad: Los gases tienen una densidad mucho más baja en comparación con los líquidos y sólidos. Esto se debe a que las partículas de los gases están muy separadas y no están tan unidas como en los líquidos o sólidos. Como resultado, la masa de un gas se distribuye sobre un volumen mucho mayor, lo que da como resultado una baja densidad.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 19,
+        ]);
+        Note::create([
+            'title'       => "Propiedades térmicas del estado gaseoso: dilatación, compresibilidad.", 
+            'img'         => '/storage/imgNotes/materia17.jpeg',
+            'description' => "La dilatación de los gases se refiere a su capacidad de aumentar de volumen cuando se calientan. Esto ocurre porque al aumentar la temperatura, las moléculas de gas se mueven más rápidamente y colisionan entre sí con mayor energía. Estas colisiones más enérgicas hacen que las moléculas se separen entre sí, lo que resulta en una expansión del volumen del gas.
+
+Por otro lado, la compresibilidad de los gases se refiere a la capacidad de los gases para disminuir su volumen cuando se someten a altas presiones. Esto ocurre porque cuando se aumenta la presión sobre un gas, las moléculas se ven forzadas a acercarse entre sí, disminuyendo así el volumen ocupado por el gas.", 
+            'level'       => 3,
+            'teacher_id'  => 1,
+            'module_id'   => 19,
+        ]);
+        Note::create([
+            'title'       => "Propiedades mecánicas del estado gaseoso: presión, elasticidad.", 
+            'img'         => '/storage/imgNotes/materia18.jpeg',
+            'description' => "La presión es la fuerza que ejerce un gas por unidad de área. Se debe al constante movimiento de las moléculas de gas, que chocan contra las paredes del recipiente que lo contiene. Cuanto mayor es la velocidad y frecuencia de estos choques, mayor será la presión ejercida por el gas.
+
+La elasticidad se refiere a la capacidad que tiene un gas para deformarse y luego retornar a su forma original cuando se le aplica una fuerza externa. Esto se debe a que las moléculas de gas están en constante movimiento y pueden moverse libremente en cualquier dirección.", 
+            'level'       => 4,
+            'teacher_id'  => 1,
+            'module_id'   => 19,
+        ]);
+        Note::create([
+            'title'       => "¿Qué son los gases ideales y gases reales?", 
+            'img'         => '/storage/imgNotes/materia19.jpeg',
+            'description' => "Los gases ideales son aquellos que siguen las leyes de los gases ideales, las cuales asumen que las partículas de gas no tienen volumen y no ejercen fuerzas de atracción o repulsión entre sí. Además, se considera que las colisiones entre partículas son perfectamente elásticas. Por otro lado, los gases reales son aquellos que no cumplen completamente con estas leyes, ya que las partículas de gas tienen volumen y experimentan fuerzas de atracción o repulsión entre sí. Además, las colisiones entre partículas no son perfectamente elásticas, lo que puede afectar las propiedades y comportamiento del gas.", 
+            'level'       => 5,
+            'teacher_id'  => 1,
+            'module_id'   => 19,
+        ]);
+        Note::create([
+            'title'       => "Usos y aplicaciones de los gases en la vida cotidiana.", 
+            'img'         => '/storage/imgNotes/materia20.jpeg',
+            'description' => "Calefacción y refrigeración: Los gases como el gas natural se utilizan para calentar el hogar y el agua, mientras que los refrigerantes gaseosos se utilizan en sistemas de aire acondicionado y refrigeración.
+
+Cocina: El gas natural y el propano se utilizan para cocinar alimentos en estufas y hornos. Estos gases proporcionan una fuente de calor controlable y rápida.
+
+Producción de energía: Los gases como el gas natural y el propano se utilizan en plantas de energía para generar electricidad.
+
+
+Envasado y almacenamiento: Los gases comprimidos se utilizan para envasar y almacenar productos, como los aerosoles en latas de spray.
+
+Medicina: Los gases como el oxígeno y el anestésico se utilizan en entornos médicos para tratar o mantener la vida de los pacientes, para la anestesia y para el uso de respiradores.
+
+Soldadura y corte: Los gases combustibles como el acetileno y el propano se utilizan en procesos de soldadura y corte, proporcionando una llama de alta temperatura para fusionar metales y cortar superficies.
+
+Estos son solo algunos ejemplos de cómo los gases se utilizan en nuestra vida cotidiana. Los gases desempeñan un papel importante en numerosos aspectos de nuestra vida y son esenciales en muchos procesos industriales y aplicaciones tecnológicas.", 
+            'level'       => 6,
+            'teacher_id'  => 1,
+            'module_id'   => 19,
+        ]);
+
+        Note::create([
+            'title'       => "¿Qué son los cambios de estado y cómo se producen en la materia?", 
+            'img'         => '/storage/imgNotes/materia21.jpeg',
+            'description' => "Los cambios de estado son procesos en los que la materia cambia de una forma a otra, como de sólido a líquido, líquido a gas, o viceversa. Estos cambios ocurren cuando se agregan o se quitan energía térmica a la materia. Por ejemplo, cuando calentamos un trozo de hielo, la energía térmica hace que las partículas del hielo se muevan más rápidamente, rompiendo las fuerzas de atracción entre ellas y convirtiendo el hielo en agua líquida. De manera similar, si seguimos calentando el agua, las partículas se mueven aún más rápido y se convierten en vapor, cambiando de estado de líquido a gas.", 
+            'level'       => 1,
+            'teacher_id'  => 1,
+            'module_id'   => 20,
+        ]);
+        Note::create([
+            'title'       => "Los tres cambios de estado básicos: la fusión, la condensación y la sublimación.", 
+            'img'         => '/storage/imgNotes/materia22.jpeg',
+            'description' => "La fusión es el cambio de estado de sólido a líquido. Esto sucede cuando se calienta un sólido y sus moléculas comienzan a moverse más rápidamente, rompiendo las fuerzas de atracción entre sí. Un ejemplo común de fusión es cuando un cubo de hielo se derrite y se convierte en agua.
+
+La condensación es el cambio de estado de gas a líquido. Esto ocurre cuando se enfría un gas y sus moléculas se vuelven más lentas, lo que permite que las fuerzas de atracción entre ellas los mantengan cerca. Un ejemplo típico de condensación es cuando el vapor de agua en el aire se enfría y se convierte en líquido, formando gotas en la superficie de un vaso frío.
+
+La sublimación es el cambio de estado directo de sólido a gas. Esto sucede cuando un sólido se calienta y sus moléculas se mueven tan rápidamente que se convierten directamente en gas sin pasar por el estado líquido. Un ejemplo común de sublimación es cuando el hielo seco (dióxido de carbono sólido) se calienta y se convierte en gas sin dejar rastro de líquido.", 
+            'level'       => 2,
+            'teacher_id'  => 1,
+            'module_id'   => 20,
         ]);
     }
 }

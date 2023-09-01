@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+
+/*Models*/
+use App\Models\Certificate;
+
 
 class CertificateController extends Controller
 {
@@ -11,54 +15,28 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        #$pdf = app('dompdf.wrapper');
+        #$pdf->loadHTML('<h1>Hola Mundo<h1>');
+        $pdf = PDF::loadView('certificate.pdf');
+        return $pdf->stream();
+        #return $pdf->download(); //Para descargar automaticamente el PDF.
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Certificate $item)
     {
-        //
-    }
+        $course   = $item->course;
+        $student  = $item->student;
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        $data = [
+            "course" => $course,
+            "student" => $student->user,
+            "certificate" => $item
+        ];
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $pdf = PDF::loadView('certificate.pdf', $data);
+        return $pdf->stream();
     }
 }

@@ -226,18 +226,9 @@ Route::controller(StudentModuleController::class)->group(function () {
 /** Certificado
  * HTTP     URI                    Method     Reponse   Description
  * -----------------------------------------------------------------------
- * get   /certificate              index      View      Retorna todos los elementos. 
- * get   /certificate/create       create     View      Formulario para crear un nuevo elemento. 
+ * get   /certificate/{item}       show       View      Mostramos un elemento. 
  * post  /certificate              store      Action    Crea un nuevo elemento. 
- * get   /certificate/{item}/edit  edit       View      Vista para editar un elemento. 
- * put   /certificate/{item}       update     Action    Actualiza un elemento. 
- * get   /certificate/check        delete     Action    Elimina un elemento.
 */
 Route::controller(CertificateController::class)->group(function () {
-    Route::get( '/certificate', 'index')->name('certificate.index');
-    Route::get( '/certificate/create', 'create')->name('certificate.create');
-    Route::post('/certificate', 'store')->name('certificate.store');
-    Route::get( '/certificate/{item}/edit', 'edit')->name('certificate.edit');
-    Route::put( '/certificate/{item}', 'update')->name('certificate.update');
-    Route::delete('/certificate/{item}', 'destroy')->name('certificate.destroy');
+    Route::get( '/certificate/{item}', 'show')->name('certificate.show');
 });

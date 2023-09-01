@@ -1,9 +1,9 @@
 class Input{
 	constructor(name, regex, nodo, message){
-		this.name = name;
-		this.regex = regex;
-		this.check = false;
-		this.nodo = nodo;
+		this.name 	= name;
+		this.regex 	= regex;
+		this.check 	= false;
+		this.nodo 	= nodo;
 		this.message = message;
 		this.messageActive = false;
 	}
@@ -42,7 +42,7 @@ class Input{
 	}
 }
 
-
+//Expresiones regulares.
 const regexInputs = {
 	firts_name 	 		: /^[a-zA-ZÀ-ÿ]{3,50}$/,
 	second_name 		: /^[a-zA-ZÀ-ÿ]{3,50}$/,
@@ -60,13 +60,12 @@ const regexInputs = {
 	reset_password		: /^(?:[a-zA-Z0-9_.+*=#$%&?]{4,20}|)$/,
 	super_name			: /^[a-zA-ZÀ-ÿ-:;,.\s\d]{3,120}$/, 
 	img 	 			: /[a-zA-Z\t\h]+|(^$)/,
-	purpose 			: /[a-zA-Z\t\h:;,.]{3,800}/,
-	general_objetive 	: /[a-zA-Z\t\h:;,.]{3,800}/,
-	specific_objetive 	: /[a-zA-Z\t\h:;,.]{3,800}/,
-	competence 			: /[a-zA-Z\t\h:;,.]{3,800}/,
+	purpose 			: /[a-zA-Z\t\h:;,.]{3,5000}/,
+	general_objetive 	: /[a-zA-Z\t\h:;,.]{3,5000}/,
+	specific_objetive 	: /[a-zA-Z\t\h:;,.]{3,5000}/,
+	competence 			: /[a-zA-Z\t\h:;,.]{3,5000}/,
 	course 		 		: /^(?!Selecciona un curso$).+$/,
 	description 		: /[a-zA-Z\t\h:;,]{3,800}/,
-	
 	ask					: /^[a-zA-Z\u00C0-\u00FF:;,\s\d¿?]{3,120}$/, 
 	answer				: /^[a-zA-ZÀ-ÿ-:;,.\s\d]{3,120}$/, 
 	bad1				: /^[a-zA-ZÀ-ÿ-:;,.\s\d]{3,120}$/, 
@@ -74,6 +73,7 @@ const regexInputs = {
 	bad3				: /^[a-zA-ZÀ-ÿ-:;,.\s\d]{3,120}$/, 
 };
 
+//Mensajes de alerta.
 const messagesInputs = {
 	firts_name 	 		: 'Debes agregar únicamente un nombre.',
 	second_name 		: 'Debes agregar únicamente un nombre.',
@@ -91,13 +91,12 @@ const messagesInputs = {
 	reset_password		: 'Debes agregar una contraseña entre 4 y 20 caracteres alfanumericos y signos especiales: .+*=#$%&? o puedes dejarlo en blanco si no quieres actualizar la contraseña',
 	super_name			: 'Debes agregar entre 3 y 120 caracteres', 
 	img 	 			: 'Debes agregar una imagen',
-	purpose 			: 'Debes agregar un texto de máximo 800 caracteres',
-	general_objetive 	: 'Debes agregar un texto de máximo 500 caracteres',
-	specific_objetive 	: 'Debes agregar un texto de máximo 800 caracteres',
-	competence 			: 'Debes agregar un texto de máximo 800 caracteres',
+	purpose 			: 'Debes agregar un texto.',
+	general_objetive 	: 'Debes agregar un texto.',
+	specific_objetive 	: 'Debes agregar un texto.',
+	competence 			: 'Debes agregar un texto.',
 	course 		 		: 'Debes elegir un curso',
 	description 		: 'Debes agregar un texto de máximo 800 caracteres',
-
 	ask					: 'Debes agregar entre 3 y 120 caracteres', 
 	answer				: 'Debes agregar entre 3 y 120 caracteres', 
 	bad1				: 'Debes agregar entre 3 y 120 caracteres', 
@@ -105,11 +104,14 @@ const messagesInputs = {
 	bad3				: 'Debes agregar entre 3 y 120 caracteres', 
 };
 
+//Variables del programa.
 let inputs = document.querySelectorAll(".form__input");
 let messages = document.querySelectorAll(".form__message-error");
 let input, regex, message = null;
 let inputsForms = [];
 
+
+//Creamos un objeto de tipo Input para cada input.
 inputs.forEach( (item)=> {
 	regex 	= regexInputs[item.name];
 	message = messagesInputs[item.name];
@@ -117,6 +119,8 @@ inputs.forEach( (item)=> {
 	inputsForms.push(input);
 });
 
+
+//Chequeamos el input. 
 function checkField(){
 	inputsForms.forEach( (item) =>{
 		item.checkExpression();
@@ -125,6 +129,7 @@ function checkField(){
 }
 
 
+//Comprobamos todos los campos esten validados antes de enviarse el formulario.
 const send = document.querySelector('.form__send');
 send.addEventListener('click', (e) =>{
 	checkField();
@@ -134,6 +139,7 @@ send.addEventListener('click', (e) =>{
 });
 
 
+//Comprueba que todos los campos esten validados.
 function allCheck(){
 	let validated = true;	
 	inputsForms.forEach( (item)=>{

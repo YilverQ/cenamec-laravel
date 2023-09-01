@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 /*Importamos los modelos*/
 use App\Models\Course;
@@ -30,7 +31,10 @@ class CourseController extends Controller
         //Buscamos los cursos asignados al profesor. 
         $teacher_id = $request->session()->get('teacher_id');
         $teacher = Teacher::find($teacher_id);
-        $courses = $teacher->courses()->withCount('modules')->get(); 
+        $courses = $teacher->courses()
+                            ->withCount('modules')
+                            ->orderBy('updated_at', 'desc')
+                            ->get(); 
 
         return view('course.index')
                 ->with("courses", $courses);
@@ -78,14 +82,17 @@ class CourseController extends Controller
         $urlImage = $request->file('img')->store('public/imgCourses');
         $urlImage = Storage::url($urlImage);
 
+        //Almacenamos los saltos de linea
+        $competence = nl2br($request->input('competence'));
+        $specific_objetive = nl2br($request->input('competence'));
         
         //Persistimos los datos en la bd.
         $course = new Course;
         $course->name        = $request->input('super_name');
         $course->purpose     = $request->input('purpose');
         $course->general_objetive  = $request->input('general_objetive');
-        $course->specific_objetive = $request->input('specific_objetive');
-        $course->competence  = $request->input('competence');
+        $course->specific_objetive = $specific_objetive;
+        $course->competence  = competence;
         $course->disabled    = $request->input('disabled');
         $course->img         = $urlImage;
         $course->save();
@@ -102,25 +109,125 @@ class CourseController extends Controller
 
     /**
      * Retornamos una vista que nos muestra un elemento.
-     * Buscamos el profesor de nuestra sessión. 
      * Buscamos los módulos que tiene el curso que viene por párametro.
      * retornamos todos los datos. 
      */
     public function show(Request $request, Course $item)
     {
+        //Variables auxiliares. 
+        $studentsApproved      = 0;
+        $studentsTaking        = 0;
+        $studentsNotStarted    = 0;
+        $studentsPercentageApproved    = 0;
+        $studentsPercentageTaking      = 0;
+        $studentsPercentageNotStarted  = 0;
+        $modulesApproved = 0;
+        $modulesState = [];
+
+
         //Buscamos los datos. 
-        $teacher = $request->session()->get('teacher_id');
-        $teacher = Teacher::find($teacher);
+        $teachers = $item->teachers;
+        $students = $item->students;
         $modules = Module::where('course_id', $item->id)
                         ->orderBy('level')
                         ->withCount('notes')
                         ->withCount('questionnaires')
-                        ->get(); 
+                        ->get();
+
+        
+
+        $lastModule = Module::where('course_id', $item->id)
+                        ->orderBy('level', 'desc')
+                        ->first();
+
+
+        //Asignamos el campo de levelComplete. 
+        //levelComplete sirve para conocer el módulo donde se quedó el estudiante.
+        foreach ($students as $key => $value) {
+            //Buscamos los datos. 
+            $studentModule = Module::where('course_id', $item->id) 
+                                    ->join('module_student', 'module_student.module_id', '=', 'modules.id') 
+                                    ->join('students', 'students.id', '=', 'module_student.student_id') 
+                                    ->where('students.id', '=', $value->id) 
+                                    ->where('module_student.state', '=', 'finished') 
+                                    ->orderBy('level', 'desc') 
+                                    ->first();
+            
+            if ($studentModule) {
+                if ($studentModule->level == $lastModule->level) {
+                    $studentsApproved += 1; 
+                    $students[$key]->levelComplete = "Curso finalizado";
+                }
+                else{
+                    $studentsTaking += 1; 
+                    $students[$key]->levelComplete = $studentModule->level . "° Módulo";
+                }
+                $modulesApproved += $studentModule->level;
+            }
+            else{
+                $studentsNotStarted += 1; 
+                $students[$key]->levelComplete = "No ha empezado";
+            }
+        }
+
+        if ($studentsApproved == 0) {
+            $studentsPercentageApproved = 0;
+        }else{
+            $studentsPercentageApproved = ($studentsApproved * 100) / count($students);
+        }
+
+        if ($studentsApproved == 0) {
+            $studentsPercentageTaking = 0;
+        }else{
+            $studentsPercentageTaking = ($studentsTaking * 100) / count($students);
+        }
+
+        if ($studentsApproved == 0) {
+            $studentsPercentageNotStarted = 0;
+        }else{
+            $studentsPercentageNotStarted = ($studentsNotStarted * 100) / count($students);
+        }
+
+        //Contamos las notas educativas.
+        //Contamos los cuestionarios educativas.
+        $notes_count = 0;
+        $questionnaires_count = 0;
+        foreach ($modules as $key => $value) {
+            $notes_count = $notes_count + $value->notes_count;
+            $questionnaires_count = $questionnaires_count + $value->questionnaires_count;
+        }
+
+
+        for ($i=0; $i < $lastModule->level; $i++) { 
+            $approved = DB::table('module_student')
+                                        ->where('state', 'finished')
+                                        ->where('module_id', $modules[$i]->id)
+                                        ->count();
+            $taking = DB::table('module_student')
+                                        ->where('state', 'active')
+                                        ->where('module_id', $modules[$i]->id)
+                                        ->count();
+
+            $modulesState["Módulo ". $i+1] = ["Approved" => $approved,
+                                            "Taking" => $taking];
+        }
+
 
         //Retornamos todos los datos a la vista. 
         return view('course.show')
+                ->with("studentsApproved", $studentsApproved)
+                ->with("studentsTaking", $studentsTaking)
+                ->with("studentsNotStarted", $studentsNotStarted)
+                ->with("studentsPercentageApproved", $studentsPercentageApproved)
+                ->with("studentsPercentageTaking", $studentsPercentageTaking)
+                ->with("studentsPercentageNotStarted", $studentsPercentageNotStarted)
+                ->with("modulesApproved", $modulesApproved)
+                ->with("modulesState", $modulesState)
+                ->with("notes_count", $notes_count)
+                ->with("questionnaires_count", $questionnaires_count)
                 ->with("course", $item)
-                ->with("teacher", $teacher)
+                ->with("teachers", $teachers)
+                ->with("students", $students)
                 ->with("modules", $modules);
     }
 
@@ -185,12 +292,17 @@ class CourseController extends Controller
             $item->img = $urlImage;
         }
 
+        //Almacenamos los saltos de linea
+        $competence = nl2br($request->input('competence'));
+        $specific_objetive = nl2br($request->input('competence'));
+        
+
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
         $item->name        = $request->input('super_name');
         $item->purpose     = $request->input('purpose');
         $item->general_objetive  = $request->input('general_objetive');
-        $item->specific_objetive = $request->input('specific_objetive');
-        $item->competence  = $request->input('competence');
+        $item->specific_objetive = $specific_objetive;
+        $item->competence  = $competence;
         $item->disabled    = $request->input('disabled');
         $item->save();
 

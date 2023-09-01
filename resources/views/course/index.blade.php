@@ -40,9 +40,6 @@
 
 		<!--Information-->
 		<article class="article">
-			<h2 class="tab__title--centered">
-				Lista de <strong class="color-Text">cursos</strong>
-			</h2>
 			<div class="containerCourses">
 				
 	        	@foreach ($courses as $key => $item)

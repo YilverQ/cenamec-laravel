@@ -101,7 +101,7 @@
 			@endif
 			<div class="bottonEnd">
 				@if ($certificate)
-				<a href="#">
+				<a href="{{ route('certificate.show', $certificate) }}">
 					<li class="bottonEnd__text bottonEnd__text--contrast">
 						Generar certificado
 					</li>
