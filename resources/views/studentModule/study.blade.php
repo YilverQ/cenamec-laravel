@@ -58,7 +58,7 @@
 				<div class="note note--hidden">
 					<img src="{{ $item->img }}" alt="Imagen de una nota" class="note__img">
 					<h3 class="note__title">{{ $item->title }}</h3>
-					<p class="note__description">{{ $item->description }}</p>
+					<p class="note__description">{!! nl2br($item->description) !!}</p>
 				</div>
 				@endif
 				@endforeach

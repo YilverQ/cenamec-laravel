@@ -52,21 +52,22 @@
 	</div>
 
 		<!--Information-->
-		<article class="article">
+		<article class="article article--whitoutPadding">
 			<section class="profile">
 				<div class="superContainerFixed">
-				<div class="container_img">
-					<div class="profile__container-img">
-						<img class="profile__img" 
-							src="{{ asset($student->profileimg->url) }}" 
-							alt="Niño aprendiendo">
+					<div class="container_img">
+						<div class="profile__container-img">
+							<img class="profile__img" 
+								src="{{ asset($student->profileimg->url) }}" 
+								alt="Niño aprendiendo">
+						</div>
+						<ul class="boxButtonProfile">
+							<li class="buttonProfile" 
+							id="profileimg">
+								Editar foto de perfil
+							</li>
+						</ul>
 					</div>
-					<ul class="header__bottons">
-						<li class="header__loginItem header__loginItem--contrast" id="profileimg">
-							Editar foto de perfil
-						</li>
-					</ul>
-				</div>
 				</div>
 
 				<div class="container_profile">
@@ -197,10 +198,16 @@
 							<select class="form__input form__input--select" 
 										name="state" 
 										id="state">
-								<option disabled selected>{{ $student->parishe->municipalitie->state->name }}</option>
+								<option disabled selected id="opt-state">{{ $student->parishe->municipalitie->state->name }}</option>
 								@foreach($states as $key => $item)
 								<option value="{{ $item->name }}">{{ $item->name }}</option>
 								@endforeach
+							</select>
+						</div>
+						<div class="form__item form__item--disabled--municipalitie form__item--hidden">
+							<label>Municipio:</label>
+							<select class="form__input--disabled">
+								<option disabled selected>Selecciona un estado primero</option>
 							</select>
 						</div>
 						<div class="form__item form__item--municipalitie">
@@ -208,7 +215,7 @@
 							<select class="form__input form__input--select" 
 										name="municipalitie" 
 										id="municipalitie">
-								<option disabled selected>{{ $student->parishe->municipalitie->name }}</option>
+								<option disabled selected id="opt-municipalitie">{{ $student->parishe->municipalitie->name }}</option>
 								@foreach($municipalities as $key => $item)
 								<option value="{{ $item->name }}" class="municipalitie municipalitie--{{ str_replace(' ', '_', $item->state->name) }}">{{ $item->name }}</option>
 								@endforeach
@@ -216,12 +223,21 @@
 						</div>
 					</div>
 					<div class="grid-one">
+						<div class="form__item 
+						form__item--disabled--parishe 
+						form__item--disabled
+						form__item--hidden">
+							<label>Parroquia:</label>
+							<select class="form__input--disabled">
+								<option disabled selected>Selecciona un municipio primero</option>
+							</select>
+						</div>
 						<div class="form__item form__item--parishe">
 							<label for="parishe">Parroquia:</label>
 							<select class="form__input form__input--select" 
 										name="parishe" 
 										id="parishe">
-								<option value="{{ $student->parishe->id }}" 
+								<option id="opt-parishe" value="{{ $student->parishe->id }}" 
 										selected>{{ $student->parishe->name }}</option>
 								@foreach($parishes as $key => $item)
 								<option value="{{ $item->id }}" 
@@ -273,6 +289,7 @@
 @section('scripts')
 	<script type="module" src="{{ asset('js/form/formEye.js') }}"></script>
 	<script type="module" src="{{ asset('js/form/form.js') }}"></script>
-	<script type="module" src="{{ asset('js/form/checkUbicationUpdate.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/resetUbication.js') }}"></script>
+	<script type="module" src="{{ asset('js/form/checkUbication.js') }}"></script>
 	<script type="module" src="{{ asset('js/components/profileImg.js') }}"></script>
 @endsection

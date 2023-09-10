@@ -45,7 +45,7 @@ class QuestionnaireSeeder extends Seeder
             'module_id'   => 1,
         ]);
         Questionnaire::create([
-            'ask'    => '¿Cuál es el pigmento responsable de la captura de la luz en la fase luminosa de la fotosíntesis?',
+            'ask'    => '¿Cuál es el pigmento responsable de la capturar la luz en la fase luminosa de la fotosíntesis?',
             'answer' => "Clorofila",
             'bad1'   => "Caroteno",
             'bad2'   => "Antocianina",
@@ -65,22 +65,12 @@ class QuestionnaireSeeder extends Seeder
             'module_id'   => 2,
         ]);
         Questionnaire::create([
-            'ask'    => '¿Cuál es el producto final de la fase oscura de la fotosíntesis?',
-            'answer' => "Glucosa",
-            'bad1'   => "Oxígeno",
-            'bad2'   => "Dióxido de carbono",
-            'bad3'   => "Agua",
-            'level'  => 3,
-            'teacher_id'  => 1,
-            'module_id'   => 2,
-        ]);
-        Questionnaire::create([
-            'ask'    => '¿En qué fase de la fotosíntesis se produce el ATP y NADPH que se utilizan en la fase oscura?',
+            'ask'    => '¿En qué fase de la fotosíntesis se produce el ATP y NADPH?',
             'answer' => "Fase luminosa",
             'bad1'   => "Fase oscura",
             'bad2'   => "Fase de fijación de carbono",
             'bad3'   => "Fase de transporte de electrones",
-            'level'  => 4,
+            'level'  => 3,
             'teacher_id'  => 1,
             'module_id'   => 2,
         ]);
@@ -111,16 +101,6 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Reflejar la luz verde",
             'bad3'   => "Capturar la energía luminosa del sol",
             'level'  => 3,
-            'teacher_id'  => 1,
-            'module_id'   => 3,
-        ]);
-        Questionnaire::create([
-            'ask'    => '¿Dónde se encuentra la clorofila?',
-            'answer' => "En los cloroplastos de las células vegetales",
-            'bad1'   => "En los núcleos de las células vegetales",
-            'bad2'   => "En las mitocondrias de las células vegetales",
-            'bad3'   => "En la pared celular de las células vegetales",
-            'level'  => 4,
             'teacher_id'  => 1,
             'module_id'   => 3,
         ]);
@@ -689,32 +669,12 @@ class QuestionnaireSeeder extends Seeder
             'module_id'   => 18,
         ]);
         Questionnaire::create([
-            'ask'    => 'las partículas que forman el líquido están juntas pero no tan cerca como: ',
-            'answer' => "El estado sólido",
-            'bad1'   => "El estado gaseoso",
-            'bad2'   => "El vapor",
-            'bad3'   => "El Hierro",
-            'level'  => 1,
-            'teacher_id'  => 1,
-            'module_id'   => 18,
-        ]);
-        Questionnaire::create([
-            'ask'    => 'las partículas que forman el líquido están juntas pero no tan cerca como: ',
-            'answer' => "El estado sólido",
-            'bad1'   => "El estado gaseoso",
-            'bad2'   => "El vapor",
-            'bad3'   => "El Hierro",
-            'level'  => 2,
-            'teacher_id'  => 1,
-            'module_id'   => 18,
-        ]);
-        Questionnaire::create([
             'ask'    => '¿Cuáles son las características principales del estado líquido?',
             'answer' => "Forma, volumen y fluidez.",
             'bad1'   => "Forma, volumen y tamaño",
             'bad2'   => "Volumen, forma y densidad.",
             'bad3'   => "Volumen, densidad y tamaño",
-            'level'  => 3,
+            'level'  => 2,
             'teacher_id'  => 1,
             'module_id'   => 18,
         ]);
@@ -724,7 +684,7 @@ class QuestionnaireSeeder extends Seeder
             'bad1'   => "Viscosidad.",
             'bad2'   => "Densidad.",
             'bad3'   => "Capilaridad.",
-            'level'  => 4,
+            'level'  => 3,
             'teacher_id'  => 1,
             'module_id'   => 18,
         ]);
@@ -734,7 +694,7 @@ class QuestionnaireSeeder extends Seeder
             'bad1'   => "Puntos de fusión.",
             'bad2'   => "Ebullición.",
             'bad3'   => "Calor específico.",
-            'level'  => 5,
+            'level'  => 4,
             'teacher_id'  => 1,
             'module_id'   => 18,
         ]);
@@ -744,19 +704,9 @@ class QuestionnaireSeeder extends Seeder
             'bad1'   => "Industria farmacéutica.",
             'bad2'   => "Industria petrolera.",
             'bad3'   => "Industria automotriz.",
-            'level'  => 6,
+            'level'  => 5,
             'teacher_id'  => 1,
             'module_id'   => 18,
-        ]);
-        Questionnaire::create([
-            'ask'    => 'Las partículas que componen la sustancia se encuentran en constante movimiento y separadas entre sí',
-            'answer' => "Gaseoso.",
-            'bad1'   => "Sólido.",
-            'bad2'   => "Líquido.",
-            'bad3'   => "Viscosidad.",
-            'level'  => 1,
-            'teacher_id'  => 1,
-            'module_id'   => 19,
         ]);
         Questionnaire::create([
             'ask'    => 'Propiedades térmicas del estado gaseoso:',

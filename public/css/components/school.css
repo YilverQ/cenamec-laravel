@@ -16,7 +16,6 @@
 	column-gap: 10px;
 	width: 80%;
 	margin: auto;
-
 }
 .sequence__item-box{
 	cursor: pointer;
@@ -40,6 +39,16 @@
 .buttonHidden{
 	background: black;
 	display: none;
+}
+
+@media (max-width: 450px){
+	.sequence__line{
+		display: none;
+	}
+	.sequence__item{
+		font-size: 14px;
+		padding: 5px 10px;
+	}
 }
 
 

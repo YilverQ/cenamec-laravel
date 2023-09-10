@@ -17,4 +17,8 @@ if (crossMessage) {
 	crossMessage.addEventListener('click', function (){
 		message.classList.add('hidden');
 	});
+
+	setTimeout(function() {
+        message.classList.add('hidden');
+    }, 2000);
 }

@@ -289,7 +289,6 @@
 	visibility: hidden;
 }
 
-
 /*Media queries - form*/
 @media (max-width: 520px){
 	.form__content{
@@ -317,6 +316,21 @@
 	}
 	#btn{
 		max-width: 125px;
+	}
+}
+
+/*Media queries - form*/
+@media (max-width: 550px){
+	.form__content--big{
+		width: 98%;
+		margin: 20px auto;
+	}
+	.grid-two{
+		flex-flow: column;
+		justify-content: center;
+	}
+	.form__item{
+		width: 90%;
 	}
 }
 

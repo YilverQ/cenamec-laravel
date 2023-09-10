@@ -17,11 +17,7 @@ class NoteSeeder extends Seeder
         Note::create([
             'title'       => "El proceso de la fotosíntesis", 
             'img'         => '/storage/imgNotes/foto01.jpeg',
-            'description' => "La fotosíntesis es un proceso muy especial que realizan las plantas para poder crecer y obtener alimentos. Es como si las plantas tuvieran su propia cocina dentro de ellas, donde pueden fabricar su propio alimento.
-
-¿Sabías que las plantas pueden hacer algo que nosotros no podemos? Ellas pueden capturar la energía del sol y convertirla en alimento. Esto ocurre en las hojas de las plantas, que tienen algo llamado clorofila, que les da su color verde.
-
-La fotosíntesis es un proceso muy inteligente y sorprendente que las plantas realizan para sobrevivir y ayudar a todo el ecosistema. Así que, la próxima vez que veas una planta, ¡recuerda todo lo que hacen por nosotros a través de la fotosíntesis!", 
+            'description' => "La fotosíntesis es un proceso en el que las plantas utilizan la energía del sol para fabricar su propio alimento. Esto ocurre en las hojas, que contienen clorofila y les da su color verde. Es un proceso inteligente que las plantas realizan para sobrevivir y colaborar con el ecosistema.", 
             'level'       => 1,
             'teacher_id'  => 1,
             'module_id'   => 1,
@@ -37,7 +33,7 @@ La fotosíntesis es un proceso muy inteligente y sorprendente que las plantas re
         Note::create([
             'title'       => "La fase luminosa de la fotosíntesis", 
             'img'         => '/storage/imgNotes/foto03.jpeg',
-            'description' => "La fase luminosa de la fotosíntesis es cuando las plantas usan la energía del sol para convertir agua y dióxido de carbono en comida y oxígeno. Esta conversión ocurre en las hojas de las plantas gracias a un pigmento llamado clorofila. Es como una 'cocina' donde la luz es absorbida por la clorofila y se utiliza para romper las moléculas de agua en hidrógeno y oxígeno. El oxígeno se libera al aire y el hidrógeno se usa en otra etapa de la fotosíntesis.", 
+            'description' => "En la fase luminosa de la fotosíntesis, las plantas utilizan la energía del sol para transformar el agua y el dióxido de carbono en alimento y oxígeno. Este proceso tiene lugar en las hojas de las plantas y es posible gracias a la presencia de un pigmento llamado clorofila. Durante esta fase, la clorofila absorbe la luz y la utiliza para descomponer las moléculas de agua en hidrógeno y oxígeno. El oxígeno se libera al aire, mientras que el hidrógeno se emplea en una etapa posterior de la fotosíntesis.", 
             'level'       => 1,
             'teacher_id'  => 1,
             'module_id'   => 2,
@@ -45,9 +41,7 @@ La fotosíntesis es un proceso muy inteligente y sorprendente que las plantas re
         Note::create([
             'title'       => "La fase oscura de la fotosíntesis", 
             'img'         => '/storage/imgNotes/foto04.jpeg',
-            'description' => "La fase oscura de la fotosíntesis es una parte muy importante en la vida de las plantas. Es cuando las plantas hacen su propia comida usando dióxido de carbono y la energía que obtienen de la luz solar. Así pueden crecer y reproducirse. También producen oxígeno, que es vital para todos los seres vivos. Las plantas son realmente especiales porque pueden hacer su propia comida y ayudarnos a respirar. 
-
-Aunque la fase oscura no depende directamente de la luz solar, ya que no requiere de ella para que ocurran las reacciones, sí depende de los productos energéticos generados en la fase luminosa.", 
+            'description' => "La fase oscura de la fotosíntesis es esencial para la vida de las plantas. Durante esta etapa, las plantas utilizan dióxido de carbono y la energía de la luz solar para producir su propio alimento. Además, liberan oxígeno, lo cual es vital para todos los seres vivos. Aunque la fase oscura no requiere de la luz solar directamente, depende de los productos energéticos que se generan en la fase luminosa. Las plantas tienen esta capacidad única de crear su propio alimento y proporcionarnos oxígeno, lo que las hace realmente especiales.", 
             'level'       => 2,
             'teacher_id'  => 1,
             'module_id'   => 2,
@@ -55,9 +49,7 @@ Aunque la fase oscura no depende directamente de la luz solar, ya que no requier
         Note::create([
             'title'       => "Diferencia entre la fase luminosa y oscura de la fotosíntesis", 
             'img'         => '/storage/imgNotes/foto05.jpeg',
-            'description' => "La fase luminosa de la fotosíntesis es la primera etapa del proceso, en la cual la luz solar es capturada por los pigmentos de los cloroplastos, como la clorofila, y se convierte en energía química en forma de ATP y NADPH. Esta energía se utiliza en la fase oscura de la fotosíntesis.
-
-La fase oscura, también conocida como ciclo de Calvin, es la segunda etapa. En esta etapa, el ATP y el NADPH producidos en la fase luminosa se utilizan para convertir el dióxido de carbono en glucosa y otros compuestos orgánicos utilizando una serie de reacciones químicas. La fase oscura no requiere luz directa para suceder, pero depende de la energía almacenada en forma de ATP y NADPH.", 
+            'description' => "La fase luminosa de la fotosíntesis es la primera etapa donde la luz solar se convierte en energía química en forma de ATP y NADPH. Esta energía se utiliza en la fase oscura, la segunda etapa también conocida como ciclo de Calvin. En esta etapa, se utiliza el ATP y NADPH para convertir el dióxido de carbono en glucosa y otros compuestos orgánicos. A diferencia de la fase luminosa, la fase oscura no requiere luz directa, pero depende de la energía almacenada en forma de ATP y NADPH. En resumen, en la fase luminosa se captura la energía de la luz solar y en la fase oscura se utiliza esa energía para producir glucosa y otros compuestos.", 
             'level'       => 3,
             'teacher_id'  => 1,
             'module_id'   => 2,
@@ -65,13 +57,7 @@ La fase oscura, también conocida como ciclo de Calvin, es la segunda etapa. En 
         Note::create([
             'title'       => "La clorofila y sus pigmentos fotosintéticos", 
             'img'         => '/storage/imgNotes/foto06.jpeg',
-            'description' => "La clorofila es un pigmento fotosintético presente en las plantas y algunas bacterias, responsable de capturar la energía luminosa del sol y convertirla en energía química a través del proceso de la fotosíntesis.
-
-Existen varios tipos de clorofila, siendo el más común la clorofila a, presente en la mayoría de las plantas verdes. La clorofila a es de color verde, ya que absorbe principalmente la luz azul y roja, reflejando la luz verde.
-
-Además de la clorofila a, existen otros tipos de clorofila, como la clorofila b, presente en las plantas terrestres y algas verdes. La clorofila b es similar a la clorofila a en su estructura, pero su función principal es ampliar el rango de absorción de luz de la planta.
-
-Los pigmentos fotosintéticos, como las clorofilas a y b, son esenciales en el proceso de la fotosíntesis, ya que absorben la energía luminosa y la transfieren a los centros de reacción fotosintéticos, donde se llevan a cabo las reacciones químicas necesarias para producir energía química en forma de ATP y NADPH.", 
+            'description' => "La clorofila es un pigmento que se encuentra en las plantas y en algunas bacterias y su función es capturar la energía del sol y convertirla en energía química a través de la fotosíntesis. Existen diferentes tipos de clorofila, siendo la más común la clorofila a, que es de color verde y absorbe principalmente luz azul y roja, reflejando la luz verde. También existe la clorofila b, presente en plantas terrestres y algas verdes, que amplía el rango de absorción de luz de la planta. Estos pigmentos son esenciales en la fotosíntesis, ya que absorben la energía luminosa y la transfieren a los centros de reacción fotosintéticos, donde se llevan a cabo las reacciones químicas para producir energía química en forma de ATP y NADPH.", 
             'level'       => 1,
             'teacher_id'  => 1,
             'module_id'   => 3,
@@ -79,11 +65,7 @@ Los pigmentos fotosintéticos, como las clorofilas a y b, son esenciales en el p
         Note::create([
             'title'       => "Rol de la clorofila en el proceso de la fotosíntesis", 
             'img'         => '/storage/imgNotes/foto07.jpeg',
-            'description' => "La clorofila desempeña un papel crucial en el proceso de la fotosíntesis. Es un pigmento verde que se encuentra en los cloroplastos de las células vegetales y es responsable de capturar la energía lumínica del sol.
-
-La clorofila absorbe la luz en la región del espectro visible, principalmente en los rangos de color azul y rojo. Esta energía absorbida se utiliza para impulsar la reacción química en la que se convierte el dióxido de carbono y el agua en glucosa y oxígeno.
-
-En el proceso de fotosíntesis, la clorofila juega un papel esencial como el principal pigmento fotoreceptor. Captura la energía lumínica y la convierte en energía química, que se almacena en forma de glucosa. Esta glucosa se utiliza como fuente de energía para el crecimiento y desarrollo de la planta.", 
+            'description' => "La clorofila es un pigmento verde en los cloroplastos de las células vegetales que captura la energía del sol. Absorbe principalmente la luz azul y roja, utilizándola para convertir dióxido de carbono y agua en glucosa y oxígeno. En la fotosíntesis, la clorofila es esencial para capturar la energía lumínica y convertirla en energía química almacenada en forma de glucosa, que la planta utiliza para crecer y desarrollarse.a glucosa se utiliza como fuente de energía para el crecimiento y desarrollo de la planta.", 
             'level'       => 2,
             'teacher_id'  => 1,
             'module_id'   => 3,
@@ -141,7 +123,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
         Note::create([
             'title'       => "Importancia del equilibrio del carbono en la atmósfera", 
             'img'         => '/storage/imgNotes/foto14.jpeg',
-            'description' => "El equilibrio del carbono en la atmósfera es fundamental para mantener la estabilidad climática y el funcionamiento de los ecosistemas. La fotosíntesis es el proceso mediante el cual las plantas y otros organismos fotosintéticos convierten el dióxido de carbono (CO2) en carbohidratos, liberando oxígeno (O2) como subproducto. Esta transformación reduce la concentración de CO2 en la atmósfera y ayuda a regular el efecto invernadero. Asimismo, el CO2 es utilizado por los organismos para sintetizar compuestos orgánicos, lo que permite el flujo continuo de carbono a través de la cadena alimentaria. En resumen, el equilibrio del carbono en la atmósfera es esencial para mantener el clima adecuado y garantizar la supervivencia de los seres vivos.", 
+            'description' => "El equilibrio del carbono en la atmósfera es crucial para la estabilidad del clima y el funcionamiento de los ecosistemas. La fotosíntesis es el proceso en el cual las plantas y otros organismos convierten el dióxido de carbono en carbohidratos, liberando oxígeno como un subproducto. Esto reduce la concentración de CO2 en la atmósfera y ayuda a regular el efecto invernadero. Además, el CO2 es utilizado por los organismos para crear compuestos orgánicos, permitiendo que el carbono fluya continuamente a través de la cadena alimentaria. En resumen, el equilibrio del carbono en la atmósfera es esencial para mantener un clima adecuado y asegurar la supervivencia de los seres vivos.", 
             'level'       => 3,
             'teacher_id'  => 1,
             'module_id'   => 5,
@@ -149,7 +131,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
         Note::create([
             'title'       => "Fotosíntesis en plantas terrestres", 
             'img'         => '/storage/imgNotes/foto15.jpeg',
-            'description' => "La fotosíntesis en plantas terrestres ocurre en las células de las hojas, donde hay un alto contenido de cloroplastos. Estas estructuras especializadas contienen pigmentos verdes llamados clorofila que capturan la energía de la luz solar. Durante la fotosíntesis, las plantas terrestres toman dióxido de carbono del aire a través de pequeños poros en las hojas llamados estomas, y liberan oxígeno como subproducto. La energía solar es utilizada para convertir la energía luminosa en energía química, que se almacena en forma de glucosa y otros carbohidratos. Estos carbohidratos son esenciales para el crecimiento y desarrollo de la planta, y también se utilizan como fuente de energía para otros procesos vitales.", 
+            'description' => "La fotosíntesis en plantas terrestres ocurre en las células de las hojas, donde se encuentran los cloroplastos. Estos contienen clorofila, que captura la energía de la luz solar. Durante la fotosíntesis, las plantas toman dióxido de carbono del aire y liberan oxígeno. La energía solar se convierte en energía química, que se almacena en forma de glucosa y otros carbohidratos. Estos carbohidratos son esenciales para el crecimiento y desarrollo de la planta, así como para otros procesos vitales.", 
             'level'       => 1,
             'teacher_id'  => 1,
             'module_id'   => 6,
@@ -157,9 +139,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
         Note::create([
             'title'       => "Fotosíntesis en plantas acuáticas", 
             'img'         => '/storage/imgNotes/foto16.jpeg',
-            'description' => "Las plantas acuáticas también realizan la fotosíntesis, pero en un entorno acuático. A diferencia de las plantas terrestres, las plantas acuáticas tienen células vegetales especializadas llamadas 'células acuáticas' que les permiten adaptarse a su entorno acuático. Estas células tienen una capa externa delgada y permeable que permite el intercambio de gases y nutrientes con el agua circundante.
-
-Al igual que las plantas terrestres, las plantas acuáticas también tienen cloroplastos que contienen clorofila y realizan la fotosíntesis. Sin embargo, debido a la disponibilidad constante de agua, las plantas acuáticas pueden tener una mayor eficiencia en la captura de dióxido de carbono disuelto en el agua. Además, algunas plantas acuáticas pueden tomar dióxido de carbono directamente del agua a través de sus raíces o absorberlo de la atmósfera a través de sus hojas sumergidas. Para la captura de luz solar, las plantas acuáticas tienen estructuras adaptadas como hojas flotantes o estrechas para maximizar la exposición a la luz. ", 
+            'description' => "Las plantas acuáticas realizan la fotosíntesis en un entorno acuático y cuentan con células especializadas llamadas 'células acuáticas' para adaptarse a este medio. Estas células tienen una capa externa delgada y permeable que permite el intercambio de gases y nutrientes con el agua. También tienen cloroplastos que contienen clorofila y realizan la fotosíntesis. Las plantas acuáticas pueden ser más eficientes en la captura de dióxido de carbono disuelto en el agua debido a su disponibilidad constante. Algunas plantas pueden absorber dióxido de carbono directamente del agua a través de sus raíces o de la atmósfera a través de sus hojas sumergidas. Para capturar la luz solar, las plantas acuáticas tienen estructuras adaptadas como hojas flotantes o estrechas para maximizar la exposición a la luz.", 
             'level'       => 2,
             'teacher_id'  => 1,
             'module_id'   => 6,
@@ -167,9 +147,7 @@ Al igual que las plantas terrestres, las plantas acuáticas también tienen clor
         Note::create([
             'title'       => "Importancia de la fotosíntesis en la producción de alimentos", 
             'img'         => '/storage/imgNotes/foto17.jpeg',
-            'description' => "La importancia de la fotosíntesis en la producción de alimentos radica en que gracias a este proceso se obtienen los nutrientes necesarios para el crecimiento y desarrollo. Las plantas, especialmente las verduras y frutas, son fuentes fundamentales de vitaminas, minerales y fibra que contribuyen a fortalecer su sistema inmunológico, mantener un adecuado funcionamiento de sus órganos y tejidos, así como asegurar una buena digestión.
-
-Además, la fotosíntesis es la base de la cadena alimentaria, ya que las plantas son el primer eslabón al ser consumidas por los herbívoros, estos a su vez serán consumidos por carnívoros u omnívoros y así sucesivamente. Por lo tanto, sin la fotosíntesis no habría alimentos disponibles para los seres vivos, incluidos los niños.", 
+            'description' => "La fotosíntesis es un proceso fundamental para la producción de alimentos ya que permite obtener los nutrientes necesarios para el crecimiento y desarrollo de las plantas. Además, la fotosíntesis es la base de la cadena alimentaria. Las plantas, como primer eslabón de esta cadena, son consumidas por herbívoros, quienes a su vez son consumidos por carnívoros u omnívoros, y así sucesivamente. Sin la fotosíntesis, no habría alimentos disponibles para los seres vivos, por lo tanto, este proceso es crucial para asegurar la existencia de alimentos para la supervivencia de todos los seres vivos.", 
             'level'       => 1,
             'teacher_id'  => 1,
             'module_id'   => 7,
@@ -177,9 +155,7 @@ Además, la fotosíntesis es la base de la cadena alimentaria, ya que las planta
         Note::create([
             'title'       => "Fotosíntesis y su influencia en el clima y la generación de oxígeno", 
             'img'         => '/storage/imgNotes/foto18.jpeg',
-            'description' => "El proceso de la fotosíntesis tiene una influencia crucial en el clima y en la generación de oxígeno en nuestro planeta. Las plantas absorben dióxido de carbono de la atmósfera durante la fotosíntesis, lo que ayuda a regular la cantidad de este gas de efecto invernadero en la atmósfera. El dióxido de carbono es uno de los responsables del calentamiento global, por lo que la fotosíntesis ayuda a enlentecer este proceso.
-
-Además, la fotosíntesis es la principal fuente de oxígeno en la Tierra. Durante este proceso, las plantas liberan oxígeno al ambiente, lo que es esencial para la vida en nuestro planeta. El oxígeno es necesario para que los seres vivos respiren y desempeña un papel crucial en la respiración celular, el proceso mediante el cual los organismos obtienen energía.", 
+            'description' => "La fotosíntesis es un proceso crucial para el clima y la generación de oxígeno en la Tierra. Las plantas absorben dióxido de carbono durante la fotosíntesis, lo que ayuda a regular el nivel de este gas de efecto invernadero en la atmósfera, ralentizando el calentamiento global. Además, la fotosíntesis es la principal fuente de oxígeno en nuestro planeta, ya que las plantas liberan oxígeno al ambiente. El oxígeno es esencial para la vida, ya que permite a los seres vivos respirar y desempeña un papel clave en la obtención de energía a través de la respiración celular.", 
             'level'       => 2,
             'teacher_id'  => 1,
             'module_id'   => 7,
@@ -541,14 +517,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
         Note::create([
             'title'       => "Ejemplos comunes de sustancias en estado sólido.", 
             'img'         => '/storage/imgNotes/materia05.jpeg',
-            'description' => "1. Hielo: el agua se encuentra en estado sólido a una temperatura inferior a 0 °C.
-2. Sal de mesa: la sal común se presenta como pequeños cristales sólidos.
-3. Hierro: el hierro puro se encuentra en estado sólido a temperatura ambiente.
-4. Azúcar: el azúcar de mesa se presenta como un sólido cristalino.
-5. Diamante: el diamante es una forma cristalina de carbono que se encuentra en estado sólido.
-6. Oro: el oro puro se encuentra en estado sólido a temperatura ambiente.
-7. Plomo: el plomo es un metal que se encuentra en estado sólido a temperatura ambiente.
-8. Aluminio: el aluminio es un metal que se encuentra en estado sólido a temperatura ambiente.", 
+            'description' => "1. Hielo, 2. Sal de mesa, 3. Hierro, 4. Azúcar, 5. Diamante, 6. Oro, 7. Plomo, 8. Aluminio.", 
             'level'       => 2,
             'teacher_id'  => 1,
             'module_id'   => 17,
@@ -568,9 +537,9 @@ Densidad: La densidad de un sólido es la relación entre su masa y su volumen. 
         Note::create([
             'title'       => "Propiedades térmicas del estado sólido: conducción, expansión térmica.", 
             'img'         => '/storage/imgNotes/materia07.jpeg',
-            'description' => "La conducción térmica se refiere a la transferencia de calor a través de un material sólido debido a la vibración de las partículas. En un sólido, las partículas están muy cerca unas de otras y se mantienen en una posición fija. Cuando se aplica calor a un extremo del sólido, las partículas cercanas comienzan a vibrar más rápidamente y transmiten esta energía térmica a las partículas adyacentes, lo que resulta en la transferencia de calor a través del material sólido.
+            'description' => "La conducción térmica es un proceso que ocurre en los materiales sólidos donde el calor se transfiere de una parte a otra debido a la vibración de las partículas. Cuando se calienta un extremo de un sólido, las partículas cercanas comienzan a moverse más rápido y transmiten esta energía térmica a las partículas adyacentes. Este movimiento de partículas causa la transferencia de calor a lo largo del material sólido.
 
-La expansión térmica se produce cuando un sólido experimenta un cambio en su tamaño o volumen debido al aumento de temperatura. Cuando se calienta un sólido, las partículas individuales vibran más rápidamente y ocupan más espacio, lo que resulta en una expansión del material. Por el contrario, cuando se enfría un sólido, las partículas se desaceleran y se contraen, lo que resulta en una contracción o disminución del tamaño del material.", 
+La expansión térmica ocurre cuando un sólido se calienta y su tamaño o volumen aumenta debido a que las partículas se mueven más rápido y ocupan más espacio. Por el contrario, cuando se enfría, las partículas se mueven más lentamente y el material se contrae, disminuyendo su tamaño.", 
             'level'       => 4,
             'teacher_id'  => 1,
             'module_id'   => 17,
@@ -590,19 +559,13 @@ Fragilidad: es la propiedad de un material de romperse o fracturarse con facilid
         Note::create([
             'title'       => "Usos y aplicaciones de los sólidos en la vida cotidiana.", 
             'img'         => '/storage/imgNotes/materia09.jpeg',
-            'description' => "Construcción y arquitectura: Los sólidos son utilizados en la construcción de edificios, puentes y carreteras. Los materiales sólidos como el hormigón, el acero y la madera son fundamentales en la construcción y dan forma y soporte a las estructuras.
-
-Mobiliario: Los objetos cotidianos como sillas, mesas, camas y armarios están hechos en su mayoría de materiales sólidos, como la madera, el metal y el plástico. Estos sólidos proporcionan durabilidad y resistencia a los muebles.
-
-Electrodomésticos y dispositivos electrónicos: Los sólidos se utilizan en la fabricación de electrodomésticos y dispositivos electrónicos como neveras, televisores, computadoras y teléfonos móviles. Por ejemplo, los componentes electrónicos, como los chips y circuitos impresos, están hechos de materiales sólidos.
-
-Envases y embalajes: Los envases y embalajes están hechos de materiales sólidos como el vidrio, el plástico y el metal para almacenar y proteger alimentos, bebidas y otros productos. Estos sólidos ayudan a mantener la frescura y calidad de los productos.
-
-Joyería y accesorios: Los sólidos son utilizados en la fabricación de joyas y accesorios como anillos, pulseras, collares y relojes. Los metales preciosos como el oro y la plata, así como las gemas y piedras preciosas, son sólidos utilizados en la joyería.
-
-Transporte: Los sólidos son esenciales en el campo del transporte. Los automóviles, aviones, trenes y barcos están hechos principalmente de materiales sólidos como el acero, el aluminio y el plástico.
-
-Ropa y textiles: Los sólidos también juegan un papel importante en la industria textil. Los tejidos y materiales utilizados en la ropa, como el algodón y el poliéster, son sólidos que proporcionan comodidad y protección en la vida diaria.
+            'description' => "Construcción y arquitectura
+Mobiliario
+Electrodomésticos y dispositivos electrónicos
+Envases y embalajes
+Joyería y accesorios
+Transporte
+Ropa y textiles
 
 En resumen, los sólidos están presentes en numerosos ámbitos de nuestra vida cotidiana, desde la construcción hasta la joyería, y desempeñan un papel crucial en la sociedad moderna.", 
             'level'       => 6,

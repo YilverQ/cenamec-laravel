@@ -19,12 +19,15 @@ selectState.addEventListener("click", ()=>{
 		inputMunicipalitieDisabled.classList.add('form__item--hidden');
 		inputMunicipalitie.classList.remove('form__item--hidden');
 		checkMunicipalitie(selectState.value);
+		checkParishe(selectMunicipalitie.value);
 		resetMunicipalitieField(selectMunicipalitie);
 		resetMunicipalitieField(selectParishe);
 	}
 	else{
 		inputMunicipalitieDisabled.classList.remove('form__item--hidden');
 		inputMunicipalitie.classList.add('form__item--hidden');
+		inputParisheDisabled.classList.remove('form__item--hidden');
+		inputParishe.classList.add('form__item--hidden');
 	}
 });
 

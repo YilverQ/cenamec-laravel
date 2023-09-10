@@ -128,23 +128,22 @@ class TeacherController extends Controller
         }
         
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $password = $request->input('password');
+        $password          = $request->input('reset_password');
         $item->firts_name  = $request->input('firts_name');
         $item->second_name = $request->input('second_name');
-        $item->lastname  = $request->input('lastname');
+        $item->lastname    = $request->input('lastname');
         $item->second_lastname = $request->input('second_lastname');
-        $item->gender    = $request->input('gender');
-        $item->birthdate = $request->input('birthdate');
+        $item->gender      = $request->input('gender');
+        $item->birthdate   = $request->input('birthdate');
         $item->identification_card = $request->input('identification_card');
         $item->number_phone = $request->input('number_phone');
-        $item->email    = $request->input('email');
-        $item->parishe_id = $request->input('parishe');
+        $item->email       = $request->input('email');
+        $item->parishe_id  = $request->input('parishe');
 
         /*Comprobamos si el usuario quizo actualizar su contraseña*/
         if ($password) {
-            $item->password = $request->input('password');
+            $item->password = $password;
         }
-
         $item->save();
         
         #Retorna un mensaje flash.

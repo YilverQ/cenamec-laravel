@@ -2,6 +2,8 @@ class Question{
 	constructor(cardQuestions){
 		this.questions = cardQuestions.children[1].children;
 		this.responsed = false;
+		this.successSound = new Audio('/audios/success.mp3');
+		this.errorSound = new Audio('/audios/error.mp3');
 	}
 
 	paintChoice(){
@@ -18,6 +20,10 @@ class Question{
 	sumScore(choice){
 		if (choice.classList.contains('answer-true') && this.responsed == false ){
 			score += 1;
+			this.successSound.play();
+		}
+		else{
+			this.errorSound.play();
 		}
 		this.responsed = true;
 	}
@@ -57,14 +63,18 @@ buttonSuperHidden.addEventListener('click', ()=>{
 	let porcentage = (score * 100) / num;
 	porcentage = Math.trunc(porcentage);
 	boxQuestion.classList.add('hidden');
-	if (porcentage >= 50){
+	if (porcentage >= 60){
 		boxPass.classList.remove('hidden');
 		valuePercentagePass.innerHTML = porcentage + "%";
 		pathPass.setAttribute('stroke-dasharray', porcentage + ', 100');
+		let successSound = new Audio('/audios/complete.mp3');
+		successSound.play();
 	}
 	else{
 		boxFail.classList.remove('hidden');
 		valuePercentageFail.innerHTML = porcentage + "%";
 		pathFail.setAttribute('stroke-dasharray', porcentage + ', 100');
+		let errorSound = new Audio('/audios/fail.mp3');
+		errorSound.play();
 	}
 });

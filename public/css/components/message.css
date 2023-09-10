@@ -25,3 +25,13 @@
 .hidden{
     display: none;
 }
+
+@media (max-width: 600px){
+    .message{
+        font-weight: 300;
+        font-size: 0.85em;
+        padding: .7em .5em;
+        padding-left: 1em;
+        max-width: min(100%, calc(500px));
+    }
+}

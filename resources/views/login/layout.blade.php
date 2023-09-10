@@ -33,7 +33,7 @@
   	<nav class="nav">
   		<div class="nav__contentLogos">
 			<a href="{{ route('login.home') }}" class="nav__home">
-			  <img src="{{ asset('img/logo1.png') }}" class="nav__logo">
+			  <img src="{{ asset('img/logo.jpeg') }}" class="nav__logo">
 			</a>
   		</div>
 		<ul class="nav__menu">
@@ -77,82 +77,6 @@
 
 	@yield('content')
 
-
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="endTitle">
-			<h3 class="endTitle__title">Aprende Ciencias con el CENAMEC</h3>
-			<ul class="header__bottons">
-				<a href="{{ route('login.signup') }}">
-					<li class="header__loginItem">
-						Empieza ahora
-					</li>
-				</a>
-			</ul>
-		</div>
-		<div class="endSections">
-			<div class="endSection">
-				<h4 class="endSection__title">Aprende más</h4>
-				<ul class="endSection__itemBox">
-					<li class="endSection__item"><a target="_blank" href="https://linktr.ee/fundacioncenamec">Libros</a></li>
-					<li class="endSection__item">
-						<a target="_blank" href="https://www.youtube.com/@DiplomadoenCienciayCalidadEduc">
-							Diplomado en ciencia y calidad educativa
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div class="endSection">
-				<h4 class="endSection__title">Otras Páginas</h4>
-				<ul class="endSection__itemBox">
-					<li class="endSection__item">
-						<a target="_blank" href="http://me.gob.ve/">
-							MPPPE
-						</a>
-					</li>
-					<li class="endSection__item">
-						<a target="_blank" href="https://www.instagram.com/fundacioncenamec/">
-							CENAMEC
-						</a>
-					</li>
-					<li class="endSection__item">
-						<a target="_blank" href="https://twitter.com/vs_cites">
-							CITES
-						</a>
-					</li>
-					<li class="endSection__item">
-						<a target="_blank" href="#">
-							Observatorio de la calidad educativa
-						</a>
-					</li>
-					<li class="endSection__item">
-						<a target="_blank" href="https://www.unesco.org/es/countries/ve">
-							UNESCO
-						</a>
-					</li>
-					<li class="endSection__item">
-						<a target="_blank" href="https://www.instagram.com/somos_unem/">
-							UNEM
-						</a>
-					</li>
-					<li class="endSection__item">
-						<a target="_blank" href="#">
-							Científicos en acción
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div class="endSection">
-				<h4 class="endSection__title">Redes Sociales</h4>
-				<ul class="endSection__itemBox">
-					<li class="endSection__item"><a target="_blank" href="https://www.instagram.com/fundacioncenamec/">Instagram</a></li>
-					<li class="endSection__item"><a target="_blank" href="https://www.facebook.com/CENAMEC.FUNDACION/">Facebook</a></li>
-					<li class="endSection__item"><a target="_blank" href="https://twitter.com/Funda_cenamec1">Twitter</a></li>
-					<li class="endSection__item"><a target="_blank" href="https://www.youtube.com/channel/UCpU6O2dZSh9IgBd6sVzPiPg">Youtube</a></li>
-				</ul>
-			</div>
-		</div>
-	</footer>
 
 
 	<!--Scripts-->

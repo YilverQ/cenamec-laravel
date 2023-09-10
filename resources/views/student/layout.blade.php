@@ -7,6 +7,10 @@
 
 	<!--Title-->
 	<title>@yield('title') - CENAMEC</title>
+	
+	<!--Fuentes de Fontawesome-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/solid.css') }}">
 
 	<!--Estilos-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/normalize.css') }}">
@@ -23,10 +27,6 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Quicksand&display=swap" rel="stylesheet"> 
-
-	<!--Fuentes de Fontawesome-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/solid.css') }}">
 
 </head>
 <body>

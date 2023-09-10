@@ -55,6 +55,12 @@ class Student extends Model
                                 'course_id');
     }
 
+    public function modulesWithPercentage ()
+    {
+        return $this->belongsToMany(Module::class)
+                    ->withPivot('percentage');
+    }
+
     public function modules()
     {
         return $this->belongsToMany(Module::class);

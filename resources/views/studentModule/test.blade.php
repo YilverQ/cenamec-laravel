@@ -45,6 +45,8 @@
 		                
 		                @csrf
 		                @method('POST')
+
+		                <input type="hidden" name="percentage" value="100">
 		                <button type="submit" class="header__loginItem header__loginItem--contrast">
 								Seguir Estudiando
 		                </button>                
@@ -129,11 +131,13 @@
 						        a 15.9155 15.9155 0 0 1 0 -31.831"
 						    />
 					      	<text x="18" y="20.35" class="percentage" id="value-percentage-pass">
-					      		70%
+					      		00%
 					      	</text>
 					    	</svg>
 					  	</div>
-				    	<p class="percentage--title">Porcentaje de aciertos</p>
+				    	<p class="percentage--title">
+				    		Porcentaje de aciertos
+				    	</p>
 					</div>
 
 					<div class="messageFinal__buttons">
@@ -144,7 +148,9 @@
 			                
 			                @csrf
 			                @method('POST')
-			                <button type="submit" class="header__loginItem header__loginItem--contrast">
+
+			                <input type="hidden" id="percentage" name="percentage" value="0">
+			                <button type="submit" id="submitPercentage" class="header__loginItem header__loginItem--contrast">
 									Seguir Estudiando
 			                </button>                
 			            </form>
@@ -183,12 +189,15 @@
 						        a 15.9155 15.9155 0 0 1 0 -31.831"
 						    />
 					      	<text x="18" y="20.35" class="percentage" id="value-percentage-fail">
-					      		30%
+					      		00%
 					      	</text>
 					    	</svg>
 					  	</div>
 				    	<p class="percentage--title">Porcentaje de aciertos</p>
 					</div>
+					<p class="percentage--title">
+						Debes tener al menos un 60% de aciertos para aprobar el módulo educativo
+					</p>
 
 					<div class="messageFinal__buttons">
 						<a href="{{ route('student.course.display', $course) }}">
@@ -211,4 +220,5 @@
 @section('scripts')
 	<script type="module" src="{{ asset('js/components/box-sequenceQuestionnaires.js') }}"></script>
 	<script type="module" src="{{ asset('js/questionnaire/answerClick.js') }}"></script>
+	<script type="module" src="{{ asset('js/questionnaire/inputPercentage.js') }}"></script>
 @endsection

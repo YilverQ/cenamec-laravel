@@ -9,7 +9,11 @@ use App\Models\User;
 use App\Models\State;
 use App\Models\Parishe;
 use App\Models\Profileimg;
+use App\Models\Certificate;
 use App\Models\Municipalitie;
+
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class StudentController extends Controller
@@ -29,11 +33,104 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
+        //Obtenemos algunos registros.
         $user_id = $request->session()->get('user_id');
         $user    = User::find($user_id);
+        $finishModules = $user->student->modulesWithPercentage()
+                         ->select('modules.*', 'module_student.percentage')
+                         ->where('state', 'finished')
+                         ->withPivot('percentage')
+                         ->orderBy('level')
+                         ->get();
+        $certificates = $user->student->certificates;
+
+        //Contamos algunos registros.
+        $courses = $user->student->courses;
+        $user->courses_count      =  count($courses);
+        $user->certificates_count =  count($certificates);
+        $user->modules_count      =  count($finishModules);
+        
+
+        //Dividimos los cursos en los que está inscrito el usuario 
+        //Y los que no está inscrito.
+        $courseApproved = [];
+        foreach ($certificates as $key => $certificate) {
+            array_push($courseApproved, $certificate->course);
+        }
+        $courseApproved     = $courses->diff($courseApproved);
+        $courseNotApproved  = $courses->intersect($courseApproved);
+
+        //Obtenemos el progreso de los cursos.
+        $percentageCourse = 0;
+        foreach ($courses as $key => $course) {
+            $modulesApproved = $user->student->modules()
+                                    ->where('state', 'finished')
+                                    ->where('course_id', $course->id)
+                                    ->get();
+
+            $modulesAll = $user->student->modulesWithPercentage()
+                            ->select('modules.*', 'module_student.percentage')
+                            ->where('course_id', $course->id)
+                            ->withPivot('percentage')
+                            ->get();
+
+            //Obtenemos la suma de todos los porcentajes.
+            foreach ($modulesAll as $key => $module) {
+                $percentageCourse += $module->percentage;
+            }
+
+            $course->progress   = intval((count($modulesApproved) * 100) / count($modulesAll));
+            $course->percentage = intval($percentageCourse / count($modulesAll)) / 5;
+            $percentageCourse = 0;
+
+            //obtenemos las fechas de los cursos del estudiante.
+            $course_student = DB::table('course_student')
+                    ->where('course_id', $course->id)
+                    ->where('student_id', $user->student->id)
+                    ->first(); 
+            $course->dateStart = date('d-m-Y', strtotime($course_student->dateStart));
+
+
+            //Asignamos los nuevos valores al modelo.
+            if (!is_null($course_student->dateFinished)) {
+                $course->dateFinished = date('d-m-Y', strtotime($course_student->dateFinished));
+            }
+            else{
+               $course->dateFinished = "Todavía no has finalizado."; 
+            }
+
+            //Obtenemos el certificado.
+            $certificate = Certificate::where('course_id', $course->id)
+                                ->where('student_id', $user->student->id)
+                                ->first();
+            if ($certificate) {
+               $course->certificate  = $certificate->id; 
+            }
+            else{
+               $course->certificate  = null;
+            }
+        }
+
+
+        //Contamos las notas educativas vista por el usuario.
+        $user->notes_count        =  0;
+        foreach ($finishModules as $key => $value) {
+            $user->notes_count += count($value->notes);
+        }
+
+        //Listamos las notas educativas vista por el usuario.
+        $notes = $finishModules->flatMap(function ($module) {
+            return $module->notes;
+        });
+
 
         return view('student.index')
-                ->with("student", $user);
+                    ->with("courseApproved", $courseApproved)
+                    ->with("courseNotApproved", $courseNotApproved)
+                    ->with("courses", $courses)
+                    ->with("modules", $finishModules)
+                    ->with("notes", $notes)
+                    ->with("student", $user);
     }
 
 
@@ -121,23 +218,22 @@ class StudentController extends Controller
         }
         
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 
-        $password = $request->input('password');
+        $password          = $request->input('reset_password');
         $item->firts_name  = $request->input('firts_name');
         $item->second_name = $request->input('second_name');
-        $item->lastname  = $request->input('lastname');
+        $item->lastname    = $request->input('lastname');
         $item->second_lastname = $request->input('second_lastname');
-        $item->gender    = $request->input('gender');
-        $item->birthdate = $request->input('birthdate');
+        $item->gender      = $request->input('gender');
+        $item->birthdate   = $request->input('birthdate');
         $item->identification_card = $request->input('identification_card');
         $item->number_phone = $request->input('number_phone');
-        $item->email    = $request->input('email');
-        $item->parishe_id = $request->input('parishe');
+        $item->email       = $request->input('email');
+        $item->parishe_id  = $request->input('parishe');
 
         /*Comprobamos si el usuario quizo actualizar su contraseña*/
         if ($password) {
-            $item->password = $request->input('password');
+            $item->password = $password;
         }
-
         $item->save();
         
         #Retorna un mensaje flash.

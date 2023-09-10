@@ -146,6 +146,17 @@
 	display: block;
 }
 
+@media (max-width: 900px){
+	.descriptionBanner__nav{
+		overflow-x: auto;
+	}
+	.descriptionBanner{
+		width: 100%;
+	}
+}
+
+
+
 /*Modules*/
 .containerModules{
 	display: flex;

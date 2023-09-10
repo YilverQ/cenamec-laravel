@@ -94,6 +94,8 @@ class StudentCourseController extends Controller
     public function show(Request $request, Course $item)
     {
         //Buscamos los datos. 
+        $teachers = $item->teachers;
+        //Buscamos los datos. 
         $modules = Module::where('course_id', $item->id)
                         ->orderBy('level')
                         ->withCount('notes')
@@ -103,6 +105,7 @@ class StudentCourseController extends Controller
         //Retornamos todos los datos a la vista. 
         return view('studentCourse.show')
                 ->with("course", $item)
+                ->with("teachers", $teachers)
                 ->with("modules", $modules);
     }
 
@@ -114,13 +117,16 @@ class StudentCourseController extends Controller
      */
     public function display(Request $request, Course $item)
     {
+        //Buscamos los datos. 
+        $teachers = $item->teachers;
+     
         $student_id = $request->session()->get('student_id');
         $student    = Student::find($student_id);  
 
         //Buscamos los datos. 
         $modules = Module::where('course_id', $item->id)
                         ->orderBy('level')
-                        ->select('modules.*', 'module_student.state')
+                        ->select('modules.*', 'module_student.state', 'module_student.percentage')
                         ->join('module_student', 'module_student.module_id', '=', 'modules.id')
                         ->join('students', 'students.id', '=', 'module_student.student_id')
                         ->withCount('notes')
@@ -135,6 +141,7 @@ class StudentCourseController extends Controller
         //Retornamos todos los datos a la vista. 
         return view('studentCourse.display')
                 ->with("course", $item)
+                ->with("teachers", $teachers)
                 ->with("certificate", $certificate)
                 ->with("modules", $modules);
     }

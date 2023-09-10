@@ -9,6 +9,7 @@ class Input{
 	}
 
 	checkExpression(){
+		this.nodo.value = this.nodo.value.trim();
 		if (this.regex.test(this.nodo.value)){
 			this.nodo.classList.remove("form__input--errorField");
 			this.nodo.classList.add("form__input--successField");

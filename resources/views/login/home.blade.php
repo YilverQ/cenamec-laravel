@@ -131,4 +131,6 @@
 			</section>
 		</article>
 	</main>
+
+	@include('login.footer')
 @endsection

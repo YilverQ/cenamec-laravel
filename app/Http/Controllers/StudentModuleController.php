@@ -73,12 +73,13 @@ class StudentModuleController extends Controller
     public function passModule(Request $request, Module $item)
     {
         $student_id = $request->session()->get('student_id');
+        $percentage = $request->input('percentage');
         
         #Aprobamos el módulo.
         $active_module = DB::table('module_student')
               ->where('module_id', $item->id)
               ->where('student_id', $student_id)
-              ->update(['state' => 'finished']);
+              ->update(['state' => 'finished', 'percentage' => $percentage]);
 
 
         #Buscamos el id máximo de los módulos.
@@ -89,7 +90,6 @@ class StudentModuleController extends Controller
                         ->where('modules.course_id', '=', $course_id)
                         ->max('modules.id');
 
-        #Buscamos el id máximo de los módulos.
 
         /*
             Activamos el siguiente módulo si el id del módulo no es el máximo y si no ha aprobado el siguiente módulo.
@@ -119,6 +119,11 @@ class StudentModuleController extends Controller
                 $certificate->course_id  = $course_id;
                 $certificate->student_id = $student_id;
                 $certificate->save();
+
+                DB::table('course_student')
+                    ->where('course_id', $course_id)
+                    ->where('student_id', $student_id)
+                    ->update(['dateFinished' => now()]);
             }
         }
 

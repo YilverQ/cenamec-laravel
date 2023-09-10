@@ -83,8 +83,8 @@ class CourseController extends Controller
         $urlImage = Storage::url($urlImage);
 
         //Almacenamos los saltos de linea
-        $competence = nl2br($request->input('competence'));
-        $specific_objetive = nl2br($request->input('competence'));
+        $competence = $request->input('competence');
+        $specific_objetive = $request->input('specific_objetive');
         
         //Persistimos los datos en la bd.
         $course = new Course;
@@ -92,7 +92,7 @@ class CourseController extends Controller
         $course->purpose     = $request->input('purpose');
         $course->general_objetive  = $request->input('general_objetive');
         $course->specific_objetive = $specific_objetive;
-        $course->competence  = competence;
+        $course->competence  = $competence;
         $course->disabled    = $request->input('disabled');
         $course->img         = $urlImage;
         $course->save();
@@ -197,19 +197,20 @@ class CourseController extends Controller
             $questionnaires_count = $questionnaires_count + $value->questionnaires_count;
         }
 
+        if ($lastModule) {
+            for ($i=0; $i < $lastModule->level; $i++) { 
+                $approved = DB::table('module_student')
+                                            ->where('state', 'finished')
+                                            ->where('module_id', $modules[$i]->id)
+                                            ->count();
+                $taking = DB::table('module_student')
+                                            ->where('state', 'active')
+                                            ->where('module_id', $modules[$i]->id)
+                                            ->count();
 
-        for ($i=0; $i < $lastModule->level; $i++) { 
-            $approved = DB::table('module_student')
-                                        ->where('state', 'finished')
-                                        ->where('module_id', $modules[$i]->id)
-                                        ->count();
-            $taking = DB::table('module_student')
-                                        ->where('state', 'active')
-                                        ->where('module_id', $modules[$i]->id)
-                                        ->count();
-
-            $modulesState["Módulo ". $i+1] = ["Approved" => $approved,
-                                            "Taking" => $taking];
+                $modulesState["Módulo ". $i+1] = ["Approved" => $approved,
+                                                "Taking" => $taking];
+            }
         }
 
 
@@ -292,9 +293,9 @@ class CourseController extends Controller
             $item->img = $urlImage;
         }
 
-        //Almacenamos los saltos de linea
-        $competence = nl2br($request->input('competence'));
-        $specific_objetive = nl2br($request->input('competence'));
+         //Almacenamos los saltos de linea
+        $competence = $request->input('competence');
+        $specific_objetive = $request->input('specific_objetive');
         
 
         //Si no se cumple lo anterior es porque se puede actualizar los datos. 

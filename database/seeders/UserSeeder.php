@@ -41,20 +41,6 @@ class UserSeeder extends Seeder
             'parishe_id'    => '639'
         ]);
 
-        User::create(['firts_name'    => 'Biagni',
-            'second_name'   => 'Daitanet',
-            'lastname'      => 'Abano',
-            'second_lastname'   => 'Acevedo',
-            'gender'        => 'Femenino',
-            'birthdate'     => '31/08/2001',
-            'identification_card' => '31456000',
-            'number_phone'  => '04122100312',
-            'email'         => 'biagni@gmail.com',
-            'password'      => 'root',
-            'profileimg_id' => '46',
-            'parishe_id'    => '636'
-        ]);
-
         User::create(['firts_name'    => 'Mayra',
             'second_name'   => 'Barbara',
             'lastname'      => 'Silva',
@@ -69,18 +55,46 @@ class UserSeeder extends Seeder
             'parishe_id'    => '667'
         ]);
 
-        User::create(['firts_name'    => 'Diego',
-            'second_name'   => 'Encli',
-            'lastname'      => 'Badillo',
-            'second_lastname'   => 'Velazques',
-            'gender'        => 'Masculino',
+        User::create(['firts_name'    => 'Biagni',
+            'second_name'   => 'Daitanet',
+            'lastname'      => 'Abano',
+            'second_lastname'   => 'Acevedo',
+            'gender'        => 'Femenino',
             'birthdate'     => '31/08/2001',
-            'identification_card' => '20456000',
-            'number_phone'  => '04142210312',
-            'email'         => 'diego@gmail.com',
-            'password'      => 'root',
-            'profileimg_id' => '49',
+            'identification_card' => '30496800',
+            'number_phone'  => '04123744425',
+            'email'         => 'biagniabano1@gmail.com',
+            'password'      => '1234',
+            'profileimg_id' => '46',
+            'parishe_id'    => '636'
+        ]);
+
+        User::create(['firts_name'    => 'Melanie',
+            'second_name'   => 'Alexandra',
+            'lastname'      => 'Rodríguez',
+            'second_lastname'   => 'Paraco',
+            'gender'        => 'Femenino',
+            'birthdate'     => '19/10/2000',
+            'identification_card' => '29743133',
+            'number_phone'  => '04127008380',
+            'email'         => 'alexandrapetra2000@gmail.com',
+            'password'      => '1234',
+            'profileimg_id' => '46',
             'parishe_id'    => '669'
+        ]);
+
+        User::create(['firts_name'    => 'Juan',
+            'second_name'   => 'Daniel',
+            'lastname'      => 'Castillo',
+            'second_lastname'   => 'Medina',
+            'gender'        => 'Masculino',
+            'birthdate'     => '27/10/1997',
+            'identification_card' => '26268311',
+            'number_phone'  => '04147111664',
+            'email'         => 'juan.daniel2661@gmail.com',
+            'password'      => '1234',
+            'profileimg_id' => '49',
+            'parishe_id'    => '670'
         ]);
     }
 }
