@@ -66,7 +66,7 @@ class UserSeeder extends Seeder
             'email'         => 'biagniabano1@gmail.com',
             'password'      => '1234',
             'profileimg_id' => '46',
-            'parishe_id'    => '636'
+            'parishe_id'    => '667'
         ]);
 
         User::create(['firts_name'    => 'Melanie',
@@ -80,7 +80,7 @@ class UserSeeder extends Seeder
             'email'         => 'alexandrapetra2000@gmail.com',
             'password'      => '1234',
             'profileimg_id' => '46',
-            'parishe_id'    => '669'
+            'parishe_id'    => '349'
         ]);
 
         User::create(['firts_name'    => 'Juan',
@@ -95,6 +95,35 @@ class UserSeeder extends Seeder
             'password'      => '1234',
             'profileimg_id' => '49',
             'parishe_id'    => '670'
+        ]);
+
+
+        User::create(['firts_name'    => 'Yefferson',
+            'second_name'   => 'Javier',
+            'lastname'      => 'Quevedo',
+            'second_lastname'   => 'Molinares',
+            'gender'        => 'Masculino',
+            'birthdate'     => '23/12/1997',
+            'identification_card' => '26334043',
+            'number_phone'  => '04123083565',
+            'email'         => 'yeffersonq5@gmail.com',
+            'password'      => '1234',
+            'profileimg_id' => '49',
+            'parishe_id'    => '669'
+        ]);
+
+        User::create(['firts_name'    => 'Victoria',
+            'second_name'   => 'Valentina',
+            'lastname'      => 'Rodríguez',
+            'second_lastname'   => 'Colmenares',
+            'gender'        => 'Femenino',
+            'birthdate'     => '07/09/2001',
+            'identification_card' => '29611002',
+            'number_phone'  => '04265200250',
+            'email'         => 'victoriavalentinarodriguez08@gmail.com',
+            'password'      => '1234',
+            'profileimg_id' => '49',
+            'parishe_id'    => '337'
         ]);
     }
 }

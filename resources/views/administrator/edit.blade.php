@@ -1,22 +1,24 @@
 @extends('administrator.layout')
 
 
-@section('title', 'Editar un administrador')
+@section('title', 'Mis datos')
 @section('styles')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/home.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/form.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/administrator/list.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/components/imgOptions.css') }}">
 @endsection
 
 
-
 @section('content')
-	<div class="containerImgOptions containerImgOptions--hidden">
+	<!--Contenedor-->
+	<main class="container">
+		<div class="containerImgOptions containerImgOptions--hidden">
 		<div class="imgOptions">
 			<p class="imgOptions__closeButton"><i class="fa-solid fa-xmark"></i> Quitar</p>
 			<form class="imgOptions__form"
 					method="POST" 
-					action="{{ route('administrator.img', $user) }}">
+					action="{{ route('administrator.img', $user->id) }}">
 					@csrf @method('PUT')
 
 				<div class="grid-one grid-one--justify">
@@ -49,38 +51,35 @@
 		</div>
 	</div>
 
-
-
-	<!--Contenedor-->
-	<main class="container">
 		<!--Information-->
-		<article class="article">
+		<article class="article article--whitoutPadding">
 			<section class="profile">
 				<div class="superContainerFixed">
-				<div class="container_img">
-					<div class="profile__container-img">
-						<img class="profile__img" 
-							src="{{ asset($user->profileimg->url) }}" 
-							alt="Niño aprendiendo">
+					<div class="container_img">
+						<div class="profile__container-img">
+							<img class="profile__img" 
+								src="{{ asset($user->profileimg->url) }}" 
+								alt="Niño aprendiendo">
+						</div>
+						<ul class="boxButtonProfile">
+							<li class="buttonProfile" 
+							id="profileimg">
+								Editar foto de perfil
+							</li>
+						</ul>
 					</div>
-					<ul class="header__bottons">
-						<li class="header__loginItem header__loginItem--contrast" id="profileimg">
-							Editar foto de perfil
-						</li>
-					</ul>
-				</div>
 				</div>
 
 				<div class="container_profile">
 				<form class="form__content form__content--big" 
 					method="POST" 
-					action="{{ route('administrator.update', $user) }}">
+					action="{{ route('administrator.update', $user->id) }}">
 
 					@csrf @method('PUT')
 					<h2 class="form__icon">
 						<i class="fa-solid fa-chalkboard-user"></i>
 					</h2>
-					<h2 class="form__title">Datos personales</h2>
+					<h2 class="form__title">Mis datos personales</h2>
 
 					<div class="grid-two">
 						<div class="form__item">
@@ -228,11 +227,11 @@
 						form__item--disabled--parishe 
 						form__item--disabled
 						form__item--hidden">
-						<label>Parroquia:</label>
-						<select class="form__input--disabled">
-							<option disabled selected>Selecciona un municipio primero</option>
-						</select>
-					</div>
+							<label>Parroquia:</label>
+							<select class="form__input--disabled">
+								<option disabled selected>Selecciona un municipio primero</option>
+							</select>
+						</div>
 						<div class="form__item form__item--parishe">
 							<label for="parishe">Parroquia:</label>
 							<select class="form__input form__input--select" 
@@ -258,7 +257,7 @@
 									name="email" 
 									required 
 									value="{{ $user->email }}" 
-									type="email" 
+									type="email"
 									id="email" 
 									placeholder="vanessa@gmail.com"
 									autocomplete="off">
@@ -329,7 +328,7 @@
 						</div>
 					</div>
 
-					<input class="form__send" type="submit" value="Actualizar datos">
+					<input class="form__send" type="submit" value="Actualizar mis datos">
 
 				</form>
 				</div>

@@ -166,54 +166,53 @@
 			</div>
 			<div class="descriptionCard hidden">
 				<h3 class="smallInformation__title">Estadísticas del curso</h3>
-				<p class="smallInformation">
-					Cantidad de módulos educativos: {{ count($modules) }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de notas educativas: {{ $notes_count }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de cuestionarios educativos: {{ $questionnaires_count }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de profesores: {{ count($teachers) }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de estudiantes: {{ count($students) }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de estudiantes aprobados: {{ $studentsApproved }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de estudiantes cursando: {{ $studentsTaking }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de estudiantes que no han empezado aún: {{ $studentsTaking }}
-				</p>
-				<p class="smallInformation">
-					{{ $studentsPercentageApproved }}% Estudiantes aprobados.
-				</p>
-				<p class="smallInformation">
-					{{ $studentsPercentageTaking }}% Estudiantes cursando.
-				</p>
-				<p class="smallInformation">
-					{{ $studentsPercentageNotStarted }}% Estudiantes que no han empezado aún.
-				</p>
+				<div class="boxContainerDescriptionCard">
+					<div class="containerDescriptionCard">
+						<div class="containerBoxData">
+							<p class="boxData">
+								Cantidad de módulos educativos: 
+								<span class="dataNumber">{{ count($modules) }}</span>
+							</p>
+							<p class="boxData">
+								Cantidad de cuestionarios educativos: 
+								<span class="dataNumber">{{ $questionnaires_count }}</span>
+							</p>
+							<p class="boxData">
+								Cantidad de notas educativas:
+								<span class="dataNumber">{{ $notes_count }}</span>
+							</p>
+						</div>
+						<div class="containerBoxData">
+							<p class="boxData">
+								Cantidad de profesores:
+								<span class="dataNumber">{{ count($teachers) }}</span>
+							</p>
+							<p class="boxData">
+								Cantidad de estudiantes:
+								<span class="dataNumber">{{ count($students) }}</span>
+							</p>
+						</div>
+					</div>
+					<div class="hidden">
+						<p class="boxData hidden">
+							Cantidad de estudiantes aprobados: 
+							<span id="studentsApproved">{{ $studentsApproved }}</span>
+						</p>
+						<p class="boxData hidden">
+							Cantidad de estudiantes cursando:
+							<span id="studentsTaking">{{ $studentsTaking }}</span>
+						</p>
+						<p class="boxData hidden">
+							Cantidad de estudiantes que no han empezado aún:
+							<span id="studentsNotStarted">{{ $studentsNotStarted }}</span>
+						</p>	
+					</div>
+					
 
-				<h3 class="smallInformation__title">Estadísticas de los módulos educativos</h3>
-				<p class="smallInformation">
-					Cantidad totales de módulos aprobados: {{ $modulesApproved }}
-				</p>
-				@foreach ($modulesState as $key => $item)
-				<p class="smallInformation">{{ $key }}:</p>
-				<p class="smallInformation">
-					Cantidad de estudiantes aprobados: {{ $item["Approved"] }}
-				</p>
-				<p class="smallInformation">
-					Cantidad de estudiantes cursando: {{ $item["Taking"] }} 
-				</p>
-				@endforeach
-
+					<div class="boxMyChart">
+					  <canvas id="myChart"></canvas>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -307,5 +306,49 @@
 	            }
 	        }
 		});
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		let studentsApproved = document.getElementById('studentsApproved');
+		studentsApproved = studentsApproved.textContent.trim();
+		let studentsTaking = document.getElementById('studentsTaking');
+		studentsTaking = studentsTaking.textContent.trim();
+		let studentsNotStarted = document.getElementById('studentsNotStarted');
+		studentsNotStarted = studentsNotStarted.textContent.trim();
+
+		  const ctx = document.getElementById('myChart');
+		  const data = {
+			  labels: [
+			    'Estudiantes que no han iniciado',
+			    'Estudiantes cursando',
+			    'Estudiantes aprobados',
+			  ],
+			  datasets: [{
+			    label: 'Estudiantes',
+			    data: [studentsNotStarted, studentsTaking, studentsApproved],
+			    backgroundColor: [
+			      'rgb(255, 99, 132)',
+			      'rgb(54, 162, 235)',
+			      'rgb(255, 205, 86)'
+			    ],
+			    hoverOffset: 4
+			  }]
+			};
+
+
+		  new Chart(ctx, {
+		    type: 'doughnut',
+		    data: data,
+		    options: {
+		      scales: {
+		        y: {
+		          beginAtZero: true
+		        }
+		      }
+		    }
+		  });
+
+
 	</script>
 @endsection

@@ -528,3 +528,18 @@
 	display: flex;
 	column-gap: 10px;
 }
+
+/*Media queries - Header*/
+@media (max-width: 550px){
+	.boxCheckbox{
+		height: 100px;
+		width: 120px;
+	}
+	.labelTitle i{
+		font-size: 25px;
+	}
+	.labelTitle_text{ 
+		font-size: 14px;
+		font-weight: 400;
+	}
+}

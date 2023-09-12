@@ -15,6 +15,6 @@ class TeacherSeeder extends Seeder
     {
         Teacher::create(['user_id' => 1]);
         Teacher::create(['user_id' => 2]);
-        Teacher::create(['user_id' => 4]);
+        Teacher::create(['user_id' => 3]);
     }
 }

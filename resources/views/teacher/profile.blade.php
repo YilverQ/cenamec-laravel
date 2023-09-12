@@ -52,21 +52,22 @@
 	</div>
 
 		<!--Information-->
-		<article class="article">
+		<article class="article article--whitoutPadding">
 			<section class="profile">
 				<div class="superContainerFixed">
-				<div class="container_img">
-					<div class="profile__container-img">
-						<img class="profile__img" 
-							src="{{ asset($user->profileimg->url) }}" 
-							alt="Niño aprendiendo">
+					<div class="container_img">
+						<div class="profile__container-img">
+							<img class="profile__img" 
+								src="{{ asset($user->profileimg->url) }}" 
+								alt="Niño aprendiendo">
+						</div>
+						<ul class="boxButtonProfile">
+							<li class="buttonProfile" 
+							id="profileimg">
+								Editar foto de perfil
+							</li>
+						</ul>
 					</div>
-					<ul class="header__bottons">
-						<li class="header__loginItem header__loginItem--contrast" id="profileimg">
-							Editar foto de perfil
-						</li>
-					</ul>
-				</div>
 				</div>
 
 				<div class="container_profile">
@@ -226,11 +227,11 @@
 						form__item--disabled--parishe 
 						form__item--disabled
 						form__item--hidden">
-						<label>Parroquia:</label>
-						<select class="form__input--disabled">
-							<option disabled selected>Selecciona un municipio primero</option>
-						</select>
-					</div>
+							<label>Parroquia:</label>
+							<select class="form__input--disabled">
+								<option disabled selected>Selecciona un municipio primero</option>
+							</select>
+						</div>
 						<div class="form__item form__item--parishe">
 							<label for="parishe">Parroquia:</label>
 							<select class="form__input form__input--select" 
@@ -256,7 +257,7 @@
 									name="email" 
 									required 
 									value="{{ $user->email }}" 
-									type="email" 
+									type="email"
 									id="email" 
 									placeholder="vanessa@gmail.com"
 									autocomplete="off">

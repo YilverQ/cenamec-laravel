@@ -862,3 +862,52 @@
 	color: var(--light);
 	transition: all .5s;
 }
+
+
+/*boxMyChart*/
+.boxMyChart{
+	width: 300px;
+	margin: auto;
+}
+
+.containerBoxData{
+	display: flex;
+	flex-flow: wrap;
+	justify-content: center;
+	gap: 20px;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+.boxData{
+	border-radius: 5px;
+	width: 200px;
+	padding: 20px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	text-align: center;
+	background: var(--littleDark);
+	color: var(--light);
+	height: 100%;
+	row-gap: 10px;
+	background: rgb(54, 162, 235);
+}
+.dataNumber{
+	font-size: 25px;
+	font-weight: 700;
+	color: var(--light);
+}
+.boxContainerDescriptionCard{
+	display: flex;
+	align-items: center;
+}
+.containerDescriptionCard{
+	display: flex;
+	flex-flow: column;
+}
+@media (max-width: 800px){
+	.boxContainerDescriptionCard{
+		flex-flow: column;
+		row-gap: 20px;
+	}
+}

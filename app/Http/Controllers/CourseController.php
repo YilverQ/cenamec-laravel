@@ -118,9 +118,6 @@ class CourseController extends Controller
         $studentsApproved      = 0;
         $studentsTaking        = 0;
         $studentsNotStarted    = 0;
-        $studentsPercentageApproved    = 0;
-        $studentsPercentageTaking      = 0;
-        $studentsPercentageNotStarted  = 0;
         $modulesApproved = 0;
         $modulesState = [];
 
@@ -170,24 +167,6 @@ class CourseController extends Controller
             }
         }
 
-        if ($studentsApproved == 0) {
-            $studentsPercentageApproved = 0;
-        }else{
-            $studentsPercentageApproved = ($studentsApproved * 100) / count($students);
-        }
-
-        if ($studentsApproved == 0) {
-            $studentsPercentageTaking = 0;
-        }else{
-            $studentsPercentageTaking = ($studentsTaking * 100) / count($students);
-        }
-
-        if ($studentsApproved == 0) {
-            $studentsPercentageNotStarted = 0;
-        }else{
-            $studentsPercentageNotStarted = ($studentsNotStarted * 100) / count($students);
-        }
-
         //Contamos las notas educativas.
         //Contamos los cuestionarios educativas.
         $notes_count = 0;
@@ -219,9 +198,6 @@ class CourseController extends Controller
                 ->with("studentsApproved", $studentsApproved)
                 ->with("studentsTaking", $studentsTaking)
                 ->with("studentsNotStarted", $studentsNotStarted)
-                ->with("studentsPercentageApproved", $studentsPercentageApproved)
-                ->with("studentsPercentageTaking", $studentsPercentageTaking)
-                ->with("studentsPercentageNotStarted", $studentsPercentageNotStarted)
                 ->with("modulesApproved", $modulesApproved)
                 ->with("modulesState", $modulesState)
                 ->with("notes_count", $notes_count)

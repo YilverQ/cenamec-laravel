@@ -19,5 +19,7 @@ class StudentSeeder extends Seeder
         Student::create(['user_id' => 4]);
         Student::create(['user_id' => 5]);
         Student::create(['user_id' => 6]);
+        Student::create(['user_id' => 7]);
+        Student::create(['user_id' => 8]);
     }
 }

@@ -15,6 +15,6 @@ class AdministratorSeeder extends Seeder
     {
         Administrator::create(['user_id' => 1]);
         Administrator::create(['user_id' => 2]);
-        Administrator::create(['user_id' => 5]);
+        Administrator::create(['user_id' => 3]);
     }
 }
