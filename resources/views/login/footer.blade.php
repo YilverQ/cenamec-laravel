@@ -48,6 +48,11 @@
 							Científicos en acción
 						</a>
 					</li>
+					<li class="endSection__item">
+						<a href="/admin">
+							Administrador
+						</a>
+					</li>
 				</ul>
 			</div>
 			<div class="endSection">

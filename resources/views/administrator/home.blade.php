@@ -42,42 +42,19 @@
 		<article class="article">
 			<section class="tab">
 				<img class="tab__img" 
-						src="{{ asset('img/administrator/administrators.png') }}" 
+						src="{{ asset('img/administrator/users.png') }}" 
 						alt="Dos jovenes divertidos">
 				
 				<div class="tab__information">
-					<h2 class="tab__title">Gestiona a otros <strong class="color-Text">administradores</strong></h2>
-					<p class="tab__description">El administrador es una persona capaz de gestionar a los profesores y estudiantes. Cuando hablamos de gestionar nos referimos a crear, actualizar y eliminar. Tu mismo eres un administrador, y si creas uno nuevo estarás permitiendo a otra persona hacer lo que tu puedes hacer.</p>
-				</div>
-			</section>
-		</article>
-
-		<article class="article">
-			<!--Information-->
-			<section class="tab tab--reverse">
-				<img class="tab__img tab__img--reverse" 
-						src="{{ asset('img/administrator/teachers.png') }}" 
-						alt="Profesora enseñando">
-				
-				<div class="tab__information">
-					<h2 class="tab__title">
-						<strong class="color-Text">Gestiona a los </strong>profesores
-					</h2>
-					<p class="tab__description">El profesor es una persona importante. Dicha persona está encargada de crear nuevos cursos y exponer los conocimientos que sean necesarios y que son relevantes para los estudiantes. Un profesor puede crear un curso, actualizarlo cuando guste y eliminarlo en caso de no ser necesario.</p>
-				</div>
-			</section>
-		</article>
-
-		<article class="article">
-			<!--Information-->
-			<section class="tab">
-				<img class="tab__img" 
-						src="{{ asset('img/administrator/students.png') }}" 
-						alt="Estudiantes">
-
-				<div class="tab__information">
-					<h2 class="tab__title">Getiona a los <strong class="color-Text">estudiantes</strong></h2>
-					<p class="tab__description">Los estudiantes son las personas a quienes van dirigidos los cursos y quienes tienen la responsabilidad de aprender. Un estudiante puede cursar cualquier curso y al final obtener un certificado.</p>
+					<h2 class="tab__title">Gestiona a los <strong class="color-Text">usuarios</strong></h2>
+					<p class="tab__description">En este bloque encontrarás a todas las personas que forman parte de nuestra aplicación. Desde los administradores, encargados de gestionar y dar acceso a los demás usuarios, hasta los profesores, responsables de crear cursos y transmitir conocimientos relevantes. También encontrarás a los estudiantes, quienes tienen la responsabilidad de aprender y pueden acceder a los cursos que deseen para obtener un certificado al finalizar.</p>
+					<ul class="header__bottons">
+						<a href="{{ route('administrator.index') }}">
+							<li class="header__loginItem header__loginItem--contrast">
+								Ver usuarios
+							</li>
+						</a>
+					</ul>
 				</div>
 			</section>
 		</article>
@@ -88,7 +65,7 @@
 					<h2 class="cta__title"><strong class="color-Text">Observa las estadísticas de la aplicación</strong></h2>
 					<p class="cta__description">Sumérgete en una nueva sección donde podrás explorar y analizar todos los datos relevantes de nuestra aplicación.</p>
 					<ul class="header__bottons">
-						<a href="#">
+						<a href="{{ route('administrator.statistics') }}">
 							<li class="header__loginItem">
 								Ver estadísticas
 							</li>

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /*Modelos*/
+use App\Models\User;
 use App\Models\State;
 use App\Models\Parishe;
 
@@ -32,5 +33,15 @@ class Municipalitie extends Model
     public function parishes ()
     {
         return $this->hasMany(Parishe::class);
+    }
+
+
+    /**
+     * Indirect relationship. 
+     * hasManyThrough - Tener muchos a través
+    **/
+    public function users()
+    {
+        return $this->hasManyThrough(User::class, Parishe::class);
     }
 }

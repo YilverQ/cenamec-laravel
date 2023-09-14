@@ -21,7 +21,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Respiración celular",
             'bad3'   => "Absorción de nutrientes",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 1,
         ]);
         Questionnaire::create([
@@ -31,7 +31,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Melanina",
             'bad3'   => "Melatonina",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 1,
         ]);
         Questionnaire::create([
@@ -41,7 +41,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Nitrógeno",
             'bad3'   => "Hidrógeno",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 1,
         ]);
         Questionnaire::create([
@@ -51,7 +51,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Antocianina",
             'bad3'   => "Ficobilina",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 2,
         ]);
         Questionnaire::create([
@@ -61,7 +61,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "La molécula de glucosa se descompone en dióxido de carbono y agua",
             'bad3'   => "La molécula de oxígeno se convierte en dióxido de carbono",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 2,
         ]);
         Questionnaire::create([
@@ -71,7 +71,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Fase de fijación de carbono",
             'bad3'   => "Fase de transporte de electrones",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 2,
         ]);
         Questionnaire::create([
@@ -81,7 +81,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Descomponer el agua en oxígeno y dióxido de carbono",
             'bad3'   => "Absorber la energía química y convertirla en energía luminosa",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 3,
         ]);
         Questionnaire::create([
@@ -91,7 +91,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Naranja y púrpura",
             'bad3'   => "Todos los colores del espectro visible",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 3,
         ]);
         Questionnaire::create([
@@ -101,7 +101,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Reflejar la luz verde",
             'bad3'   => "Capturar la energía luminosa del sol",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 3,
         ]);
         Questionnaire::create([
@@ -111,7 +111,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "En las mitocondrias de las células vegetales",
             'bad3'   => "En la pared celular de las células vegetales",
             'level'  => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 3,
         ]);
         Questionnaire::create([
@@ -121,7 +121,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Luz vegetal",
             'bad3'   => "Energía nuclear",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Questionnaire::create([
@@ -131,7 +131,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Luz infraroja",
             'bad3'   => "Luz marina",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Questionnaire::create([
@@ -141,7 +141,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Para obtener energía",
             'bad3'   => "Para realizar la fotosíntesis",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Questionnaire::create([
@@ -151,7 +151,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Luz marina",
             'bad3'   => "Luz ultravioleta",
             'level'  => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Questionnaire::create([
@@ -161,7 +161,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "La combinación del ciclo del agua con el carbono",
             'bad3'   => "La eliminación del carbono de la naturaleza",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 5,
         ]);
         Questionnaire::create([
@@ -171,7 +171,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Están relacionadas con el ciclo del agua",
             'bad3'   => "La fotosíntesis no está relacionada con el ciclo del carbono",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 5,
         ]);
         Questionnaire::create([
@@ -181,7 +181,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Raíz",
             'bad3'   => "Frutos",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 6,
         ]);
         Questionnaire::create([
@@ -191,7 +191,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "De los Frutos",
             'bad3'   => "De las semillas",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 6,
         ]);
         Questionnaire::create([
@@ -201,7 +201,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Para ayudar en el ciclo del carbono",
             'bad3'   => "Para ayudar en el ciclo del agua",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 7,
         ]);
 
@@ -424,7 +424,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "La destrucción del hábitat natural.",
             'bad3'   => "Introducir especies invasoras.",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
         Questionnaire::create([
@@ -434,7 +434,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Es importante para los animales y plantas, no para los seres humanos.",
             'bad3'   => "La conservación de las especies no es importante",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
         Questionnaire::create([
@@ -444,7 +444,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Insectos.",
             'bad3'   => "Microorganismos.",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
         Questionnaire::create([
@@ -454,7 +454,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Las plantas producen más oxígeno para respirar.",
             'bad3'   => "Ninguna de las anteriores.",
             'level'  => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
 
@@ -465,7 +465,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "El tráfico de animales.",
             'bad3'   => "Destrucción de su hábitat.",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Questionnaire::create([
@@ -475,7 +475,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "El tigre.",
             'bad3'   => "Los loros.",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Questionnaire::create([
@@ -485,7 +485,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "La tortuga arrau.",
             'bad3'   => "El delfín rosado.",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Questionnaire::create([
@@ -495,7 +495,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Únicamente un cuidados especiales.",
             'bad3'   => "Ninguna opción.",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
         Questionnaire::create([
@@ -505,7 +505,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Poner dos especies de animales diferentes.",
             'bad3'   => "Crear nuevas especies de animales.",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
         Questionnaire::create([
@@ -515,7 +515,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Dar a conocer las diferentes especies.",
             'bad3'   => "Aprender sobre la importancia de proteger.",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
         Questionnaire::create([
@@ -525,7 +525,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Que menos personas sepan de la importancia de la preservación.",
             'bad3'   => "Que más animales pudieran ser cazados.",
             'level'  => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
 
@@ -536,7 +536,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Restauración de ecosistemas degradados.",
             'bad3'   => "Protección de especies en peligro de extinción.",
             'level'  => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 15,
         ]);
         Questionnaire::create([
@@ -546,7 +546,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Turismo comunitario.",
             'bad3'   => "Pesca sostenible.",
             'level'  => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 15,
         ]);
         Questionnaire::create([
@@ -556,7 +556,7 @@ class QuestionnaireSeeder extends Seeder
             'bad2'   => "Reproducción en cautiverio.",
             'bad3'   => "Reforestación.",
             'level'  => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 15,
         ]);
 

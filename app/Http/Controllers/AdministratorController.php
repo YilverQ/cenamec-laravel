@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /*Importamos los modelos*/
 use App\Models\User;
+use App\Models\Note;
 use App\Models\State;
+use App\Models\Course;
+use App\Models\Module;
 use App\Models\Parishe;
 use App\Models\Teacher;
 use App\Models\Student;
 use App\Models\Profileimg;
+use App\Models\Questionnaire;
 use App\Models\Administrator;
 use App\Models\Municipalitie;
 
@@ -46,10 +51,14 @@ class AdministratorController extends Controller
     public function index()
     {
         //Obtenemos todos los administradores.
-        $administrators = User::all();
+        $administrators = Administrator::all();
+        $teachers = Teacher::all();
+        $students = Student::all();
 
         return view('administrator.index')
-                ->with("administrators", $administrators);
+                ->with("administrators", $administrators)
+                ->with("teachers", $teachers)
+                ->with("students", $students);
     }
 
 
@@ -376,5 +385,138 @@ class AdministratorController extends Controller
         $item->delete();
         session()->flash('message-success', '¡El usuario fue eliminado correctamente!');
         return to_route('administrator.index');
+    }
+
+
+
+    public function statistics(Request $request)
+    {
+        /*Buscamos todos los usuarios*/
+        $users = User::all();
+        $administrators = Administrator::all();
+
+        //Obtenemos los municipios
+        $municipalities = Municipalitie::withCount('users')
+                                    ->orderBy('users_count', 'desc')
+                                    ->take(10)
+                                    ->get();
+
+        $municipalitiesAll = Municipalitie::withCount('users')
+                                    ->orderBy('users_count', 'desc')
+                                    ->get();
+
+        //Obtenemos las parroquias
+        $parishes = Parishe::withCount('users')
+            ->orderBy('users_count', 'desc')
+            ->take(10)
+            ->get();
+
+
+        //Contamos a los usuarios por cada municipio.
+        $stateName = null;
+        $states = [];
+        foreach ($municipalitiesAll as $key => $value) {
+            $stateName = $value->state->name;
+            if (isset($states[$stateName])) {
+                $states[$stateName] += $value->users_count;
+                // code...
+            }else{
+                $states[$stateName] = $value->users_count;
+            }
+        }
+
+
+        //Calcular el porcentaje de genero:
+        $masculine = User::where('gender', "Masculino")->get();
+        $femenine  = User::where('gender', "Femenino")->get();
+        $genderPercentageWoman  = (count($femenine) * 100) / count($users);
+        $genderPercentageMen    = (count($masculine) * 100) / count($users);
+
+
+        //calcular el promedio de edad. 
+        $averageAge  = 0;
+        $dateToday = date('Y-m-d');
+        $birthdates  = User::pluck('birthdate');
+        //Ahora iteramos para obtener todas las edades.
+        $ages = [];
+        foreach ($birthdates as $birthdate) {
+            $age = date_diff(date_create($dateToday), date_create($birthdate))->y;
+            $ages[] = $age;
+        }
+        $averageAge = array_sum($ages) / count($ages);
+        $averageAge = floor($averageAge);
+
+
+        //Buscamos todos los cursos. 
+        $courses = Course::withCount(['teachers', 'students', 'modules'])->get();
+        foreach ($courses as $key => $course) {
+            foreach ($course->modules as $key => $value) {
+                $course->notes_count += count($value->notes);
+                $course->questionnaires_count += count($value->questionnaires);
+            }
+            $course->approved_count = $course->students()->whereNotNull('dateFinished')->count();
+        }
+
+        //Buscamos todos los cursos. 
+        $bestCourses = Course::withCount(['students'])
+                ->orderBy('students_count', 'desc')
+                ->take(10)
+                ->get();
+        foreach ($bestCourses as $key => $value) {
+            $value->name = str_replace(' ', '_', $value->name);
+        }
+
+
+        $modules = Module::withCount(['students as approved_count' => function ($query) {
+                    $query->where('state', 'finished');
+                }])->get();
+
+
+        //Lista de profesores
+        $teachers = Teacher::withCount(['courses', 'modules', 'notes', 'questionnaires'])->get();
+
+
+        //Lista de estudiantes
+        $students = Student::all();
+        foreach ($students as $key => $student) {
+            //Contamos los cursos aprobados
+            $finishedCoursesCount = $student->courses()
+                                ->whereHas('students', function ($query) {
+                                    $query->whereNotNull('dateFinished');
+                                })
+                                ->count();
+
+            //Contamos los módulos aprobados
+            $finishModules = $student->modules()
+                         ->where('state', 'finished')
+                         ->get();
+            
+            //Contamos las notas educativas vistas
+            $notes_count = 0;
+            foreach ($finishModules as $key => $value) {
+                $notes_count += count($value->notes);
+            }
+                         
+            //Asignamos todos los valores al modelo.
+            $student->courses_count = count($student->courses);
+            $student->courses_finished_count = $finishedCoursesCount;
+            $student->modules_count = count($finishModules);
+            $student->notes_count = $notes_count;
+        }
+
+        return view('administrator.statistics')
+                    ->with("users", $users)
+                    ->with("teachers", $teachers)
+                    ->with("students", $students)
+                    ->with("administrators", $administrators)
+                    ->with("states", $states)
+                    ->with("municipalities", $municipalities)
+                    ->with("parishes", $parishes)
+                    ->with("averageAge", $averageAge)
+                    ->with("genderPercentageWoman", $genderPercentageWoman)
+                    ->with("genderPercentageMen", $genderPercentageMen)
+                    ->with("modules", $modules)
+                    ->with("courses", $courses)
+                    ->with("bestCourses", $bestCourses);
     }
 }

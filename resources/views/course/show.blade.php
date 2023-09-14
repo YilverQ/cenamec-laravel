@@ -348,7 +348,5 @@
 		      }
 		    }
 		  });
-
-
 	</script>
 @endsection

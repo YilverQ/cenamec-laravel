@@ -19,7 +19,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto01.jpeg',
             'description' => "La fotosíntesis es un proceso en el que las plantas utilizan la energía del sol para fabricar su propio alimento. Esto ocurre en las hojas, que contienen clorofila y les da su color verde. Es un proceso inteligente que las plantas realizan para sobrevivir y colaborar con el ecosistema.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 1,
         ]);
         Note::create([
@@ -27,7 +27,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto02.jpeg',
             'description' => "La fotosíntesis es muy importante para los seres vivos porque es el proceso mediante el cual las plantas y algunas bacterias convierten la luz solar en energía. Esta energía es utilizada por las plantas para crecer, producir alimentos y liberar oxígeno al aire. Sin la fotosíntesis, los seres vivos no podrían obtener los nutrientes y el oxígeno que necesitan para sobrevivir. Por eso, la fotosíntesis es un proceso vital para la vida en la Tierra.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 1,
         ]);
         Note::create([
@@ -35,7 +35,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto03.jpeg',
             'description' => "En la fase luminosa de la fotosíntesis, las plantas utilizan la energía del sol para transformar el agua y el dióxido de carbono en alimento y oxígeno. Este proceso tiene lugar en las hojas de las plantas y es posible gracias a la presencia de un pigmento llamado clorofila. Durante esta fase, la clorofila absorbe la luz y la utiliza para descomponer las moléculas de agua en hidrógeno y oxígeno. El oxígeno se libera al aire, mientras que el hidrógeno se emplea en una etapa posterior de la fotosíntesis.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 2,
         ]);
         Note::create([
@@ -43,7 +43,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto04.jpeg',
             'description' => "La fase oscura de la fotosíntesis es esencial para la vida de las plantas. Durante esta etapa, las plantas utilizan dióxido de carbono y la energía de la luz solar para producir su propio alimento. Además, liberan oxígeno, lo cual es vital para todos los seres vivos. Aunque la fase oscura no requiere de la luz solar directamente, depende de los productos energéticos que se generan en la fase luminosa. Las plantas tienen esta capacidad única de crear su propio alimento y proporcionarnos oxígeno, lo que las hace realmente especiales.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 2,
         ]);
         Note::create([
@@ -51,7 +51,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto05.jpeg',
             'description' => "La fase luminosa de la fotosíntesis es la primera etapa donde la luz solar se convierte en energía química en forma de ATP y NADPH. Esta energía se utiliza en la fase oscura, la segunda etapa también conocida como ciclo de Calvin. En esta etapa, se utiliza el ATP y NADPH para convertir el dióxido de carbono en glucosa y otros compuestos orgánicos. A diferencia de la fase luminosa, la fase oscura no requiere luz directa, pero depende de la energía almacenada en forma de ATP y NADPH. En resumen, en la fase luminosa se captura la energía de la luz solar y en la fase oscura se utiliza esa energía para producir glucosa y otros compuestos.", 
             'level'       => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 2,
         ]);
         Note::create([
@@ -59,7 +59,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto06.jpeg',
             'description' => "La clorofila es un pigmento que se encuentra en las plantas y en algunas bacterias y su función es capturar la energía del sol y convertirla en energía química a través de la fotosíntesis. Existen diferentes tipos de clorofila, siendo la más común la clorofila a, que es de color verde y absorbe principalmente luz azul y roja, reflejando la luz verde. También existe la clorofila b, presente en plantas terrestres y algas verdes, que amplía el rango de absorción de luz de la planta. Estos pigmentos son esenciales en la fotosíntesis, ya que absorben la energía luminosa y la transfieren a los centros de reacción fotosintéticos, donde se llevan a cabo las reacciones químicas para producir energía química en forma de ATP y NADPH.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 3,
         ]);
         Note::create([
@@ -67,7 +67,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto07.jpeg',
             'description' => "La clorofila es un pigmento verde en los cloroplastos de las células vegetales que captura la energía del sol. Absorbe principalmente la luz azul y roja, utilizándola para convertir dióxido de carbono y agua en glucosa y oxígeno. En la fotosíntesis, la clorofila es esencial para capturar la energía lumínica y convertirla en energía química almacenada en forma de glucosa, que la planta utiliza para crecer y desarrollarse.a glucosa se utiliza como fuente de energía para el crecimiento y desarrollo de la planta.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 3,
         ]);
         Note::create([
@@ -75,7 +75,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto08.jpeg',
             'description' => "En la fotosíntesis, la luz es una parte fundamental del proceso mediante el cual las plantas capturan la energía solar y la convierten en energía química. Hay diferentes tipos de luz que son utilizados por las plantas durante este proceso.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Note::create([
@@ -83,7 +83,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto09.jpeg',
             'description' => "Es la luz que podemos percibir con nuestros ojos y se compone de diferentes colores, como el rojo, el verde y el azul. Las plantas utilizan principalmente la luz roja y la luz azul para llevar a cabo la fotosíntesis.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Note::create([
@@ -91,7 +91,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto10.jpeg',
             'description' => "La luz ultravioleta es una forma de radiación electromagnética que se encuentra en el espectro de luz entre la luz visible y los rayos X. Aunque la luz ultravioleta puede ser dañina para los seres humanos y otros organismos, las plantas son capaces de utilizarla en pequeñas cantidades para estimular el crecimiento y la producción de flores.", 
             'level'       => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Note::create([
@@ -99,7 +99,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto11.jpeg',
             'description' => "La luz infrarroja es una forma de radiación electromagnética que se encuentra en el espectro de luz por debajo de la luz visible. Aunque las plantas no utilizan directamente la luz infrarroja en la fotosíntesis, esta forma de luz puede ayudar a mantener la temperatura adecuada en las hojas y facilitar la transpiración y la absorción de agua.", 
             'level'       => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 4,
         ]);
         Note::create([
@@ -107,7 +107,7 @@ class NoteSeeder extends Seeder
             'img'         => '/storage/imgNotes/foto12.jpeg',
             'description' => "El ciclo del carbono es el proceso natural en el que el carbono se mueve entre la atmósfera, la tierra, los océanos y los seres vivos, a medida que se incorpora y se libera en diferentes formas químicas.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 5,
         ]);
         Note::create([
@@ -117,7 +117,7 @@ class NoteSeeder extends Seeder
 
 A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, reduciendo su concentración y, a su vez, liberan oxígeno al entorno. El carbono se almacena en forma de carbohidratos en las plantas y puede ser utilizado posteriormente como fuente de energía en la respiración o transferido a otros organismos cuando son consumidas.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 5,
         ]);
         Note::create([
@@ -125,7 +125,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
             'img'         => '/storage/imgNotes/foto14.jpeg',
             'description' => "El equilibrio del carbono en la atmósfera es crucial para la estabilidad del clima y el funcionamiento de los ecosistemas. La fotosíntesis es el proceso en el cual las plantas y otros organismos convierten el dióxido de carbono en carbohidratos, liberando oxígeno como un subproducto. Esto reduce la concentración de CO2 en la atmósfera y ayuda a regular el efecto invernadero. Además, el CO2 es utilizado por los organismos para crear compuestos orgánicos, permitiendo que el carbono fluya continuamente a través de la cadena alimentaria. En resumen, el equilibrio del carbono en la atmósfera es esencial para mantener un clima adecuado y asegurar la supervivencia de los seres vivos.", 
             'level'       => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 5,
         ]);
         Note::create([
@@ -133,7 +133,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
             'img'         => '/storage/imgNotes/foto15.jpeg',
             'description' => "La fotosíntesis en plantas terrestres ocurre en las células de las hojas, donde se encuentran los cloroplastos. Estos contienen clorofila, que captura la energía de la luz solar. Durante la fotosíntesis, las plantas toman dióxido de carbono del aire y liberan oxígeno. La energía solar se convierte en energía química, que se almacena en forma de glucosa y otros carbohidratos. Estos carbohidratos son esenciales para el crecimiento y desarrollo de la planta, así como para otros procesos vitales.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 6,
         ]);
         Note::create([
@@ -141,7 +141,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
             'img'         => '/storage/imgNotes/foto16.jpeg',
             'description' => "Las plantas acuáticas realizan la fotosíntesis en un entorno acuático y cuentan con células especializadas llamadas 'células acuáticas' para adaptarse a este medio. Estas células tienen una capa externa delgada y permeable que permite el intercambio de gases y nutrientes con el agua. También tienen cloroplastos que contienen clorofila y realizan la fotosíntesis. Las plantas acuáticas pueden ser más eficientes en la captura de dióxido de carbono disuelto en el agua debido a su disponibilidad constante. Algunas plantas pueden absorber dióxido de carbono directamente del agua a través de sus raíces o de la atmósfera a través de sus hojas sumergidas. Para capturar la luz solar, las plantas acuáticas tienen estructuras adaptadas como hojas flotantes o estrechas para maximizar la exposición a la luz.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 6,
         ]);
         Note::create([
@@ -149,7 +149,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
             'img'         => '/storage/imgNotes/foto17.jpeg',
             'description' => "La fotosíntesis es un proceso fundamental para la producción de alimentos ya que permite obtener los nutrientes necesarios para el crecimiento y desarrollo de las plantas. Además, la fotosíntesis es la base de la cadena alimentaria. Las plantas, como primer eslabón de esta cadena, son consumidas por herbívoros, quienes a su vez son consumidos por carnívoros u omnívoros, y así sucesivamente. Sin la fotosíntesis, no habría alimentos disponibles para los seres vivos, por lo tanto, este proceso es crucial para asegurar la existencia de alimentos para la supervivencia de todos los seres vivos.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 7,
         ]);
         Note::create([
@@ -157,7 +157,7 @@ A través de la fotosíntesis, las plantas retiran el CO2 de la atmósfera, redu
             'img'         => '/storage/imgNotes/foto18.jpeg',
             'description' => "La fotosíntesis es un proceso crucial para el clima y la generación de oxígeno en la Tierra. Las plantas absorben dióxido de carbono durante la fotosíntesis, lo que ayuda a regular el nivel de este gas de efecto invernadero en la atmósfera, ralentizando el calentamiento global. Además, la fotosíntesis es la principal fuente de oxígeno en nuestro planeta, ya que las plantas liberan oxígeno al ambiente. El oxígeno es esencial para la vida, ya que permite a los seres vivos respirar y desempeña un papel clave en la obtención de energía a través de la respiración celular.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 7,
         ]);
 
@@ -325,7 +325,7 @@ Hay muchas razones por las que algunas especies están en peligro de extinción.
 
 Cuando una especie está en peligro de extinción, los científicos y conservacionistas trabajan para protegerla. Esto puede incluir la creación de reservas naturales y parques nacionales donde los animales y las plantas estén seguros. También se llevan a cabo programas para reproducir y criar especies en peligro en lugares seguros, como zoológicos y centros de conservación.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
         Note::create([
@@ -333,7 +333,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal02.jpeg',
             'description' => "Si no conservamos las especies, diferentes animales y plantas podrían desaparecer para siempre. Esto sería algo triste porque cada especie tiene un papel importante en el equilibrio de la naturaleza. Por ejemplo, los árboles producen oxígeno que necesitamos para respirar, y los insectos ayudan a polinizar las flores para que podamos tener frutas y verduras. Además, algunas especies nos brindan medicinas y materiales útiles. Por eso es crucial cuidar de todas las especies y su hábitat, para que sigan existiendo y viviendo en armonía con nosotros.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
         Note::create([
@@ -341,7 +341,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal03.jpeg',
             'description' => "La biodiversidad se refiere a la variedad de seres vivos que existen en nuestro planeta, como plantas, animales, insectos y microorganismos. Cada especie tiene un papel importante en el ecosistema y su conservación es fundamental para mantener el equilibrio de la naturaleza. Si cuidamos y protegemos la biodiversidad, garantizamos la supervivencia de muchas especies y preservamos los recursos naturales que necesitamos para vivir.", 
             'level'       => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
         Note::create([
@@ -349,7 +349,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal04.jpeg',
             'description' => "Las especies en los ecosistemas dependen unas de otras para sobrevivir. Por ejemplo, las plantas producen oxígeno que necesitan los animales para respirar, y los animales esparcen las semillas de las plantas al moverse. También hay animales que se comen a otros animales para obtener alimento, formando una cadena alimentaria. Si desaparece una especie, puede afectar a otras especies y desequilibrar todo el ecosistema. Por eso es importante cuidar y respetar a todas las especies para mantener el equilibrio y la biodiversidad en nuestros ecosistemas.", 
             'level'       => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 12,
         ]);
 
@@ -358,7 +358,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal05.jpeg',
             'description' => "Las especies en los ecosistemas dependen unas de otras para sobrevivir. Por ejemplo, las plantas producen oxígeno que necesitan los animales para respirar, y los animales esparcen las semillas de las plantas al moverse. También hay animales que se comen a otros animales para obtener alimento, formando una cadena alimentaria. Si desaparece una especie, puede afectar a otras especies y desequilibrar todo el ecosistema. Por eso es importante cuidar y respetar a todas las especies para mantener el equilibrio y la biodiversidad en nuestros ecosistemas.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Note::create([
@@ -374,7 +374,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal07.jpeg',
             'description' => "Este felino es el mayor depredador de América Latina y se encuentra en peligro crítico de extinción en Venezuela debido a la caza ilegal y la destrucción de su hábitat.", 
             'level'       => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Note::create([
@@ -382,7 +382,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal08.jpeg',
             'description' => "Esta especie de oso habita en las montañas de los Andes venezolanos y se encuentra en peligro crítico de extinción debido a la reducción de su hábitat y la caza ilegal.", 
             'level'       => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Note::create([
@@ -390,7 +390,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal09.jpeg',
             'description' => "Esta imponente ave rapaz es uno de los símbolos de la fauna venezolana y se encuentra en peligro crítico de extinción debido a la caza y la contaminación..", 
             'level'       => 5,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Note::create([
@@ -398,7 +398,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal10.jpeg',
             'description' => "Esta especie de tortuga acuática es una de las más grandes del mundo y se encuentra en peligro crítico de extinción debido a la caza ilegal de sus huevos y la destrucción de su hábitat.", 
             'level'       => 6,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Note::create([
@@ -406,7 +406,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal11.jpeg',
             'description' => "Este delfín de agua dulce habita en los ríos de Venezuela y se encuentra en peligro de extinción debido a la contaminación de los cuerpos de agua y la captura accidental en redes de pesca.", 
             'level'       => 7,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 13,
         ]);
         Note::create([
@@ -414,7 +414,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal12.jpeg',
             'description' => "Los zoológicos y acuarios son lugares muy importantes para ayudar a proteger y conservar a los animales en peligro de extinción. Estos lugares les brindan un hogar seguro y cuidados especiales que muchas veces no pueden encontrar en su entorno natural. Además, los expertos en los zoológicos y acuarios investigan sobre estas especies y trabajan para reproducirlas y aumentar su población. De esta manera, los zoológicos y acuarios nos permiten conocer a estos animales de cerca y aprender sobre la importancia de preservar a todas las especies en nuestro planeta.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
         Note::create([
@@ -422,7 +422,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal13.jpeg',
             'description' => "Los programas de cría en cautividad y reintroducción de especies en zoológicos y acuarios son estrategias que buscan salvar a especies en peligro de extinción. Esto se hace al criar a estos animales en lugares seguros, como un zoológico o acuario, donde se les brinda cuidados especiales y se les protege de los peligros que enfrentan en su hábitat natural. Luego, cuando estos animales están lo suficientemente fuertes y preparados, se les devuelve a su hábitat original para que puedan vivir libres y ayudar a aumentar la población de su especie. De esta manera, los zoológicos y acuarios contribuyen a conservar la diversidad biológica del planeta.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
         Note::create([
@@ -430,7 +430,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal14.jpeg',
             'description' => "Los programas de educación ambiental en zoológicos y acuarios son muy importantes para promover la conservación de especies. A través de estas actividades, los niños pueden aprender sobre la importancia de proteger a los animales y su hábitat. Además, pueden conocer de cerca a diferentes especies y entender cómo pueden ayudar a conservarlas. Mediante la educación y la concienciación, estos programas procuran que las especies no desaparezcan y que los animales puedan vivir en un entorno seguro y saludable.", 
             'level'       => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
         Note::create([
@@ -438,7 +438,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal15.jpeg',
             'description' => "En los zoológicos y acuarios podemos ver diferentes especies de animales y plantas de todo el mundo. Es importante que como ciudadanos nos comprometamos a cuidar de ellos porque así podemos ayudar a conservar estas especies. Participar en actividades en los zoológicos y acuarios nos permite aprender sobre la importancia de proteger a los animales y su hábitat, y nos hace más responsables con el medio ambiente. Al estar comprometidos podemos colaborar en la conservación de estas especies, para que puedan seguir viviendo y para que las futuras generaciones también puedan disfrutar de ellos.", 
             'level'       => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 14,
         ]);
         Note::create([
@@ -446,7 +446,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal16.jpeg',
             'description' => "Se pueden abordar proyectos y estrategias para conservar y proteger especies en peligro de extinción, como la creación de reservas naturales, programas de reproducción en cautiverio, educación ambiental, entre otros.", 
             'level'       => 1,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 15,
         ]);
         Note::create([
@@ -454,7 +454,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal17.jpeg',
             'description' => "Se pueden desarrollar proyectos y estrategias para restaurar ecosistemas degradados, como la reforestación, rehabilitación de áreas contaminadas, recuperación de humedales, entre otros.", 
             'level'       => 2,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 15,
         ]);
         Note::create([
@@ -462,7 +462,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal18.jpeg',
             'description' => "Se pueden desarrollar proyectos y estrategias para concienciar y educar a la población sobre la importancia de la conservación en la naturaleza, promoviendo actividades como talleres, charlas, campañas de sensibilización y programas educativos.", 
             'level'       => 3,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 15,
         ]);
         Note::create([
@@ -470,7 +470,7 @@ Cuando una especie está en peligro de extinción, los científicos y conservaci
             'img'         => '/storage/imgNotes/animal19.jpeg',
             'description' => "Se pueden desarrollar proyectos y estrategias para involucrar a las comunidades locales en la conservación en la naturaleza, como la capacitación en prácticas sostenibles, apoyo a proyectos de turismo comunitario, promoción de prácticas de pesca sostenible, entre otros.", 
             'level'       => 4,
-            'teacher_id'  => 1,
+            'teacher_id'  => 2,
             'module_id'   => 15,
         ]);
 

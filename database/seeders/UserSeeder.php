@@ -28,9 +28,9 @@ class UserSeeder extends Seeder
         ]);
 
         User::create(['firts_name'    => 'Vanessa',
-            'second_name'   => 'Antonio',
+            'second_name'   => 'Alexandra',
             'lastname'      => 'Longa',
-            'second_lastname'   => 'Molinares',
+            'second_lastname'   => 'Otero',
             'gender'        => 'Femenino',
             'birthdate'     => '09/06/2001',
             'identification_card' => '27914751',

@@ -31,9 +31,19 @@ if (result){
 	itemNav[2].classList.add("nav__item--constrast");
 }
 
+
+/*Administrator Controller*/
 result = ubication.endsWith("administrator");
 if (result){
 	itemNav[0].classList.add("nav__item--constrast");
+}
+result = ubication.endsWith("user");
+if (result){
+	itemNav[1].classList.add("nav__item--constrast");
+}
+result = ubication.endsWith("statistics");
+if (result){
+	itemNav[2].classList.add("nav__item--constrast");
 }
 
 

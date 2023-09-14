@@ -8,6 +8,10 @@
 	<!--Title-->
 	<title>@yield('title') - CENAMEC</title>
 
+	<!--Fuentes de Fontawesome-->
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/solid.css') }}">
+
 	<!--Estilos-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/normalize.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
@@ -24,9 +28,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Quicksand&display=swap" rel="stylesheet"> 
 
-	<!--Fuentes de Fontawesome-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/solid.css') }}">
+	
 
 </head>
 <body>
@@ -71,7 +73,7 @@
 					<p>Usuarios</p>
 				</li>
 			</a>
-			<a href="#administrator.statistics">
+			<a href="{{ route('administrator.statistics') }}">
 				<li class="nav__item">
 					<i class="fa-solid fa-chart-simple"></i>
 					<p>Estadísticas</p>

@@ -71,6 +71,7 @@ Route::controller(LoginController::class)->group(function () {
  * put     /admin/{item}       update       Action   Actualiza un elemento. 
  * put     /admin/{item}/img   updateImg    Action   Actualiza un elemento. 
  * delete  /admin/{item}       delete       Action   Elimina un elemento.
+ * get     /admin/statistics   statistics   View     Muestra estadísticas.
 */
 Route::controller(AdministratorController::class)->group(function () {
     Route::get( '/administrator', 'home')->name('administrator.home');
@@ -82,6 +83,7 @@ Route::controller(AdministratorController::class)->group(function () {
     Route::put( '/administrator/user/{item}', 'update')->name('administrator.update');
     Route::put( '/administrator/user/{item}/img', 'updateImg')->name('administrator.img');
     Route::delete('/administrator/user/{item}', 'destroy')->name('administrator.destroy');
+    Route::get( '/administrator/statistics/', 'statistics')->name('administrator.statistics');
 });
 
 

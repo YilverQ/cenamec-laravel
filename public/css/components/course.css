@@ -145,7 +145,6 @@
 	width: 50px;
 	display: block;
 }
-
 @media (max-width: 900px){
 	.descriptionBanner__nav{
 		overflow-x: auto;
@@ -155,6 +154,94 @@
 	}
 }
 
+
+/*Detalles del curso*/
+.description2Banner{
+	width: 90%;
+	margin: auto;
+	background: var(--light);
+	padding: 20px 0;
+	padding-left: 20px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 20px;
+}
+.description2Banner__nav{
+	display: flex;
+	column-gap: 20px;
+}
+
+.description2Banner__item, .collapse2__icon{
+	padding: 10px;
+	padding-bottom: 5px;
+	color: var(--littleDark);
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
+}
+.collapse2__icon{
+	padding: 10px;
+	padding-bottom: 5px;
+	color: var(--text);
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
+}
+.description2Banner__item--checked{
+	color:var(--text);
+	border-bottom: 2px solid var(--primary);
+}
+
+@media (max-width: 900px){
+	.description2Banner__nav{
+		overflow-x: auto;
+	}
+	.description2Banner{
+		width: 100%;
+	}
+}
+
+/*Detalles del curso*/
+.description3Banner{
+	width: 90%;
+	margin: auto;
+	background: var(--light);
+	padding: 20px 0;
+	padding-left: 20px;
+	display: flex;
+	flex-flow: column;
+	row-gap: 20px;
+}
+.description3Banner__nav{
+	display: flex;
+	column-gap: 20px;
+}
+
+.description3Banner__item, .collapse3__icon{
+	padding: 10px;
+	padding-bottom: 5px;
+	color: var(--littleDark);
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
+}
+.collapse3__icon{
+	padding: 10px;
+	padding-bottom: 5px;
+	color: var(--text);
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
+}
+.description3Banner__item--checked{
+	color:var(--text);
+	border-bottom: 2px solid var(--primary);
+}
+
+@media (max-width: 900px){
+	.description3Banner__nav{
+		overflow-x: auto;
+	}
+	.description3Banner{
+		width: 100%;
+	}
+}
 
 
 /*Modules*/

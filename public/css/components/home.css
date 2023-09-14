@@ -869,6 +869,10 @@
 	width: 300px;
 	margin: auto;
 }
+.boxMyChart--complete{
+	width: 90%;
+	margin: auto;
+}
 
 .containerBoxData{
 	display: flex;
@@ -892,10 +896,29 @@
 	row-gap: 10px;
 	background: rgb(54, 162, 235);
 }
-.dataNumber{
+.boxData--orange{
+	background: rgb(255, 159, 64);
+}
+.boxData--blue{
+	background: rgb(54, 162, 235);
+}
+.boxData--red{
+	background: rgb(255, 99, 132);
+}
+.boxData--large{
+	width: 100%;
+	background: var(--primary);
+	color: var(--light);
+}
+.dataNumber, .spanPercentage{
 	font-size: 25px;
 	font-weight: 700;
 	color: var(--light);
+}
+.superContainerSpan{
+	display: flex;
+	align-items: center;
+	gap: 3px;
 }
 .boxContainerDescriptionCard{
 	display: flex;
@@ -910,4 +933,8 @@
 		flex-flow: column;
 		row-gap: 20px;
 	}
+}
+
+.marginBanner{
+	margin: 50px 0;
 }
