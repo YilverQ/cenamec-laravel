@@ -44,6 +44,54 @@ class DatabaseSeeder extends Seeder
         $this->call(AdministratorSeeder::class);
         $this->call(TeacherSeeder::class);
         $this->call(StudentSeeder::class);
+
+        //Usuarios - Hombres
+        $randomNumberA = rand(20, 50);
+        for ($i=0; $i < $randomNumberA; $i++) { 
+            User::factory(1)->create([
+                'firts_name'        => fake()->firstNameMale(),
+                'second_name'       => fake()->firstNameMale(),
+                'lastname'          => fake()->lastName(),
+                'second_lastname'   => fake()->lastName(),
+                'gender'            => 'Masculino',
+                'birthdate'         => fake()->date(),
+                'identification_card' => fake()->unique()->numberBetween($min = 10000000, $max = 18000000),
+                'number_phone'      => fake()->unique()->e164PhoneNumber(),
+                'email'             => fake()->unique()->safeEmail(),
+                'password'          => "root",
+                'profileimg_id'     => fake()->numberBetween($min = 1, $max = 34),
+                'parishe_id'        => fake()->numberBetween($min = 300, $max = 700)
+            ]);
+            // code...
+        }
+
+        $randomNumberB = rand(20, 50);
+        for ($i=0; $i < $randomNumberB; $i++) { 
+            User::factory(1)->create([
+                'firts_name'        => fake()->firstNameFemale(),
+                'second_name'       => fake()->firstNameFemale(),
+                'lastname'          => fake()->lastName(),
+                'second_lastname'   => fake()->lastName(),
+                'gender'            => 'Femenino',
+                'birthdate'         => fake()->date(),
+                'identification_card' => fake()->unique()->numberBetween($min = 20000000, $max = 38000000),
+                'number_phone'      => fake()->unique()->e164PhoneNumber(),
+                'email'             => fake()->unique()->safeEmail(),
+                'password'          => "root",
+                'profileimg_id'     => fake()->numberBetween($min = 1, $max = 34),
+                'parishe_id'        => fake()->numberBetween($min = 300, $max = 700)
+            ]);
+        }
+
+
+        $sumRandomNumber = $randomNumberA + $randomNumberB; 
+        for ($i=9; $i < $sumRandomNumber ; $i++) { 
+            Student::factory(1)->create([
+                'user_id'=> $i,
+            ]);
+        }
+
+
         $this->call(CourseSeeder::class);
         $this->call(CourseTeacherSeeder::class);
         $this->call(ModuleSeeder::class);
@@ -52,11 +100,9 @@ class DatabaseSeeder extends Seeder
         #$this->call(CertificateSeeder::class);
 
 
+        //$this->call(CourseStudentSeeder::class);
         #Administrator::factory(2)->create();
         #Teacher::factory(8)->create();
-        #Student::factory(4)->create();
-
-
         /*FACTORY
         Course::factory(10)->create();
         Module::factory(20)->create();

@@ -528,10 +528,6 @@
 		"card boxButtoms";
 		justify-items: inherit;
 	}
-	.box-bottoms{
-		background: transparent;
-		width: 100%;
-	}
 	.teach__img{
 		width: 100%;
 	}
@@ -839,6 +835,45 @@
 	max-width: 500px;
 	font-weight: 700;
 }
+
+@media (max-width: 400px){
+	/*Media queries para el cta*/
+	.cta__img--height{
+		height: 100px;
+		width: 60px;
+	}
+	.cta__img--widthTop{
+		height: 50px;
+		width: 100px;
+	}
+	.cta__img--widthDown{
+		height: 50px;
+		width: 100px;
+	}
+	.cta__imgContainer{
+		display: grid;
+		grid-template-areas: 
+		"height1 width1"
+		"height1 width2";
+		gap: 10px;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+	.cta{
+		display: grid;
+		justify-content: space-around;
+		position: relative;
+		isolation: isolate;
+	}
+	.cta__description{
+		text-align: center;
+	}
+	.cta__title{
+		text-align: center;
+	}
+}
+
 
 
 

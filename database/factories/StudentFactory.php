@@ -28,12 +28,6 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'      => fake()->firstNameMale(),
-            'lastname'  => fake()->lastName(),
-            'identification_card' => fake()->unique()->numberBetween($min = 10000000, $max = 40000000),
-            'email'     => fake()->unique()->safeEmail(),
-            'password'  => "root",
-            'number_phone' => fake()->unique()->e164PhoneNumber(),
         ];
     }
 }

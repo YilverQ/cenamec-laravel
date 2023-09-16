@@ -388,11 +388,11 @@ class QuestionnaireSeeder extends Seeder
             'module_id'   => 11,
         ]);
         Questionnaire::create([
-            'ask'    => 'Este planeta tiene un anillo y no es Saturno:',
-            'answer' => "Urano",
-            'bad1'   => "Neptuno",
+            'ask'    => '¿Cuál es el primer planeta después del sol?',
+            'answer' => "Júpiter",
+            'bad1'   => "Saturno",
             'bad2'   => "Mercurio",
-            'bad3'   => "Jupiter",
+            'bad3'   => "Venus",
             'level'  => 5,
             'teacher_id'  => 1,
             'module_id'   => 11,

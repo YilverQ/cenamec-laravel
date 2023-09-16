@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 
 /*Importamos los modelos*/
 use App\Models\Note;
+use App\Models\Module;
 use App\Models\Course;
 
 

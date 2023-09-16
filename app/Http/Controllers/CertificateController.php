@@ -37,6 +37,7 @@ class CertificateController extends Controller
         ];
 
         $pdf = PDF::loadView('certificate.pdf', $data);
+        $pdf->setPaper('A4', 'landscape');
         return $pdf->stream();
     }
 }

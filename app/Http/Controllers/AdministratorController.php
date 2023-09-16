@@ -432,6 +432,8 @@ class AdministratorController extends Controller
         $genderPercentageWoman  = (count($femenine) * 100) / count($users);
         $genderPercentageMen    = (count($masculine) * 100) / count($users);
 
+        $genderPercentageWoman  = round($genderPercentageWoman, 2);
+        $genderPercentageMen    = round($genderPercentageMen, 2);
 
         //calcular el promedio de edad. 
         $averageAge  = 0;

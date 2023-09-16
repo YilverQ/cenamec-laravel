@@ -1,0 +1,17 @@
+{
+    "roboto-bold": {
+        "normal": "\/home\/biagni\/Documentos\/Projects\/Webs\/cenamec\/storage\/fonts\/roboto_bold_normal_44adee51847a684648505f1249e15348",
+        "bold": "roboto_bold_bold_44adee51847a684648505f1249e15348"
+    },
+    "roboto-regular": {
+        "normal": "\/home\/biagni\/Documentos\/Projects\/Webs\/cenamec\/storage\/fonts\/roboto_regular_normal_71a8a15418f49ef24551b40630493e7a",
+        "500": "roboto_regular_500_71a8a15418f49ef24551b40630493e7a"
+    },
+    "pacifico-regular": {
+        "bold": "\/home\/biagni\/Documentos\/Projects\/Webs\/cenamec\/storage\/fonts\/pacifico_regular_bold_8e14b9c039e6197cf94ab6a459954c9d",
+        "500": "pacifico_regular_500_8e14b9c039e6197cf94ab6a459954c9d"
+    },
+    "dancingscript": {
+        "500": "dancingscript_500_36277050e8ffa997c2daeace314dc482"
+    }
+}
