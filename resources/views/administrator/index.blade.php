@@ -99,7 +99,7 @@
 						<td class="listUser__tdBody">{{ $item->user->email }}</td>
 						<td class="listUser__tdBody">
 							<ul class="list__actions">
-			                    <a href="{{ route('administrator.edit', $item) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+			                    <a href="{{ route('administrator.edit', $item->user->id) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 								<form 
 			                    	action="{{ route('administrator.destroy', $item) }}" 
 			                    	method="POST" 
@@ -181,7 +181,7 @@
 						<td class="listUser__tdBody">{{ $item->user->email }}</td>
 						<td class="listUser__tdBody">
 							<ul class="list__actions">
-			                    <a href="{{ route('administrator.edit', $item) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+			                    <a href="{{ route('administrator.edit', $item->user->id) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 								<form 
 			                    	action="{{ route('administrator.destroy', $item) }}" 
 			                    	method="POST" 
@@ -263,7 +263,7 @@
 						<td class="listUser__tdBody">{{ $item->user->email }}</td>
 						<td class="listUser__tdBody">
 							<ul class="list__actions">
-			                    <a href="{{ route('administrator.edit', $item) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+			                    <a href="{{ route('administrator.edit', $item->user->id) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 								<form 
 			                    	action="{{ route('administrator.destroy', $item) }}" 
 			                    	method="POST" 
