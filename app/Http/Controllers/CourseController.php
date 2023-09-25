@@ -32,12 +32,20 @@ class CourseController extends Controller
         $teacher_id = $request->session()->get('teacher_id');
         $teacher = Teacher::find($teacher_id);
         $courses = $teacher->courses()
+                   ->withCount('modules')
+                   ->orderBy('updated_at', 'desc')
+                   ->Where('disabled', true)
+                   ->get();
+
+        $coursesDisabled = $teacher->courses()
                             ->withCount('modules')
                             ->orderBy('updated_at', 'desc')
+                            ->where('disabled', false)
                             ->get(); 
 
         return view('course.index')
-                ->with("courses", $courses);
+                ->with("courses", $courses)
+                ->with("coursesDisabled", $coursesDisabled);
     }
 
 

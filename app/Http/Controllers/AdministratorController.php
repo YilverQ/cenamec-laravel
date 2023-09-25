@@ -51,14 +51,27 @@ class AdministratorController extends Controller
     public function index()
     {
         //Obtenemos todos los administradores.
-        $administrators = Administrator::all();
-        $teachers = Teacher::all();
-        $students = Student::all();
+        $administrators = Administrator::join('users', 'administrators.user_id', '=', 'users.id')
+                                ->where('users.disabled', false)
+                                ->select('administrators.*')
+                                ->get();
+        $teachers = Teacher::join('users', 'teachers.user_id', '=', 'users.id')
+                                ->where('users.disabled', false)
+                                ->select('teachers.*')
+                                ->get();
+        $students = Student::join('users', 'students.user_id', '=', 'users.id')
+                                ->where('users.disabled', false)
+                                ->select('students.*')
+                                ->get();
+
+        $usersDisabled = User::where('disabled', true)->get();
+
 
         return view('administrator.index')
                 ->with("administrators", $administrators)
                 ->with("teachers", $teachers)
-                ->with("students", $students);
+                ->with("students", $students)
+                ->with("usersDisabled", $usersDisabled);
     }
 
 
@@ -361,11 +374,9 @@ class AdministratorController extends Controller
 
 
     /**
-     * Eliminamos un elemento de nuestra bd.
-     * Para que se pueda eliminar se debe cumplir con lo siguiente:
-     *      1. El elemento que se desea eliminar no puede ser del usuario que está activo.   
+     * Ya no se pueden eliminar usuarios, entonces debemos deshabilitarlos.  
      */
-    public function destroy(Request $request, User $item)
+    public function disabled(Request $request, User $item)
     {
         //Obtener el administrador con la sesión activa. 
         $user_id = $request->session()->get('user_id');
@@ -377,13 +388,29 @@ class AdministratorController extends Controller
             Retorna un mensaje flash de error. 
         */
         if ($user->email == $item->email) {
-            session()->flash('message-error', '¡Tu sesión está activa, no te puedes eliminar!');
+            session()->flash('message-error', '¡Tu sesión está activa, no te puedes deshabilitar!');
             return to_route('administrator.index');
         }
 
         //Elimina el elemento y retorna un mensaje flash.
-        $item->delete();
-        session()->flash('message-success', '¡El usuario fue eliminado correctamente!');
+        $item->disabled = true;
+        $item->save();
+
+        session()->flash('message-success', '¡El usuario fue deshabilitado correctamente!');
+        return to_route('administrator.index');
+    }
+
+
+    /**
+     * Aquí podemos habilitar nuevamente a los usuarios.  
+     */
+    public function enabled(Request $request, User $item)
+    {
+        //Elimina el elemento y retorna un mensaje flash.
+        $item->disabled = false;
+        $item->save();
+
+        session()->flash('message-success', '¡El usuario fue habilitado correctamente!');
         return to_route('administrator.index');
     }
 

@@ -31,15 +31,6 @@
 						Editar curso
 					</li>
 				</a>
-				<form 
-	            	action="{{ route('teacher.course.destroy', $course) }}" 
-	            	method="POST" 
-	            	class="form__delete">
-	                
-	                @csrf
-	                @method('DELETE')
-	                <button type="submit" class="header__loginItem header__loginItem--delete">Eliminar curso</button>                
-                </form>
 			</ul>
 		</header>
 	</div>

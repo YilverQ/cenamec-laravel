@@ -11,11 +11,21 @@ body{
 	height: 100%;
 }
 
+.imgBox{
+	width: 280px;
+	margin: auto;
+	overflow: hidden;
+}
+
 .imgLogoSmall{
 	width: 120px;
-	margin: auto;
-	margin-left: 480px;
+	display: inline;
+	margin: 0 10px;
 }
+.imgLogoSmall--left{
+	float: left;
+}
+
 .bold{
 	margin: 0;
 	text-align: center;
@@ -37,7 +47,7 @@ body{
 	margin-top: 70px;
 }
 .Roboto-regular{
-	text-align: right;
+	text-align: center;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;

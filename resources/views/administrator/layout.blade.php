@@ -38,11 +38,11 @@
 			<p class="closeText"><i class="fa-solid fa-xmark"></i></p>
 			<div class="windows__message">
 				<i class="fa-solid fa-circle-exclamation iconTitle iconTitle--danger"></i>
-				<h4 class="windows__title">¿Quieres eliminar el elemento?</h4>
+				<h4 class="windows__title">¿Quieres deshabilitar el elemento?</h4>
 				<ul class="header__bottons">
 					<span class="windows__confirm">
 						<li class="header__loginItem header__loginItem--contrast">
-							Si, eliminar
+							Si, deshabilitar
 						</li>
 					</span>
 					<span class="windows__cancel">

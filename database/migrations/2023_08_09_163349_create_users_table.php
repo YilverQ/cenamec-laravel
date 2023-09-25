@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("number_phone")->unique();
             $table->string("email")->unique();
             $table->string("password");
+            $table->boolean("disabled")->default(false);
             $table->unsignedBigInteger('profileimg_id');
             $table->foreign('profileimg_id')
                             ->references('id')

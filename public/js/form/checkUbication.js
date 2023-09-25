@@ -58,11 +58,13 @@ function checkMunicipalitie(selectValue){
 
 
 function checkParishe(selectValue){
-	selectValue = selectValue.replace(' ', "_");
-	let newStateInput 	= stateInput.value.replace(' ', "_");
+	selectValue = selectValue.replace(/ /g, "_");
+	let newStateInput = stateInput.value.replace(/ /g, "_");
+	
 	parishes.forEach( (item) =>{
 		if (item.classList.contains("parishe--" + selectValue)
 			&& item.classList.contains("state--" + newStateInput)){
+			console.log(item);
 			item.classList.remove("hidden");
 		}else{
 			item.classList.add("hidden");

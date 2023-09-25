@@ -71,12 +71,6 @@
 								Apellido
 							</th>
 							<th class="listUser__thHead">
-								Cédula
-							</th>
-							<th class="listUser__thHead">
-								Número<span class="visibilityFalse">i</span>de<span class="visibilityFalse">i</span>teléfono
-							</th>
-							<th class="listUser__thHead">
 								Correo<span class="visibilityFalse">i</span>electrónico
 							</th>
 						</tr>
@@ -89,8 +83,6 @@
 							</td>
 							<td class="listUser__tdBody">{{ $item->user->firts_name }}</td>
 							<td class="listUser__tdBody">{{ $item->user->lastname }}</td>
-							<td class="listUser__tdBody">{{ $item->user->identification_card }}</td>
-							<td class="listUser__tdBody">{{ $item->user->number_phone }}</td>
 							<td class="listUser__tdBody">{{ $item->user->email }}</td>
 						</tr>
 		        		@endforeach

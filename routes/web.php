@@ -82,7 +82,8 @@ Route::controller(AdministratorController::class)->group(function () {
     Route::get( '/administrator/user/{item}/edit', 'edit')->name('administrator.edit');
     Route::put( '/administrator/user/{item}', 'update')->name('administrator.update');
     Route::put( '/administrator/user/{item}/img', 'updateImg')->name('administrator.img');
-    Route::delete('/administrator/user/{item}', 'destroy')->name('administrator.destroy');
+    Route::delete('/administrator/user/{item}', 'disabled')->name('administrator.disabled');
+    Route::put('/administrator/user/{item}/enabled', 'enabled')->name('administrator.enabled');
     Route::get( '/administrator/statistics/', 'statistics')->name('administrator.statistics');
 });
 

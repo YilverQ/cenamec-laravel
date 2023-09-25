@@ -40,8 +40,8 @@
 
 		<!--Information-->
 		<article class="article">
+			<h2 class="article__title">Cursos habilitados</h2>
 			<div class="containerCourses">
-				
 	        	@foreach ($courses as $key => $item)
 				<div class="cardCourse">
 					<img class="cardCourse__img" 
@@ -59,7 +59,30 @@
 					</ul>
 				</div>
 	        	@endforeach
-        	
+			</div>
+		</article>
+
+
+		<article class="article">
+			<h2 class="article__title">Cursos deshabilitados</h2>
+			<div class="containerCourses">
+	        	@foreach ($coursesDisabled as $key => $item)
+				<div class="cardCourse">
+					<img class="cardCourse__img" 
+						src="{{ $item->img }}" 
+						alt="curso inicial de física">
+
+					<h2 class="cardCourse__title">{{ $item->name }}</h2>
+					<p class="cardCourse__info">
+						<i class="fa-solid fa-book"></i>
+						{{ $item->modules_count }} módulos
+					</p>
+					<ul class="list__actions list__actions--cardCourse">
+						<a href="{{ route('teacher.course.show', $item) }}" title="Ver más" class="icon icon--show"><i class="fa-solid fa-eye"></i> Ver más</a> 
+	                    <a href="{{ route('teacher.course.edit', $item) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+					</ul>
+				</div>
+	        	@endforeach
 			</div>
 		</article>
 	</main>

@@ -101,13 +101,13 @@
 							<ul class="list__actions">
 			                    <a href="{{ route('administrator.edit', $item->user->id) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 								<form 
-			                    	action="{{ route('administrator.destroy', $item) }}" 
+			                    	action="{{ route('administrator.disabled', $item) }}" 
 			                    	method="POST" 
 			                    	class="form__delete">
 			                        
 			                        @csrf
 			                        @method('DELETE')
-			                        <button type="submit" class="icon icon--delete"><i title="Eliminar" class="fa-solid fa-trash"></i> Eliminar</button>                
+			                        <button type="submit" class="icon icon--delete"><i title="Deshabilitar" class="fa-solid fa-user-slash"></i> Deshabilitar</button>                
 			                    </form> 
 							</ul>
 						</td>
@@ -183,13 +183,13 @@
 							<ul class="list__actions">
 			                    <a href="{{ route('administrator.edit', $item->user->id) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 								<form 
-			                    	action="{{ route('administrator.destroy', $item) }}" 
+			                    	action="{{ route('administrator.disabled', $item) }}" 
 			                    	method="POST" 
 			                    	class="form__delete">
 			                        
 			                        @csrf
 			                        @method('DELETE')
-			                        <button type="submit" class="icon icon--delete"><i title="Eliminar" class="fa-solid fa-trash"></i> Eliminar</button>                
+			                        <button type="submit" class="icon icon--delete"><i title="Deshabilitar" class="fa-solid fa-user-slash"></i> Deshabilitar</button>                
 			                    </form> 
 							</ul>
 						</td>
@@ -265,13 +265,96 @@
 							<ul class="list__actions">
 			                    <a href="{{ route('administrator.edit', $item->user->id) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
 								<form 
-			                    	action="{{ route('administrator.destroy', $item) }}" 
+			                    	action="{{ route('administrator.disabled', $item) }}" 
 			                    	method="POST" 
 			                    	class="form__delete">
 			                        
 			                        @csrf
 			                        @method('DELETE')
-			                        <button type="submit" class="icon icon--delete"><i title="Eliminar" class="fa-solid fa-trash"></i> Eliminar</button>                
+			                        <button type="submit" class="icon icon--delete"><i title="Deshabilitar" class="fa-solid fa-user-slash"></i> Deshabilitar</button>                
+			                    </form> 
+							</ul>
+						</td>
+					</tr>
+	        		@endforeach
+				</tbody>
+			</table>	        	
+			</div>
+		</article>
+
+
+
+		<article class="article">
+			<h2 class="tab__title--centered">
+				Lista de <strong class="color-Text">usuarios</strong> deshabilitados
+			</h2>
+			<div class="containerTableUser">
+			<table class="listUser" id="studentTable">
+				<thead class="listUser__head">
+					<tr class="listUser__trHead">
+						<th class="listUser__thHead">
+							Foto
+						</th>
+						<th class="listUser__thHead">
+							Primer<span class="visibilityFalse">i</span>nombre
+						</th>
+						<th class="listUser__thHead">
+							Primer<span class="visibilityFalse">i</span>apellido
+						</th>
+						<th class="listUser__thHead">
+							Genero
+						</th>
+						<th class="listUser__thHead">
+							Fecha<span class="visibilityFalse">i</span>de<span class="visibilityFalse">i</span>nacimiento
+						</th>
+						<th class="listUser__thHead">
+							Cédula
+						</th>
+						<th class="listUser__thHead">
+							Número<span class="visibilityFalse">i</span>de<span class="visibilityFalse">i</span>teléfono
+						</th>
+						<th class="listUser__thHead">
+							Estado
+						</th>
+						<th class="listUser__thHead">
+							Municipio
+						</th>
+						<th class="listUser__thHead">
+							Parroquia
+						</th>
+						<th class="listUser__thHead">
+							Correo<span class="visibilityFalse">i</span>electrónico
+						</th>
+						<th class="listUser__thHead listUser__thHead--actions">Acciones</th>
+					</tr>
+				</thead>
+				<tbody class="listUser__head">
+	        		@foreach ($usersDisabled as $key => $item)
+					<tr class="listUser__trBody">
+						<td class="listUser__tdBody">
+							<img class="imgTable" src="{{ $item->profileimg->url }}" alt="foto de perfil">
+						</td>
+						<td class="listUser__tdBody">{{ $item->firts_name }}</td>
+						<td class="listUser__tdBody">{{ $item->lastname }}</td>
+						<td class="listUser__tdBody">{{ $item->gender }}</td>
+						<td class="listUser__tdBody">{{ $item->birthdate }}</td>
+						<td class="listUser__tdBody">{{ $item->identification_card }}</td>
+						<td class="listUser__tdBody">{{ $item->number_phone }}</td>
+						<td class="listUser__tdBody">{{ $item->parishe->municipalitie->state->name }}</td>
+						<td class="listUser__tdBody">{{ $item->parishe->municipalitie->name }}</td>
+						<td class="listUser__tdBody">{{ $item->parishe->name }}</td>
+						<td class="listUser__tdBody">{{ $item->email }}</td>
+						<td class="listUser__tdBody">
+							<ul class="list__actions">
+			                    <a href="{{ route('administrator.edit', $item->id) }}" title="Editar" class="icon icon--edit"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+								<form 
+			                    	action="{{ route('administrator.enabled', $item) }}" 
+			                    	method="POST" 
+			                    	class="form__enabled">
+			                        
+			                        @csrf
+			                        @method('PUT')
+			                        <button type="submit" class="icon icon--show"><i title="Habilitar" class="fa-solid fa-user"></i> Habilitar</button>                
 			                    </form> 
 							</ul>
 						</td>

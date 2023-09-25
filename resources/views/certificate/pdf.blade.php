@@ -53,7 +53,10 @@
 </head>
 <body>
 		<div class="title">
-			<img src="{{ public_path('img/logoSmall.png') }}" class="imgLogoSmall">
+			<div class="imgBox">
+				<img src="{{ public_path('img/certificate/cenamec.png') }}" class="imgLogoSmall imgLogoSmall--left">
+				<img src="{{ public_path('img/certificate/accion.png') }}" class="imgLogoSmall imgLogoSmall--right">
+			</div>
 			<h1 class="bold principalH1">CENAMEC</h1>	
 			<h4 class="bold">Certifica a:</h4>	
 		</div>
@@ -71,10 +74,10 @@
 		</div>
 		<footer class="footer">
 			<h3 class="Roboto-regular">
-				Fecha de finalización: {{ $certificate->date_certificate }}
+				FECHA DE FINALIZACION: {{ $certificate->date_certificate }}
 			</h3>
 			<h3 class="Roboto-regular">
-				Código: CENAMEC-{{ $certificate->course_id }}-{{ $certificate->student_id }}
+				CODIGO: CENAMEC-{{ $certificate->course_id }}-{{ $certificate->student_id }}
 			</h3>
 		</footer>
 </body>
