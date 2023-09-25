@@ -138,7 +138,8 @@
 									<a href="{{ route('student.module.study', $item) }}" title="Ver más" class="icon icon--show icon--repeat"><i class="fa-solid fa-eye"></i> Repetir</a>
 								</ul>
 								<span class="cardModule__percentage">
-									Desempeño: {{ $item->percentage }}%
+									<progress class="completePercentage" max="100" value="100"></progress>
+									{{ $item->percentage }}%
 								</span>
 							</div>
 						@else
@@ -157,7 +158,8 @@
 									<a href="{{ route('student.module.study', $item) }}" title="Ver más" class="icon icon--show icon--repeat"><i class="fa-solid fa-eye"></i> Repetir</a>
 								</ul>
 								<span class="cardModule__percentage">
-									Desempeño: {{ $item->percentage }}%
+									<progress max="100" value="{{ $item->percentage }}"></progress>
+									{{ $item->percentage }}%
 								</span>
 							</div>
 						@endif
