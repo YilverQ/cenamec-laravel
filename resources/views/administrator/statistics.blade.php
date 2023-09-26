@@ -96,7 +96,7 @@
 								<canvas id="myChartStates"></canvas>
 							</div>
 
-							<h3 class="smallInformation__title">Municipios con más ususarios</h3>
+							<h3 class="smallInformation__title">Municipios con más usuarios</h3>
 							<div class="hidden">
 								<p class="boxData hidden">
 									@foreach ($municipalities as $key => $item)
@@ -111,7 +111,7 @@
 								<canvas id="myChartMunicipalities"></canvas>
 							</div>
 
-							<h3 class="smallInformation__title">Parroquías con más usuarios</h3>
+							<h3 class="smallInformation__title">Parroquias con más usuarios</h3>
 							<div class="hidden">
 								<p class="boxData hidden">
 									@foreach ($parishes as $key => $item)

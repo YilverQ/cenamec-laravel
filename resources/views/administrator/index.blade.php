@@ -288,8 +288,11 @@
 			<h2 class="tab__title--centered">
 				Lista de <strong class="color-Text">usuarios</strong> deshabilitados
 			</h2>
+			@if (count($usersDisabled) == 0)
+				<h2>No hay usuarios</h2>
+			@else
 			<div class="containerTableUser">
-			<table class="listUser" id="studentTable">
+			<table class="listUser" id="disabledUsers">
 				<thead class="listUser__head">
 					<tr class="listUser__trHead">
 						<th class="listUser__thHead">
@@ -363,6 +366,8 @@
 				</tbody>
 			</table>	        	
 			</div>
+			@endif
+			
 		</article>
 	</main>
 @endsection
@@ -409,6 +414,26 @@
 	</script>
 	<script type="text/javascript">
 		let tableStudent = new DataTable('#studentTable', {
+		    responsive: true,
+		    autoWidth : false,
+		    
+		    "language": {
+	            "lengthMenu": "Mostrar _MENU_ usuarios",
+	            "zeroRecords": "No se encontró nada - Disculpa",
+	            "info": "Mostrando la página _PAGE_ de _PAGES_",
+	            "infoEmpty": "No hay registros disponibles",
+	            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+	            "search": "Buscar:",
+	            "paginate": {
+	            	"next": "Siguiente",
+	            	"previous": "Anterior"
+	            }
+	        }
+		});
+	</script>
+
+	<script type="text/javascript">
+		let tableDisabledUser = new DataTable('#disabledUsers', {
 		    responsive: true,
 		    autoWidth : false,
 		    

@@ -45,7 +45,7 @@
 		<nav class="descriptionBanner__nav">
 			<p class="descriptionBanner__item descriptionBanner__item--checked">Propósito</p>
 			<p class="descriptionBanner__item">Objetivos</p>
-			<p class="descriptionBanner__item">Competencias a conseguir</p>
+			<p class="descriptionBanner__item">Competencias a lograr</p>
 			<p class="descriptionBanner__item">Profesores</p>
 			<p class="collapse__icon">
 				<i class="collapse__text fa-solid fa-chevron-up"></i></i>
@@ -64,7 +64,7 @@
 				<p class="smallInformation">{!! nl2br($course->specific_objetive) !!}</p>
 			</div>
 			<div class="descriptionCard hidden">
-				<h3 class="smallInformation__title">Competencias a conseguir</h3>
+				<h3 class="smallInformation__title">Competencias a lograr</h3>
 				<p class="smallInformation">{!! nl2br($course->competence) !!}</p>
 			</div>
 			<div class="descriptionCard hidden">

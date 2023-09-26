@@ -99,7 +99,7 @@
 					</div>
 					<div class="grid-one">
 						<div class="form__item form__item--big">
-							<label for="competence">Competencias a conseguir:</label>
+							<label for="competence">Competencias a lograr:</label>
 							<textarea class="form__textarea form__input form__input--big"
 										name="competence"
 										id="competence"
