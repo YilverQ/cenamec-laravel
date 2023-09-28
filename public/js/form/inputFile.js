@@ -1,29 +1,11 @@
 let nameImg = document.getElementById('img');
 let imgText = document.querySelector(".labelFile__imgText");
-const labelFile = document.querySelector('.labelFile__text');
-const labelFileInput = document.querySelector('.labelFile__input');
+const inputHidden = document.getElementById('img');
 let text = "";
-//let formFileItem = document.querySelector(".form__item");
 
-//Mouseout
-labelFile.addEventListener('mouseout', () =>{
+
+inputHidden.addEventListener('change', () =>{
 	changeTextInputFile();
-});
-labelFileInput.addEventListener('mouseout', () =>{
-	changeTextInputFile();
-});
-
-
-//Click
-labelFileInput.addEventListener('click', () =>{
-	setTimeout( ()=>{
-		changeTextInputFile();
-	}, 10000);
-});
-labelFile.addEventListener('click', () =>{
-	setTimeout( ()=>{
-		changeTextInputFile();
-	}, 10000);
 });
 
 

@@ -106,6 +106,12 @@
         </p>
     @endif
 
+    @if ($errors->has('img'))
+	    <p class="message message--error">Lo siento, la imagen debe pesar menos de 2mb.
+			<i class="close-message fa-solid fa-xmark"></i></i>
+		</p>
+	@endif
+
 	@yield('content')
 
 

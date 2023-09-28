@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 /*Importamos los modelos*/
 use App\Models\Course;
@@ -75,18 +76,27 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //Comprobamos si el nombre es valido.
-        $name = $request->input('name');
+        $name = $request->input('super_name');
         $is_name_valid  = Course::where('name', '=', $name)->first();
         //Si se encuentra un elemento es porque el nombre ingresado es incorrecto.
         if (!(empty($is_name_valid->name))) {
             session()->flash('message-error', 'Error, el nombre del curso ya está en uso');
             return to_route('teacher.course.create');
         }
+        $teachers = $request->input('teachers');
+        if (empty($teachers)) {
+            session()->flash('message-error', 'Error, Debes agregar al menos a un profesor');
+            return to_route('teacher.course.create');
+        }
 
         //Procesamos la imagen
-        $request->validate([
-            'img' => 'required|image|max:2048'
-        ]);
+        $validator = Validator::make($request->all(), [
+            'img' => 'required|mimes:jpeg,png,gif,webp,svg,bmp|max:2048'
+        ]);    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }  
+
         $urlImage = $request->file('img')->store('public/imgCourses');
         $urlImage = Storage::url($urlImage);
 
@@ -262,15 +272,19 @@ class CourseController extends Controller
         //Comprobamos si se quiere actualizar una imágen. 
         $imagen = $request->file('img');
         if (!(empty($imagen))){
+            //Procesamos la imagen
+            $validator = Validator::make($request->all(), [
+                'img' => 'required|mimes:jpeg,png,gif,webp,svg,bmp|max:2048'
+            ]);    
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator);
+            } 
 
             //Elimina la imagen antigua.
             $image = str_replace('storage', 'public', $item->img);
             Storage::delete($image);
             
-            //Procesamos la imagen
-            $request->validate([
-                'img' => 'required|image|max:2048'
-            ]);
+             
             $urlImage = $request->file('img')->store('public/imgCourses');
             $urlImage = Storage::url($urlImage);
             

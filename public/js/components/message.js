@@ -20,5 +20,5 @@ if (crossMessage) {
 
 	setTimeout(function() {
         message.classList.add('hidden');
-    }, 2000);
+    }, 5000);
 }
