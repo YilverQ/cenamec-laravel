@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -89,16 +90,15 @@ class CourseController extends Controller
             return to_route('teacher.course.create');
         }
 
-        //Procesamos la imagen
-        $validator = Validator::make($request->all(), [
-            'img' => 'required|mimes:jpeg,png,gif,webp,svg,bmp|max:2048'
-        ]);    
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
-        }  
-
-        $urlImage = $request->file('img')->store('public/imgCourses');
-        $urlImage = Storage::url($urlImage);
+        // Obtener la imagen del formulario
+        $url =  "/img/public/imgCourses/";
+        $img = $request->file('img');
+        // Generar un nombre único para la imagen
+        $nameUnique = Str::random(20) . '.' . $img->getClientOriginalExtension();
+        // Guardar la imagen en la carpeta "uploads"
+        $img->move(public_path($url), $nameUnique);
+        // Ruta completa de la imagen.
+        $urlImage = $url . $nameUnique;
 
         //Almacenamos los saltos de linea
         $competence = $request->input('competence');
@@ -273,21 +273,23 @@ class CourseController extends Controller
         $imagen = $request->file('img');
         if (!(empty($imagen))){
             //Procesamos la imagen
-            $validator = Validator::make($request->all(), [
-                'img' => 'required|mimes:jpeg,png,gif,webp,svg,bmp|max:2048'
-            ]);    
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator);
-            } 
+            // Obtener la ruta completa de la imagen
+            // Verificar si la imagen existe antes de eliminarla
+            if (file_exists(public_path($item->img))) {
+                // Eliminar la imagen
+                unlink(public_path($item->img));
+            }
 
-            //Elimina la imagen antigua.
-            $image = str_replace('storage', 'public', $item->img);
-            Storage::delete($image);
-            
-             
-            $urlImage = $request->file('img')->store('public/imgCourses');
-            $urlImage = Storage::url($urlImage);
-            
+            // Obtener la imagen del formulario
+            $url =  "/img/public/imgCourses/";
+            $img = $request->file('img');
+            // Generar un nombre único para la imagen
+            $nameUnique = Str::random(20) . '.' . $img->getClientOriginalExtension();
+            // Guardar la imagen en la carpeta "uploads"
+            $img->move(public_path($url), $nameUnique);
+            // Ruta completa de la imagen.
+            $urlImage = $url . $nameUnique;
+
             $item->img = $urlImage;
         }
 
@@ -314,7 +316,7 @@ class CourseController extends Controller
 
         #Retorna un mensaje flash.
         session()->flash('message-success', '¡El curso fue actualizado!');
-        return to_route('teacher.course.edit', $item);
+        return to_route('teacher.course.index');
     }
 
 
@@ -329,9 +331,11 @@ class CourseController extends Controller
      */
     public function destroy(Request $request, Course $item)
     {
-        //Elimina el elemento y retorna un mensaje flash.
-        $image = str_replace('storage', 'public', $item->img);
-        Storage::delete($image);
+        // Verificar si la imagen existe antes de eliminarla
+        if (file_exists(public_path($item->img))) {
+            // Eliminar la imagen
+            unlink(public_path($item->img));
+        }
         
         $item->delete();
         session()->flash('message-success', '¡El curso fue eliminado correctamente!');

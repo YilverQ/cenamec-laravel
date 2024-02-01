@@ -38,8 +38,6 @@
 									id="ask" 
 									value="{{ $questionnaire->ask }}" 
 									placeholder="¿Cúal es un área de la ciencia naturales?"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -51,8 +49,6 @@
 									id="answer"
 									value="{{ $questionnaire->answer }}"  
 									placeholder="Física"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 					</div>
@@ -67,8 +63,6 @@
 									id="bad1"
 									value="{{ $questionnaire->bad1 }}"  
 									placeholder="Artes plásticas"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -80,8 +74,6 @@
 									id="bad2"
 									value="{{ $questionnaire->bad2 }}"  
 									placeholder="Educación física"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 					</div>
@@ -96,8 +88,6 @@
 									id="bad3"
 									value="{{ $questionnaire->bad3 }}" 
 									placeholder="Economía"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 					</div>

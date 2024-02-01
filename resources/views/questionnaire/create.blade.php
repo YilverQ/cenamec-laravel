@@ -37,8 +37,6 @@
 									type="text" 
 									id="ask" 
 									placeholder="¿Cúal es un área de la ciencia naturales?"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -49,8 +47,6 @@
 									type="text" 
 									id="answer" 
 									placeholder="Física"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 					</div>
@@ -64,8 +60,6 @@
 									type="text" 
 									id="bad1" 
 									placeholder="Artes plásticas"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -76,8 +70,6 @@
 									type="text" 
 									id="bad2" 
 									placeholder="Educación física"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 					</div>
@@ -91,8 +83,6 @@
 									type="text" 
 									id="bad3" 
 									placeholder="Economía"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 					</div>

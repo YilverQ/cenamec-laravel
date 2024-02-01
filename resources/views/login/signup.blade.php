@@ -26,8 +26,6 @@
 						type="text" 
 						id="firts_name" 
 						placeholder="Vanessa"
-						minlength="3"
-						maxlength="50"
 						autocomplete="off">
 			</div>
 			<div class="form__item">
@@ -38,8 +36,6 @@
 						type="text" 
 						id="second_name" 
 						placeholder="Vanessa"
-						minlength="3"
-						maxlength="50"
 						autocomplete="off">
 			</div>
 		</div>
@@ -53,8 +49,6 @@
 						type="text" 
 						id="lastname" 
 						placeholder="Longa"
-						minlength="3"
-						maxlength="50"
 						autocomplete="off">
 			</div>
 			<div class="form__item">
@@ -65,8 +59,6 @@
 						type="text" 
 						id="second_lastname" 
 						placeholder="Longa"
-						minlength="3"
-						maxlength="50"
 						autocomplete="off">
 			</div>
 		</div>

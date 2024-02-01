@@ -45,7 +45,7 @@ class CourseSeeder extends Seeder
 
 6. Conciencia ambiental: Los estudiantes deberán adquirir una conciencia y un respeto por la naturaleza, comprendiendo la importancia de la fotosíntesis en la producción de alimentos, la regulación del clima y la generación de oxígeno, entre otros aspectos cruciales para la vida en la Tierra.',
             'disabled' => true,
-            'img'     => '/storage/imgCourses/fotosintesis.jpeg',
+            'img'     => '/img/public/imgCourses/fotosintesis.jpeg',
         ]);
 
 
@@ -86,7 +86,7 @@ class CourseSeeder extends Seeder
 
             6. Conciencia ambiental: El estudiante deberá adquirir una conciencia y un respeto por el medio ambiente, comprendiendo la importancia de la preservación y conservación de nuestro planeta Tierra y su relación con el sistema solar.',
             'disabled' => true,
-            'img' => '/storage/imgCourses/solar.jpeg',
+            'img' => '/img/public/imgCourses/solar.jpeg',
         ]);
 
 
@@ -118,7 +118,7 @@ class CourseSeeder extends Seeder
 
 6. Conciencia ambiental: Los estudiantes deberán adquirir una conciencia y un respeto por la naturaleza, comprendiendo la importancia de la conservación de especies para la preservación de la biodiversidad y la protección del medio ambiente.',
             'disabled' => true,
-            'img' => '/storage/imgCourses/conservacion.jpeg',
+            'img' => '/img/public/imgCourses/conservacion.jpeg',
         ]);
 
 
@@ -130,7 +130,7 @@ class CourseSeeder extends Seeder
         Course::create([
             'name' => 'Los estados de la materia y sus propiedades',
             'purpose' => "En este curso, los estudiantes explorarán los diferentes estados de la materia y sus propiedades, comprendiendo cómo se pueden transformar de un estado a otro. Aprenderán sobre las características y propiedades de los estados sólido, líquido y gaseoso, así como los cambios de estado que pueden ocurrir.",
-            'img' => '/storage/imgCourses/estados.jpeg',
+            'img' => '/img/public/imgCourses/estados.jpeg',
             'general_objetive' => 'Promover el conocimiento y la comprensión de los diferentes estados de la materia y sus propiedades, así como de los cambios de estado, para poder aplicar este conocimiento en diversos contextos.',
             'specific_objetive' => '1. Introducir y definir los conceptos clave relacionados con los estados de la materia, como sólido, líquido y gaseoso.
 

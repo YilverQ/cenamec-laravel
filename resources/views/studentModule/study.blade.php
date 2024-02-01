@@ -12,6 +12,7 @@
 
 @section('content')
 	<main class="container">
+
 		<article class="article">
 			<div class="box-sequence">
 				@foreach ($notes as $key => $item)
@@ -45,7 +46,6 @@
 					</div>
 				</div>
 			@else
-
 			<div class="notes">
 				@foreach ($notes as $key => $item)
 				@if ($key == 0)
@@ -53,16 +53,24 @@
 					<img src="{{ $item->img }}" alt="Imagen de una nota" class="note__img">
 					<h3 class="note__title">{{ $item->title }}</h3>
 					<p class="note__description">{{ $item->description }}</p>
+					@if ($item->youtube != null)
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $item->code_youtube }}?si=CcAFru3KL8m1oQ1j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					@endif
 				</div>
 				@else
 				<div class="note note--hidden">
 					<img src="{{ $item->img }}" alt="Imagen de una nota" class="note__img">
 					<h3 class="note__title">{{ $item->title }}</h3>
 					<p class="note__description">{!! nl2br($item->description) !!}</p>
+					@if ($item->youtube != null)
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $item->code_youtube }}?si=CcAFru3KL8m1oQ1j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					@endif
 				</div>
 				@endif
 				@endforeach
+
 			</div>
+				
 
 			<div class="buttons-arrows">
 				<div id="leftButton" class="buttons-arrows__arrow buttons-arrows__arrow--after buttonHidden">

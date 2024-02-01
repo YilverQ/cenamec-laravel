@@ -15,150 +15,150 @@ class ProfileimgSeeder extends Seeder
     {
         /*Imgs*/
         Profileimg::create(['name' => 'Abeja',
-                         'url'  => '/storage/imgProfile/Abeja.png']);
+                         'url'  => '/img/public/imgProfile/Abeja.png']);
  
         Profileimg::create(['name' => 'Alien',
-                         'url'  => '/storage/imgProfile/Alien.png']);
+                         'url'  => '/img/public/imgProfile/Alien.png']);
  
         Profileimg::create(['name' => 'Angel',
-                         'url'  => '/storage/imgProfile/Angel.png']);
+                         'url'  => '/img/public/imgProfile/Angel.png']);
  
         Profileimg::create(['name' => 'Apache',
-                         'url'  => '/storage/imgProfile/Apache.png']);
+                         'url'  => '/img/public/imgProfile/Apache.png']);
  
         Profileimg::create(['name' => 'Artista',
-                         'url'  => '/storage/imgProfile/Artista.png']);
+                         'url'  => '/img/public/imgProfile/Artista.png']);
  
         Profileimg::create(['name' => 'Astronauta',
-                         'url'  => '/storage/imgProfile/Astronauta.png']);
+                         'url'  => '/img/public/imgProfile/Astronauta.png']);
  
         Profileimg::create(['name' => 'Bombero',
-                         'url'  => '/storage/imgProfile/Bombero.png']);
+                         'url'  => '/img/public/imgProfile/Bombero.png']);
  
         Profileimg::create(['name' => 'Calabaza',
-                         'url'  => '/storage/imgProfile/Calabaza.png']);
+                         'url'  => '/img/public/imgProfile/Calabaza.png']);
  
         Profileimg::create(['name' => 'Cebra',
-                         'url'  => '/storage/imgProfile/Cebra.png']);
+                         'url'  => '/img/public/imgProfile/Cebra.png']);
  
         Profileimg::create(['name' => 'Cerdito',
-                         'url'  => '/storage/imgProfile/Cerdito.png']);
+                         'url'  => '/img/public/imgProfile/Cerdito.png']);
  
         Profileimg::create(['name' => 'Científica',
-                         'url'  => '/storage/imgProfile/Científica.png']);
+                         'url'  => '/img/public/imgProfile/Científica.png']);
  
         Profileimg::create(['name' => 'Conejo',
-                         'url'  => '/storage/imgProfile/Conejo.png']);
+                         'url'  => '/img/public/imgProfile/Conejo.png']);
  
         Profileimg::create(['name' => 'Dentista',
-                         'url'  => '/storage/imgProfile/Dentista.png']);
+                         'url'  => '/img/public/imgProfile/Dentista.png']);
  
         Profileimg::create(['name' => 'Diablillo',
-                         'url'  => '/storage/imgProfile/Diablillo.png']);
+                         'url'  => '/img/public/imgProfile/Diablillo.png']);
  
         Profileimg::create(['name' => 'Dinosaurio',
-                         'url'  => '/storage/imgProfile/Dinosaurio.png']);
+                         'url'  => '/img/public/imgProfile/Dinosaurio.png']);
  
         Profileimg::create(['name' => 'Doctora',
-                         'url'  => '/storage/imgProfile/Doctora.png']);
+                         'url'  => '/img/public/imgProfile/Doctora.png']);
  
         Profileimg::create(['name' => 'Enfermera',
-                         'url'  => '/storage/imgProfile/Enfermera.png']);
+                         'url'  => '/img/public/imgProfile/Enfermera.png']);
  
         Profileimg::create(['name' => 'Fantasma',
-                         'url'  => '/storage/imgProfile/Fantasma.png']);
+                         'url'  => '/img/public/imgProfile/Fantasma.png']);
  
         Profileimg::create(['name' => 'Faraón',
-                         'url'  => '/storage/imgProfile/Faraón.png']);
+                         'url'  => '/img/public/imgProfile/Faraón.png']);
  
         Profileimg::create(['name' => 'Flor',
-                         'url'  => '/storage/imgProfile/Flor.png']);
+                         'url'  => '/img/public/imgProfile/Flor.png']);
  
         Profileimg::create(['name' => 'Gallina',
-                         'url'  => '/storage/imgProfile/Gallina.png']);
+                         'url'  => '/img/public/imgProfile/Gallina.png']);
  
         Profileimg::create(['name' => 'Gato',
-                         'url'  => '/storage/imgProfile/Gato.png']);
+                         'url'  => '/img/public/imgProfile/Gato.png']);
  
         Profileimg::create(['name' => 'Granjero',
-                         'url'  => '/storage/imgProfile/Granjero.png']);
+                         'url'  => '/img/public/imgProfile/Granjero.png']);
  
         Profileimg::create(['name' => 'Hada',
-                         'url'  => '/storage/imgProfile/Hada.png']);
+                         'url'  => '/img/public/imgProfile/Hada.png']);
  
         Profileimg::create(['name' => 'Hawaiiana',
-                         'url'  => '/storage/imgProfile/Hawaiiana.png']);
+                         'url'  => '/img/public/imgProfile/Hawaiiana.png']);
  
         Profileimg::create(['name' => 'Hechicero',
-                         'url'  => '/storage/imgProfile/Hechicero.png']);
+                         'url'  => '/img/public/imgProfile/Hechicero.png']);
  
         Profileimg::create(['name' => 'Jirafa',
-                         'url'  => '/storage/imgProfile/Jirafa.png']);
+                         'url'  => '/img/public/imgProfile/Jirafa.png']);
  
         Profileimg::create(['name' => 'León',
-                         'url'  => '/storage/imgProfile/León.png']);
+                         'url'  => '/img/public/imgProfile/León.png']);
  
         Profileimg::create(['name' => 'Mago',
-                         'url'  => '/storage/imgProfile/Mago.png']);
+                         'url'  => '/img/public/imgProfile/Mago.png']);
  
         Profileimg::create(['name' => 'Mariposa',
-                         'url'  => '/storage/imgProfile/Mariposa.png']);
+                         'url'  => '/img/public/imgProfile/Mariposa.png']);
  
         Profileimg::create(['name' => 'Momia',
-                         'url'  => '/storage/imgProfile/Momia.png']);
+                         'url'  => '/img/public/imgProfile/Momia.png']);
  
         Profileimg::create(['name' => 'Mono',
-                         'url'  => '/storage/imgProfile/Mono.png']);
+                         'url'  => '/img/public/imgProfile/Mono.png']);
  
         Profileimg::create(['name' => 'Ninja',
-                         'url'  => '/storage/imgProfile/Ninja.png']);
+                         'url'  => '/img/public/imgProfile/Ninja.png']);
  
         Profileimg::create(['name' => 'Oficial',
-                         'url'  => '/storage/imgProfile/Oficial.png']);
+                         'url'  => '/img/public/imgProfile/Oficial.png']);
  
         Profileimg::create(['name' => 'Oso',
-                         'url'  => '/storage/imgProfile/Oso.png']);
+                         'url'  => '/img/public/imgProfile/Oso.png']);
  
         Profileimg::create(['name' => 'Payaso',
-                         'url'  => '/storage/imgProfile/Payaso.png']);
+                         'url'  => '/img/public/imgProfile/Payaso.png']);
  
         Profileimg::create(['name' => 'Perro',
-                         'url'  => '/storage/imgProfile/Perro.png']);
+                         'url'  => '/img/public/imgProfile/Perro.png']);
  
         Profileimg::create(['name' => 'Piloto',
-                         'url'  => '/storage/imgProfile/Piloto.png']);
+                         'url'  => '/img/public/imgProfile/Piloto.png']);
  
         Profileimg::create(['name' => 'Pirata',
-                         'url'  => '/storage/imgProfile/Pirata.png']);
+                         'url'  => '/img/public/imgProfile/Pirata.png']);
  
         Profileimg::create(['name' => 'Princesa',
-                         'url'  => '/storage/imgProfile/Princesa.png']);
+                         'url'  => '/img/public/imgProfile/Princesa.png']);
  
         Profileimg::create(['name' => 'Rana',
-                         'url'  => '/storage/imgProfile/Rana.png']);
+                         'url'  => '/img/public/imgProfile/Rana.png']);
  
         Profileimg::create(['name' => 'Robot',
-                         'url'  => '/storage/imgProfile/Robot.png']);
+                         'url'  => '/img/public/imgProfile/Robot.png']);
  
         Profileimg::create(['name' => 'Superheroe',
-                         'url'  => '/storage/imgProfile/Superheroe.png']);
+                         'url'  => '/img/public/imgProfile/Superheroe.png']);
  
         Profileimg::create(['name' => 'Tiburón',
-                         'url'  => '/storage/imgProfile/Tiburón.png']);
+                         'url'  => '/img/public/imgProfile/Tiburón.png']);
  
         Profileimg::create(['name' => 'Trabajador',
-                         'url'  => '/storage/imgProfile/Trabajador.png']);
+                         'url'  => '/img/public/imgProfile/Trabajador.png']);
  
         Profileimg::create(['name' => 'Unicornio',
-                         'url'  => '/storage/imgProfile/Unicornio.png']);
+                         'url'  => '/img/public/imgProfile/Unicornio.png']);
  
         Profileimg::create(['name' => 'Vampiro',
-                         'url'  => '/storage/imgProfile/Vampiro.png']);
+                         'url'  => '/img/public/imgProfile/Vampiro.png']);
  
         Profileimg::create(['name' => 'Vaquero',
-                         'url'  => '/storage/imgProfile/Vaquero.png']);
+                         'url'  => '/img/public/imgProfile/Vaquero.png']);
  
         Profileimg::create(['name' => 'Vikingo',
-                         'url'  => '/storage/imgProfile/Vikingo.png']);
+                         'url'  => '/img/public/imgProfile/Vikingo.png']);
     }
 }

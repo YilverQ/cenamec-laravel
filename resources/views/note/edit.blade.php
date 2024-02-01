@@ -38,8 +38,6 @@
 									id="super_name" 
 									value="{{ $note->title }}" 
 									placeholder="Física para principiante"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -57,6 +55,17 @@
 									accept="image/*">
 						</div>
 					</div>
+					<div class="grid-two">
+						<div class="form__item">
+							<label for="super_name">Link de Youtube</label>
+							<input class="form__input form__input" 
+									name="youtube" 
+									type="url" 
+									id="youtube"
+									value="{{ $note->youtube }}" 
+									autocomplete="off">
+						</div>
+					</div>
 					<div class="grid-one">
 						<div class="form__item form__item--big">
 							<label for="description">Descripción:</label>
@@ -64,7 +73,6 @@
 										name="description"
 										id="description"
 										placeholder="Consolidar el desarrollo formativo del “Diplomado en Ciencia y Calidad Educativa en el Sub - Sistema de Educación Básica”..." 
-										maxlength="800"
 										required="true"
 										rows="7">{{ $note->description }}</textarea>
 						</div>

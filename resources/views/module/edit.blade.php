@@ -39,8 +39,6 @@
 									value="{{ $module->name }}" 
 									id="super_name" 
 									placeholder="Física para principiante"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -62,7 +60,6 @@
 										name="description"
 										id="description"
 										placeholder="Consolidar el desarrollo formativo del “Diplomado en Ciencia y Calidad Educativa en el Sub - Sistema de Educación Básica”..." 
-										maxlength="800"
 										required="true"
 										rows="7">{{ $module->description }}</textarea>
 						</div>

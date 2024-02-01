@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 /*Importamos los modelos*/
 use App\Models\Note;
@@ -37,6 +38,7 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         //Obtenemos los datos básicos
+        $urlImage = null;
         $teacher_id = $request->session()->get('teacher_id');
         $module_id  = $request->session()->get('module_id');
         $module = Module::where('id', $module_id)
@@ -44,17 +46,31 @@ class NoteController extends Controller
                             ->first();  
 
         //Procesamos la imagen
-        $request->validate([
-            'img' => 'required|image|max:2048'
-        ]);
-        $urlImage = $request->file('img')->store('public/imgNotes');
-        $urlImage = Storage::url($urlImage);
-      
+        // Obtener la imagen del formulario
+        $imagen = $request->file('img');
+        if (!(empty($imagen))){
+            $url =  "/img/public/imgNotes/";
+            $img = $request->file('img');
+            // Generar un nombre único para la imagen
+            $nameUnique = Str::random(20) . '.' . $img->getClientOriginalExtension();
+            // Guardar la imagen en la carpeta "uploads"
+            $img->move(public_path($url), $nameUnique);
+            // Ruta completa de la imagen.
+            $urlImage = $url . $nameUnique;
+        }
+
+        //Limpiamos la url.
+        $parsedUrl = parse_url($request->input('youtube'));
+        $queryString = $parsedUrl['query'];
+        parse_str($queryString, $queryParameters);
+        $youtubeCode = $queryParameters['v'];
 
         //Persistimos los datos.
         $note = new Note;
         $note->title       = $request->input('super_name');
         $note->img         = $urlImage;
+        $note->youtube     = $request->input('youtube');
+        $note->code_youtube = $youtubeCode;
         $note->description = $request->input('description');
         $note->level       = $module->notes_count + 1;
         $note->teacher_id  = $teacher_id;
@@ -93,22 +109,36 @@ class NoteController extends Controller
         //Comprobamos si se quiere actualizar una imágen. 
         $imagen = $request->file('img');
         if (!(empty($imagen))){
-
-            //Elimina la imagen antigua.
-            $image = str_replace('storage', 'public', $item->img);
-            Storage::delete($image);
-            
             //Procesamos la imagen
-            $request->validate([
-                'img' => 'required|image|max:2048'
-            ]);
-            $urlImage = $request->file('img')->store('public/imgNotes');
-            $urlImage = Storage::url($urlImage);
-            
+            // Obtener la ruta completa de la imagen
+            // Verificar si la imagen existe antes de eliminarla
+            if (file_exists(public_path($item->img)) and $item->img != null) {
+                // Eliminar la imagen
+                unlink(public_path($item->img));
+            }
+
+            // Obtener la imagen del formulario
+            $url =  "/img/public/imgNotes/";
+            $img = $request->file('img');
+            // Generar un nombre único para la imagen
+            $nameUnique = Str::random(20) . '.' . $img->getClientOriginalExtension();
+            // Guardar la imagen en la carpeta "uploads"
+            $img->move(public_path($url), $nameUnique);
+            // Ruta completa de la imagen.
+            $urlImage = $url . $nameUnique;
+
             $item->img = $urlImage;
         }
 
+        //Limpiamos la url.
+        $parsedUrl = parse_url($request->input('youtube'));
+        $queryString = $parsedUrl['query'];
+        parse_str($queryString, $queryParameters);
+        $youtubeCode = $queryParameters['v'];
+
         $item->title       = $request->input('super_name');
+        $item->youtube     = $request->input('youtube');
+        $item->code_youtube = $youtubeCode;
         $item->description = $request->input('description');
         $item->save();
 
@@ -133,9 +163,11 @@ class NoteController extends Controller
         $module = Module::where('id', $item->module_id)->first();
         $notes  = Note::where('module_id', '=', $module->id)->get();
 
-        //Elimina el elemento y retorna un mensaje flash.
-        $image = str_replace('storage', 'public', $item->img);
-        Storage::delete($image);
+        // Verificar si la imagen existe antes de eliminarla
+        if (file_exists(public_path($item->img)) and $item->img != null) {
+            // Eliminar la imagen
+            unlink(public_path($item->img));
+        }
 
         //Acomodamos el campo level.
         foreach ($notes as $key => $value) {

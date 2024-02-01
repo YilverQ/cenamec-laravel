@@ -37,12 +37,10 @@
 									type="text" 
 									id="super_name" 
 									placeholder="Física para principiante"
-									minlength="3"
-									maxlength="120"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
-							<span>Imagen del curso:</span>
+							<span>Imagen de la nota educativa:</span>
 							<label for="img" class="labelFile">
 								<div class="labelFile__input">
 									<span class="labelFile__imgText" id="imgFile"></span>
@@ -52,11 +50,20 @@
 							<p>El peso máximo de la imagen es de 2Mb</p>
 							<input class="form__file form__input" 
 									name="img"
-									required  
 									type="file" 
 									id="img" 
-									autocomplete="off" 
 									accept="image/*">
+						</div>
+					</div>
+					<div class="grid-two">
+						<div class="form__item">
+							<label for="super_name">Link de Youtube</label>
+							<input class="form__input form__input" 
+									name="youtube" 
+									type="url" 
+									id="youtube" 
+									placeholder="https://www.youtube.com/watch?v=c34WyP120Mo"
+									autocomplete="off">
 						</div>
 					</div>
 					<div class="grid-one">
@@ -66,7 +73,6 @@
 										name="description"
 										id="description"
 										placeholder="Consolidar el desarrollo formativo del “Diplomado en Ciencia y Calidad Educativa en el Sub - Sistema de Educación Básica”..." 
-										maxlength="800"
 										required="true"
 										rows="7"></textarea>
 						</div>

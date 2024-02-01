@@ -91,8 +91,6 @@
 									id="firts_name" 
 									value="{{ $user->firts_name }}"
 									placeholder="Vanessa"
-									minlength="3"
-									maxlength="50"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -104,8 +102,6 @@
 									id="second_name"
 									value="{{ $user->second_name }}" 
 									placeholder="Vanessa"
-									minlength="3"
-									maxlength="50"
 									autocomplete="off">
 						</div>
 					</div>
@@ -120,8 +116,6 @@
 									id="lastname" 
 									value="{{ $user->lastname }}" 
 									placeholder="Longa"
-									minlength="3"
-									maxlength="50"
 									autocomplete="off">
 						</div>
 						<div class="form__item">
@@ -133,8 +127,6 @@
 									id="second_lastname"
 									value="{{ $user->second_lastname }}" 
 									placeholder="Longa"
-									minlength="3"
-									maxlength="50"
 									autocomplete="off">
 						</div>
 					</div>
